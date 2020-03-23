@@ -9,7 +9,7 @@
 %% Please use the following documentclass and journal abbreviations for discussion papers and final revised papers.
 
 %% 2-column papers and discussion papers
-\documentclass[journal abbreviation, manuscript]{copernicus}
+\documentclass[bg, manuscript]{copernicus}
 
 
 
@@ -76,18 +76,19 @@
 
 \begin{document}
 
-\title{TEXT}
+\title{The 2018 heatwave and its implications on ozone induced damage on vegetation in a subartic climate}
 
 
 % \Author[affil]{given_name}{surname}
 
-\Author[]{}{}
-\Author[]{}{}
-\Author[]{}{}
+\Author[1]{Stefanie}{Falk}
+\Author[2]{Ane Victoria}{Vollsnes}
+\author[3]{Lisa}{Emberson}
+\Author[1]{Frode}{Stordal}
 
-\affil[]{ADDRESS}
-\affil[]{ADDRESS}
-
+\affil[1]{Department of Geosciences, University of Oslo, Oslo, Norway}
+\affil[2]{Department of Biosciences, University of Oslo, Oslo, Norway}
+\affil[3]{Department of Environment and Geography, University of York, UK}
 %% The [] brackets identify the author with the corresponding affiliation. 1, 2, 3, etc. should be inserted.
 
 %% If an author is deceased, please mark the respective author name(s) with a dagger, e.g. "\Author[2,$\dag$]{Anton}{Aman}", and add a further "\affil[$\dag$]{deceased, 1 July 2019}".
@@ -95,11 +96,11 @@
 %% If authors contributed equally, please mark the respective author names with an asterisk, e.g. "\Author[2,*]{Anton}{Aman}" and "\Author[3,*]{Bradley}{Bman}" and add a further affiliation: "\affil[*]{These authors contributed equally to this work.}".
 
 
-\correspondence{NAME (EMAIL)}
+\correspondence{Stefanie Falk (stefanie.falk@geo.uio.no)}
 
-\runningtitle{TEXT}
+\runningtitle{2018 heatwave and implication on ozone induced damage on vegetation in subarctic climate}
 
-\runningauthor{TEXT}
+\runningauthor{Falk et al.}
 
 
 
@@ -121,7 +122,22 @@
 
 
 \begin{abstract}
-TEXT
+  \begin{itemize}
+  \item ozone damage
+  \item present subarctic climate and conditions
+    \begin{itemize}
+    \item[$\rightarrow$] midnight sun and 23\,\unit{h} open stomata (biological details will be published in a compaignend paper)
+    \item[$\rightarrow$] ozone climatology and spring peak
+    \end{itemize}
+  \item future climate and conditions
+    \begin{itemize}
+    \item[$\rightarrow$] increase in heatwaves and dry periodes
+    \item[$\rightarrow$] shift in start of growing season (into vincity of ozone spring peak)
+    \item[$\rightarrow$] increase in tropospheric background ozone
+    \end{itemize}
+  \item present day test case 2018 vs 2019 ozone induced damage at NIBIO research station Svanhovd
+  \item findings and results 
+  \end{itemize}
 \end{abstract}
 
 
@@ -129,19 +145,62 @@ TEXT
 
 
 \introduction  %% \introduction[modified heading if necessary]
+\label{sec:intro}
+\begin{itemize}
+\item ozone in general
+\item ozone induced damage in vegetation
+\item present subarctic climate and conditions
+  \begin{itemize}
+  \item[$\rightarrow$] midnight sun and 23\,\unit{h} open stomata (biological details will be published in a compaignend paper)
+  \item[$\rightarrow$] ozone climatology and spring peak
+  \end{itemize}
+\item future climate and conditions
+  \begin{itemize}
+  \item[$\rightarrow$] increase in heatwaves and dry periodes
+  \item[$\rightarrow$] shift in start of growing season (into vincity of ozone spring peak)
+  \item[$\rightarrow$] increase in tropospheric background ozone
+  \end{itemize}
+\end{itemize}
+
+
+\section{Data}
 TEXT
 
 
-\section{HEADING}
+\subsection{NIBIO research station Svanhovd}
 TEXT
 
 
-\subsection{HEADING}
+\subsection{Other observational data}
 TEXT
 
-
-\subsubsection{HEADING}
+\subsection{Model and reanalysis data}
 TEXT
+
+\section{Statistical analysis}
+TEXT
+
+\subsection{Derived climatologies for Svanhovd}
+\begin{itemize}
+\item temperature
+\item precipitation
+\item ozone
+\end{itemize}
+
+\subsection{2018/19 anomalies}
+\begin{itemize}
+\item temperature
+\item precipitation
+\item ozone
+\end{itemize}
+
+\section{DO3SE modeling}
+Model results for natural and semi-natural vegetation (birch, pine, clover)
+\begin{itemize}
+\item climatological ozone impact
+\item 2018
+\item 2019
+\end{itemize}
 
 
 \conclusions  %% \conclusions[modified heading if necessary]
@@ -150,19 +209,19 @@ TEXT
 %% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
 %% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
 
-\codeavailability{TEXT} %% use this section when having only software code available
+%\codeavailability{TEXT} %% use this section when having only software code available
 
 
 \dataavailability{TEXT} %% use this section when having only data sets available
 
 
-\codedataavailability{TEXT} %% use this section when having data sets and software code available
+%\codedataavailability{TEXT} %% use this section when having data sets and software code available
 
 
 \sampleavailability{TEXT} %% use this section when having geoscientific samples available
 
 
-\videosupplement{TEXT} %% use this section when having video supplements available
+%\videosupplement{TEXT} %% use this section when having video supplements available
 
 
 \appendix
@@ -206,21 +265,21 @@ TEXT
 
 %% The reference list is compiled as follows:
 
-\begin{thebibliography}{}
+%\begin{thebibliography}{}
 
-\bibitem[AUTHOR(YEAR)]{LABEL1}
-REFERENCE 1
+%\bibitem[AUTHOR(YEAR)]{LABEL1}
+%REFERENCE 1
 
-\bibitem[AUTHOR(YEAR)]{LABEL2}
-REFERENCE 2
+%\bibitem[AUTHOR(YEAR)]{LABEL2}
+%REFERENCE 2
 
-\end{thebibliography}
+%\end{thebibliography}
 
 %% Since the Copernicus LaTeX package includes the BibTeX style file copernicus.bst,
 %% authors experienced with BibTeX only have to include the following two lines:
 %%
-%% \bibliographystyle{copernicus}
-%% \bibliography{example.bib}
+\bibliographystyle{copernicus}
+\bibliography{VegOzone.bib}
 %%
 %% URLs and DOIs can be entered in your BibTeX file as:
 %%
