@@ -1,0 +1,3 @@
+[submodule "latex_setup"]
+	path = latex_setup
+	url = git@github.com:ziu1986/latex_setup.git
