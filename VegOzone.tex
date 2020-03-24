@@ -83,7 +83,7 @@
 
 \Author[1]{Stefanie}{Falk}
 \Author[2]{Ane Victoria}{Vollsnes}
-\author[3]{Lisa}{Emberson}
+\Author[3]{Lisa}{Emberson}
 \Author[1]{Frode}{Stordal}
 
 \affil[1]{Department of Geosciences, University of Oslo, Oslo, Norway}
@@ -166,7 +166,8 @@
 \section{Data}
 TEXT
 \begin{figure}[t]
-\includegraphics[width=8.3cm]{station_map_fennoscandia}
+  \includegraphics[width=8.3cm]{station_map_fennoscandia}
+  \label{fig:station_map_fennoscandia}
 \caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
 \end{figure}
 
@@ -185,19 +186,16 @@ TEXT: Ozone monitoring and ozone garden. \emph{Invite co-authors from NILU and N
 Table: EBAS - Station list
 \begin{figure*}[t]
   \includegraphics[width=12cm]{ozone_timeseries_fenoscandic_obs.png}
-  
+  \label{fig:ozone_timesseries_fenoscandic_obs}
   \caption{Timeseries of ozone observations in northern Fennoscadia. Data taken from EBAS and ozone monitoring at Svanhovd in the summer seasons 2018/19. The hatched area indicates time periods with unsufficient quality control - cite: NILU ozone report 200x.}
 \end{figure*}
 
 
 
 \subsection{Model and reanalysis data}
-TEXT
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatologies}
-  
-  \caption{Comparison of observational data with various ozone reanlysis products.}
-\end{figure}
+Ozone: MACC-rea, CAMS-rea, Copernicus European regional model rea
+Precipitation/Temperature: CRU biascorrected rea
+Ozone uptake / POD: DO3SE
 
 
 
@@ -211,6 +209,63 @@ TEXT
 \item ozone
 \end{itemize}
 
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs}
+  \label{fig:ozone_climatology_fenoscandic_obs}
+  \caption{Comparison of observational data with various ozone reanlysis products.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatologies}
+  \label{fig:ozone_climatologies}
+  \caption{Comparison of observational data with various ozone reanlysis products.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_spline}
+  \label{fig:ozone_climatology_fenoscandic_obs_spline}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals}
+  \label{fig:ozone_climatology_fenoscandic_obs_residuals}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals-Svanvik}
+  \label{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_test}
+  \label{fig:ozone_climatology_fenoscandic_obs_test}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_test-Svanvik}
+  \label{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{plot_temperature_anomalies_svanvik}
+  \label{fig:plot_temperature_anomalies_svanvik}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{plot_precipitation_anomalies_svanvik}
+  \label{fig:plot_precipitation_anomalies_svanvik}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+
 \subsection{2018/19 anomalies}
 \begin{itemize}
 \item temperature
@@ -219,6 +274,11 @@ TEXT
 \end{itemize}
 
 \section{DO3SE modeling}
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_obs_2018_07}
+  \label{fig:ozone_obs_2018_07}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
 Model results for natural and semi-natural vegetation (birch, pine, clover)
 \begin{itemize}
 \item climatological ozone impact
@@ -265,6 +325,31 @@ TEXT
 %% To rename them correctly to A1, A2, etc., please add the following commands in front of them:
 
 \appendixfigures  %% needs to be added in front of appendix figures
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{greening_season_change_Svanvik}
+  \label{fig:greening_season_change_Svanvik}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{test_fennoscandia}
+  \label{fig:test_fennoscandia}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{density_distribution}
+  \label{fig:density_distribution}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_obs_2018_07}
+  \label{fig:ozone_obs_2018_rrea}
+\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+\end{figure}
+
 
 \appendixtables   %% needs to be added in front of appendix tables
 
