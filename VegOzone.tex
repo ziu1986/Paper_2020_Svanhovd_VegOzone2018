@@ -167,8 +167,8 @@
 TEXT
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{station_map_fennoscandia}
+  \caption{Cap of the North. Location of ozone observation sites in northern Fennoscandia used within this study.}
   \label{fig:station_map_fennoscandia}
-\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
 \end{figure}
 
 
@@ -176,18 +176,18 @@ TEXT
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{svanhovd_researchstation}
-  
-  \caption{NIBIO research station Svanhovd. Atmospheric monitoring site and ozone garden have been marked in the picture.}
+  \caption{NIBIO research station Svanhovd close by the settlement of Svanvik, Norway. Atmospheric monitoring site and ozone garden have been marked in the picture.}
+  \label{fig:svanhovd_research_station}
 \end{figure}
 TEXT: Ozone monitoring and ozone garden. \emph{Invite co-authors from NILU and NIBIO?}
 
 
 \subsection{Observational data}
-Table: EBAS - Station list
+Table: EBAS - Station list: ID - name - location - country - operational
 \begin{figure*}[t]
   \includegraphics[width=12cm]{ozone_timeseries_fenoscandic_obs.png}
   \label{fig:ozone_timesseries_fenoscandic_obs}
-  \caption{Timeseries of ozone observations in northern Fennoscadia. Data taken from EBAS and ozone monitoring at Svanhovd in the summer seasons 2018/19. The hatched area indicates time periods with unsufficient quality control - cite: NILU ozone report 200x.}
+  \caption{Timeseries of ozone observations in northern Fennoscadia. Data taken from EBAS as well as from dedicated ozone monitoring at Svanhovd in the summer seasons 2018/19. The hatched areas indicate time periods with unsufficient quality control - \bf{TODO: citation NILU ozone report 200x}.}
 \end{figure*}
 
 
@@ -211,22 +211,31 @@ TEXT
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs}
+  \caption{Multi-annual mean of daily mean ozone at observation sites in Fennoscandia. For comparison also data from Prestbakke (southern Norway) is shown. The large spread in case of Svanvik and Janiskoski is due to the lower statistics. All northern Fennoscandic climatologies peak in spring, with peak values in April. In southern Norway, peak values appear only in May. The annual average ozone concentration \chem{\left<[O_3]\right>} at Svanvik is $6.6\,\unit{ppb}$ lower than at the sites at Jergul/Karasjok (NOR), Esrange (SWE), and Pallas (FIN).}
   \label{fig:ozone_climatology_fenoscandic_obs}
-  \caption{Comparison of observational data with various ozone reanlysis products.}
+\end{figure}
+
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_spline}
+  \caption{Derivation of ozone climatologies. Density distributions are shown together with multi-annual mean of daily ozone concentrations \chem{[O_3]}. Splines have been fitted though daily mean and max \chem{[O_3]}. The climatology of daily mean ozone is shown together with $1\,\sigma$ standard deviation and standard error of the mean. Since \chem{[O_3]} are strongly correlated for sites at Jergul/Karasjok (NOR), Esrange (SWE), and Pallas (FIN) (see Fig.~\ref{fig:density_distribution}), data of these have been averaged together to derive a climatology for northern Fennoscandia. (a) Northern Fennoscandia; (b) Svanvik}
+  \label{fig:ozone_climatology_fenoscandic_obs_spline}
 \end{figure}
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_climatologies}
+  \caption{Comparison of climatologies (northern Fennoscandia -- black and southern Fennoscadia -- grey) derived from observational data (EBAS, see Fig.~\ref{fig:ozone_climatology_fenoscandic_obs}) with various ozone reanlysis products (ECMWF: MACC/CAMS reanalysis, Copernicus: Regional model reanalysis ensemble mean). As representative for the sites, the nearest neighboring grid point has been chosen. The ECMWF products do not reproduce observed surface ozone well. The MACC reanalysis is in general too low and displays a erronous seasonal cycle. The CAMS reanalysis matches quite well in southern Fennoscandia but does not reproduce the seasonality in northern Fennoscandia. The ensemble mean of the Copernicus regional model reanalysis does reproduce the seasonal cycle in both northern and southern Fennoscadia, though the ozone concentrations in the north are slightly to low.}
   \label{fig:ozone_climatologies}
-  \caption{Comparison of observational data with various ozone reanlysis products.}
 \end{figure}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_spline}
-  \label{fig:ozone_climatology_fenoscandic_obs_spline}
-\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
-\end{figure}
 
+
+\subsection{2018/19 anomalies}
+\begin{itemize}
+\item temperature
+\item precipitation
+\item ozone
+\end{itemize}
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals}
@@ -236,8 +245,8 @@ TEXT
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals-Svanvik}
-  \label{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}
-\caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+  \caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
+   \label{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}
 \end{figure}
 
 \begin{figure}[t]
@@ -265,13 +274,6 @@ TEXT
 \caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
 \end{figure}
 
-
-\subsection{2018/19 anomalies}
-\begin{itemize}
-\item temperature
-\item precipitation
-\item ozone
-\end{itemize}
 
 \section{DO3SE modeling}
 \begin{figure}[t]
@@ -334,7 +336,7 @@ TEXT
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{test_fennoscandia}
-  \label{fig:test_fennoscandia}
+  \label{fig:sunlight_fennoscandia}
 \caption{Cap of the North. Reasearch stations with given ozone time series in northern Fennoscandia.}
 \end{figure}
 
