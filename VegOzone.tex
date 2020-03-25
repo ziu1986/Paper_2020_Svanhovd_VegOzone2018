@@ -160,30 +160,70 @@
   \item[$\rightarrow$] shift in start of growing season (into vicinity of ozone spring peak)
   \item[$\rightarrow$] increase in tropospheric background ozone
   \end{itemize}
+\item meteorological situation 2018
 \end{itemize}
 
 
 \section{Data}
+\label{sec:data}
 TEXT
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{station_map_fennoscandia}
-  \caption{Cap of the North. Location of ozone observation sites in northern Fennoscandia used within this study.}
+  \caption{Cap of the North. Location of past and present ozone observation sites in northern Fennoscandia used within this study.}
   \label{fig:station_map_fennoscandia}
 \end{figure}
 
 
 \subsection{NIBIO research station Svanhovd}
+\label{subsec:svanhovd}
+"Svanhovd is located beside the Pasvik river, in the middle of the wedge of Norwegian land separating Russia and Finland in the north. It is where the eastern Siberian taiga meets the western Boreal forest. [...] Svanhovd was originally established as a State Demonstration and Experimental Farm in the 1930's, in order to expand agriculture in Pasvik valley [...]" - \href{https://www.nibio.no/en/about-eng/addresses/northern-norway/svanhovd}{NIBIO}\\
+\emph{Comment: Invite co-authors from NILU and NIBIO?}
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{svanhovd_researchstation}
-  \caption{NIBIO research station Svanhovd close by the settlement of Svanvik, Norway. Atmospheric monitoring site and ozone garden have been marked in the picture.}
+  \caption{NIBIO research station Svanhovd close by the settlement of Svanvik, Norway. Atmospheric monitoring site and ozone garden have been marked. Aerial photography (c) Norges Kartverk}
   \label{fig:svanhovd_research_station}
 \end{figure}
-TEXT: Ozone monitoring and ozone garden. \emph{Invite co-authors from NILU and NIBIO?}
 
 
-\subsection{Observational data}
-Table: EBAS - Station list: ID - name - location - country - operational
+\subsubsection{Ozone monitoring}
+\label{subsubsec}
+{\bf TODO: (Technical) details about ozone monitoring at Svanhovd - historical periode. Project related monitoring (summer seasons 2018/19) $\rightarrow$ NILU -- Sverre?}
+
+
+\subsubsection{Ozone garden}
+\label{subsubsec:ozone_garden}
+{\bf TODO: Details about the ozone garden.} \emph{Author: Ane/Aud}
+
+
+
+\subsection{Other observational data}
+\label{subsec:obs_data}
+
+\subsubsection{EBAS database}
+\label{subsubsec:ebas}
+
+\begin{table}[t]
+  \caption{Ozone observations in northern Fennoscandia available from EBAS.}
+  \label{tab:ebas_obs}
+\begin{tabular}{lllllrc}
+\tophline
+Name       & Country & ID      & \multicolumn{3}{c}{Location} & Operational\\
+           &         &         & lat             & lon               & alt            &\\
+           &         &         & (\unit{^\circ N}) & (\unit{^\circ E})  & (\unit{m})     &\\
+\middlehline
+Esrange    & SWE     & SE0013R & 67.83           & 21.07             & 475            & 1991 -- present\\
+Janiskoski & RUS     & RU0001R & 68.93           & 28.85             & 118            & 1995 -- 1997\\
+Jergul     & NOR     & NO0030R & 69.45           & 24.60             & 255            & 1997 -- 2011\\
+Karasjok   & NOR     & NO0055R & 69.467          & 25.217            & 333            & 1988 -- 1997\\
+Pallas     & FIN     & FI0096G & 69.97           & 24.12             & 565            & 1995 -- present\\
+Svanvik    & NOR     & NO0047R & 69.45           & 30.03             & 30             & 1986 -- 1996 $^\dagger$\\
+\bottomhline
+\end{tabular}
+\belowtable{$^\dagger$ Exclusive data taking summer seasons 2018/19.} % Table Footnotes
+\end{table}
+
+
 \begin{figure*}[t]
   \includegraphics[width=12cm]{ozone_timeseries_fenoscandic_obs.png}
   \label{fig:ozone_timesseries_fenoscandic_obs}
@@ -222,11 +262,11 @@ TEXT
   \label{fig:ozone_climatology_fenoscandic_obs_spline}
 \end{figure}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatologies}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_climatologies}
   \caption{Comparison of climatologies (northern Fennoscandia -- black and southern Fennoscandia -- grey) derived from observational data (EBAS, see Fig.~\ref{fig:ozone_climatology_fenoscandic_obs}) with various ozone reanalysis products (ECMWF: MACC/CAMS reanalysis, Copernicus: Regional model reanalysis ensemble mean). As representative for the sites, the nearest neighboring grid point has been chosen. The ECMWF products do not reproduce observed surface ozone well. The MACC reanalysis is in general too low and displays a erroneous seasonal cycle. The CAMS reanalysis matches quite well in southern Fennoscandia but does not reproduce the seasonality in northern Fennoscandia. The ensemble mean of the Copernicus regional model reanalysis does reproduce the seasonal cycle in both northern and southern Fennoscandia, though the ozone concentrations in the north are slightly to low.}
   \label{fig:ozone_climatologies}
-\end{figure}
+\end{figure*}
 
 
 
