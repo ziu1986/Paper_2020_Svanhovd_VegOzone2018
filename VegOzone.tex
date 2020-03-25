@@ -122,22 +122,7 @@
 
 
 \begin{abstract}
-  \begin{itemize}
-  \item ozone damage
-  \item present subarctic climate and conditions
-    \begin{itemize}
-    \item[$\rightarrow$] midnight sun and 23\,\unit{h} open stomata (biological details will be published in a component paper)
-    \item[$\rightarrow$] ozone climatology and spring peak
-    \end{itemize}
-  \item future climate and conditions
-    \begin{itemize}
-    \item[$\rightarrow$] increase in heatwaves and dry periods
-    \item[$\rightarrow$] shift in start of growing season (into vicinity of ozone spring peak)
-    \item[$\rightarrow$] increase in tropospheric background ozone
-    \end{itemize}
-  \item present day test case 2018 vs 2019 ozone induced damage at NIBIO research station Svanhovd
-  \item findings and results 
-  \end{itemize}
+  The summer 2018 and summer 2019 did not differ significantly in the level of ozone. On the other hand, the temperatures (precipitation and cloud cover/PAR?) differed quite a lot. We also observed ozone-induced visible injuries on clovers in the ozone garden at Svanhovd in 2018, but not in 2019. This may be due to differences in uptake of ozone (POD) between the two years. Since DO3SE can be run on birch/beech and conifers, we would like to investigate whether the critical levels for these tree species were crossed during the two summer seasons. Ozone concentrations for the two missing weeks in July 2018 have been estimated based on the measurements from the Swedish and Finnish ozone measurement stations in the region.  
 \end{abstract}
 
 
@@ -160,14 +145,14 @@
   \item[$\rightarrow$] shift in start of growing season (into vicinity of ozone spring peak)
   \item[$\rightarrow$] increase in tropospheric background ozone
   \end{itemize}
-\item meteorological situation 2018
+\item meteorological situation 2018 vs 2019
 \end{itemize}
 
 
 \section{Data}
 \label{sec:data}
 
-In our assessment on ozone damage on vegetation is the subarctic in relation to the 2018 heatwave, we focus on the NIBIO operated local site Svanhovd which lies close by the settlement of Svanvik in the Pasvik valley. For the purpose of this study, we evaluate data taken at Svanhovd with observational data (Section~\ref{subsec:svanhovd}) with different monitoring sites in northern Fennoscandia (Section~\ref{subsec:obs_data}). Reanalysis data is used for complementation were observational data was not available or temporally sparse (Section~\ref{subsec:model_data}).
+In our assessment on ozone damage on vegetation is the subarctic in relation to the 2018 heatwave, we focus on the NIBIO operated local site Svanhovd which lies close by the settlement of Svanvik in the Pasvik valley. Throughout the paper, we will use Svanvik synonymously for the atmospheric monitoring site at Svanhovd. For the purpose of this study, we evaluate data taken at Svanhovd (Section~\ref{subsec:svanhovd}) with observational data from other monitoring sites in northern Fennoscandia (Section~\ref{subsec:obs_data}). Reanalysis data is used as complement where observational data was not available or temporally sparse (Section~\ref{subsec:model_data}).
 
 \subsection{NIBIO research station Svanhovd}
 \label{subsec:svanhovd}
@@ -183,7 +168,7 @@ In our assessment on ozone damage on vegetation is the subarctic in relation to 
 
 \subsubsection{Ozone monitoring}
 \label{subsubsec}
-{\bf TODO: (Technical) details about ozone monitoring at Svanhovd - historical periode. Project related monitoring (summer seasons 2018/19.) $\rightarrow$ NILU -- Sverre?}
+{\bf TODO: (Technical) details about ozone monitoring at Svanhovd - historical period. Project related monitoring (summer seasons 2018/19.) $\rightarrow$ NILU -- Sverre?}
 
 
 \subsubsection{Ozone garden}
@@ -194,58 +179,67 @@ In our assessment on ozone damage on vegetation is the subarctic in relation to 
 
 \subsection{Other observational data}
 \label{subsec:obs_data}
-For the purpose of this study, we are interested in past and present observations of surface ozone concentrations in northern Fennoscandia. This limits the available observation data to a handfull of atmospheric monitoring sites with data available from the NILU EBAS database. An overview over the geographical locations is given in Fig.~\ref{fig:station_map_fennoscandia}.
+For the purpose of this study, we are interested in past and present observations of surface ozone concentrations and meteorological conditions in northern Fennoscandia. This limits the available observational data to a handful of atmospheric monitoring sites. An overview over their geographical locations is given in Fig.~\ref{fig:station_map_fennoscandia}.
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{station_map_fennoscandia}
-  \caption{Cap of the North. Location of past and present ozone observation sites in northern Fennoscandia used within this study.}
+  \caption{Cap of the North. Locations of past and present ozone observation sites in northern Fennoscandia used within this study. For more details see Tab.~\ref{tab:ebas_obs}.}
   \label{fig:station_map_fennoscandia}
 \end{figure}
 
-
-
-\subsubsection{Ozone monitoring}
+\subsubsection{Surface ozone observations}
 \label{subsubsec:ebas}
+All surface ozone observations used in this study are available from NILU EBAS database except for the data for the 2018/19 summer season at Svanhovd. In Table~\ref{tab:ebas_obs}, we give an overview over the exact locations and time range of operational data taking. 
 
 \begin{table}[t]
-  \caption{Past and present ozone observation sites in northern Fennoscandia. Data available on EBAS.}
+  \caption{Past and present ozone observation sites in northern Fennoscandia. Data available on \href{http://ebas.nilu.no/}{EBAS}.}
   \label{tab:ebas_obs}
-\begin{tabular}{lllllrl}
-\tophline
-Name       & Country & ID      & \multicolumn{3}{c}{Location} & Operational\\
-           &         &         & lat             & lon               & alt            &\\
-           &         &         & (\unit{^\circ N}) & (\unit{^\circ E})  & (\unit{m})     &\\
-\middlehline
-Esrange    & SWE     & SE0013R & 67.83           & 21.07             & 475            & 1991 -- present\\
-Janiskoski & RUS     & RU0001R & 68.93           & 28.85             & 118            & 1995 -- 1997\\
-Jergul     & NOR     & NO0030R & 69.45           & 24.60             & 255            & 1997 -- 2011\\
-Karasjok   & NOR     & NO0055R & 69.467          & 25.217            & 333            & 1988 -- 1997\\
-Pallas     & FIN     & FI0096G & 69.97           & 24.12             & 565            & 1995 -- present\\
-Svanvik    & NOR     & NO0047R & 69.45           & 30.03             & 30             & 1986 -- 1996$^\dagger$\\
-\bottomhline
-\end{tabular}
-\belowtable{$^\dagger$ Exclusive ozone monitoring summer seasons 2018/19 operated by NILU.} % Table Footnotes
+  \begin{tabular}{lllllrl}
+    \tophline
+    Name       & Country & ID      & \multicolumn{3}{c}{Location} & Operational\\
+    &         &         & lat             & lon               & alt            &\\
+    &         &         & (\unit{^\circ N}) & (\unit{^\circ E})  & (\unit{m})     &\\
+    \middlehline
+    Esrange    & SWE     & SE0013R & 67.83           & 21.07             & 475            & 1991 -- present\\
+    Janiskoski & RUS     & RU0001R & 68.93           & 28.85             & 118            & 1995 -- 1997\\
+    Jergul     & NOR     & NO0030R & 69.45           & 24.60             & 255            & 1997 -- 2011\\
+    Karasjok   & NOR     & NO0055R & 69.467          & 25.217            & 333            & 1988 -- 1997\\
+    Pallas     & FIN     & FI0096G & 69.97           & 24.12             & 565            & 1995 -- present\\
+    Svanvik    & NOR     & NO0047R & 69.45           & 30.03             & 30             & 1986 -- 1996$^\dagger$\\
+    \bottomhline
+  \end{tabular}
+  \belowtable{$^\dagger$ Exclusive ozone monitoring summer seasons 2018/19 operated by NILU.} % Table Footnotes
 \end{table}
 
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{ozone_timeseries_fenoscandic_obs.png}
   \label{fig:ozone_timesseries_fenoscandic_obs}
-  \caption{Time series of ozone observations in northern Fennoscandia. Data taken from EBAS as well as from dedicated ozone monitoring at Svanhovd in the summer seasons 2018/19 (Tab.~\ref{tab_ebas_obs}). The hatched areas indicate time periods with insufficient quality control - \bf{TODO: citation NILU ozone report 200x}.}
+  \caption{Time series of ozone observations in northern Fennoscandia. Data taken from EBAS as well as from dedicated ozone monitoring at Svanhovd in the summer seasons 2018/19 (Tab.~\ref{tab:ebas_obs}). The hatched areas indicate time periods with insufficient quality control - \bf{TODO: citation NILU ozone report 200x}.}
 \end{figure*}
 
 \subsubsection{Atmospheric monitoring}
 Monitoring data from Svanvik/Pasvik.
 Ozone/Temperature (2018/2019): Luftkvalitet.no (NILU), LandbruksMeteorologiskTjeneste (NIBIO)
-
+We refrain from doing a full cross-evaluation for these meteorological fields, since this has been done elsewhere {\bf TODO: It's somewhat clear that this is a job of the operators in the monitoring network. Find a citation for this.}.
+\begin{itemize}
+\item Temperature
+\item Precipitation
+\item Incoming radiation \emph{Comment to Ane: Same plot that you've included in the Nordic ozone report?}
+\item ...
+\end{itemize}
 
 \subsection{Reanalysis data}
 \label{subsec:model_data}
-Range of reanlysis data.
+Different reanalysis products have been used to evaluate and complement the observational data.
+
 \subsubsection{Ozone}
+\label{subsubsec:ozone_rea}
+There are two global reanalysis products of ECMWF available that include also ozone. In addition, higher resolution surface ozone reanalysis for Europe is available from Copernicus service for regional air quality control. The details are given in Tab.~\ref{tab:ozone_rea}. The covered time periods differ but are sufficient for our purpose of comparison of derived ozone climatologies.
 
 \begin{table}[t]
-\caption{Ozone related ranalysis products used in this study: \href{https://www.ecmwf.int/en/newsletter/158/meteorology/new-cams-global-reanalysis-atmospheric-composition}{Global reanalysis (ECMWF)}; \href{https://www.regional.atmosphere.copernicus.eu/}{ensemble mean of regional reanalysis for Europe (Copernicus)}.}
+  \caption{Ozone related reanalysis products used in this study: \href{https://www.ecmwf.int/en/newsletter/158/meteorology/new-cams-global-reanalysis-atmospheric-composition}{Global reanalysis (ECMWF)}; \href{https://www.regional.atmosphere.copernicus.eu/}{ensemble mean of regional reanalysis for Europe (Copernicus)}.}
+  \label{tab:ozone_rea}
 \begin{tabular}{llccl}
 \tophline
 Name & Organization & \multicolumn{2}{c}{Resolution} & Time period \\
@@ -256,10 +250,9 @@ CAMSRA & ECMWF & $0.75^\circ \times 0.75^\circ$ & 3-hourly & 2003 -- 2012$^\dagg
 CAMS Regional Air Quality & Copernicus & $0.1^\circ \times 0.1^\circ$ & 1-hourly & 2014 -- 2018$^\dagger$\\
 \bottomhline
 \end{tabular}
-\belowtable{$^\dagger$ Subset of the data used in this study. The full dataset extends into near real time.} % Table Footnotes
+\belowtable{$^\dagger$ Subset of the data used in this study. The full data set extends into near real time.} % Table Footnotes
 \end{table}
 
-Ozone: MACC-rea, CAMS-rea, Copernicus European regional model rea ensemble mean
 
 \subsubsection{Temperature and precipitation}
 Precipitation/Temperature: CRU bias corrected rea
