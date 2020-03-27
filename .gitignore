@@ -8,4 +8,6 @@
 /*.pdf
 # Ignore all "picture" subdirectories in Papers
 /pictures/**
+# Ignore the comments subdirectory
+/comments/**
 
