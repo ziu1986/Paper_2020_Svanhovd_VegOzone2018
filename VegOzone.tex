@@ -329,7 +329,7 @@ Finally, we shall look at the comparison of climatologies derived from observati
 
 \subsection{2018/19 anomalies}
 \label{subsec:anomalies}
-Using the established climatologies, we look at the anomalies in 2018/19 and the differences between the two years. 
+Using these established climatologies, we look at the anomalies in 2018/19 and discuss the differences between the two years. 
 
 \subsubsection{Temperature, precipitation, and global irradiance}
 \label{subsubsec:anomal_tpq}
@@ -349,7 +349,7 @@ In a similar way, the precipitation anomalies at Svanvik are displayed in Fig.~\
   \label{fig:plot_precipitation_anomalies_svanvik}
 \end{figure}
 
-Similarly, the global irradiance anomalies at Svanvik are presented in Fig.~\ref{fig:global_rad_signific}. The percentage of days above/below $\pm 1\,\sigma$ from the climatological mean is displayed for each month. The dashed lines indicate the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed. In summer 2018 (May/July), global irradiance was significantly higher than on average, while 2019 was generally an average year with a lightly darker spring (April/May).
+Similarly, the global irradiance anomalies at Svanvik are presented in Fig.~\ref{fig:global_rad_signific}. The percentage of days above/below $\pm 1\,\sigma$ from the climatological mean is displayed for each month. The dashed lines indicate the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed. In summer 2018 (May/July), global irradiance was significantly higher than on average, while 2019 was generally an average year with a slightly darker spring (April/May).
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{global_rad_signific}
@@ -361,7 +361,17 @@ In summary, 2018 was significantly warmer, drier, and lighter than the climatolo
 
 \subsubsection{Ozone}
 \label{subsubsec:anomal_ozone}
-As we have found above, meteorological conditions in 2018 were significantly above average. How does this translate into observed ozone anomalies?
+As we discussed in the preceding Section~\ref{subsubsec:anomal_tpq}, meteorological conditions in 2018 were significantly different from the climatological average. How does this translate into observed ozone anomalies \chem{\Delta[O_3]}? If the data collection at Svanvik had been complete in 2018 and the climatology had recent years included, it would had been straight forward to deduct the significance of ozone anomalies in the same way as for temperature, precipitation, and global irradiance. In Section~\ref{subsubsec:clim_ozone}, we described the construction of climatologies for northern Fennoscandia based on long term observations at Esrange, Jergul/Karasjok, and Pallas. For Svanvik this assessment is based on rather uncertain observations from 1986--1996. We also discussed the general patterns, similarities and differences. We shall now investigate \chem{\Delta[O_3]} in 2018/19 with respect to these climatologies in more detail.
+
+In the following, we will use the interchangable terms anomalies and residuals to distinquish between a climatological (anomalies) and a statistical (residuals) point of view.
+All the above factors make it neccessary to look not only at anomalies but statistically assess ozone concentration residuals at Svanvik as well as at Esrange and Pallas. Since the climatology of latter is more reliable, we will start with surface ozone concentration residuals \chem{\Delta[O_3]} at Esrange and Pallas in 2018. As data for 2019 has not yet been available from EBAS (last access, February 2020), we refrain from looking into these.
+
+In Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}, the probability density functions of daily mean ozone concentration residuals for Esrange and Pallas are shown. Both stations display a clear deviation from the climatological mean, however, not significant. On average, \chem{[O_3]} had been elevated by $(1.9\pm 5.7)\,\unit{ppb}$ and $(1.9\pm 5.4)\,\unit{ppb}$, respectively. Both distributions are slightly skrewed towards positive deviations with $\frac{1}{4}$ of days (3. quantile, q3) falling above $5.8\,\unit{ppb}$ and $5.6\,\unit{ppb}$, respectively.
+
+Figure~\ref{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik} displays the probability density functions for Svanvik based on data taken in 2018/19 as well as relative to the climatology derived for northern Fennoscandia (denoted with NF in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}a) and the climatology derived for Svanvik (Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}b).
+As previously mentioned, \chem{\left<[O_3]\right>} at Svanvik are lower compared to the northern Fennoscandic climatology ($(6.6\pm 7.1)\,\unit{ppb}$). For 2018 and 2019, we find $\Delta\chem{\left<[O_3]\right>} = (-3.8\pm 5.6)\,\unit{ppb}$ and $\Delta\chem{\left<[O_3]\right>} = (-5.2\pm 5.0)\,\unit{ppb}$, respectively. While the probablility density of the residuals between the two climatologies is skewed towards negative values, the skew of 2018/19 is positive.
+With respect to the climatology for Svanvik, the probability density functions average for 2018/19 lies at $\Delta\chem{\left<[O_3]\right>} = (2.6\pm 5.8)\,\unit{ppb}$ and $\Delta\chem{\left<[O_3]\right>} = (1.2\pm 5.0)\,\unit{ppb}$, respectively.
+Neither of the \chem{\Delta\left<[O_3]\right>} is significant by statistical means. But daily average ozone concentrations are slightly elevated in 2018 compared to 2019.
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals}
@@ -374,6 +384,8 @@ As we have found above, meteorological conditions in 2018 were significantly abo
   \caption{Probability density functions of ozone concentration residuals. 2018/19 observations at Svanhovd with respect to derived climatologies for (a) Northern Fennoscandia; (b) Svanvik.}
   \label{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}
 \end{figure}
+
+To further investigate this, we have a look at a Student's~t-test ($t = \frac{\chem{\Delta[O_3]}}{\sigma}$), assuming the same sample uncertainty $\sigma$ in both, climatology and the year in question. Results for Esrange and Pallas are shown in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test}. This t-test clearly shows, that at both sites for at least $50\,\unit{\%}$ of days the deviation from climatological mean is significant on the $1\sigma$ level. In Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}, the test statistics for Svanvik are displayed. From Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}a), we can deduce, that the deviation from the northern Fennoscandic climatology is significant on the $2\sigma$ level for at least half of the days in the Svanvik climatology, while the deviation is less certain in 2018 and 2019. In Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}b) the same is shown with respect to the climatology from Svanvik. We find that in less than $50\,\unit{\%}$ of days the ozone concentration deviation is significant on the $1\sigma$ level.
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_test}
@@ -390,7 +402,7 @@ As we have found above, meteorological conditions in 2018 were significantly abo
 
 \section{DO3SE modeling}
 
-Model results for natural and semi-natural vegetation (birch, pine, clover)
+Model results for natural and semi-natural vegetation (birch, pine, clover, tobacco(?))
 \begin{itemize}
 \item climatological ozone impact
 \item 2018
