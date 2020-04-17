@@ -379,16 +379,20 @@ The \chem{\left<\Delta\left<[O_3]\right>\right>} derived for Svanvik in 2018 is 
 
 To further investigate the ozone residuals, we conduct a Student's~t-test ($t = \frac{\chem{\Delta[O_3]}}{\sigma}$), assuming the same sample uncertainty $\sigma$ in both, climatology and the year in question. Results for Esrange and Pallas are shown in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test}. This t-test clearly shows, that at both sites for at least $50\,\unit{\%}$ of days the residuals are significant on the $1\sigma$ level. In Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}, the test statistics for Svanvik are displayed. From Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}a), we can deduce, that the residuals of the Svanvik climatology from the northern Fennoscandic climatology are significant on the $2\sigma$ level for at least half of the days, while the residuals are less certain in 2018 and 2019. In Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}b) the same is shown for the years 2018/19 with respect to the climatology from Svanvik. We find that in less than $50\,\unit{\%}$ of days the ozone concentration residuals are significant on the $1\sigma$ level.
 
+In accordance to the above findings, we adjust the derived ozone climatology for Svanvik by adding a constant bias correction factor $\Delta\chem{[O_3]_\mathrm{bias-corr}} = 1.2\,\unit{ppb}$ and estimate the ozone concentration anomalies for 2018/19. In Figure~\ref{fig:ozone_signific}, the resulting percentage of days above/below $\pm 1\,\sigma$ from the bias-corrected climatological mean is displayed for each month. Negative deviations from climatology are shown as negative percentage. Note that missing bars for certain months are both due to data availability (see Section~\ref{subsubsec:atmo_svanvik} for details about the time range of data taking at Svanhovd) and anomalies not meeting the criteria of $\pm 1\sigma$ deviation from climatological mean. In April/May 2018, ozone was significantly enhanced, while 2019 was generally an average year. In both years ozone concentrations were significantly below average in November.
+
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{ozone_signific}
-  \caption{Ozone concentration anomalies at Svanvik. Percentage of days above/below $\pm 1\,\sigma$ from climatological mean displayed for each month. Negative deviations from climatology are shown as negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The dashed lines indicate the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed ($15.9\,\unit{\%}$). Year displayed in panel (a) 2018; (b) 2019. In April/May 2018, ozone was significantly higher than on average, while 2019 was generally an average year. In both years ozone concentrations were significantly below average in November.}
+  \caption{Ozone concentration anomalies at Svanvik. Ozone climatology has been corrected for an constant negative bias of $-1.2\,\unit{ppb}$. Percentage of days above/below $\pm 1\,\sigma$ from climatological mean displayed for each month. Negative deviations from climatology are shown as negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The dashed lines indicate the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed ($15.9\,\unit{\%}$). Year displayed in panel (a) 2018; (b) 2019. In April/May 2018, ozone was significantly higher than on average, while 2019 was generally an average year. In both years ozone concentrations were significantly below average in November.}
   \label{fig:ozone_signific}
 \end{figure}
 
+To conclude, ozone concentrations in 2018 have been elevated compared to the respective climatologies, however, on average not significantly by statistical means. At Esrange and Pallas at least $25\,\unit{\%}$ (3.~quantile) of anomalies are significant on a $3\sigma$ level or more, while at Svanvik the 3.~quantile lies at about $2\sigma$. This means that in 2018 the stations at Esrange and Pallas saw more days with elevated ozone than was monitored at Svanvik. 
 
 \section{DO3SE modeling}
+To investigate which of the evironmental factors lead to the observed ozone damage on clover and tobacco {\bf TODO: Ane confirm!} at Svanhovd, we have modeled the ozone uptake using the DO3SE model.
 
-Model results for natural and semi-natural vegetation (birch, pine, clover, tobacco(?))
+{\bf TODO: Model results for natural and semi-natural vegetation (birch, pine, clover, tobacco(?))}
 \begin{itemize}
 \item climatological ozone impact
 \item 2018
@@ -428,19 +432,21 @@ TEXT
   \caption{Observed global irradiance at Svanvik. The cyan lines indicate the $1\,\sigma$ level deducted from the climatology. (a) Climatology (hourly maxima, mean, and minima); deviation from climatology (b) 2018; (c) 2019.}
   \label{fig:global_rad_clim}
 \end{figure}
-\clearpage
+
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{test_fennoscandia}
   \caption{Maximum daily sun shine duration based on geometrical calculations at different sites in Fennoscandia. Midnight sun conditions at Jergul/Karasjok and Svanvik prevail from the end of May until the end of July, while at Esrange and Pallas they only prevail from the beginning of June until mid of July.}
   \label{fig:sunlight_fennoscandia}
 \end{figure}
-\clearpage
+
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{greening_season_change_Svanvik}
   \caption{Estimated shift and prolongation of greening season at Svanhovd over the past two decades based on the method and data described in \citet{GMD:Falk2019}.}
   \label{fig:greening_season_change_Svanvik}
 \end{figure}
 \clearpage
+
+
 \subsection{Ozone}
 
 \begin{figure}[t]
@@ -472,7 +478,7 @@ TEXT
   \caption{Student's t-test assuming same sample uncertainty in both, climatology and 2018/19 observations at Svanhovd with respect to derived climatologies for (a) Northern Fennoscandia; (b) Svanvik. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}a) are significantly different from zero-hypothesis on the $2\,\sigma$,  $1\,\sigma$ level, respectively. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}b) are not significantly different from zero-hypothesis.}
   \label{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}
 \end{figure}
-
+\clearpage
 
 \noappendix       %% use this to mark the end of the appendix section. Otherwise the figures might be numbered incorrectly (e.g. 10 instead of 1).
 
