@@ -85,7 +85,7 @@
 \Author[2]{Ane Victoria}{Vollsnes}
 \Author[3]{Lisa}{Emberson}
 \Author[2]{Aud Else}{Berglen Eriksen}
-\Author[1]{Bjørg}{Rognerud}
+\Author[1]{Bj{\o}rg}{Rognerud}
 \Author[1]{Frode}{Stordal}
 \Author[1]{Terje}{Koren Berntsen}
 
@@ -124,7 +124,7 @@
 
 
 \begin{abstract}
-  The summer 2018 and summer 2019 did not differ significantly in the level of ozone. On the other hand, the temperatures (precipitation and cloud cover/PAR?) differed quite a lot. We also observed ozone-induced visible injuries on clovers in the ozone garden at Svanhovd in 2018, but not in 2019. This may be due to differences in uptake of ozone (POD) between the two years. Since DO3SE can be run on birch/beech and conifers, we would like to investigate whether the critical levels for these tree species were crossed during the two summer seasons. Ozone concentrations for the two missing weeks in July 2018 have been estimated based on the measurements from the Swedish and Finnish ozone measurement stations in the region.  
+  The summer 2018 and summer 2019 did not differ significantly in the level of ozone. On the other hand, the temperatures (precipitation and cloud cover/PAR?) differed quite a lot. We also observed ozone-induced visible injuries on clovers in the ozone garden at Svanhovd in 2018, but not in 2019. This may be due to differences in uptake of ozone ($\mathrm{POD_y}$) between the two years. Since DO3SE can be run on birch/beech and conifers, we would like to investigate whether the critical levels for these tree species were crossed during the two summer seasons. Ozone concentrations for the two missing weeks in July 2018 have been estimated based on the measurements from the Swedish and Finnish ozone measurement stations in the region.  
 \end{abstract}
 
 
@@ -133,16 +133,6 @@
 
 \introduction  %% \introduction[modified heading if necessary]
 \label{sec:intro}
-
-Following the report by the Norwegian Meteorological institute, the summer of 2018 was the warmest and driest ever recorded in Eastern, Western, and Southern Norway with 1906 registered forest fires of different sizes. In the north (including Finnmark) and northwest of Norway it was amongst the warmest and driest on record. {\bf TODO: How to cite report of Met NOR?} In Sweden, about 500 fires had been reported (five times more than in a usual summer) and an estimated total of $25000\,\unit{hectare}$ of forest burned down in the course of extensive forest fires especially in central(?) Sweden (G\"{a}vleborgs, J\"{a}mtlands, and Dalarnas l\"{a}n). ({\bf TODO: How to cite governmental report of Sweden? https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2019/02/sou-20197/}) The heat and drought stress on vegetation was exceptional not only in large parts of Fennoscandia but also in the rest of Europe.
-
-In the scope of our project to assess probable effects of midnight sun conditions on ozone uptake by plants and resultant enhanced susceptibility to ozone inflicted damage, we conducted ambient air ozone concentration measurements at Svanhovd in the growing seasons of 2018/19 in collaboration with NILU. The observed average ozone concentration in these years did not differ significantly by statistical means.
-
-In 2018, we have observed ozone damage on semi-natural vegetation (clover) and crops (tobacco) in the ozone garden at NIBIO Environment Centre Svanhovd. In contrast, no such damage has been seen in 2019.
-
-Ozone damage is rather driven by the actual uptake of ozone (PODy) than the pure ambient air concentration (AOTx). The environmental drivers for the PODy calculation include ambient air temperature, water availability, and humidity which influence the actual capability of ozone uptake through a corresponding change in stomatal conductance.
-
-We are going to estimate the potential main drivers for the observed ozone damage in 2018 by computing PODy values for natural and semi-natural vegetation, based on derived climatological averages of environmental drivers for Svanhovd as well as for the growing seasons 2018/19 serving as case studies.
 
 %{\bf OBS: The following is just a copy of the 2018 dry deposition paper. It has to be substantially changed to meet the no-copycat-criteria. TODO: Rewrite in context of this article.}
 
@@ -153,32 +143,66 @@ We are going to estimate the potential main drivers for the observed ozone damag
 
 %Since ozone is highly reactive, its global mean life-time in the troposphere is roughly $22$ days but ranges between a few days in the tropical boundary layer to up to $1$ year in the upper troposphere \citep{JGR:Stevenson2005,ACP:Young2013}. The abundance of tropospheric ozone therefore varies, e.g., with time of the day, season, altitude, location \citep{ACP:Schnell2015}, or weather conditions in general \citep{ACP:Otero2018}. Typical concentrations of surface ozone range from $10\,\unit{ppb}$ over the tropical Pacific to $100\,\unit{ppb}$ in the downwind areas of highly emitting sources \citep[Chapter 8]{IPCC2013}. This variability poses a challenge on both, trend analysis from observations as well as validation and inter-comparison of models. From the observational side, the number of long-term observations (started before the 1950s) is limited and restricted to mainly European sites. Most of these indicate a doubling of tropospheric ozone since the 1950s \citep[Chapter 2]{IPCC2013}.
 
+{\bf TODO:
 \begin{itemize}
-\item general about ozone - focus on surface ozone
-\item ozone induced damage in vegetation \emph{Contributor: Ane - maybe also ask Aud?}
-  Ozone acts as an oxidative stress to plants. Its main action is imposed through reactions occurring in the cell walls and cell membranes of mesophyll cells inside the leaves.Ozone enters the leaves through stomata, that are kept open to allow for gas exchange between the leaf air spaces and the exterior air. When the stomata are closed, ozone does not enter.
+\item general about ozone $\rightarrow$ focus on surface ozone and in particular precursors with respect to the forest fires (\chem{CO}) and heat stress (\chem{VOCs}).
+\item ozone induced damage in vegetation \emph{Contributor: Ane - maybe also ask Aud?}\\
+  Ozone acts as an oxidative stress to plants. Its main action is imposed through reactions occurring in the cell walls and cell membranes of mesophyll cells inside the leaves. Ozone enters the leaves through stomata, that are kept open to allow for gas exchange between the leaf air spaces and the exterior air. When the stomata are closed, ozone does not enter.
+\item[$\rightarrow$] Some info on stomatal conductance and its empirical calculation:
+  \begin{equation}
+  g^k_\text{sto, m} = g^k_\text{max, m} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_T \cdot f^k_D \cdot f^k_\text{SW}\right\}}.
+  \label{eq:stomatal}
+\end{equation}
+%
+The factors herein are normalized and vary within the range $0-1$. They account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with plant functional type $k$.
 \item metrics of ozone
-  \begin{equation}
-    \mathrm{AOT_x} = \int{\mathrm{max(\chem{[O_3]}-x)}\cdot \mathrm{dt}},
-  \end{equation}
-  with the ambient ozone concentration $\chem{[O_3]}$ and the concentration threshold $\mathrm{x}$. A typical value for $\mathrm{x}=40\,\unit{ppb}$.
-  \begin{equation}
-    \mathrm{POD_y} = \int{\mathrm{max(\Phi_\chem{O_3}-y)}\cdot \mathrm{dt}},
-  \end{equation}
-   with the ambient ozone flux through the stomata $\Phi_\chem{[O_3]}$ and the flux threshold $\mathrm{y}$.
+  \begin{itemize}
+  \item[$\rightarrow$] Concentration based
+    \begin{equation}
+      \mathrm{AOT_x} = \int{\mathrm{max(\chem{[O_3]}-x)}\cdot \mathrm{dt}},
+    \end{equation}
+    with the ambient ozone concentration $\chem{[O_3]}$ and the concentration threshold $\mathrm{x}$. A typical value for $\mathrm{x}=40\,\unit{ppb}$.
+  \item[$\rightarrow$] Flux based
+    \begin{equation}
+      \mathrm{POD_y} = \int{\mathrm{max(\Phi_\chem{[O_3]}-y)}\cdot \mathrm{dt}},
+    \end{equation}
+    with the ambient ozone flux through the stomata $\Phi_\chem{[O_3]} = g_\mathrm{sto} \cdot \chem{[O_3]}$ and the flux threshold $\mathrm{y}$.
+  \end{itemize}
 \item present subarctic climate and conditions
   \begin{itemize}
   \item[$\rightarrow$] midnight sun and 23\,\unit{h} open stomata (biological details will be published in a component paper)
   \item[$\rightarrow$] ozone climatology and spring peak {\bf TODO: Cite review article - find newer articles.}
   \end{itemize}
-\item future climate and conditions
+\end{itemize}
+}
+
+{\bf TODO: Frode/Terje, you may help elaborate on the following paragraph on weather systems. I'm not an expert on synoptic scale meteorology and basically translated from Norwegian/Swedish into English.}
+
+Following a report by the Norwegian Meteorological institute ({\bf TODO: How to cite report of Met NOR?}), the summer of 2018 was the warmest and driest ever recorded in eastern, western, and southern Norway. In the north (including Finnmark) and northwest of Norway, it was amongst the warmest and driest on record - favorable conditions for boundary layer ozone formation.
+
+An unusually weak and northward shifted jet stream allowed for a persistent high pressure system above Fennoscandia which blocked the east-bound low pressure systems for several consecutive months. While in May and July whole Fennoscandia saw exceptionally warm and dry weather, the high pressure system's influence subsided in northern Fennoscandia in June allowing for lower temperatures than in the south. 
+
+The such induced heat and drought stress on vegetation was exceptional not only in large parts of Fennoscandia but also in the rest of Europe, where the influence of the high pressure system extended even over a period of five months (April/May, July--September). These conditions gave rise to massive forest fires in different parts of Europe and thus an increase in ozone precursors (\chem{CO}, \chem{VOCs}).
+
+A total of 2079 forest fires of different size were registered in Norway in 2018, twice as many as in the preceding years 2016/17 ({\bf TODO: Cite https://www.dsb.no/reportasjearkiv/brannstatistikk-2018/}, last accessed April 2020). In Sweden, about 500 fires had been reported (five times more than in a usual summer) and an estimated total of $25000\,\unit{hectare}$ burned down in the course of the most extensive fires in central Sweden (G\"{a}vleborgs, J\"{a}mtlands, and Dalarnas l\"{a}n) in younger history ({\bf TODO: How to cite governmental report of Sweden? https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2019/02/sou-20197/ and report therein}).\\
+
+{\bf TODO: Future climate and conditions
   \begin{itemize}
   \item[$\rightarrow$] increase in heatwaves and dry periods
   \item[$\rightarrow$] shift in start of growing season (into vicinity of ozone spring peak)
   \item[$\rightarrow$] increase in tropospheric background ozone
   \end{itemize}
-\item meteorological situation 2018 vs 2019
-\end{itemize}
+}
+
+Within the scope of our project to assess probable effects of midnight sun conditions on ozone uptake by plants and resultant enhanced susceptibility to ozone inflicted damage, we conducted ambient air ozone concentration measurements at Svanhovd in the growing seasons of 2018/19 in collaboration with NILU. 
+In 2018, we have observed ozone damage on semi-natural vegetation (clover) and crops (tobacco) in the ozone garden at NIBIO Environment Centre Svanhovd. In contrast, no such damage has been reported in 2019.
+The respective observed average ozone concentration in 2018/19, however, did not differ significantly by statistical means.
+
+As previously mentioned, ozone damage is rather driven by the actual uptake of ozone ($\mathrm{POD_y}$) than by the accumulated ambient air concentration above a certain threshold ($\mathrm{AOT_x}$). Through the stomatal conductance, $\mathrm{POD_y}$ depends on environmental drivers such as ambient air temperature, photoactive radiation, soil water availability, and water vapor pressure deficit.
+
+In this study, we investigate potential main drivers for the observed ozone damage in the growing season 2018 at NIBIO Environment Centre Svanhovd in contrast to 2019. We compare $\mathrm{POD_y}$ values for natural and semi-natural vegetation for derived climatological averages of environmental conditions at Svanhovd as well as for the growing seasons 2018/19 which shall serve as case studies.
+
+The observation site at NIBIO Environment Centre Svanhovd and all related data are presented in Section~\ref{sec:data}. In Section~\ref{sec:stats}, we derive climatologies for surface ozone concentration at Svanhovd and northern Fennoscandia based on in situ observations and also compute climatologies of surface temperature, precipitation, and global radiation for Svanhovd. Based on these, we evaluate anomalies of environmental key variables in 2018/19 by statistical means. In addition, the derived surface ozone concentration climatology for northern Fennoscandia will be compared with available ozone reanalysis products. We use the DO3SE model to estimate the ozone uptake by natural and semi-natural vegetation to investigate the main environmental driver of the observed ozone damage in 2018 (Section~\ref{sec:do3se}). In Section~\ref{sec:conc} finally, we will summarize our results, draw conclusions, and give an outlook on further work.
 
 
 \section{Data}
@@ -211,11 +235,11 @@ All agrameteorological variables including temperature and precipitation are ava
 
 {\bf TODO: Some more (technical) details about ozone and atmospheric monitoring at Svanhovd. $\rightarrow$ Sverre?}
 
-\emph{Comment: We refrain from doing a full cross-evaluation for these meteorological fields, since this has been done elsewhere. It's somewhat clear that this is a job of the operators in the monitoring network.} {\bf TODO: Find a citation for this.}.
+\emph{Comment: We refrain from doing a full cross-evaluation for these meteorological fields, since this has been done elsewhere. It's somewhat clear that this is a job of the operators in the monitoring network.} {\bf TODO: Find a citation for this -> Met NOR report!.}.
 
-Relevant data for the growing season 2018/19 are shown in Fig.~\ref{fig:data_svanvik_2018_2019}. The hatched areas mark times when no ozone data has been taken. Note, while the downtime during winter was planed, missing data in two weeks of July 2018 were due to problems in data acquisition.
+Relevant data for the growing season 2018/19 are shown in Fig.~\ref{fig:data_svanvik_2018_2019}. The hatched areas mark times when no ozone data was recorded. Note, while the downtime during winter was planed, missing data in two weeks of July 2018 (July 9--23) were due to problems in data acquisition.
 
-Ozone concentrations \chem{[O_3]} measured in $2\,\unit{m}$ height above ground are averaged hourly. As can be seen in Fig.~\ref{fig:data_svanvik_2018_2019}a), \chem{[O_3]} peaks in spring (April/May) and reaches its minimum in late summer (July/August). The spring peak has not been captured completely in 2019, for data acquisition started later than in 2018. In 2018, high summer ozone concentrations ($\chem{[O_3]}> 40\,\unit{ppb}$) were observed in July. A part of these peak values may, however, coincident with the time period of missing data. In the summer of 2019, ozone concentrations stayed below the threshold of $40\,\unit{ppb}$ most of the times.
+Ozone concentrations \chem{[O_3]} measured in $2\,\unit{m}$ height above ground are averaged hourly. As can be seen in Fig.~\ref{fig:data_svanvik_2018_2019}a), \chem{[O_3]} peaks in spring (April/May) and reaches its minimum in late summer (July/August). The spring peak has not been captured completely in 2019, for data acquisition started later than in 2018. In summer 2018 (June--August), high ozone concentrations ($\chem{[O_3]} > 40\,\unit{ppb}$) were recorded 50 times. The highest summer ozone concentration ($\chem{[O_3]} = 50.2\,\unit{ppb}$) was measured on July 25. This coincides with the period of the most extensive forest fires in central Swedish (G\"{a}vleborgs, J\"{a}mtlands, and Dalarnas l\"{a}n) which occurred from July 12--29 and destroyed about $18000\,\unit{hectare}$ of forest{\bf TODO: Cite chapter 11 Swedish government report.}. {\bf TODO: Do we need a corresponding \chem{CO_2} emission here?} However, due to the above mentioned data acquisition problems, we miss most of the corresponding ozone data for this event and most likely also the peak ozone concentration. In contrast, ozone concentration only rose 18 times above the threshold of $40\,\unit{ppb}$ during the summer of 2019.
 
 Hourly averaged $2\,\unit{m}$ temperatures below $-20\,\unit{^\circ C}$ were observed in winter (January/February), while high temperatures (above $20\,\unit{^\circ C}$) occurred in summer (July), though more regularly in 2018 than in 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}b). In 2018, temperature regularly rose above freezing only in May, while in 2019 this occurred already early in March/April. 2019 saw a very cold November with temperatures regularly below $-10\unit{^\circ C}$.
 
@@ -303,7 +327,8 @@ CAMS Regional Ensemble & Copernicus & $0.1^\circ \times 0.1^\circ$ & 1-hourly & 
 \end{table}
 
 
-\section{Statistical analysis of atmospheric key variables}
+\section{Statistical analysis of environmental key variables}
+\label{sec:stats}
 In this section, we will evaluate atmospheric conditions in the growing seasons of 2018/19 by statistical means. We will derive climatologies for both, temperature, precipitation, global irradiance, and ozone for Svanvik (Section~\ref{subsec:climatologies}). The ozone measurements will be put into a climatological as well as regional context. We will look at anomalies of the atmospheric key variable mentioned above (Section~\ref{subsec:anomalies}).
 
 \subsection{Derived climatologies}
@@ -338,7 +363,7 @@ The correlation of \chem{[O_3]} between Esrange, Pallas, and Jergul/Karasjok is 
 
 In Figure~\ref{fig:ozone_climatology_fenoscandic_obs_spline}, the 2 dimensional density distributions for the thus defined northern Fennoscandia (Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_spline}a) and Svanvik (Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_spline}b) are shown. Darker colors indicate higher probability to observe these values. On top of the density distributions, $10\,\unit{days}$ averages of daily mean \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, daily maximum \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}}, and daily minimum \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, min}} are displayed together with the $1 \sigma$ uncertainties, respectively. In addition, \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}} is also shown with standard error of mean (albeit small and hardly visible). Splines have been fitted through the data for easier inter-comparison with reanalysis data.
 
-From the northern Fennoscandic climatology, one can deduce several features. The maximum of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, min}} peaks about $20\,\unit{days}$ earlier than the \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, and \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}}. With respect to the periodicity of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, it takes about $7.5\,\unit{months}$ from minimum concentration to maximum concentration, while from maximum to minimum it only takes about $4.5\,\unit{months}$. The maximum of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}} is at $52\,\unit{ppb}$ in late April and the minimum of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, min}} occurs at $15\,\unit{ppb}$ in the beginning of September. The steep rise of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}} in spring coincident with increasing temperatures as well as increase in global irradiance. The decrease in \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}} coincides with the estimated onset of the greening season based on the agricultural rule of thumb that the daily average temperature has to be above $5\,\unit{^\circ C}$ for $5\,\unit{days}$ consecutively (day of the year 110--150 at Svanvik, Appendix Fig~\ref{fig:greening_season_change_Svanvik}).
+From the northern Fennoscandic climatology, one can deduce several features. The maximum of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, min}} peaks about $20\,\unit{days}$ earlier than the \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, and \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}}. With respect to the periodicity of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, it takes about $7.5\,\unit{months}$ from minimum concentration to maximum concentration, while from maximum to minimum it only takes about $4.5\,\unit{months}$. The maximum of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}} is at $52\,\unit{ppb}$ in late April and the minimum of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, min}} occurs at $15\,\unit{ppb}$ in the beginning of September. The steep rise of \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}} in spring is in coincidence with increasing temperatures as well as increase in global irradiance. The decrease in \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}} coincides with the estimated onset of the greening season based on the agricultural rule of thumb that the daily average temperature has to be above $5\,\unit{^\circ C}$ for $5\,\unit{days}$ consecutively (day of the year 110--150 at Svanvik, Appendix Fig~\ref{fig:greening_season_change_Svanvik}).
 
 The density distribution for Svanvik and the respective \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, and \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}} (Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_spline}b) display a similar pattern as the northern Fennoscandic climatology. The spring peak apparently occurs slightly earlier (in the beginning of April). As Svanvik is located at lower altitude than the other sites, the earlier ozone peak may point to a strong interplay between ozone uptake by vegetation after the onset of greening, for at higher altitude plants sprout later. {\bf TODO: Is there a way to confirm this? Actual data for the three sites? Please correct if wrong! Ane? Aud?} The average ozone concentration at Svanvik is lower than at the other sites, as already mentioned, which is in league with a decrease in tropospheric ozone with decreasing altitude. In July--September, ozone is occasionally almost completely depleted during night time.
 
@@ -421,6 +446,7 @@ In accordance to the above findings, we adjust the derived ozone climatology for
 To conclude, ozone concentrations in 2018 have been elevated compared to the respective climatologies, however, on average not significantly by statistical means. At Esrange and Pallas at least $25\,\unit{\%}$ (3.~quantile) of anomalies are significant on a $3\sigma$ level or more, while at Svanvik the 3.~quantile lies at about $2\sigma$. This means that in 2018 the stations at Esrange and Pallas saw more days with elevated ozone than was monitored at Svanvik. 
 
 \section{DO3SE modeling}
+\label{sec:do3se}
 To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco {\bf TODO: Ane confirm!} at Svanhovd, we have modeled the ozone uptake using the DO3SE model.
 
 {\bf TODO: Model results for natural and semi-natural vegetation (birch, pine, clover, tobacco(?))}
@@ -432,6 +458,7 @@ To investigate which of the environmental factors lead to the observed ozone dam
 
 
 \conclusions  %% \conclusions[modified heading if necessary]
+\label{sec:conc}
 TEXT
 
 %% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
