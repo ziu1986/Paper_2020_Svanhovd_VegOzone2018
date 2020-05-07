@@ -194,9 +194,11 @@ Elevated ozone in Europe was likely due to several other factors as well, like i
   \end{itemize}
 }
 
+In terms of AOT40, the threshold for protection of vegetation of $3000\,\unit{ppb}$ given by the EU directive has been well exceeded at many ozone monitoring sites in Southern Norway in the 2018 growing season \citep{NILU2019}. {\bf TODO: come back to this later on in the discussions(?) - it has not been breached at Svanvik in northern Fennoscandia. Later supplement figure \ref{fig:fennoscandic_aot40}}
+
 Within the scope of our project to assess probable effects of midnight sun conditions on ozone uptake by plants and resultant enhanced susceptibility to ozone inflicted damage, we conducted ambient air ozone concentration measurements at Svanhovd in the growing seasons of 2018/19 in collaboration with NILU. 
 In 2018, we have observed ozone damage on semi-natural vegetation (clover) and crops (tobacco) in the ozone garden at NIBIO Environment Centre Svanhovd. In contrast, no such damage was found on the clovers in 2019, although it was found on the sensitive tobacco cultivar. This indicates that the vegetation may have been more affected by ozone in 2018 than in 2019.
-The respective observed average ozone concentration in 2018/19, however, did not differ significantly by statistical means. {\bf TODO: Citation NILU ozone report 2019 - high AOT40 in 2018 \citep{NILU2019}.}
+The respective observed average ozone concentration in 2018/19, however, did not differ significantly by statistical means.
 
 As previously mentioned, ozone damage is rather driven by the actual uptake of ozone ($\mathrm{POD_y}$) than by the accumulated ambient air concentration above a certain threshold ($\mathrm{AOT_x}$). Through the stomatal conductance, $\mathrm{POD_y}$ depends on environmental drivers such as ambient air temperature, photoactive radiation, soil water availability, and water vapor pressure deficit.
 
@@ -275,7 +277,7 @@ As additional complement to observational data which is not available at all tim
 \label{subsubsec:ebas}
 All surface ozone observations used in this study are available from the EBAS database operated by NILU (\href{http://ebas.nilu.no/}{ebas.nilu.no}). In Table~\ref{tab:ebas_obs}, we give an overview over the exact locations and time range of operational data taking. All stations with available long term observations are located on higher ground than Svanhovd which will result in higher surface ozone concentrations in comparison as ozone abundance, in general, decreases with decreasing altitude in the absence of local precursors. {\bf TODO: Citation see references in \citet{AB:Klingberg2009}!} {\bf TODO: The following has to be confirmed and elaborated on! Ane?} The vegetation at all sites is similar and consists mainly of pine forests, birch, and heath.
 
-Data from before the 1990s is available solely from Svanvik and Karasjok. These data, however, do not follow the high quality standard procedures implemented nowadays and have to be treated with care {\bf TODO: citation NILU ozone report 200x}. Especially, ozone monitors did not undergo a regular re-calibration. This probably leads to drifts in the observed data and may impose a false periodicity. In 1997, the ozone monitoring at Jergul was relocated downstream the river Karasjokka to a site close by Karasjok. Although the same equipment has been used, this might have introduced a breaking point in the combined data series, denoted as Jergul/Karasjok in the following, which would be of a problem if this was the sole data to compare with. Only few data have been taken upstream the Pasvik river at Janiskovski, hence these will not be taken into further consideration, but are shown for completion. As can be seen in Fig.~\ref{fig:ozone_timesseries_fenoscandic_obs}, there is an overlap of about $4\,\unit{years}$ between data taken at Esrange, Jergul/Karasjok, and Svanvik. The hatched areas indicate time periods with insufficient quality control as mentioned above.
+Data from before the 1990s is available solely from Svanvik and Karasjok. These data, however, do not follow the high quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Especially, ozone monitors did not undergo a regular re-calibration. This probably leads to drifts in the observed data and may impose a false periodicity. In 1997, the ozone monitoring at Jergul was relocated downstream the river Karasjokka to a site close by Karasjok. Although the same equipment has been used, this might have introduced a breaking point in the combined data series, denoted as Jergul/Karasjok in the following, which would be of a problem if this was the sole data to compare with. Only few data have been taken upstream the Pasvik river at Janiskovski, hence these will not be taken into further consideration, but are shown for completion. As can be seen in Fig.~\ref{fig:ozone_timesseries_fenoscandic_obs}, there is an overlap of about $4\,\unit{years}$ between data taken at Esrange, Jergul/Karasjok, and Svanvik. The hatched areas indicate time periods with insufficient quality control as mentioned above.
 
 \begin{table}[t]
   \caption{Past and present ozone observation sites in northern Fennoscandia. Data available on \href{http://ebas.nilu.no/}{EBAS}.}
@@ -359,7 +361,7 @@ The multi-annual means of daily mean ozone, for simplicity here without standard
   \label{fig:ozone_climatology_fenoscandic_obs}
 \end{figure}
 
-The correlation of \chem{[O_3]} between Esrange, Pallas, and Jergul/Karasjok is fairly high ($r^2\approx 0.8$, Appendix Fig.~\ref{fig:density_distribution}a, b), hence we can put those data series together to derive a general ozone climatology for northern Fennoscandia. The correlation between Svanvik and Esrange and Pallas is rather low, 0.4 and 0.6, respectively. Thus, Svanvik cannot directly be represented by any measurements taken at either Esrange or Pallas.
+The correlation of \chem{[O_3]} between Esrange, Pallas, and Jergul/Karasjok is fairly high ($r^2\approx 0.8$, Appendix Fig.~\ref{fig:density_distribution}a, b), hence we can put those data series together to derive a general ozone climatology for northern Fennoscandia. The correlation between Svanvik and Esrange and Pallas is rather low, 0.4 and 0.6, respectively. Thus, Svanvik cannot directly be represented by any measurements taken at either Esrange or Pallas. We shall come back to this in Section~\ref{subsec:ozone_reco}.
 
 In Figure~\ref{fig:ozone_climatology_fenoscandic_obs_spline}, the 2 dimensional density distributions for the thus defined northern Fennoscandia (Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_spline}a) and Svanvik (Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_spline}b) are shown. Darker colors indicate higher probability to observe these values. On top of the density distributions, $10\,\unit{days}$ averages of daily mean \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}}, daily maximum \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, max}}, and daily minimum \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, min}} are displayed together with the $1 \sigma$ uncertainties, respectively. In addition, \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}, mean}} is also shown with standard error of mean (albeit small and hardly visible). Splines have been fitted through the data for easier inter-comparison with reanalysis data.
 
@@ -510,69 +512,76 @@ TEXT
 \subsection{Temperature, precipitation, and global irradiance}     %% Appendix A1, A2, etc.
 
 \appendixfigures  %% needs to be added in front of appendix figures
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{global_rad_clim}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{global_rad_clim}
   \caption{Observed global irradiance at Svanvik. The cyan lines indicate the $1\,\sigma$ level deducted from the climatology. (a) Climatology (hourly maxima, mean, and minima); deviation from climatology (b) 2018; (c) 2019.}
   \label{fig:global_rad_clim}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{test_fennoscandia}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{test_fennoscandia}
   \caption{Maximum daily sun shine duration based on geometrical calculations at different sites in Fennoscandia. Midnight sun conditions at Jergul/Karasjok and Svanvik prevail from the end of May until the end of July, while at Esrange and Pallas they only prevail from the beginning of June until mid of July.}
   \label{fig:sunlight_fennoscandia}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{greening_season_change_Svanvik}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{greening_season_change_Svanvik}
   \caption{Estimated shift and prolongation of greening season at Svanhovd over the past 6 decades based on data from SeNorge.no {\bf TODO: citation http://www.senorge.no}.}
   \label{fig:greening_season_change_Svanvik}
-\end{figure}
+\end{figure*}
 \clearpage
 
 
 \subsection{Ozone}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{density_distribution}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{density_distribution}
   \caption{Probability densities and correlation coefficient for \chem{[O_3]} between different sites in northern Fennoscandia. Jergul/Karasjok is well correlated with Esrange, and Pallas. Svanvik displays highest correlation with Pallas. (a) Jergul/Karasjok--Esrange; (b) Jergul/Karasjok--Pallas; (c) Svanvik--Esrange; (d) Svanvik--Pallas.}
   \label{fig:density_distribution}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_residuals}
   \caption{Probability density functions of ozone concentration residuals. 2018 with respect to respective climatology for different sites in Fennoscandia. (a) Esrange; (b) Pallas.}
   \label{fig:ozone_climatology_fenoscandic_obs_residuals}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_residuals-Svanvik}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_residuals-Svanvik}
   \caption{Probability density functions of ozone concentration residuals. 2018/19 observations at Svanhovd with respect to derived climatologies for (a) Northern Fennoscandia; (b) Svanvik.}
   \label{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_test}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_test}
   \caption{Student's t-test assuming same sample uncertainty in both, climatology and 2018 observations for different sites in Fennoscandia. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals} are significantly different from zero-hypothesis on the $1\,\sigma$ level. (a) Esrange; (b) Pallas.}
   \label{fig:ozone_climatology_fenoscandic_obs_test}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_test-Svanvik}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_test-Svanvik}
   \caption{Student's t-test assuming same sample uncertainty in both, climatology and 2018/19 observations at Svanhovd with respect to derived climatologies for (a) Northern Fennoscandia; (b) Svanvik. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}a) are significantly different from zero-hypothesis on the $2\,\sigma$,  $1\,\sigma$ level, respectively. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}b) are not significantly different from zero-hypothesis.}
   \label{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_reconstruction_2018_07}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_reconstruction_2018_07}
   \caption{Reconstruction of missing \chem{[O_3]} observation data at Svanvik in July 2018 based on derived hourly climatologies of northern Fennoscandia, Svanvik, and data Pallas. (a) Time series; (b) anomalies; (c) reconstruction.}
   \label{fig:ozone_reconstruction_2018_07}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[t]
-  \includegraphics[width=8.3cm]{ozone_observation_timelag_svanvik}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_observation_timelag_svanvik}
   \caption{Temporal correlation of \chem{[O_3]} data at Svanvik with other ozone monitoring stations in northern Fennoscandia. A negative lag means that Svanvik lags behind, while a positive lag mean the other station lags behind. The highest correlation with Pallas/Esrange is found at a time lag of $3\,\unit{h}$, for Jergul/Karasjok at $1\,\unit{h}$, and for Janiskoski at $-20\,\unit{h}$.}
   \label{fig:time_lag_correlation}
-\end{figure}
+\end{figure*}
+
+% Shall go to supplement!
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{ozone_fennoscandic_obs_aot40}
+  \caption{Integrated AOT40 for various sites in northern Fennoscandia over the course of 33 years. For simplicity, we integrated hourly ozone between $1\,\unit{am}-11\,\unit{pm}$ in any case, although a night time light intensity $> 50\,\unit{W\,m^{-2}}$ is only meassured during midnight sun conditions. Since night time \chem{[O_3]} is mostly below $40\,\unit{ppb}$, the such induced high bias in spring should be tolerable. The dashed red lines indicate the respective threshold given by the EU directive. (a) May 1 -- July 31 (b) April 1 -- September 30.}
+  \label{fig:time_lag_correlation}
+\end{figure*}
 
 \clearpage
 
