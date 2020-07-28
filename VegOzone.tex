@@ -6,14 +6,14 @@
 %% https://publications.copernicus.org/for_authors/manuscript_preparation.html
 
 
-%% Please use the following documentclass and journal abbreviations for discussion papers and final revised papers.
+%% Please use the following documentclass and journal abbreviations for preprints and final revised papers.
 
-%% 2-column papers and discussion papers
+%% 2-column papers and preprints
 \documentclass[bg, manuscript]{copernicus}
 
 
 
-%% Journal abbreviations (please use the same for discussion papers and final revised papers)
+%% Journal abbreviations (please use the same for preprints and final revised papers)
 
 
 % Advances in Geosciences (adgeo)
@@ -42,6 +42,7 @@
 % Geoscientific Model Development (gmd)
 % History of Geo- and Space Sciences (hgss)
 % Hydrology and Earth System Sciences (hess)
+% Journal of Bone and Joint Infection (jbji)
 % Journal of Micropalaeontology (jm)
 % Journal of Sensors and Sensor Systems (jsss)
 % Magnetic Resonance (mr)
@@ -72,6 +73,7 @@
 %\usepackage{float}
 %\usepackage{subfig}
 %\usepackage{rotating}
+
 \graphicspath{{pictures/}}
 
 \begin{document}
@@ -86,13 +88,14 @@
 \Author[3]{Lisa}{Emberson}
 \Author[3]{Connie}{O'Neill}
 \Author[2]{Aud Else}{Berglen Eriksen}
-\Author[1]{Bj{\o}rg}{Rognerud}
+%\Author[1]{Bj{\o}rg}{Rognerud}
 \Author[1]{Frode}{Stordal}
 \Author[1]{Terje}{Koren Berntsen}
 
 \affil[1]{Department of Geosciences, University of Oslo, Oslo, Norway}
 \affil[2]{Department of Biosciences, University of Oslo, Oslo, Norway}
 \affil[3]{Department of Environment and Geography, University of York, UK}
+
 %% The [] brackets identify the author with the corresponding affiliation. 1, 2, 3, etc. should be inserted.
 
 %% If an author is deceased, please mark the respective author name(s) with a dagger, e.g. "\Author[2,$\dag$]{Anton}{Aman}", and add a further "\affil[$\dag$]{deceased, 1 July 2019}".
@@ -603,7 +606,8 @@ TEXT
 \disclaimer{TEXT} %% optional section
 
 \begin{acknowledgements}
-TEXT
+  Bj{\o}rg Rognerud for processing SeNorge.no data with respect for begin of growing season.
+  Tore Flatlandsmo Berglen for hourly pressure data from Svanhovd.
 \end{acknowledgements}
 
 
@@ -633,6 +637,20 @@ TEXT
 %%
 %% URL = {http://www.xyz.org/~jones/idx_g.htm}
 %% DOI = {10.5194/xyz}
+
+
+%% LITERATURE CITATIONS
+%%
+%% command                        & example result
+%% \citet{jones90}|               & Jones et al. (1990)
+%% \citep{jones90}|               & (Jones et al., 1990)
+%% \citep{jones90,jones93}|       & (Jones et al., 1990, 1993)
+%% \citep[p.~32]{jones90}|        & (Jones et al., 1990, p.~32)
+%% \citep[e.g.,][]{jones90}|      & (e.g., Jones et al., 1990)
+%% \citep[e.g.,][p.~32]{jones90}| & (e.g., Jones et al., 1990, p.~32)
+%% \citeauthor{jones90}|          & Jones et al.
+%% \citeyear{jones90}|            & 1990
+
 
 
 %% LITERATURE CITATIONS
