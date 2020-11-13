@@ -442,42 +442,91 @@ To conclude, ozone concentrations in 2018 have been elevated compared to the res
 
 \section{DO3SE modeling}
 \label{sec:do3se}
-To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model the ozone uptake using the DO3SE model.
+To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model the ozone uptake using the DO3SE model and give an estimate on biomass reduction due to ozone uptake.
 
-\subsection{Reconstruction of missing ozone values in 2018}
+\subsection{Model description}
+
+{\bf TODO: Some general words about DO3SE model}
+
+
+\subsection{Input data and gapfilling methology}
 \label{subsec:ozone_reco}
-As we have shown, the available reanalysis products have their limitations. Although the quality of the Copernicus Regional Model Reanalysis is fairly good, we additionally deem it necessary to reconstruct the missing data in 2018 for the purpose of DO3SE modeling. In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}, the procedure for a probable reconstruction is shown. First, we derive hourly climatologies for northern Fennoscandia \chem{\left<[O_3]\right>_{hourly}} and Svanvik \chem{\left<[O_3]\right>_{hourly}^{Svanvik}} (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). Then we compute temporal correlations between Svanvik and all other stations with respect to a temporal shift (Appendix Fig.~\ref{fig:time_lag_correlation}) to estimate a probable time lag between the stations (e.g., $3\,\unit{h}$ for Esrange and Pallas). Because of the high correlation with Svanvik observations, we have chosen Pallas as reference station for the reconstruction. We correct the Fennoscandic climatology for the found time lag\chem{\left<[O_3]\right>_{hourly,\,t-3}} and use it to derive a mapping function:
+The DO3SE model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
+\begin{equation}
+  \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
+\end{equation}
+with satuation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
+  
+The following gap filling methodology was devised for the meterological input data:
+\begin{itemize}
+\item Single hours of missing data were filled by taking the average of the hourly values coming before, and after, the missing value.
+\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data was unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
+\item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
+\end{itemize}
+
+Because the available reanalysis products for surface ozone have their limitations, we deem it necessary to reconstruct the missing data in 2018 for the purpose of DO3SE modeling by applying a Reynold's decomposition of the form:
+\begin{equation}
+  \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
+  \label{eq:reynolds_decomp}
+\end{equation}
+with climatology \chem{\left<[O_3]\right>} and annomalies \chem{\Delta[O_3]}.
+The exact procedure will be described in the following.
+We derive hourly climatologies at all operational stations for July and a combined northern Fennoscandic climatology based on both data from Esrange and Pallas (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Appendix Fig.~\ref{fig:time_lag_correlation}. We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as reference station for the reconstruction. We correct the Fennoscand climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
 \begin{equation}
   X = \frac{\chem{\left<[O_3]\right>_{hourly}^{Svanvik}}}{\chem{\left<[O_3]\right>_{hourly,\,t-3}}}.
   \label{eq:mapping}
 \end{equation}
-Performing a time lag correction basically means to shift the respective time series back in time by $3\,\unit{h}$.
-As an intermediate step, hourly anomalies are computed
+As an intermediate step, we apply Eq.~(\ref{eq:reynolds_decomp}) to derive hourly anomalies for each station $i$
 \begin{equation}
-  \chem{\Delta[O_3]_{hourly}^{Pallas}} = \chem{[O_3]_{hourly}^{Pallas}}-\chem{\left<[O_3]\right>_{hourly}}.
+  \chem{\Delta[O_3]_{hourly}}^i = \chem{[O_3]_{hourly}}^i-\chem{\left<[O_3]\right>_{hourly}},
 \end{equation}
-In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}b), hourly ozone concentration anomalies are shown for Pallas as well as for Esrange and Svanvik. We also correct ozone anomalies for Pallas for the time lag \chem{\Delta[O_3]_{hourly,\,t-3}^{Pallas}} and use the mapping function in Eq.~(\ref{eq:mapping}) to derive reconstructed anomalies for the missing values:
+with $i \in \{\text{Esrange, Pallas, Svanvik\}}$.
+In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}b), these hourly ozone concentration anomalies are shown. We also correct the ozone anomalies for Pallas for the time lag \chem{\Delta[O_3]_{hourly,\,t-3}^{Pallas}} and use the mapping function in Eq.~(\ref{eq:mapping}) to derive reconstructed anomalies for the missing values at Svanvik:
 \begin{equation}
     \chem{\Delta [O_3]_{hourly}^{Svanvik,\,reco}} = \chem{\Delta[O_3]_{hourly,\,t-3}^{Pallas}} \cdot X
 \end{equation}
 Finally, we add the bias corrected Svanvik ozone climatology and derive a reconstructed ozone concentration time series \chem{[O_3]_{hourly}^{Svanvik,\,reco}}. In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}c), the result is shown together with the observed data and the Copernicus Regional Model Reanalysis at the nearest grid point for comparison.
 
-\subsection{Model description and input data}
-
-{\bf TODO: Some general words about DO3SE model}
 
 \subsection{Model parameters}
-A comprehensive list of model parameters used in this study is found in Supplement~X.
-
+A comprehensive list of model parameters used in this study is found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each species (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needleleaf trees are active already at low temperatures \citep{TB:Kolari2007}. This leads to an increase in observable net photosynthesis. We use a MODIS (Aqua/Terra) retreived net photosynthesis product for a $1\times 1\,\unit{km}$ patch around Svanvik and calculate the roots from a quadratic fit through the data (Fig.~\ref{fig:modis_Psn}). We derive $A_\text{start}$ day of the year 122 for 2018 and 106 in 2019 and $A_\text{end}$ 261 and 274, respectively. This means the growing season in 2019 had been one month longer then in 2019. For birch tree $A_\text{start}$, we use the usual 5 consequative days above 5 degrees agricultural rule of thumb based on grided temperature data from seNorge.no. We find 129 and 130, respectively. For perennial grassland, we assume a dormancy of about $1\,\unit{month}$ after snowmelt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. Grassland lags about $1\,\unit{month}$ behind birches in both years. As leafs of northern Fennoscadic birches are smaller than southern speciemen, we have measured their dimension for the purpose of this study. %\href{https://www.nina.no/archive/nina/PppBasePdf/oppdragsmelding/829.pdf​}{NINA report} (p. 52)
+indicates an average tree height of $13.5\,\unit{m}$ in the area. To derive the leaf area index (LAI), we estimated land use for the $1\times 1\,\unit{km}$ patch around Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. With these, we rescale the average maximum LAI from MODIS ($2.7$). We assumed LAI ratios between the species: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$.
+Another important factor is the soil texture. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture.
 
 \subsection{POD and ozone impact}
 
 {\bf TODO: Model results for natural and semi-natural vegetation (birch, pine, grassland)}
-\begin{itemize}
-\item climatological ozone impact
-\item 2018
-\item 2019
-\end{itemize}
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3_Birch}
+  \caption{.}
+  \label{fig:pody_birch}
+\end{figure*}
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3_Norway_spruce}
+  \caption{.}
+  \label{fig:pody_norway_spruce}
+\end{figure*}
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3_Perennial_grass}
+  \caption{.}
+  \label{fig:pody_grass}
+\end{figure*}
+
+
+%\begin{table}[t]
+%\caption{TEXT}
+%\begin{tabular}{column = lcr}
+%\tophline
+%
+%\middlehline
+%
+%\bottomhline
+%\end{tabular}
+%\belowtable{} % Table Footnotes
+%\end{table}
 
 
 \conclusions  %% \conclusions[modified heading if necessary]
