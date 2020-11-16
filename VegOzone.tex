@@ -187,7 +187,7 @@ A total of 2079 forest fires of different size were registered in Norway in 2018
 
 Elevated ozone in Europe was likely due to several other factors as well, like in the 2003 drought period, such as biogenic VOC emissions, reduced dry deposition, reduced clouds and increased solar radiation, photochemical reactions, and stagnant weather conditions \citep{JGR:Solberg2018}.\\
 
-In terms of $\mathrm{AOT_{40}}$, the threshold for protection of vegetation of $3000\,\unit{ppb}$ (integrated over the growing season) given by the EU directive has been well exceeded at many ozone monitoring sites in Southern Norway in the 2018 growing season \citep{NILU2019}. {\bf TODO: come back to this later on in the discussions(?) - it has not been breached at Svanvik in northern Fennoscandia. Later supplement figure \ref{fig:fennoscandic_aot40}}
+In terms of $\mathrm{AOT_{40}}$, the threshold for protection of vegetation of $3000\,\unit{ppb}$ (integrated over the growing season) given by the EU directive has been well exceeded at many ozone monitoring sites in Southern Norway in the 2018 growing season \citep{NILU2019}. {\bf TODO: come back to this later on in the discussions(?) - it has not been breached at Svanvik in northern Fennoscandia.}
 
 Within the scope of our project to assess probable effects of midnight sun conditions on ozone uptake by plants and resultant enhanced susceptibility to ozone inflicted damage, we conducted ambient air ozone concentration measurements at Svanhovd in the growing seasons of 2018/19 in collaboration with the Norwegian Institute for Air Research (NILU). 
 In 2018, we have observed ozone damage on semi-natural vegetation (clover) and crops (tobacco) in the ozone garden at the Norwegian Institute of Bioeconomy Research (NIBIO) Environment Centre Svanhovd. In contrast, no such damage was found on the clovers in 2019, although it was found on the sensitive tobacco cultivar. This indicates that the vegetation may have been more affected by ozone in 2018 than in 2019.
@@ -491,42 +491,38 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 \subsection{Model parameters}
 A comprehensive list of model parameters used in this study can be found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the arial. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively. 
 
-As pointed out by \citet{ACP:Bueker2012}, a very important factor for deriving $\text{POD}_y$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
+As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\text{POD}_y$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
+
+The estimated total biomass reduction in \unit{\%} due to \chem{O_3} following \citet{ICP:MappingManual2017} is shown in Table~\ref{tab:biomass_reduction}.
 
 \subsection{POD and ozone impact}
 
-{\bf TODO: Model results for natural and semi-natural vegetation (birch, pine, grassland)}
+We have modeled $\text{POD}_1$ for three natural and semi-natural vegetation PFTs, birch, Norway spruce, and perennial grassland. The results are shown comprehensively in Fig.~\ref{fig:pody} as a function of day of year (doy) for March--October. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to expected non linearities in stomatal conductance, the climatological year represents rather an optimal year then a true climatology in this case. To establish a true climatology in $\text{POD}_y$, it would therefore be necessary to run the DO3SE model for 10--20 years with true start and end of growing season for each PFT and the respective meteorological and ozone forcing.
+
+As expected $\text{POD}_y$ was higher in 2018 than in 2019 for all PFTs.
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3_Birch}
-  \caption{.}
-  \label{fig:pody_birch}
-\end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3_Norway_spruce}
-  \caption{.}
-  \label{fig:pody_norway_spruce}
-\end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3_Perennial_grass}
-  \caption{.}
-  \label{fig:pody_grass}
+  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3}
+  \caption{$\text{POD}_y$ modeling results from DO3SE model for three different PFTs over day of year (doy), March--October. A flux threashold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to non linearities in stomatal conductance, the climatological year represents rather an optimal year then a true climatology. (a)--(c) Birch; (d)--(f) Norway spruce; (g)--(i) perennial grassland. From left to right: 2018, 2019, and climatological year.}
+  \label{fig:pody}
 \end{figure*}
 
 
-%\begin{table}[t]
-%\caption{TEXT}
-%\begin{tabular}{column = lcr}
-%\tophline
-%
-%\middlehline
-%
-%\bottomhline
-%\end{tabular}
-%\belowtable{} % Table Footnotes
-%\end{table}
+\begin{table}[t]
+  \caption{Estimated total biomass reduction in \unit{\%} due to \chem{O_3} following \citet{ICP:MappingManual2017}.}
+  \label{tab:biomass_reduction}
+\begin{tabular}{lccrl}
+\tophline
+Year & \multicolumn{4}{c}{PFT}\\
+& Birch & Norway spruce & \multicolumn{2}{c}{Perennial grassland}\\
+\middlehline
+2018 & 11.99 & 2.34 & 8.06 & (10.51)$^*$\\
+2019 & 10.07 & 2.26 & 6.43 & (7.90)$^*$\\
+clim. & 13.81 & 2.58 & 6.67 & (8.29)$^*$\\
+\bottomhline
+\end{tabular}
+\belowtable{$^*$ above ground bioamass reduction} % Table Footnotes
+\end{table}
 
 
 \conclusions[Discussion and conclusions]
@@ -630,7 +626,7 @@ TEXT
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{modis_Psn}
-  \caption{Estimated begin (BGS) and end (EGS) of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year and EGS 261/274 day of year for 2018/2019, respectively.}
+  \caption{Estimated begin (BGS) and end (EGS) of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (doy) and EGS 261/274 day of year for 2018/2019, respectively.}
   \label{fig:modis_Psn}
 \end{figure*}
 
