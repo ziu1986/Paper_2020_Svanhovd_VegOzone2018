@@ -449,29 +449,29 @@ To investigate which of the environmental factors lead to the observed ozone dam
 {\bf TODO: Some general words about DO3SE model}
 
 
-\subsection{Input data and gapfilling methology}
+\subsection{Input data and gap filling methodology}
 \label{subsec:ozone_reco}
 The DO3SE model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
 \begin{equation}
   \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
 \end{equation}
-with satuation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
+with saturation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
   
-The following gap filling methodology was devised for the meterological input data:
+The following gap filling methodology was devised for the meteorological input data:
 \begin{itemize}
 \item Single hours of missing data were filled by taking the average of the hourly values coming before, and after, the missing value.
 \item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data was unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
 \item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
 \end{itemize}
 
-Because the available reanalysis products for surface ozone have their limitations, we deem it necessary to reconstruct the missing data in 2018 for the purpose of DO3SE modeling by applying a Reynold's decomposition of the form:
+Because the available reanalysis products for surface ozone have their limitations, we deem it necessary to reconstruct the missing data in 2018 for the purpose of DO3SE modeling by applying a Reynolds's decomposition of the form:
 \begin{equation}
   \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
   \label{eq:reynolds_decomp}
 \end{equation}
-with climatology \chem{\left<[O_3]\right>} and annomalies \chem{\Delta[O_3]}.
+with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}.
 The exact procedure will be described in the following.
-We derive hourly climatologies at all operational stations for July and a combined northern Fennoscandic climatology based on both data from Esrange and Pallas (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Appendix Fig.~\ref{fig:time_lag_correlation}. We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as reference station for the reconstruction. We correct the Fennoscand climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
+We derive hourly climatologies at individual stations and for a combined Esrange/Pallas northern Fennoscandia for July (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Appendix Fig.~\ref{fig:time_lag_correlation}. We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as reference station for the reconstruction. We correct the Fennoscandic climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
 \begin{equation}
   X = \frac{\chem{\left<[O_3]\right>_{hourly}^{Svanvik}}}{\chem{\left<[O_3]\right>_{hourly,\,t-3}}}.
   \label{eq:mapping}
@@ -489,9 +489,9 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 
 
 \subsection{Model parameters}
-A comprehensive list of model parameters used in this study is found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each species (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needleleaf trees are active already at low temperatures \citep{TB:Kolari2007}. This leads to an increase in observable net photosynthesis. We use a MODIS (Aqua/Terra) retreived net photosynthesis product for a $1\times 1\,\unit{km}$ patch around Svanvik and calculate the roots from a quadratic fit through the data (Fig.~\ref{fig:modis_Psn}). We derive $A_\text{start}$ day of the year 122 for 2018 and 106 in 2019 and $A_\text{end}$ 261 and 274, respectively. This means the growing season in 2019 had been one month longer then in 2019. For birch tree $A_\text{start}$, we use the usual 5 consequative days above 5 degrees agricultural rule of thumb based on grided temperature data from seNorge.no. We find 129 and 130, respectively. For perennial grassland, we assume a dormancy of about $1\,\unit{month}$ after snowmelt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. Grassland lags about $1\,\unit{month}$ behind birches in both years. As leafs of northern Fennoscadic birches are smaller than southern speciemen, we have measured their dimension for the purpose of this study. %\href{https://www.nina.no/archive/nina/PppBasePdf/oppdragsmelding/829.pdf​}{NINA report} (p. 52)
-indicates an average tree height of $13.5\,\unit{m}$ in the area. To derive the leaf area index (LAI), we estimated land use for the $1\times 1\,\unit{km}$ patch around Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. With these, we rescale the average maximum LAI from MODIS ($2.7$). We assumed LAI ratios between the species: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$.
-Another important factor is the soil texture. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture.
+A comprehensive list of model parameters used in this study can be found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the arial. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively. 
+
+As pointed out by \citet{ACP:Bueker2012}, a very important factor for deriving $\text{POD}_y$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
 
 \subsection{POD and ozone impact}
 
@@ -529,7 +529,7 @@ Another important factor is the soil texture. As Svanhovd is located in the bed 
 %\end{table}
 
 
-\conclusions  %% \conclusions[modified heading if necessary]
+\conclusions[Discussion and conclusions]
 \label{sec:conc}
 TEXT
 
@@ -622,11 +622,11 @@ TEXT
 \end{figure*}
 
 % Shall go to supplement!
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{ozone_fennoscandic_obs_aot40}
-  \caption{Integrated AOT40 for various sites in northern Fennoscandia over the course of 33 years. For simplicity, we integrated hourly ozone between $1\,\unit{am}-11\,\unit{pm}$ in any case, although a night time light intensity $> 50\,\unit{W\,m^{-2}}$ is only measured during midnight sun conditions. Since night time \chem{[O_3]} is mostly below $40\,\unit{ppb}$, the such induced high bias in spring should be tolerable. The dashed red lines indicate the respective threshold given by the EU directive. (a) May 1 -- July 31 (b) April 1 -- September 30.}
-  \label{fig:fennoscandic_aot40}
-\end{figure*}
+%\begin{figure*}[t]
+%  \includegraphics[width=12cm]{ozone_fennoscandic_obs_aot40}
+%  \caption{Integrated AOT40 for various sites in northern Fennoscandia over the course of 33 years. For simplicity, we integrated hourly ozone between $1\,\unit{am}-11\,\unit{pm}$ in any case, although a night time light intensity $> 50\,\unit{W\,m^{-2}}$ is only measured during midnight sun conditions. Since night time \chem{[O_3]} is mostly below $40\,\unit{ppb}$, the such induced high bias in spring should be tolerable. The dashed red lines indicate the respective threshold given by the EU directive. (a) May 1 -- July 31 (b) April 1 -- September 30.}
+%  \label{fig:fennoscandic_aot40}
+%\end{figure*}
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{modis_Psn}
