@@ -471,7 +471,7 @@ Because the available reanalysis products for surface ozone have their limitatio
 \end{equation}
 with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}.
 The exact procedure will be described in the following.
-We derive hourly climatologies at individual stations and for a combined Esrange/Pallas northern Fennoscandia for July (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Appendix Fig.~\ref{fig:time_lag_correlation}. We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as reference station for the reconstruction. We correct the Fennoscandic climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
+We derive hourly climatologies for individual stations and combine Esrange/Pallas to derive a climatology for northern Fennoscandia for July (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Appendix Fig.~\ref{fig:time_lag_correlation}. We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as reference station for the reconstruction. We correct the Fennoscandic climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
 \begin{equation}
   X = \frac{\chem{\left<[O_3]\right>_{hourly}^{Svanvik}}}{\chem{\left<[O_3]\right>_{hourly,\,t-3}}}.
   \label{eq:mapping}
@@ -489,21 +489,25 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 
 
 \subsection{Model parameters}
-A comprehensive list of model parameters used in this study can be found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the arial. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively. 
+A comprehensive list of model parameters used in this study can be found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($\left<f\right> = 2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively. 
 
-As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\text{POD}_y$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
-
-The estimated total biomass reduction in \unit{\%} due to \chem{O_3} following \citet{ICP:MappingManual2017} is shown in Table~\ref{tab:biomass_reduction}.
+As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
 
 \subsection{POD and ozone impact}
 
-We have modeled $\text{POD}_1$ for three natural and semi-natural vegetation PFTs, birch, Norway spruce, and perennial grassland. The results are shown comprehensively in Fig.~\ref{fig:pody} as a function of day of year (doy) for March--October. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to expected non linearities in stomatal conductance, the climatological year represents rather an optimal year then a true climatology in this case. To establish a true climatology in $\text{POD}_y$, it would therefore be necessary to run the DO3SE model for 10--20 years with true start and end of growing season for each PFT and the respective meteorological and ozone forcing.
+We have modeled $\mathrm{POD_y}$ for three natural/semi-natural vegetation PFTs, birch, Norway spruce, and perennial grassland. The results are shown comprehensively in Fig.~\ref{fig:pody} as a function of day of year (doy) for March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$.
 
-As expected $\text{POD}_y$ was higher in 2018 than in 2019 for all PFTs.
+As expected, $\mathrm{POD_y}$ is higher in 2018 than in 2019 for all PFTs. In the end of the 2018 season, Birch took up $13.1\,\unit{mmol\,m^{-2}\,PLA}$, while perennial grassland had an uptake of $4.5\,\unit{mmol\,m^{-2}\,PLA}$. The largest interannual variation is also found in Birch ($2.1\,\unit{mmol\,m^{-2}\,PLA}$) and perennial grassland ($2.6\,\unit{mmol\,m^{-2}\,PLA}$). Whereas, there is only a small difference for Norway spruce ($0.3\,\unit{mmol\,m^{-2}\,PLA}$) between the two years.
+
+Except for perennial grassland, model integrations with climatological forcings show higher $\mathrm{POD_y}$ than 2018. This can be explained by means of non linearity in modeled stomatal conductance (Eq.~(\ref{eq:stomatal})) in Eq.~(\ref{eq:pod}). The climatology in $\mathrm{POD_y}$ therefore represents rather an ideal year for growth then a true climatology. To establish a true climatology, it would be necessary to run the DO3SE model for 10--20 years with respective observed phenology as well as meteorological and ozone forcing. 
+
+Based on this interpretation of climatology in $\mathrm{POD_y}$, we can learn more about potential ozone damage. The time derivative $\frac{\mathrm{\Delta POD_y}}{\Delta t}$ displays very different features for each PFT and meteorological forcing. Although Norway spruce shows a low interannual variation, $\frac{\mathrm{\Delta POD_y}}{\Delta t}$ (Fig.~\ref{fig:pody_rel}) indicates an extended period of higher than average ozone uptake in spring 2018 (steep slope), while ozone uptake in June/July was anomalously low in 2019 (shallow slope) but high in fall. This is most prominently visible in Fig.~\ref{fig:pody}h) for perennial grassland, where consecutive periods of low $G_\text{sto}^\text{leaf}$ manifest in three plateaus in $\mathrm{POD_y}$ throughout the season (1: $184-198\,\unit{doy}$, 2: $209-228\,\unit{doy}$, 3: $235-240\,\unit{doy}$). An episode with anomalous high ozone in mid June ($194\,\unit{doy}$) can be identified but does not amount to unusually high ozone uptake on an annual basis.
+
+The estimated biomass reduction in \unit{\%} due to \chem{O_3} following \citet{ICP:MappingManual2017} is shown in Table~\ref{tab:biomass_reduction}. {\bf TODO: Lisa? Add paragraph about biomass reduction to introduction?}
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3}
-  \caption{$\text{POD}_y$ modeling results from DO3SE model for three different PFTs over day of year (doy), March--October. A flux threashold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to non linearities in stomatal conductance, the climatological year represents rather an optimal year then a true climatology. (a)--(c) Birch; (d)--(f) Norway spruce; (g)--(i) perennial grassland. From left to right: 2018, 2019, and climatological year.}
+  \caption{$\mathrm{POD_y}$ modeling results from DO3SE model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to non linearity in stomatal conductance, the climatological year represents rather an optimal year then a true climatology. (a)--(c) Birch; (d)--(f) Norway spruce; (g)--(i) perennial grassland. From left to right: 2018, 2019, and climatological year.}
   \label{fig:pody}
 \end{figure*}
 
@@ -511,23 +515,37 @@ As expected $\text{POD}_y$ was higher in 2018 than in 2019 for all PFTs.
 \begin{table}[t]
   \caption{Estimated total biomass reduction in \unit{\%} due to \chem{O_3} following \citet{ICP:MappingManual2017}.}
   \label{tab:biomass_reduction}
-\begin{tabular}{lccrl}
+\begin{tabular}{lccrr}
 \tophline
 Year & \multicolumn{4}{c}{PFT}\\
 & Birch & Norway spruce & \multicolumn{2}{c}{Perennial grassland}\\
 \middlehline
-2018 & 11.99 & 2.34 & 8.06 & (10.51)$^*$\\
-2019 & 10.07 & 2.26 & 6.43 & (7.90)$^*$\\
-clim. & 13.81 & 2.58 & 6.67 & (8.29)$^*$\\
+2018 & 11.99 & 2.34 & 8.06 & 10.51$^*$\\
+2019 & 10.07 & 2.26 & 6.43 & 7.90$^*$\\
+clim. & 13.81 & 2.58 & 6.67 & 8.29$^*$\\
 \bottomhline
 \end{tabular}
-\belowtable{$^*$ above ground bioamass reduction} % Table Footnotes
+\belowtable{$^*$ above ground biomass} % Table Footnotes
 \end{table}
 
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{DO3SE_results_rel}
+  \caption{Daily averaged $\mathrm{\Delta POD_y}/\Delta t$ from DO3SE model for three different PFTs over day of year (doy), March--October. Error bars/-bands indicate $1 \sigma$ standard deviation. (a) Birch; (b) Norway spruce; (c) perennial grassland.}
+  \label{fig:pody_rel}
+\end{figure}
 
 \conclusions[Discussion and conclusions]
-\label{sec:conc}
-TEXT
+\label{sec:conc} 
+\begin{itemize}
+  \item What did we learn from the 2018/2019 seasons in terms of ozone damage in the far north?
+  \item What are the main uncertainties in the tools we've used?
+  \item What implications could this have for future scenarios in which 2018 conditions may occur more often?
+\end{itemize}
+PODY is no good measure without a damage function with higher temporal resolution than annual. This has been already pointed out by \citet{AE:Musselman2006}! Higher than normal spring uptake (weather conditions) does not amount to critical uptake on an annual basis. 
+Weather and climatic conditioning of plants is more important for PODy than episodes of higher than usual ozone concentrations. Therefor high $\Delta \mathrm{POD_y} / \Delta t$ is not accounted for properly.
+It is important to know the plant response functions to temperature, light, humidity/precipitation as best as possible if one wants to assess risk of damage.
+
+Regarding the shift (earlier) and prolongation (later) of the growing season in the far north no general assessment can be made. Data show that in both 2018 and 2019 ozone uptake in early season was anomalous high in all studied PFTs. The extended growing season in 2019 might have countered higher episodic ozone uptake in 2018. In both years, low mid-season uptake due to weather conditions washed out any effect of these.
 
 %% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
 %% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
