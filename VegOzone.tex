@@ -128,7 +128,7 @@
 
 
 \begin{abstract}
-  An increased occurrence of persistent heatwaves, as one possible future scenario, generates favorable conditions for the formation of ambient air ozone. Vegetation highly specialized to sub-arctic climate is vulnerable to rapid environmental changes inflicted by global warming and might become more susceptible to ozone in the future. Over large parts of Europe the summer 2018 had been extraordinarily hot and dry and caused large wildfires in northern Sweden in particular. This can be regarded as a test case for such a future scenario. In both 2018 and 2019, we have monitored ambient air ozone concentrations at the Norwegian Institute of Bioeconomy Research (NIBIO) Environment Centre Svanhovd in Northern Norway. Due to data acquisition problems, ozone concentrations for two weeks in July 2018 were missing from our record. We present a reconstruction based on probability density function with respect to the Swedish and Finnish atmospheric monitoring sites in the region. Over all, ozone concentrations did not differ significantly between the two years. While temperatures and global irradiance diverged significantly from multi annual mean, precipitation varied only to some extend. Coincidentally, we have observed ozone-induced visible injuries on clovers in the ozone garden at Svanhovd in 2018, but not in 2019. We investigate the difference in uptake of ozone using the DO3SE model, with respect to the typical vegetation (beech/birch and conifers) at the location. We assess whether critical levels for these species were breached during the summer seasons. {\bf TODO: Summary of results.}
+  An increased occurrence of persistent heatwaves, as one possible future scenario, generates favorable conditions for the formation of ambient air ozone. Vegetation highly specialized to sub-arctic climate is vulnerable to rapid environmental changes inflicted by global warming and might become more susceptible to ozone in the future. Over large parts of Europe the summer 2018 had been extraordinarily hot and dry and caused large wildfires in northern Sweden in particular. This can be regarded as a test case for such a future scenario. In both 2018 and 2019, we have monitored ambient air ozone concentrations at the Norwegian Institute of Bioeconomy Research (NIBIO) Environment Centre Svanhovd in Northern Norway. Due to data acquisition problems, ozone concentrations for two weeks in July 2018 were missing from our record. We present a reconstruction based on probability density function with respect to the Swedish and Finnish atmospheric monitoring sites in the region. Over all, ozone concentrations did not differ significantly between the two years. While temperatures and global irradiance diverged significantly from multi annual mean, precipitation varied only to some extend. Coincidentally, we have observed ozone-induced visible injuries on clovers in the ozone garden at Svanhovd in 2018, but not in 2019. We investigate the difference in uptake of ozone using the DO3SE model, with respect to the typical vegetation (beech/birch and conifers) at the location. We assess whether critical levels for these species were breached during the summer seasons. We find that an unadjusted transfer of currently used standard parameters and methodes on ozone damage assessment (IPC Mapping Manual) to vegetation in the subarctics will result in an missinterpretation of POD1 values. {\bf TODO: Results. Difference in POD1 compared to mapping manual parameterization.}
 \end{abstract}
 
 
@@ -160,7 +160,7 @@ The opening of stomata, quantified through their conductance to water vapor $g_\
   \label{eq:stomatal}
 \end{equation}
 %
-The factors herein are normalized and vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with plant functional type (PFT) $k$. Stomata are typically considered closed below a light intensity of $50\,\unit{W\,m^{-2}}$.
+The factors herein are normalized and vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with plant functional type (PFT) $k$. {\bf TODO: Put in f-functions.}
 
 To measure the risk of damage inflicted to vegetation through ozone, many different metrics have been defined. Two main types can be differentiated, concentration-based (e.g., $\mathrm{AOT_{40}}$) and flux-based (e.g.,$\mathrm{POD_{0.1}}$) metrics. Due to their simplicity, $\mathrm{AOT_{x}}$ are still widely used, despite the actual integrated flux of ozone entering through the stomata is more relevant for an estimation of the actual toxic dose \citep{ICP:MappingManual2017}. 
 The Accumulated Ozone Exposure over a threshold concentration of $\mathrm{x}$ in units of $\unit{ppb}$ is defined as:
@@ -174,7 +174,7 @@ The Phototoxic Ozone Dose (POD) over a threshold y is defined as:
   \mathrm{POD_y} = \int{\mathrm{max(\Phi_\chem{[O_3]}-y)}\cdot \mathrm{dt}},
   \label{eq:pod}
 \end{equation}
-with the ambient ozone flux through the stomata $\Phi_\chem{[O_3]} = g_\mathrm{sto} \cdot \chem{[O_3]}$ and the flux threshold $\mathrm{y}$. The stomatal conductance is either measured directly or computed in accordance to Eq.~(\ref{eq:stomatal}).\\
+with the ambient ozone flux through the stomata $\Phi_\chem{[O_3]} = g_\mathrm{sto} \cdot \chem{[O_3]}$ and a flux threshold $\mathrm{y}$ representing the detoxification potential of the plant. The stomatal conductance is either measured directly or computed in accordance to Eq.~(\ref{eq:stomatal}).\\
 
 
 According to a report by the Norwegian Meteorological institute \citep{MetNOR2019}, the summer of 2018 was the warmest and driest ever recorded in eastern, western, and southern Norway. In the north (including Finnmark), it was amongst the warmest on record -- favorable conditions for boundary layer ozone formation.
@@ -493,6 +493,9 @@ A comprehensive list of model parameters used in this study can be found in Supp
 
 As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
 
+{\bf TODO: Write about boreal and cold parameter sets and their justification. Write about suggested method for optimizing PFTs in a simple but physiological way based on optimizing maximum climatological mean $g_\mathrm{sto}$ and morning responds. If plants have a short growing season up north optimizing \chem{CO_2} uptake around noon (highest light intensity) and speed up opening of stomata at lower intensities (morning), additional contraint lower climatological variance?}
+
+
 \subsection{POD and ozone impact}
 
 We have modeled $\mathrm{POD_y}$ for three natural/semi-natural vegetation PFTs, birch, Norway spruce, and perennial grassland. The results are shown comprehensively in Fig.~\ref{fig:pody} as a function of day of year (doy) for March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$.
@@ -546,6 +549,12 @@ Weather and climatic conditioning of plants is more important for PODy than epis
 It is important to know the plant response functions to temperature, light, humidity/precipitation as best as possible if one wants to assess risk of damage.
 
 Regarding the shift (earlier) and prolongation (later) of the growing season in the far north no general assessment can be made. Data show that in both 2018 and 2019 ozone uptake in early season was anomalous high in all studied PFTs. The extended growing season in 2019 might have countered higher episodic ozone uptake in 2018. In both years, low mid-season uptake due to weather conditions washed out any effect of these.
+
+Bigger picture:
+\begin{itemize}
+\item Ozone damage assessment using mapping manual "compromise" parameterization.
+\item Land-atmosphere modelling: Problems in productivity of species especially in the arctic regions due to PFTs which are not suited for the climate. Automating optimization of climate adaption of general PFTs.
+\end{itemize}
 
 %% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
 %% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
