@@ -85,6 +85,7 @@
 
 \Author[1]{Stefanie}{Falk}
 \Author[2]{Ane Victoria}{Vollsnes}
+\Author[2]{Aud Else}{Berglen Erikson}
 \Author[3]{Lisa}{Emberson}
 \Author[3]{Connie}{O'Neill}
 %\Author[2]{Aud Else}{Berglen Eriksen}
@@ -160,7 +161,33 @@ The opening of stomata, quantified through their conductance to water vapor $g_\
   \label{eq:stomatal}
 \end{equation}
 %
-The factors herein are normalized and vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with plant functional type (PFT) $k$. {\bf TODO: Put in f-functions.}
+The factors herein are normalized and vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with plant functional type (PFT) $k$.
+
+The temperature adjustment function
+%
+\begin{equation}
+  f_T = \frac{T_\text{2m}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{2m}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
+  \label{eq:f_temp}
+\end{equation}
+with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ is a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various plant functional types.
+%
+the water vapor pressure deficit penalty factor
+%
+\begin{equation}
+  f_D = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}.
+  \label{eq:f_vpd}
+\end{equation}
+%
+with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describes the stomata reaction to imminent heat stress.
+
+The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The correction factor $f_\mathrm{light}$ in dependency of PPFD is:
+\begin{equation}
+  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD}).
+  \label{eq:flight}
+\end{equation}
+
+
+\citet{ACP:Bueker2012} discusses several formulations available to describe the reduction in stomata conductance due to water content in the soil.
 
 To measure the risk of damage inflicted to vegetation through ozone, many different metrics have been defined. Two main types can be differentiated, concentration-based (e.g., $\mathrm{AOT_{40}}$) and flux-based (e.g.,$\mathrm{POD_{0.1}}$) metrics. Due to their simplicity, $\mathrm{AOT_{x}}$ are still widely used, despite the actual integrated flux of ozone entering through the stomata is more relevant for an estimation of the actual toxic dose \citep{ICP:MappingManual2017}. 
 The Accumulated Ozone Exposure over a threshold concentration of $\mathrm{x}$ in units of $\unit{ppb}$ is defined as:
