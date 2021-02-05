@@ -78,7 +78,8 @@
 
 \begin{document}
 
-\title{The 2018 heatwave and its implications on ozone induced damage on vegetation in a subarctic climate}
+%\title{The 2018 heatwave and its implications on ozone induced damage on vegetation in a subarctic climate}
+\title{Ozone induced damage on vegetation in a subarctic climate: implications of Plant Functional Types on Phototoxic Ozone Dose modeling}
 
 
 % \Author[affil]{given_name}{surname}
@@ -88,8 +89,6 @@
 \Author[2]{Aud Else}{Berglen Erikson}
 \Author[3]{Lisa}{Emberson}
 \Author[3]{Connie}{O'Neill}
-%\Author[2]{Aud Else}{Berglen Eriksen}
-%\Author[1]{Bj{\o}rg}{Rognerud}
 \Author[1]{Frode}{Stordal}
 \Author[1]{Terje}{Koren Berntsen}
 
@@ -106,7 +105,7 @@
 
 \correspondence{Stefanie Falk (stefanie.falk@geo.uio.no)}
 
-\runningtitle{2018 heatwave and implication on ozone induced damage on vegetation in subarctic climate}
+\runningtitle{Ozone induced damage on vegetation in subarctic climate}
 
 \runningauthor{Falk et al.}
 
@@ -129,6 +128,7 @@
 
 
 \begin{abstract}
+  In the future, persitent heatwaves may occur more often. This
   An increased occurrence of persistent heatwaves, as one possible future scenario, generates favorable conditions for the formation of ambient air ozone. Vegetation highly specialized to sub-arctic climate is vulnerable to rapid environmental changes inflicted by global warming and might become more susceptible to ozone in the future. Over large parts of Europe the summer 2018 had been extraordinarily hot and dry and caused large wildfires in northern Sweden in particular. This can be regarded as a test case for such a future scenario. In both 2018 and 2019, we have monitored ambient air ozone concentrations at the Norwegian Institute of Bioeconomy Research (NIBIO) Environment Centre Svanhovd in Northern Norway. Due to data acquisition problems, ozone concentrations for two weeks in July 2018 were missing from our record. We present a reconstruction based on probability density function with respect to the Swedish and Finnish atmospheric monitoring sites in the region. Over all, ozone concentrations did not differ significantly between the two years. While temperatures and global irradiance diverged significantly from multi annual mean, precipitation varied only to some extend. Coincidentally, we have observed ozone-induced visible injuries on clovers in the ozone garden at Svanhovd in 2018, but not in 2019. We investigate the difference in uptake of ozone using the DO3SE model, with respect to the typical vegetation (beech/birch and conifers) at the location. We assess whether critical levels for these species were breached during the summer seasons. We find that an unadjusted transfer of currently used standard parameters and methodes on ozone damage assessment (IPC Mapping Manual) to vegetation in the subarctics will result in an missinterpretation of POD1 values. {\bf TODO: Results. Difference in POD1 compared to mapping manual parameterization.}
 \end{abstract}
 
@@ -516,9 +516,17 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 
 
 \subsection{Model parameters}
-A comprehensive list of model parameters used in this study can be found in Supplement~Table~S1. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($\left<f\right> = 2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively. 
+A comprehensive list of model parameters used as starting point in this study can be found in Supplement~Table~S1. These default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual} in the following. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($\left<f\right> = 2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively.
+As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.\\
 
-As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.
+In addition to the mapping manual PFTs, we derived hypothetical PFTs optimized for the climatic conditions in the target region.
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{javis_funcs_temp_hist_grassland}\\
+  \includegraphics[width=8.3cm]{javis_funcs_f_light_grassland}
+\caption{TEXT}
+\label{fig:f_temp_grassland}
+\end{figure}
 
 {\bf TODO: Write about boreal and cold parameter sets and their justification. Write about suggested method for optimizing PFTs in a simple but physiological way based on optimizing maximum climatological mean $g_\mathrm{sto}$ and morning responds. If plants have a short growing season up north optimizing \chem{CO_2} uptake around noon (highest light intensity) and speed up opening of stomata at lower intensities (morning), additional contraint lower climatological variance?}
 
