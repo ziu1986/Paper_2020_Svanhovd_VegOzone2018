@@ -172,54 +172,85 @@ Even though long-term (pre 1950) observations of surface ozone concentrations ar
 Ozone acts as an oxidative stress to plants. Its main action is imposed through reactions occurring in the cell walls and cell membranes of mesophyll cells inside the leaves. Ozone enters the leaves through stomata, that are kept open to allow for gas exchange allowing the entry of CO2 for photosynthesis and loss of H2O vapour via the plant transpiration stream. Stomatal aperture, and hence stomatal conductance to these gases (including ozone) will vary over the course of the day and growing season primarily to balance CO2 uptake against H2O vapour  loss.  The higher the stomatal conductance, the higher the potential for ozone uptake.\\
 
 {\bf TODO: Move to Section~\ref{sec:do3se}.}
-The opening of stomata is governed by different environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,ICP:MappingManual2017}:
+The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,ICP:MappingManual2017}:
 \begin{equation}
   g^k_\text{sto, m} = g^k_\text{max, m} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_T \cdot f^k_D \cdot f^k_\text{SW}\right\}}.
   \label{eq:stomatal}
 \end{equation}
 %
-The factors herein are normalized and vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with plant functional type (PFT) $k$.
+Where gmax is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
 
-The temperature adjustment function
+The temperature adjustment function is defined as
 %
 \begin{equation}
-  f_T = \frac{T_\text{2m}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{2m}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
+  f_T = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
   \label{eq:f_temp}
 \end{equation}
-with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ is a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various plant functional types.
-%
-the water vapor pressure deficit penalty factor
+with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various species or PFT and $T_\mathrm{air}$ is the surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
+
+The water vapor pressure deficit function is
 %
 \begin{equation}
-  f_D = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}.
+  f_D = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
   \label{eq:f_vpd}
 \end{equation}
 %
-with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describes the stomata reaction to imminent heat stress.
+where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
 
-The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The correction factor $f_\mathrm{light}$ in dependency of PPFD is:
+The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative gsto and PPFD ($f_\mathrm{light}$) is given by
+%
 \begin{equation}
-  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD}).
+  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
   \label{eq:flight}
 \end{equation}
+%
+where $\alpha_\mathrm{light}$ is a slope parameter describing how fast stomata open or close at low light intensities.
 
+\citet{ACP:Bueker2012} discusses several formulations available to describe the reduction in stomata conductance due to water content in the soil. Here we use the relationship between reative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
+%
+\begin{equation}
+  f_\mathrm{SW} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
+    \label{eq:fsw}
+\end{equation}
+%
+where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the paramters describing the $f_\mathrm{SW}$ relationship. The DO3SE model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a species or PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system.   
 
-\citet{ACP:Bueker2012} discusses several formulations available to describe the reduction in stomata conductance due to water content in the soil.
-
-To measure the risk of damage inflicted to vegetation through ozone, many different metrics have been defined. Two main types can be differentiated, concentration-based (e.g., $\mathrm{AOT_{40}}$) and flux-based (e.g.,$\mathrm{POD_{0.1}}$) metrics. Due to their simplicity, $\mathrm{AOT_{x}}$ are still widely used, despite the actual integrated flux of ozone entering through the stomata is more relevant for an estimation of the actual toxic dose \citep{ICP:MappingManual2017}. 
-The Accumulated Ozone Exposure over a threshold concentration of $\mathrm{x}$ in units of $\unit{ppb}$ is defined as:
+To measure the risk of damage inflicted to vegetation through ozone, many different metrics have been defined. Two main types can be differentiated, concentration-based or flux-based metrics, e.g., Accumulated Over a Threshold $\mathrm{x}$ ($\mathrm{AOT_x}$) and Phyto-toxic Ozone Dose over a threshold $\mathrm{y}$ ($\mathrm{POD_y}$), respectively. Due to their simplicity, $\mathrm{AOT_x}$ are still widely used, despite the actual integrated flux of ozone entering through the stomata being more relevant for an estimation of the actual phyto-toxic ozone dose \citep{ICP:MappingManual2017}. 
+The $\mathrm{AOT_x}$ in units of $\unit{ppb}$ is defined as:
 \begin{equation}
   \mathrm{AOT_x} = \int{\mathrm{max(\chem{[O_3]}-x)}\cdot \mathrm{dt}},
   \label{eq:aot}
 \end{equation}
-with the ambient ozone concentration $\chem{[O_3]}$. The integration time varies, but is usually defined from $8\,\unit{am}-8\,\unit{pm}$.
-The Phototoxic Ozone Dose (POD) over a threshold y is defined as:
+with the ambient ozone concentration $\chem{[O_3]}$. The  time over which the integration is calculated varies, but is usually defined from $8\,\unit{am}-8\,\unit{pm}$.
+The $\mathrm{POD_y}$ is calculated by first estimating the stomatal \chem{O_3} flux ($\Phi_\mathrm{sto}$) calculated based on the assumption that the concentration of \chem{O_3} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf. The terms $r_c$ (leaf surface resistance) and $r_b$ (quasi-laminar resistance) allow for the deposition of \chem{O_3} to the leaf and the fraction that is taken up via the stomata. 
+%
 \begin{equation}
-  \mathrm{POD_y} = \int{\mathrm{max(\Phi_\chem{[O_3]}-y)}\cdot \mathrm{dt}},
+  \Phi_\mathrm{sto} = \chem{[O_3]} \cdot \frac{u(z_1) \cdot g_\mathrm{sto} \cdot r_c}{r_b + r_c}.
+  \label{eq:flux_stomata}
+\end{equation}
+%
+The quasi-laminar boundary layer resistance is calculated by
+%
+\begin{equation}
+  r_b = 1.3 \cdot 150 \cdot \sqrt{\frac{L}{u(z_1)}}.
+  \label{eq:quasi_laminar_resist}
+\end{equation}
+%
+Where $L$ is the cross-wind leaf dimension, $u(z_1)$ the wind speed at height $z_1$, and the factor $1.3$ accounts for the diffusivities between heat and \chem{O_3}. $\mathrm{POD_y}$ is then calculated according to:
+%
+\begin{equation}
+  \mathrm{POD_y} = \int{(\Phi_\mathrm{sto}-y)\cdot \mathrm{dt}},
   \label{eq:pod}
 \end{equation}
-with the ambient ozone flux through the stomata $\Phi_\chem{[O_3]} = g_\mathrm{sto} \cdot \chem{[O_3]}$ and a flux threshold $\mathrm{y}$ representing the detoxification potential of the plant. The stomatal conductance is either measured directly or computed in accordance to Eq.~(\ref{eq:stomatal}).\\
+%
+with the hourly averaged ambient air ozone flux through the stomata Eq.~(\ref{eq:flux_stomata}) and a flux threshold $\mathrm{y}$ both given in units of \unit{nmol\,\chem{O_3}\,m^{-2}\,\mathrm{PLA}\,s^{-1}}. The flux threshold $\mathrm{y}$ is representing the detoxification potential of the plant and is typically only exceeded during daylight hours (i.e. when global radiation is above $50\,\unit{W\,m^{-2}}$).
 
+Finally, exceedance of the flux-based critical level (CL) is calculated by:
+%
+\begin{equation}
+  \mathrm{CL_{exeed}} = \mathrm{POD_y} - \mathrm{CL}.
+\end{equation}
+%
 
 According to a report by the Norwegian Meteorological institute \citep{MetNOR2019}, the summer of 2018 was the warmest and driest ever recorded in eastern, western, and southern Norway. In the north (including Finnmark), it was amongst the warmest on record -- favorable conditions for boundary layer ozone formation.
 
