@@ -79,7 +79,7 @@
 \begin{document}
 
 %\title{The 2018 heatwave and its implications on ozone induced damage on vegetation in a subarctic climate}
-\title{Characterizing subarctic biomes for land surface modeling of pollution and climate risk.}
+\title{Characterizing subarctic biomes for land surface modeling of pollution and climate risk}
 
 
 % \Author[affil]{given_name}{surname}
@@ -105,7 +105,7 @@
 
 \correspondence{Stefanie Falk (stefanie.falk@geo.uio.no)}
 
-\runningtitle{Ozone induced damage on vegetation in subarctic climate}
+\runningtitle{Subarctic biomes for land surface modelling}
 
 \runningauthor{Falk et al.}
 
@@ -130,7 +130,7 @@
 \begin{abstract}
 Here we assess the importance of characterization of key meteorological variables and air pollution profiles on the modeled susceptibility of subarctic vegetation to ozone. Changes in climate (e.g. temperature, water availability) will manifest in both direct and indirect effects influencing the species' sensitivity to air pollution. A likely increase in frequency of persistent heatwaves in the future, will inflict heat related stress while generating favorable conditions for the formation of ambient air ozone, e.g. due to wildfires.
 We have monitored ambient air ozone concentrations at the Norwegian Institute of Bioeconomy Research (NIBIO) Environment Centre Svanhovd in Northern Norway in the vegetation period 2018/19. Due to data acquisition problems, ozone concentrations for two weeks in July 2018 were missing from our record. We present a reconstruction based on probability density function with respect to the Swedish and Finnish atmospheric monitoring sites and compare with available surface ozone products for the region. Over all, ozone concentrations did not differ significantly between the two years. While temperatures and global irradiance diverged substantially from the multi annual mean precipitation varied only to some extend. 
-We investigate the difference in uptake of ozone using the DO3SE model, for typical vegetation at the location. We find that bespoke parameterization for subarctic vegetation is essential for an accurate estimation of Phototoxic Ozone Dose (POD) and an assessment of damage risk. Accurate estimates of the start and length of growing season are also crucial.
+We investigate the difference in uptake of ozone using the $\mathrm{DO_3SE}$ model, for typical vegetation at the location. We find that bespoke parameterization for subarctic vegetation is essential for an accurate estimation of Phototoxic Ozone Dose (POD) and an assessment of damage risk. Accurate estimates of the start and length of growing season are also crucial.
 We find that temperature and its derivative vapor pressure deficit are likely the most important climate variables while the variability of ozone concentration within climatologically reasonable limits plays a minor role.
 The use of subarctic parameterization suggests an improvement in risk assessment as POD values are increased in 2018; corroborated by evidence of visible injury in the Svanhovd ozone garden.
 \end{abstract}
@@ -171,51 +171,18 @@ Even though long-term (pre 1950) observations of surface ozone concentrations ar
 
 Ozone acts as an oxidative stress to plants. Its main action is imposed through reactions occurring in the cell walls and cell membranes of mesophyll cells inside the leaves. Ozone enters the leaves through stomata, that are kept open to allow for gas exchange allowing the entry of CO2 for photosynthesis and loss of H2O vapour via the plant transpiration stream. Stomatal aperture, and hence stomatal conductance to these gases (including ozone) will vary over the course of the day and growing season primarily to balance CO2 uptake against H2O vapour  loss.  The higher the stomatal conductance, the higher the potential for ozone uptake.\\
 
-{\bf TODO: Move to Section~\ref{sec:do3se}.}
-The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,ICP:MappingManual2017}:
-\begin{equation}
-  g^k_\text{sto, m} = g^k_\text{max, m} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_T \cdot f^k_D \cdot f^k_\text{SW}\right\}}.
-  \label{eq:stomatal}
-\end{equation}
-%
-Where gmax is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_T$), water vapor pressure deficit ($f_D$), and soil water content ($f_\text{SW}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
+According to a report by the Norwegian Meteorological institute \citep{MetNOR2019}, the summer of 2018 was the warmest and driest ever recorded in eastern, western, and southern Norway. In the north (including Finnmark), it was amongst the warmest on record -- favorable conditions for planetary boundary layer ozone formation.
 
-The temperature adjustment function is defined as
-%
-\begin{equation}
-  f_T = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
-  \label{eq:f_temp}
-\end{equation}
-with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various species or PFT and $T_\mathrm{air}$ is the surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
+An unusually weak and northward shifted jet stream allowed for a persistent high pressure system above northern Europe, including Fennoscandia which blocked the pressure systems for several consecutive months. In the period May -- July, southern Norway had temperatures $4\,\unit{^\circ C}$ above normal. While southern Norway had only about $60\,\unit{\%}$ of normal precipitation, northern Norway as a whole had close to normal precipitation, but with local variations.
 
-The water vapor pressure deficit function is
-%
-\begin{equation}
-  f_D = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
-  \label{eq:f_vpd}
-\end{equation}
-%
-where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
+Heat and drought stress on vegetation was exceptional not only in large parts of Fennoscandia but also in much of Europe, where the influence of the high pressure system extended even over a period of five months (April/May, July--September). These conditions gave rise to massive forest fires in different parts of Europe and thus an increase in ozone precursors. Boreal wildfires emit in addition to \chem{CO_2} also \chem{CO} ($\chem{[CO]}/\chem{[CO_2]} \propto 6-13\,\unit{\%}$) and \chem{VOCs} ($\chem{[VOCs]}/\chem{[CO_2]} \propto 0.5-1.5\,\unit{\%}$) \citep{AE:Cofer1990}.
 
-The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative gsto and PPFD ($f_\mathrm{light}$) is given by
-%
-\begin{equation}
-  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
-  \label{eq:flight}
-\end{equation}
-%
-where $\alpha_\mathrm{light}$ is a slope parameter describing how fast stomata open or close at low light intensities.
+A total of 2079 forest fires of different size were registered in Norway in 2018, twice as many as in the preceding years 2016/17 \citep{DSB2019}, last accessed April 2020). In Sweden, about 500 fires had been reported (five times more than in a usual summer) and an estimated total of $25000\,\unit{hectare}$ burned down in the course of the most extensive fires in central Sweden (G\"{a}vleborgs, J\"{a}mtlands, and Dalarnas l\"{a}n) in younger history \citep{SOU2019}. Coincident peak \chem{[O_3]} are found in ozone monitoring data from Svanhovd but also over whole northern Fennoscandia in July (see Fig.~\ref{fig:data_svanvik_2018_2019} or Fig.~\ref{fig:ozone_reconstruction_2018_07}).
 
-\citet{ACP:Bueker2012} discusses several formulations available to describe the reduction in stomata conductance due to water content in the soil. Here we use the relationship between reative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
-%
-\begin{equation}
-  f_\mathrm{SW} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
-    \label{eq:fsw}
-\end{equation}
-%
-where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the paramters describing the $f_\mathrm{SW}$ relationship. The DO3SE model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a species or PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system.   
+Like in the 2003 drought period, elevated ozone in Europe was likely promoted by a combination of various other factors as well, such as biogenic VOC emissions, reduced cloud and hence increased solar radiation, faster photochemical reactions, and reduced dry deposition and turbulent mixing due to stagnant weather conditions \citep{JGR:Solberg2018}.\\
 
-To measure the risk of damage inflicted to vegetation through ozone, many different metrics have been defined. Two main types can be differentiated, concentration-based or flux-based metrics, e.g., Accumulated Over a Threshold $\mathrm{x}$ ($\mathrm{AOT_x}$) and Phyto-toxic Ozone Dose over a threshold $\mathrm{y}$ ($\mathrm{POD_y}$), respectively. Due to their simplicity, $\mathrm{AOT_x}$ are still widely used, despite the actual integrated flux of ozone entering through the stomata being more relevant for an estimation of the actual phyto-toxic ozone dose \citep{ICP:MappingManual2017}. 
+To measure the risk of damage inflicted to vegetation through ozone, many different metrics have been defined. Two main types can be differentiated, concentration-based or flux-based metrics, e.g., Accumulated Over a Threshold $\mathrm{x}$ ($\mathrm{AOT_x}$) and Phyto-toxic Ozone Dose over a threshold $\mathrm{y}$ ($\mathrm{POD_y}$), respectively. Due to their simplicity, concentration-based metrics are still widely used, despite the actual integrated flux of ozone entering through the stomata being more relevant for an estimation of the phyto-toxic ozone dose \citep{GCB:Mills2010,ICP:MappingManual2017}.
+
 The $\mathrm{AOT_x}$ in units of $\unit{ppb}$ is defined as:
 \begin{equation}
   \mathrm{AOT_x} = \int{\mathrm{max(\chem{[O_3]}-x)}\cdot \mathrm{dt}},
@@ -252,27 +219,16 @@ Finally, exceedance of the flux-based critical level (CL) is calculated by:
 \end{equation}
 %
 
-According to a report by the Norwegian Meteorological institute \citep{MetNOR2019}, the summer of 2018 was the warmest and driest ever recorded in eastern, western, and southern Norway. In the north (including Finnmark), it was amongst the warmest on record -- favorable conditions for planetary boundary layer ozone formation.
-
-An unusually weak and northward shifted jet stream allowed for a persistent high pressure system above northern Europe, including Fennoscandia which blocked the pressure systems for several consecutive months. In the period May -- July, southern Norway had temperatures $4\,\unit{^\circ C}$ above normal. While southern Norway had only about $60\,\unit{\%}$ of normal precipitation, northern Norway as a whole had close to normal precipitation, but with local variations.
-
-Heat and drought stress on vegetation was exceptional not only in large parts of Fennoscandia but also in much of Europe, where the influence of the high pressure system extended even over a period of five months (April/May, July--September). These conditions gave rise to massive forest fires in different parts of Europe and thus an increase in ozone precursors. Boreal wildfires emit in addition to \chem{CO_2} also \chem{CO} ($\chem{[CO]}/\chem{[CO_2]} \propto 6-13\,\unit{\%}$) and \chem{VOCs} ($\chem{[VOCs]}/\chem{[CO_2]} \propto 0.5-1.5\,\unit{\%}$) \citep{AE:Cofer1990}.
-
-A total of 2079 forest fires of different size were registered in Norway in 2018, twice as many as in the preceding years 2016/17 \citep{DSB2019}, last accessed April 2020). In Sweden, about 500 fires had been reported (five times more than in a usual summer) and an estimated total of $25000\,\unit{hectare}$ burned down in the course of the most extensive fires in central Sweden (G\"{a}vleborgs, J\"{a}mtlands, and Dalarnas l\"{a}n) in younger history \citep{SOU2019}. Coincident peak \chem{[O_3]} are found in ozone monitoring data from Svanhovd but also over whole northern Fennoscandia in July (see Fig.~\ref{fig:data_svanvik_2018_2019} or Fig.~\ref{fig:ozone_reconstruction_2018_07}).
-
-Like in the 2003 drought period, elevated ozone in Europe was likely promoted by a combination of various other factors as well, such as biogenic VOC emissions, reduced cloud and hence increased solar radiation, faster photochemical reactions, and reduced dry deposition and turbulent mixing due to stagnant weather conditions \citep{JGR:Solberg2018}.\\
-
 In terms of $\mathrm{AOT_{40}}$, the threshold for protection of vegetation of $3000\,\unit{ppb}$ (integrated over the growing season) given by the EU directive has been well exceeded at many ozone monitoring sites in Southern Norway in the 2018 growing season \citep{NILU2019}. {\bf TODO: might be interesting to look at Mills et al 2003 and the different spatial extents of risk estimated when using AOT40 vs PODy. That could be useful to explain why we focus on PODy (rather then AOT40).- Lisa Come back to this later on in the discussions(?) - it has not been breached at Svanvik in northern Fennoscandia.}
 
 Within the scope of our project to assess probable effects of midnight sun conditions on ozone uptake by plants and resultant enhanced susceptibility to ozone inflicted damage, we conducted ambient air ozone concentration measurements at Svanhovd in the growing seasons of 2018/19 in collaboration with the Norwegian Institute for Air Research (NILU). 
 In 2018, we have observed ozone damage on semi-natural vegetation (clover) and crops (tobacco) in the ozone garden at the Norwegian Institute of Bioeconomy Research (NIBIO) Environment Centre Svanhovd. In contrast, no such damage was found on the clovers in 2019, although it was found on the sensitive tobacco cultivar. This indicates that the vegetation may have been more affected by ozone in 2018 than in 2019.
-The respective observed average ozone concentration in 2018/19, however, did not differ significantly by statistical means.
 
 As previously mentioned, ozone damage is rather driven by the actual uptake of ozone ($\mathrm{POD_y}$) than by the accumulated ambient air concentration above a certain threshold ($\mathrm{AOT_x}$). Through the stomatal conductance, $\mathrm{POD_y}$ depends on environmental drivers such as ambient air temperature, photoactive radiation, soil water availability, and water vapor pressure deficit.
 
 In this study, we investigate potential main drivers for the observed ozone damage in the growing season 2018 at NIBIO Environment Centre Svanhovd in contrast to 2019. We compare $\mathrm{POD_y}$ values for natural and semi-natural vegetation for derived climatological averages of environmental conditions at Svanhovd as well as for the growing seasons 2018/19 which shall serve as case studies.
 
-The observation site at NIBIO Environment Centre Svanhovd and all related data are presented in Section~\ref{sec:data}. In Section~\ref{sec:stats}, we derive climatologies for surface ozone concentration at Svanhovd and northern Fennoscandia based on in situ observations and also compute climatologies of surface temperature, precipitation, and global radiation for Svanhovd. Based on these, we evaluate anomalies of environmental key variables in 2018/19 by statistical means. In addition, the derived surface ozone concentration climatology for northern Fennoscandia will be compared with available ozone reanalysis products. We use the DO3SE model to estimate the ozone uptake by natural and semi-natural vegetation to investigate main environmental drivers for the observed ozone damage in 2018 (Section~\ref{sec:do3se}). In this context, we biefely introduce the main DO3SE model equations and derive bespoke parameterizations for subarctic species. In Section~\ref{sec:conc} finally, we will summarize our results, draw conclusions, and give an outlook on further work.
+The observation site at NIBIO Environment Centre Svanhovd and all related data are presented in Section~\ref{sec:data}. In Section~\ref{sec:stats}, we derive climatologies for surface ozone concentration at Svanhovd and northern Fennoscandia based on in situ observations and also compute climatologies of surface temperature, precipitation, and global radiation for Svanhovd. Based on these, we evaluate anomalies of environmental key variables in 2018/19 by statistical means. In addition, the derived surface ozone concentration climatology for northern Fennoscandia will be compared with available ozone reanalysis products. We use the $\mathrm{DO_3SE}$ model to estimate the ozone uptake by natural and semi-natural vegetation to investigate main environmental drivers for the observed ozone damage in 2018 (Section~\ref{sec:do3se}). In this context, we biefely introduce the main $\mathrm{DO_3SE}$ model equations and derive bespoke parameterizations for subarctic species. In Section~\ref{sec:conc} finally, we will summarize our results, draw conclusions, and give an outlook on further work.
 
 
 \section{Data}
@@ -320,16 +276,18 @@ In 2018, global irradiance $Q_0$ (Fig.~\ref{fig:data_svanvik_2018_2019}d) displa
 
 \subsubsection{Ozone garden}
 \label{subsubsec:ozone_garden}
-{\bf TODO: Details about the ozone garden and observed damage on ozone sensitive plants. We will need to come back to this in the discussion section after the Do3se modeling part.}
+An ozone garden consists of carefully selected plant species of which one cultivar is more sensitive to ozone than the other. At the NIBIO Environment Centre Svanhovd, the likely northern-most ozone garden to date, an ozone garden was installed in the course of our project. Cultivated species were, e.g. clover, tobacco, and beans. As shown in Fig.~\ref{fig:ozone_garden}, the plants had to be protected from herbivores with a wire-mesh fence. In 2018, we have observed ozone damage on semi-natural vegetation (clover) and crops (tobacco) in the ozone garden. In contrast, no such damage was found on the clovers in 2019, although it was found on the sensitive tobacco cultivar. This indicates that the vegetation may have been more affected by ozone in 2018 than in 2019.
+
 \begin{figure}
   \includegraphics[width=8.3cm]{IMG_7739.JPG}
   \caption{Clover in the Svanhovd ozone garden. The plants had to be secured against herbivores with a wire-mesh fence. The plants shown are approximately $6-12\,\unit{cm}$ in height.}
+  \label{fig:ozone_garden}
 \end{figure}
 
 
 \subsection{Other data}
 \label{subsec:other_data}
-To determine the significance of the ozone conditions in 2018, we have to derive a surface ozone concentration climatology for Svanvik. From 1986--1996 ozone monitoring has been operated by NILU at Svanhovd, but no ozone measurements have been conducted for the past $14\,\unit{years}$. Due to probable changes in northern hemispheric tropospheric background ozone and a reduction of summertime peak values related to ozone precursors that fell under air quality regulations ein Europe, we also have to have a look at ozone observations at other sites in northern Fennoscandia. In regard to ozone, available observational data are sparse in this region. An overview over the geographical locations of conducted atmospheric monitoring in the past and present is given in Fig.~\ref{fig:station_map_fennoscandia}. The data is described in Section~\ref{subsubsec:ebas}. 
+To determine the significance of the ozone conditions in 2018, we have to derive a surface ozone concentration climatology for Svanvik. From 1986--1996 ozone monitoring has been operated by NILU at Svanhovd, but no ozone measurements have been conducted for the past $14\,\unit{years}$. Due to probable changes in northern hemispheric tropospheric background ozone and a reduction of summertime peak values related to ozone precursors which fell under air quality regulations in Europe, we also have to have a look at ozone observations at other sites in northern Fennoscandia. In regard to ozone, available observational data are sparse in this region. An overview over the geographical locations of conducted atmospheric monitoring in the past and present is given in Fig.~\ref{fig:station_map_fennoscandia}. The data is described in Section~\ref{subsubsec:ebas}. 
 As additional complement to observational data which is not available at all times and spatially sparse, we also look at various ozone reanalysis products (Section~\ref{subsubsec:ozone_rea}).
 
 \begin{figure}[t]
@@ -514,16 +472,57 @@ To conclude, ozone concentrations in 2018 have been elevated compared to the res
 
 \section{DO3SE modeling}
 \label{sec:do3se}
-To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model the ozone uptake using the DO3SE model and give an estimate on biomass reduction due to ozone uptake.
+To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model the ozone uptake using the $\mathrm{DO_3SE}$ model and give an estimate on biomass reduction due to ozone uptake.
 
 \subsection{Model description}
+\label{subsec:model_describtion}
 
-{\bf TODO: Some general words about DO3SE model}
+The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,ICP:MappingManual2017}:
+\begin{equation}
+  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SW}\right\}}.
+  \label{eq:stomatal}
+\end{equation}
+%
+Where $g_\mathrm{max}$ is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water content ($f_\text{SW}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
 
+The temperature adjustment function is defined as
+%
+\begin{equation}
+  f_\mathrm{T} = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
+  \label{eq:f_temp}
+\end{equation}
+with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various species or PFT and $T_\mathrm{air}$ is the surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
+
+The water vapor pressure deficit function is
+%
+\begin{equation}
+  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
+  \label{eq:f_vpd}
+\end{equation}
+%
+where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
+
+The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative $g_\mathrm{sto}$ and PPFD is given by
+%
+\begin{equation}
+  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
+  \label{eq:flight}
+\end{equation}
+%
+where $\alpha_\mathrm{light}$ is a slope parameter describing how fast stomata open or close at low light intensities.
+
+The $\mathrm{DO_3SE}$ model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a species or PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system. \citet{ACP:Bueker2012} discuss several formulations available to parameterize the reduction in stomata conductance due to water content in the soil. Here we use the relationship between reative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
+%
+\begin{equation}
+  f_\mathrm{SW} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
+    \label{eq:fsw}
+\end{equation}
+%
+where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the paramters describing the $f_\mathrm{SW}$ relationship.    
 
 \subsection{Input data and gap filling methodology}
 \label{subsec:ozone_reco}
-The DO3SE model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
+The $\mathrm{DO_3SE}$ model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
 \begin{equation}
   \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
 \end{equation}
@@ -536,7 +535,7 @@ The following gap filling methodology was devised for the meteorological input d
 \item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
 \end{itemize}
 
-Because the available reanalysis products for surface ozone have their limitations, we deem it necessary to reconstruct the missing data in 2018 for the purpose of DO3SE modeling by applying a Reynolds's decomposition of the form:
+Because the available reanalysis products for surface ozone have their limitations, we deem it necessary to reconstruct the missing data in 2018 for the purpose of $\mathrm{DO_3SE}$ modeling by applying a Reynolds's decomposition of the form:
 \begin{equation}
   \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
   \label{eq:reynolds_decomp}
@@ -559,9 +558,12 @@ In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}b), these hourly ozone co
 \end{equation}
 Finally, we add the bias corrected Svanvik ozone climatology and derive a reconstructed ozone concentration time series \chem{[O_3]_{hourly}^{Svanvik,\,reco}}. In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}c), the result is shown together with the observed data and the Copernicus Regional Model Reanalysis at the nearest grid point for comparison.
 
-
 \subsection{Model parameters}
-A comprehensive list of model parameters used as starting point in this study can be found in Supplement~Table~S1. These default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual} in the following. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT (Norway spruce, birch, perennial grassland) are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia {\bf (TODO: Ane, species name :-))} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard DO3SE parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($\left<f\right> = 2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively.
+Here, we will derive bespoke parameterizations for the main vegetation types (Norway spruce, birch, perennial grassland) surrounding the NIBIO Environment Centre Svanhovd. We roughly estimated land use types for a $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban.
+
+A comprehensive list of model parameters used as starting point in this study can be found in Supplement~Table~S1. These default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual}. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. {\bf TODO: Compare with latitudinal model?} The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively {\bf Accuracy?}. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia \emph{Betula nana} {\bf (TODO: Right name?)} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area.
+%To localize leaf area index (LAI), we roughly characterize land use for the $1\times 1\,\unit{km}$ patch centered at Svanhovd from areal pictures at kartverket.no: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban. We normalize LAI to deciduous trees based on standard $\mathrm{DO_3SE}$ parameterization: $f_\text{con}=5/4\cdot f_\text{dec}$, $f_\text{grass}=7/8\cdot f_\text{dec}$. With these, we re-scale the average maximum LAI from MODIS ($\left<f\right> = 2.7$). This results in 3.75, 3, and 2.625 for Norway spruce, birch, and grassland, respectively.
+
 As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.\\
 
 In addition to the mapping manual PFTs, we derived hypothetical PFTs optimized for the climatic conditions in the target region.
@@ -582,7 +584,7 @@ We have modeled $\mathrm{POD_y}$ for three natural/semi-natural vegetation PFTs,
 
 As expected, $\mathrm{POD_y}$ is higher in 2018 than in 2019 for all PFTs. In the end of the 2018 season, Birch took up $13.1\,\unit{mmol\,m^{-2}\,PLA}$, while perennial grassland had an uptake of $4.5\,\unit{mmol\,m^{-2}\,PLA}$. The largest interannual variation is also found in Birch ($2.1\,\unit{mmol\,m^{-2}\,PLA}$) and perennial grassland ($2.6\,\unit{mmol\,m^{-2}\,PLA}$). Whereas, there is only a small difference for Norway spruce ($0.3\,\unit{mmol\,m^{-2}\,PLA}$) between the two years.
 
-Except for perennial grassland, model integrations with climatological forcings show higher $\mathrm{POD_y}$ than 2018. This can be explained by means of non linearity in modeled stomatal conductance (Eq.~(\ref{eq:stomatal})) in Eq.~(\ref{eq:pod}). The climatology in $\mathrm{POD_y}$ therefore represents rather an ideal year for growth then a true climatology. To establish a true climatology, it would be necessary to run the DO3SE model for 10--20 years with respective observed phenology as well as meteorological and ozone forcing. 
+Except for perennial grassland, model integrations with climatological forcings show higher $\mathrm{POD_y}$ than 2018. This can be explained by means of non linearity in modeled stomatal conductance (Eq.~(\ref{eq:stomatal})) in Eq.~(\ref{eq:pod}). The climatology in $\mathrm{POD_y}$ therefore represents rather an ideal year for growth then a true climatology. To establish a true climatology, it would be necessary to run the $\mathrm{DO_3SE}$ model for 10--20 years with respective observed phenology as well as meteorological and ozone forcing. 
 
 Based on this interpretation of climatology in $\mathrm{POD_y}$, we can learn more about potential ozone damage. The time derivative $\frac{\mathrm{\Delta POD_y}}{\Delta t}$ displays very different features for each PFT and meteorological forcing. Although Norway spruce shows a low interannual variation, $\frac{\mathrm{\Delta POD_y}}{\Delta t}$ (Fig.~\ref{fig:pody_rel}) indicates an extended period of higher than average ozone uptake in spring 2018 (steep slope), while ozone uptake in June/July was anomalously low in 2019 (shallow slope) but high in fall. This is most prominently visible in Fig.~\ref{fig:pody}h) for perennial grassland, where consecutive periods of low $G_\text{sto}^\text{leaf}$ manifest in three plateaus in $\mathrm{POD_y}$ throughout the season (1: $184-198\,\unit{doy}$, 2: $209-228\,\unit{doy}$, 3: $235-240\,\unit{doy}$). An episode with anomalous high ozone in mid June ($194\,\unit{doy}$) can be identified but does not amount to unusually high ozone uptake on an annual basis.
 
@@ -590,7 +592,7 @@ The estimated biomass reduction in \unit{\%} due to \chem{O_3} following \citet{
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3}
-  \caption{$\mathrm{POD_y}$ modeling results from DO3SE model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to non linearity in stomatal conductance, the climatological year represents rather an optimal year then a true climatology. (a)--(c) Birch; (d)--(f) Norway spruce; (g)--(i) perennial grassland. From left to right: 2018, 2019, and climatological year.}
+  \caption{$\mathrm{POD_y}$ modeling results from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to non linearity in stomatal conductance, the climatological year represents rather an optimal year then a true climatology. (a)--(c) Birch; (d)--(f) Norway spruce; (g)--(i) perennial grassland. From left to right: 2018, 2019, and climatological year.}
   \label{fig:pody}
 \end{figure*}
 
@@ -613,7 +615,7 @@ clim. & 13.81 & 2.58 & 6.67 & 8.29$^*$\\
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{DO3SE_results_rel}
-  \caption{Daily averaged $\mathrm{\Delta POD_y}/\Delta t$ from DO3SE model for three different PFTs over day of year (doy), March--October. Error bars/-bands indicate $1 \sigma$ standard deviation. (a) Birch; (b) Norway spruce; (c) perennial grassland.}
+  \caption{Daily averaged $\mathrm{\Delta POD_y}/\Delta t$ from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. Error bars/-bands indicate $1 \sigma$ standard deviation. (a) Birch; (b) Norway spruce; (c) perennial grassland.}
   \label{fig:pody_rel}
 \end{figure}
 
