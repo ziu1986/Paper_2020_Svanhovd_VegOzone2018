@@ -560,14 +560,10 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 
 \subsection{Model parameters}
 We roughly estimated land use types for an approximately $1\times 1\,\unit{km}$ patch centered at the NIBIO Environment Centre Svanhovd from Fig.~\ref{fig:svanhovd_research_station}: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban.
-In the following, we derive bespoke parameterizations for the main vegetation types, which we refer to as Norway spruce, birch, perennial grassland. 
+In the following, we derive bespoke parameterizations for the main vegetation types Norway spruce, birch, and perennial grassland. A comprehensive list of model parameters used as starting point in this study can be found in Supplement~Table~S1. Default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual}.
 
-A comprehensive list of model parameters used as starting point in this study can be found in Supplement~Table~S1. These default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual}. Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT are estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{day~of~year}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. From the latitude model typically used for localizing $\mathrm{DO_3SE}$, we get $A_\mathrm{start} = 100\,\unit{doy}$ and $A_\mathrm{end} = 307\,\unit{doy}$ indicating an about $2\,\unit{months}$ longer growing season. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia \emph{Betula pubescens} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area.
-
-
-As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.\\
-
-In addition to the mapping manual PFTs, we derived hypothetical PFTs optimized for the climatic conditions in the target region.
+These suggested, hypothetical PFTs or species parameterizations ought to be better adapted to the climatic conditions in the target region, but have to be varified by experiements. We hypothize that plants are likely to optimize their growth throughout the short growing season and hence the uptake of \chem{CO_2}. For simplicity, we assume a first order proptionality between photosynthesis and $g_\mathrm{sto}$. Plants are therefor likely to optimize their stomatal conductance with respect to climatological drivers.
+In Fig.~\ref{fig:f_temp_grassland}, we display the construction of bespoke PFTs or species temperature and light response function $f_\mathrm{T}$ and $f_\mathrm{light}$ for grassland (for Norway spruce and birch see Appendix~\ref{fig:f_temp_spruce_birch}). The response functions are shown together with climatology probability density functions (PDFs) of temperature and global radiation, respectively. In both cases, a parameterization is considered more optimized the larger the intersection area between the response function and PDF is. With respect to temperature (Fig.~\ref{fig:f_temp_grassland}a)), we assume two different types: \emph{boreal} and \emph{cold}. In both cases, we assume that the species are more tolerant to cold conditions than in the default mapping manual parameterization and shift $f_\mathrm{T}$ towards colder temperature. Herein, \emph{cold} represents a species that is more tolerant to warmer temperatures, but slightly less tolerant to cold temperatures than \emph{boreal}. For Norway spruce, $T_\mathrm{opt}$ are estimated from a longer timeseries of observed \chem{CO_2} uptake over temperature at two observations sites in Finland presented in \citet{TB:Kolari2007}. For the the senisitivity regarding light, we assume that the plants may react either faster or slower to lower light intensities. We qualitatively quantify this by a $\pm 20\,\%$ shift in respective halfway PPFD($f_\mathrm{light}=0.5$). The resulting functions are shown in Fig.~\ref{fig:f_temp_grassland}b). All derived parameters are given in Tables~\ref{tab:sensitivity_tests_temp}--\ref{tab:sensitivity_tests_light}.
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{javis_funcs_temp_hist_grassland}\\
@@ -576,12 +572,69 @@ In addition to the mapping manual PFTs, we derived hypothetical PFTs optimized f
 \label{fig:f_temp_grassland}
 \end{figure}
 
+\begin{table}[t]
+  \caption{Bespoke temperature prameterizations. MM refers to mapping manual \citep{GCB:Mills2010,ICP:MappingManual2017}.}
+  \label{tab:sensitivity_tests_temp}
+  \begin{tabular}{llrrr}
+    \tophline
+    Species & type & $T_\mathrm{min}$ & $T_\mathrm{opt}$ & $T_\mathrm{max}$ \\
+    \middlehline
+    \multirow{3}{*}{Spruce} & MM & 0 & 20 & \multirow{3}{*}{100}\\
+    & Boreal & 0 & 10 & \\
+    & Cold & 0 & 15 & \\
+    \middlehline
+    \multirow{3}{*}{Birch} & MM & 5 & 20 & \multirow{3}{*}{100}\\
+    & Boreal & 0 & 10\\
+    & Cold & 5 & 15\\
+    \middlehline
+    \multirow{3}{*}{Grassland} & MM & 10 & 24 & 36\\
+    & Boreal & 0 & 10 & 24 \\
+    & Cold & 5 & 15 & 36\\
+    \bottomhline
+    \end{tabular}
+\end{table}
+
+\begin{table}[t]
+  \caption{Bespoke light prameterizations. MM refers to mapping manual \citep{GCB:Mills2010,ICP:MappingManual2017}.}
+  \label{tab:sensitivity_tests_light}
+  \begin{tabular}{llr}
+    \tophline
+    Species & type & $\alpha$\\
+    \middlehline
+    \multirow{3}{*}{Spruce} & MM & 0.006 \\
+    & PPFD0.8 & 0.008  \\
+    & PPFD1.2 & 0.005  \\
+    \middlehline
+    \multirow{3}{*}{Birch} & MM & 0.004 \\
+    & PPFD0.8 & 0.005\\
+    & PPFD1.2 & 0.004\\
+    \middlehline
+    \multirow{3}{*}{Grassland} & MM & 0.011\\
+    & PPFD0.8 & 0.014 \\
+    & PPFD1.2 & 0.009 \\
+    \bottomhline
+    \end{tabular}
+\end{table}
+
+
 {\bf TODO: Write about boreal and cold parameter sets and their justification. Write about suggested method for optimizing PFTs in a simple but physiological way based on optimizing maximum climatological mean $g_\mathrm{sto}$ and morning responds. If plants have a short growing season up north optimizing \chem{CO_2} uptake around noon (highest light intensity) and speed up opening of stomata at lower intensities (morning), additional contraint lower climatological variance?}
+An idea to justify our choice based on the fullset of climatological data for Svanvik is shown in Fig.~\ref{fig:javis_func_opt_mean}.
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{javis_func_opt_mean.pdf}
+  \caption{Proposed metric to test bespoke response functions.}
+  \label{fig:javis_func_opt_mean}
+\end{figure}
+
+Start ($A_\text{start}$) and end ($A_\text{end}$) of growing season for each PFT are given in units of day of year (doy) and estimated as follows. Evergreen needle leaf trees are photosynthetic active already at low temperatures \citep{TB:Kolari2007}. This leads necessarily to an increase in observable net photosynthesis. Hence, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine onset and end of growing season. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{doy}$ for 2018 and day 106 in 2019. $A_\text{end}$ amounts to day 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of birch tree, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. From the latitude model typically used for localizing $\mathrm{DO_3SE}$, we get $A_\mathrm{start} = 100\,\unit{doy}$ and $A_\mathrm{end} = 307\,\unit{doy}$ indicating an about $2\,\unit{months}$ longer growing season. For perennial grassland, we assume a latency period of about $1\,\unit{month}$ after snow melt. Data for first snow-free day is taken from the weather station at Øvre Neiden in Sør-Varanger. In both years, the first snow-free day incidents with the estimated date of bud burst. As leafs of birches in northern Fennoscandia \emph{Betula pubescens} are smaller than southern specimen, we have measured their dimension for the purpose of this study and find $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area.
+
+As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth.\\
+
 
 
 \subsection{POD and ozone impact}
 
-We have modeled $\mathrm{POD_y}$ for three natural/semi-natural vegetation PFTs, birch, Norway spruce, and perennial grassland. The results are shown comprehensively in Fig.~\ref{fig:pody} as a function of day of year (doy) for March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$.
+We have modeled $\mathrm{POD_y}$ for three natural/semi-natural vegetation PFTs, birch, Norway spruce, and perennial grassland. The results are shown comprehensively in Fig.~\ref{fig:pody} as a function of doy for March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$.
 
 As expected, $\mathrm{POD_y}$ is higher in 2018 than in 2019 for all PFTs. In the end of the 2018 season, Birch took up $13.1\,\unit{mmol\,m^{-2}\,PLA}$, while perennial grassland had an uptake of $4.5\,\unit{mmol\,m^{-2}\,PLA}$. The largest interannual variation is also found in Birch ($2.1\,\unit{mmol\,m^{-2}\,PLA}$) and perennial grassland ($2.6\,\unit{mmol\,m^{-2}\,PLA}$). Whereas, there is only a small difference for Norway spruce ($0.3\,\unit{mmol\,m^{-2}\,PLA}$) between the two years.
 
@@ -593,7 +646,7 @@ The estimated biomass reduction in \unit{\%} due to \chem{O_3} following \citet{
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3}
-  \caption{$\mathrm{POD_y}$ modeling results from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. Due to non linearity in stomatal conductance, the climatological year represents rather an optimal year then a true climatology. (a)--(c) Birch; (d)--(f) Norway spruce; (g)--(i) perennial grassland. From left to right: 2018, 2019, and climatological year.}
+  \caption{$\mathrm{POD_y}$ modeling results from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) Birch; (c, d) Norway spruce; (e, f) perennial grassland. From left to right: 2018, 2019. {\bf TODO: substitute with figure for boreal PFTs?}}
   \label{fig:pody}
 \end{figure*}
 
