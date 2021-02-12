@@ -230,7 +230,7 @@ In this study, we investigate potential main drivers for the observed ozone dama
 
 The observation site at NIBIO Environment Centre Svanhovd and all related data are presented in Section~\ref{sec:data}. In Section~\ref{sec:stats}, we derive climatologies for surface ozone concentration at Svanhovd and northern Fennoscandia based on in situ observations and also compute climatologies of surface temperature, precipitation, and global radiation for Svanhovd. Based on these, we evaluate anomalies of environmental key variables in 2018/19 by statistical means. In addition, the derived surface ozone concentration climatology for northern Fennoscandia will be compared with available ozone reanalysis products. We use the $\mathrm{DO_3SE}$ model to estimate the ozone uptake by natural and semi-natural vegetation to investigate main environmental drivers for the observed ozone damage in 2018 (Section~\ref{sec:do3se}). In this context, we biefely introduce the main $\mathrm{DO_3SE}$ model equations and derive bespoke parameterizations for subarctic species. In Section~\ref{sec:conc} finally, we will summarize our results, draw conclusions, and give an outlook on further work.
 
-
+\newpage
 \section{Data}
 \label{sec:data}
 
@@ -560,10 +560,28 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 
 \subsection{Model parameters}
 We roughly estimated land use types for an approximately $1\times 1\,\unit{km}$ patch centered at the NIBIO Environment Centre Svanhovd from Fig.~\ref{fig:svanhovd_research_station}: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban.
-In the following, we derive bespoke parameterizations for the main vegetation types Norway spruce, birch, and perennial grassland. A comprehensive list of model parameters used as starting point in this study can be found in Supplement~Table~S1. Default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual}.
 
-These suggested, hypothetical PFTs or species parameterizations ought to be better adapted to the climatic conditions in the target region, but have to be varified by experiements. We hypothize that plants are likely to optimize their growth throughout the short growing season and hence the uptake of \chem{CO_2}. For simplicity, we assume a first order proptionality between photosynthesis and $g_\mathrm{sto}$. Plants are therefor likely to optimize their stomatal conductance with respect to climatological drivers.
-In Fig.~\ref{fig:f_temp_grassland}, we display the construction of bespoke PFTs or species temperature and light response function $f_\mathrm{T}$ and $f_\mathrm{light}$ for grassland (for Norway spruce and birch see Appendix~\ref{fig:f_temp_spruce_birch}). The response functions are shown together with climatology probability density functions (PDFs) of temperature and global radiation, respectively. In both cases, a parameterization is considered more optimized the larger the intersection area between the response function and PDF is. With respect to temperature (Fig.~\ref{fig:f_temp_grassland}a)), we assume two different types: \emph{boreal} and \emph{cold}. In both cases, we assume that the species are more tolerant to cold conditions than in the default mapping manual parameterization and shift $f_\mathrm{T}$ towards colder temperature. Herein, \emph{cold} represents a species that is more tolerant to warmer temperatures, but slightly less tolerant to cold temperatures than \emph{boreal}. For Norway spruce, $T_\mathrm{opt}$ are estimated from a longer timeseries of observed \chem{CO_2} uptake over temperature at two observations sites in Finland presented in \citet{TB:Kolari2007}. For the the senisitivity regarding light, we assume that the plants may react either faster or slower to lower light intensities. We qualitatively quantify this by a $\pm 20\,\%$ shift in respective halfway PPFD($f_\mathrm{light}=0.5$). The resulting functions are shown in Fig.~\ref{fig:f_temp_grassland}b). All derived parameters are given in Tables~\ref{tab:sensitivity_tests_temp}--\ref{tab:sensitivity_tests_light}.
+Default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual} abbrieved MM. A comprehensive list of these model parameters can be found in Supplement~Table~S1.
+Intitial test simulations with the mapping manual derived PFTs showed unrealistically low $g_\mathrm{sto}$ in 2019 (Supplememt~Figs.SX--SX+2) particularly for grassland. Only during an extended periode in late July did we find substential stomatal conductance. In ecological terms, this would mean that there was almost no growth of grass in the summer of 2019 -- a prediction which is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low, being the limiting factor of stomatal conductance. We propose bespoke parameterizations for the main vegetation types Norway spruce, birch, and perennial grassland better adapted to the climatic conditions in the target region.
+Note that these parameterizations represent hypothetical PFTs or species that have to be varified by experiements. 
+
+We hypothize that perannial vegetation will likely prioritize their growth or fast adolesence throughout the short, sub-boreal growing season and hence their carbon sequestration. Since the $\mathrm{DO_3SE}$ in its current state does not simulate $A_\mathrm{n}$, we assume for out purpose a first order proptionality between carbon uptake (photosynthesis) and $g_\mathrm{sto}$ and tune the species temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) seperately for higher stomatal conductance. For this purpose, we graphically intersected propability density functions (PDFs) of climatological data for temperature and global irradiace with the respective response function (Fig.~\ref{fig:f_temp_grassland} for grassland; for Norway spruce and birch see Appendix Figs.~\ref{fig:f_temp_spruce}--\ref{fig:f_temp_birch}). Formally, a parameterization is considered more optimial the larger the intersection area between the response function and PDF is. 
+
+For the climatization of the temperature response functions, we assume two different types: \emph{boreal} and \emph{cold}. In either cases, we further assume that the hypothetical species are more tolerant to cold conditions than the mapping manual default suggests and shift $f_\mathrm{T}$ towards colder temperatures. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to the mapping manual default. In the same way, \emph{boreal} refers to a hypothetical species which is very tolerant to cold but is sensitive to high temperatures, and most efficient at cool temperatures (close to the climatological mean temperature of 1992--2000). All three types for grassland are depicted together with the temperature PDF in Fig.~\ref{fig:f_temp_grassland}a).
+
+For Norway spruce, our hypothetical PFTs $T_\mathrm{opt}$ are motivated by a longer timeseries of both observed \chem{CO_2} uptake and temperature at two observation sites in Southern (\emph{cold}) and Northern (\emph{boreal}) Finland presented in \citet{TB:Kolari2007}. We assume a similar adaption in birch. The parameters are comprehensibly listed in Table~\ref{tab:sensitivity_tests_temp}.
+
+For the the senisitivity regarding light, we assume that the plants may react either faster or slower to a change at lower light intensities. We analytically derive the inverse function $f_{\mathrm{light},k}^{-1}$ for each PFT or species $k$
+\begin{equation}
+  \gamma_k(f_\mathrm{light}) := f_{\mathrm{light}, k}^{-1} = -\frac{\ln(1-f_\mathrm{light})}{\alpha_k}.
+  \label{eq:inverse_function}
+\end{equation}
+We calculate it for the mapping manual $\alpha_\mathrm{MM}$ at its halfway value $0.5$ 
+\begin{equation}
+  \gamma(0.5) = -\frac{\ln(0.5)}{\alpha_\mathrm{MM}},
+  \label{eq:inverse_function_halfway}
+\end{equation}
+and define a variation $\gamma' = \gamma \cdot \epsilon$ with $\epsilon \in \{0.8, 1.2\}$. We resolve Eq.~(\ref{eq:inverse_function}) for $\alpha$ and derive $\alpha'(\gamma')$. The resulting functions are shown in Fig.~\ref{fig:f_temp_grassland}b). All derived parameters are given in Table~\ref{tab:sensitivity_tests_light}.
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{javis_funcs_temp_hist_grassland}\\
@@ -794,6 +812,24 @@ Bigger picture:
 \end{figure*}
 
 \clearpage
+
+\section{DO3SE parameterization}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
+  \includegraphics[width=8.3cm]{javis_funcs_rad_hist_evergreen}
+\caption{Construction of bespoke response functions for Norway spruce. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown toghether with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability densitiy function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
+\label{fig:f_temp_spruce}
+\end{figure}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{javis_funcs_temp_hist_birch}\\
+  \includegraphics[width=8.3cm]{javis_funcs_rad_hist_birch}
+\caption{Construction of bespoke response functions for Norway birch. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown toghether with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability densitiy function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
+\label{fig:f_temp_birch}
+\end{figure}
+
+
 
 \noappendix       %% use this to mark the end of the appendix section. Otherwise the figures might be numbered incorrectly (e.g. 10 instead of 1).
 
