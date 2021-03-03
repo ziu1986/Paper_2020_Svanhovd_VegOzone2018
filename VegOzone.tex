@@ -432,7 +432,7 @@ To conclude, ozone concentrations in 2018 have been elevated compared to the res
 
 \section{DO3SE modeling}
 \label{sec:do3se}
-To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic prameterizations for common plant species. In the following, we give an account of the $\mathrm{DO_3SE}$ model and the used method for deriving the bespoke parameters.
+To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic prameterizations for common plant species. We first give an account of the $\mathrm{DO_3SE}$ model, input data, and the used method for deriving the bespoke parameters. Then we will present and discuss the modeling results.
 
 \subsection{Model description}
 \label{subsec:model_describtion}
@@ -534,29 +534,30 @@ In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}b), these hourly ozone co
 Finally, we add the bias corrected Svanvik ozone climatology and derive a reconstructed ozone concentration time series \chem{[O_3]_{hourly}^{Svanvik,\,reco}}. In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}c), the result is shown together with the observed data and the Copernicus Regional Model Reanalysis at the nearest grid point for comparison.
 
 \subsection{Model parameters}
-We roughly estimated land use types for an approximately $1\times 1\,\unit{km}$ patch centered at the NIBIO Environment Centre Svanhovd from Fig.~\ref{fig:svanhovd_research_station}: $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban.
+From Fig.~\ref{fig:svanhovd_research_station}, we roughly estimated land use types for an approximately $1\times 1\,\unit{km}$ patch centered at the NIBIO Environment Centre Svanhovd : $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban.
 
-Default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual} abbreviate MM. A comprehensive list of these model parameters can be found in Supplement~Table~S1.
-Initial test simulations with the mapping manual derived PFTs showed unrealistically low $g_\mathrm{sto}$ in 2019 (Supplement~Figs.SX--SX+2) particularly for grassland. Only during an extended period in late July did we find substantial stomatal conductance. In ecological terms, this would mean that there was almost no growth of grass in the summer of 2019 -- a prediction which is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low, being the limiting factor of stomatal conductance. We propose bespoke parameterizations for the main vegetation types Norway spruce, birch, and perennial grassland better adapted to the climatic conditions in the target region.
-Note that these parameterizations represent hypothetical PFTs or species that have to be verified by experiments. 
+Default PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual} abbreviated as MM. A comprehensive list of these model parameters can be found in Supplement~Table~S1.
+Initial test simulations with the mapping manual derived PFTs showed unrealistically low $g_\mathrm{sto}$ in 2019 particularly for grassland (Appendix~Fig.~\ref{fig:pody_mm_composit}). Only during an extended period in late July did we find substantial stomatal conductance. In ecological terms, this would mean that there was almost no growth of grass in the summer of 2019 -- a prediction which is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low, being the limiting factor of stomatal conductance. For these reasons, we propose bespoke parameterizations for the main vegetation types Norway spruce, birch, and perennial grassland which are better adapted to the climatic conditions in the target region.
 
-We hypothesize that perennial vegetation will likely prioritize their growth or fast adolescence throughout the short, subarctic growing season and hence their carbon sequestration. Since the $\mathrm{DO_3SE}$ in its current state does not simulate $A_\mathrm{n}$, we assume for our purpose a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011}. We then tune the species temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) separately for higher stomatal conductance. We illustrate this procedure graphically by intersecting probability density functions (PDFs) of climatological data for temperature and global irradiance with the respective response function (Fig.~\ref{fig:f_temp_grassland} for grassland; for Norway spruce and birch see Appendix Figs.~\ref{fig:f_temp_spruce}--\ref{fig:f_temp_birch}). Formally, a parameterization is considered more optimal the larger the intersection area between the response function and PDF is. 
+Note that these parameterizations represent hypothetical PFTs or species that have yet to be verified by experiments. 
 
-For the acclimatization of the temperature response functions, we assume two different types: \emph{Boreal} and \emph{cold}. In either cases, we further assume that the hypothetical species are more tolerant to cold conditions than the mapping manual default suggests and shift $f_\mathrm{T}$ towards colder temperatures. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to the mapping manual default. In the same way, \emph{boreal} refers to a hypothetical species which is very tolerant to cold but is sensitive to high temperatures, and most efficient at cool temperatures ($T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000). All three types for grassland are depicted together with the temperature PDF in Fig.~\ref{fig:f_temp_grassland}a).
+We hypothesize that perennial vegetation will likely prioritize their growth or fast adolescence throughout the short, subarctic growing season and hence their carbon sequestration. Since the $\mathrm{DO_3SE}$ in its current state does not simulate $A_\mathrm{n}$, we assume for our purpose a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011}. We then tune the species temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) separately for higher stomatal conductance. We illustrate this procedure graphically in Fig.~\ref{fig:f_temp_grassland} for grassland. We aim to increase the enclosed area between probability density function (PDF) and the respective response function. For comparison, we define two climatological references 1990s and 2000s. For Norway spruce and birch see Appendix Figs.~\ref{fig:f_temp_spruce}--\ref{fig:f_temp_birch}. 
 
-For Norway spruce, our hypothetical PFTs $T_\mathrm{opt}$ are motivated by a longer time series of both observed \chem{CO_2} uptake and temperature at two observation sites in Southern (\emph{cold}) and Northern (\emph{Boreal}) Finland presented in \citet{TB:Kolari2007}. We assume a similar adaption in birch. The parameters are comprehensibly listed in Table~\ref{tab:sensitivity_tests_temp}.
+We assume two different types of hypothetical temperature acclimations: \emph{Boreal} and \emph{cold}. For either, we further assume that the hypothetical species are more tolerant to cold conditions than MM suggests and shift $f_\mathrm{T}$ towards colder temperatures. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to MM. In the same way, \emph{boreal} refers to a hypothetical species which is very tolerant to cold but is sensitive to high temperatures, and most efficient at cool temperatures ($T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000). For perennial grassland these are depicted together with the temperature PDF in Fig.~\ref{fig:f_temp_grassland}a).
 
-For the the sensitivity regarding light, we assume that the plants may react either faster or slower to a change at lower light intensities. We analytically derive the inverse function $f_{\mathrm{light},k}^{-1}$ for each PFT or species $k$
+Norway spruce was experimentally found to be active already at rather low air temperatures and could reach $60\,\unit{\%}$ photosynthetic activity as early as doy~100 \citet{TB:Wallin2013, TB:Kolari2007}. We derived temperature acclimation, based on time series of observed \chem{CO_2} uptake and temperature at two observation sites in Southern ($\rightarrow$\emph{cold}) and Northern ($\rightarrow$\emph{boreal}) Finland \citet{TB:Kolari2007}. We assume a similar acclimation for birch. All bespoke temperature parameters are comprehensibly listed in Table~\ref{tab:sensitivity_tests_temp}.\\
+
+For an acclimation with respect to light conditions, we hypothize that the light threshold for a $50\,\unit{\%}$ opening of plants' stomata may differ in subarctic species. We analytically derive the inverse function $f_{\mathrm{light},k}^{-1}$ for each PFT or species $k$
 \begin{equation}
   \gamma_k(f_\mathrm{light}) := f_{\mathrm{light}, k}^{-1} = -\frac{\ln(1-f_\mathrm{light})}{\alpha_k}.
   \label{eq:inverse_function}
 \end{equation}
-We calculate it for the mapping manual $\alpha_\mathrm{MM}$ at its halfway value $0.5$ 
+We solve Eq.~(\ref{eq:inverse_function}) for the mapping manual default value for each PFT or species $\alpha_\mathrm{MM}$ at its halfway value $0.5$ 
 \begin{equation}
   \gamma(0.5) = -\frac{\ln(0.5)}{\alpha_\mathrm{MM}},
   \label{eq:inverse_function_halfway}
 \end{equation}
-and define a variation $\gamma' = \gamma \cdot \epsilon$ with $\epsilon \in \{0.8, 1.2\}$. We resolve Eq.~(\ref{eq:inverse_function}) for $\alpha$ and derive $\alpha'(\gamma')$. The resulting functions are shown in Fig.~\ref{fig:f_temp_grassland}b). All derived parameters are given in Table~\ref{tab:sensitivity_tests_light}.
+and define a variation $\gamma' = \gamma \cdot \epsilon$ with $\epsilon \in \{0.8, 1.2\}$. We resolve Eq.~(\ref{eq:inverse_function}) again for $\alpha$ and find $\alpha'(\gamma')$. The resulting functions are shown in Fig.~\ref{fig:f_temp_grassland}b). All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_grassland}\\
@@ -610,14 +611,14 @@ and define a variation $\gamma' = \gamma \cdot \epsilon$ with $\epsilon \in \{0.
     \end{tabular}
 \end{table}
 
+To quantify the resulting bespoke parameterizations, we propose the following metric.
+{\bf TODO: Write about Boreal and cold parameter sets and their justification. Write about suggested method for optimizing PFTs in a simple but physiological way based on optimizing maximum climatological mean $g_\mathrm{sto}$ and morning responds. If plants have a short growing season up north optimizing \chem{CO_2} uptake around noon (highest light intensity) and speed up opening of stomata at lower intensities (morning), additional contained lower climatological variance? An idea to justify our choice based on the full set of climatological data for Svanvik is shown in Fig.~\ref{fig:javis_func_opt_mean}.}
 
-{\bf TODO: Write about Boreal and cold parameter sets and their justification. Write about suggested method for optimizing PFTs in a simple but physiological way based on optimizing maximum climatological mean $g_\mathrm{sto}$ and morning responds. If plants have a short growing season up north optimizing \chem{CO_2} uptake around noon (highest light intensity) and speed up opening of stomata at lower intensities (morning), additional contained lower climatological variance?}
-An idea to justify our choice based on the full set of climatological data for Svanvik is shown in Fig.~\ref{fig:javis_func_opt_mean}.
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_func_opt_mean}
   \includegraphics[width=8.3cm]{fig10}
-  \caption{Proposed metric to test bespoke response functions.}
+  \caption{Proposed metric to test bespoke response functions. GS (May--August) climatological averages and standart deviation of $g_\mathrm{sto}^k$ (Eq.~(\ref{eq:stomatal})) relative to $g_\mathrm{max}^k$ at noon ($11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning ($5-9\,\unit{am}$ local time) are shown for (a) Birch; (b) Norway spruce; (c) perennial grassland. For simplicity, $f_\mathrm{SW}$ is neglected in this calculation. }
   \label{fig:javis_func_opt_mean}
 \end{figure}
 
@@ -767,7 +768,7 @@ In contrast to mountain birches, northern Scots pine of local origin only showed
 \begin{figure*}[t]
   \includegraphics[width=12cm]{figB4}
   \caption{$\mathrm{POD_y}$ modeling results from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) Birch; (c, d) Norway spruce; (e, f) perennial grassland. From left to right: 2018, 2019. {\bf TODO: substitute with figure for Boreal PFTs?}}
-  \label{fig:pody}
+  \label{fig:pody_mm_composit}
 \end{figure*}
 
 
