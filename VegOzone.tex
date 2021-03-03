@@ -619,11 +619,6 @@ As expected, $\mathrm{POD_y}$ is higher in 2018 than in 2019 for all PFTs. In th
 
 The estimated biomass reduction in \unit{\%} due to \chem{O_3} following \citet{ICP:MappingManual2017} is shown in Table~\ref{tab:biomass_reduction}. {\bf TODO: Lisa? Add paragraph about biomass reduction to introduction?}
 
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3}
-  \caption{$\mathrm{POD_y}$ modeling results from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) Birch; (c, d) Norway spruce; (e, f) perennial grassland. From left to right: 2018, 2019. {\bf TODO: substitute with figure for Boreal PFTs?}}
-  \label{fig:pody}
-\end{figure*}
 
 
 \begin{table}[t]
@@ -642,11 +637,13 @@ clim. & 13.81 & 2.58 & 6.67 & 8.29$^*$\\
 \belowtable{$^*$ above ground biomass} % Table Footnotes
 \end{table}
 
-%\begin{figure}[t]
-%  \includegraphics[width=8.3cm]{DO3SE_results_rel}
-%  \caption{Daily averaged $\mathrm{\Delta POD_y}/\Delta t$ from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. Error bars/-bands indicate $1 \sigma$ standard deviation. (a) Birch; (b) Norway spruce; (c) perennial grassland.}
-%  \label{fig:pody_rel}
-%\end{figure}
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{do3se_results_pod_v3_Birch}\\
+  \includegraphics[width=8.3cm]{do3se_results_pod_v3_Spruce}\\
+  \includegraphics[width=8.3cm]{do3se_results_pod_v3_Grassland}
+  \caption{Comprehensive comparison of $\mathrm{DO_3SE}$ modeling results with default parameterization from mapping manual (MM)and bespoke parameters for Svanhovd. $\mathrm{POD_1}$ is shown for the different temperature (MM, boreal, cold) and light threshold (MM, PPFD0.8, PPFD1.2) parameterizations at the end of the MM GS (lighter colors and dotted lines) and a derived bespoke GS. (a) Birch; (b) Norway spruce; (c) Perennial grassland.}
+  \label{fig:pody_rel}
+\end{figure}
 
 \conclusions[Discussion and conclusions]
 \label{sec:conc} 
@@ -699,30 +696,14 @@ In contrast to mountain birches, northern Scots pine of local origin only showed
 \appendix
 \section{Derived climatologies}    %% Appendix A
 
-\subsection{Temperature, precipitation, and global irradiance}     %% Appendix A1, A2, etc.
+%\subsection{Temperature, precipitation, and global irradiance}     %% Appendix A1, A2, etc.
 
 \appendixfigures  %% needs to be added in front of appendix figures
 \begin{figure*}[t]
   \includegraphics[width=12cm]{global_rad_clim}
-  \caption{Observed global irradiance at Svanvik. The cyan lines indicate the $1\,\sigma$ level deducted from the climatology. (a) Climatology (hourly maxima, mean, and minima); deviation from climatology (b) 2018; (c) 2019.}
+  \caption{Observed global irradiance at Svanvik. (a) Climatology (hourly maxima, mean, and minima); deviation from climatology (b) 2018; (c) 2019. The cyan lines indicate the $1\,\sigma$ level derived from climatology.}
   \label{fig:global_rad_clim}
 \end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{test_fennoscandia}
-  \caption{Maximum daily sun shine duration based on geometrical calculations at different sites in Fennoscandia. Midnight sun conditions at Jergul/Karasjok and Svanvik prevail from the end of May until the end of July, while at Esrange and Pallas they only prevail from the beginning of June until mid of July.}
-  \label{fig:sunlight_fennoscandia}
-\end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{greening_season_change_Svanvik}
-  \caption{Estimated shift and prolongation of greening season at Svanhovd over the past 6 decades based on data from SeNorge.no {\bf TODO: citation http://www.senorge.no}.}
-  \label{fig:greening_season_change_Svanvik}
-\end{figure*}
-\clearpage
-
-
-\subsection{Ozone}
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{density_distribution}
@@ -731,57 +712,20 @@ In contrast to mountain birches, northern Scots pine of local origin only showed
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_residuals}
-  \caption{Probability density functions of ozone concentration residuals. 2018 with respect to respective climatology for different sites in Fennoscandia. (a) Esrange; (b) Pallas.}
-  \label{fig:ozone_climatology_fenoscandic_obs_residuals}
-\end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_residuals-Svanvik}
-  \caption{Probability density functions of ozone concentration residuals. 2018/19 observations at Svanhovd with respect to derived climatologies for (a) Northern Fennoscandia; (b) Svanvik.}
-  \label{fig:ozone_climatology_fenoscandic_obs_residuals-Svanvik}
-\end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_test}
-  \caption{Student's t-test assuming same sample uncertainty in both, climatology and 2018 observations for different sites in Fennoscandia. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals} are significantly different from zero-hypothesis on the $1\,\sigma$ level. (a) Esrange; (b) Pallas.}
-  \label{fig:ozone_climatology_fenoscandic_obs_test}
-\end{figure*}
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{ozone_climatology_fenoscandic_obs_test-Svanvik}
-  \caption{Student's t-test assuming same sample uncertainty in both, climatology and 2018/19 observations at Svanhovd with respect to derived climatologies for (a) Northern Fennoscandia; (b) Svanvik. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}a) are significantly different from zero-hypothesis on the $2\,\sigma$,  $1\,\sigma$ level, respectively. \chem{\Delta[O_3]} in Fig.~\ref{fig:ozone_climatology_fenoscandic_obs_residuals}b) are not significantly different from zero-hypothesis.}
-  \label{fig:ozone_climatology_fenoscandic_obs_test-Svanvik}
-\end{figure*}
-
-\begin{figure*}[t]
   \includegraphics[width=12cm]{ozone_reconstruction_2018_07}
   \caption{Reconstruction of missing \chem{[O_3]} observation data at Svanvik in July 2018 based on derived hourly climatologies of northern Fennoscandia, Svanvik, and data Pallas. (a) Time series; (b) anomalies; (c) reconstruction.}
   \label{fig:ozone_reconstruction_2018_07}
 \end{figure*}
 
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{ozone_observation_timelag_svanvik}
-  \caption{Temporal correlation of \chem{[O_3]} data at Svanvik with other ozone monitoring stations in northern Fennoscandia. A negative lag means that Svanvik lags behind, while a positive lag mean the other station lags behind. The highest correlation with Pallas/Esrange is found at a time lag of $3\,\unit{h}$, for Jergul/Karasjok at $1\,\unit{h}$, and for Janiskoski at $-20\,\unit{h}$.}
-  \label{fig:time_lag_correlation}
-\end{figure*}
+\clearpage
 
-% Shall go to supplement!
-%\begin{figure*}[t]
-%  \includegraphics[width=12cm]{ozone_fennoscandic_obs_aot40}
-%  \caption{Integrated AOT40 for various sites in northern Fennoscandia over the course of 33 years. For simplicity, we integrated hourly ozone between $1\,\unit{am}-11\,\unit{pm}$ in any case, although a night time light intensity $> 50\,\unit{W\,m^{-2}}$ is only measured during midnight sun conditions. Since night time \chem{[O_3]} is mostly below $40\,\unit{ppb}$, the such induced high bias in spring should be tolerable. The dashed red lines indicate the respective threshold given by the EU directive. (a) May 1 -- July 31 (b) April 1 -- September 30.}
-%  \label{fig:fennoscandic_aot40}
-%\end{figure*}
+\section{DO3SE parameterization}
 
 \begin{figure*}[t]
   \includegraphics[width=12cm]{modis_Psn}
   \caption{Estimated begin (BGS) and end (EGS) of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (doy) and EGS 261/274 day of year for 2018/2019, respectively.}
   \label{fig:modis_Psn}
 \end{figure*}
-
-\clearpage
-
-\section{DO3SE parameterization}
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
@@ -797,6 +741,11 @@ In contrast to mountain birches, northern Scots pine of local origin only showed
 \label{fig:f_temp_birch}
 \end{figure}
 
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3}
+  \caption{$\mathrm{POD_y}$ modeling results from $\mathrm{DO_3SE}$ model for three different PFTs over day of year (doy), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) Birch; (c, d) Norway spruce; (e, f) perennial grassland. From left to right: 2018, 2019. {\bf TODO: substitute with figure for Boreal PFTs?}}
+  \label{fig:pody}
+\end{figure*}
 
 
 \noappendix       %% use this to mark the end of the appendix section. Otherwise the figures might be numbered incorrectly (e.g. 10 instead of 1).
