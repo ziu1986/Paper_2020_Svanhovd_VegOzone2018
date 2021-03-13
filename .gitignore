@@ -1,13 +1,1 @@
-# Generally ignore compilation files from latex
-**.aux
-**.bbl
-**.blg
-**.out
-**.log
-**.toc
-/*.pdf
-# Ignore all "picture" subdirectories in Papers
-/pictures/**
-# Ignore the comments subdirectory
-/comments/**
-
+latex_setup/.gitignore
