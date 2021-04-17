@@ -394,17 +394,17 @@ To conclude, ozone concentrations in 2018 have been elevated compared to the res
 
 \section{DO3SE modeling}
 \label{sec:do3se}
-To investigate which of the environmental factors lead to the observed ozone damage on clover and tobacco in 2018 in contrast to 2019, when no such damage was found on the clovers but only on the sensitive tobacco cultivar, we model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic parameterizations for common plant species. We first give an account of the $\mathrm{DO_3SE}$ model, input data, and the used method for deriving the bespoke parameters. Then we will present and discuss the modeling results.
+To investigate which of the environmental factors might be most influential in determining \chem{O_3} damage; such as that observed on clover and tobaccos in 2018, we model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic parameterizations for common plant species. We first give an account of the $\mathrm{DO_3SE}$ model, input data, and the used methodology for deriving the bespoke parameters. Then we will present and discuss the modeling results.
 
 \subsection{Model description}
 \label{subsec:model_describtion}
-The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,ICP:MappingManual2017}:
+The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
 \begin{equation}
-  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SW}\right\}}.
+  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SWP}\right\}}.
   \label{eq:stomatal}
 \end{equation}
 %
-Where $g_\mathrm{max}$ is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water content ($f_\text{SW}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
+Where $g_\mathrm{max}$ is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water potential ($f_\text{SWP}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
 
 The temperature adjustment function is defined as
 %
@@ -430,16 +430,16 @@ The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called
   \label{eq:flight}
 \end{equation}
 %
-where $\alpha_\mathrm{light}$ is a slope parameter describing how fast stomata open or close at low light intensities.
+where $\alpha_\mathrm{light}$ is a slope parameter describing the extent of stomatal opening at low light intensities.
 
 The $\mathrm{DO_3SE}$ model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a species or PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system. \citet{ACP:Bueker2012} discuss several formulations available to parameterize the reduction in stomata conductance due to water content in the soil. Here we use the relationship between relative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
 %
 \begin{equation}
-  f_\mathrm{SW} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
+  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
     \label{eq:fsw}
 \end{equation}
 %
-where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SW}$ relationship.
+where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SWP}$ relationship.
 
 To compute $\mathrm{POD_y}$, we estimate the stomatal \chem{O_3} flux ($\Phi_\mathrm{sto}$) based on the assumption that the concentration of \chem{O_3} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf. The terms $r_c$ (leaf surface resistance) and $r_b$ (quasi-laminar resistance) allow for the deposition of \chem{O_3} to the leaf and the fraction that is taken up via the stomata. 
 %
@@ -468,7 +468,7 @@ with saturation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck eq
 The following gap filling methodology was devised for the meteorological input data:
 \begin{itemize}
 \item Single hours of missing data were filled by taking the average of the hourly values coming before, and after, the missing value.
-\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data was unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
+\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data were unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
 \item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
 \end{itemize}
 
@@ -479,7 +479,7 @@ Because the available reanalysis products for ground-level ozone have their limi
 \end{equation}
 with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}.
 The exact procedure will be described in the following.
-We derive hourly climatologies for individual stations and combine Esrange/Pallas to derive a climatology for northern Fennoscandia for July (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Supplement Fig.~\ref{fig:time_lag_correlation}. We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as reference station for the reconstruction. We correct the Fennoscandia climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
+We derive hourly climatologies for individual stations and combine Esrange/Pallas to derive a climatology for northern Fennoscandia for July (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Supplement Fig.~\ref{fig:time_lag_correlation}). We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as the reference station for the reconstruction. We correct the Fennoscandia climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
 \begin{equation}
   X = \frac{\chem{\left<[O_3]\right>_{hourly}^{Svanvik}}}{\chem{\left<[O_3]\right>_{hourly,\,t-3}}}.
   \label{eq:mapping}
@@ -498,16 +498,14 @@ Finally, we add the bias corrected Svanvik ozone climatology and derive a recons
 \subsection{Model parameters}
 \label{subsec:do3se_parameters}
 
-From Fig.~\ref{fig:svanhovd_research_station}, we roughly estimated land use types for an approximately $1\times 1\,\unit{km}$ patch centered at the NIBIO Environment Centre Svanhovd : $48\,\unit{\%}$ grassland, $32.5\,\unit{\%}$ deciduous, $12.5\,\unit{\%}$ coniferous, $2\,\unit{\%}$ urban.
-
-Default parameters for these species or PFTs are derived from \citet{ICP:MappingManual2017} and will be referred to as \emph{mapping manual} abbreviated as MM in the following. A comprehensive list of model parameters can be found in Supplement~Table~S1.
+The main species or PFTs, we deduced on-site at the NIBIO Environment Centre Svanhovd and from Fig.~\ref{fig:svanhovd_research_station}, are perennial grassland, downy birch, and Norway spruce. Default parameters for these species or PFTs are derived from \citet{ICP:MappingManual2017} {\bf TODO: find added reference by Lisa} and will be referred to as \emph{mapping manual} abbreviated as MM in the following. A comprehensive list of model parameters can be found in Supplement~Table~S1.
 Initial test simulations with the MM PFTs showed unrealistically low $g_\mathrm{sto}$ in 2019 particularly for perennial grassland (Appendix~Fig.~\ref{fig:pody_mm_composit}). Only during an extended warm period in late July did we find substantial stomatal conductance. In ecological terms this would mean that there was almost no growth of grass in the summer of 2019 -- a prediction which is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low, being the limiting factor of stomatal conductance. Therefore, we propose bespoke parameterizations which may describe an actual acclimation of these species to the climatic conditions in the target region.
 
 Note, however, that these parameterizations represent hypothetical PFTs or species that have yet to be verified by experiments. 
 
-We hypothesize that perennial vegetation will likely prioritize their growth or fast adolescence during a short, subarctic growing season and hence their carbon sequestration. Because the $\mathrm{DO_3SE}$ model currently does not simulate $A_\mathrm{n}$, we assume a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011} and effectively tune temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) for higher $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$. The procedure is graphically illustrated in Fig.~\ref{fig:f_temp_grassland} for grassland. We aim to increase the enclosed area between probability density function (PDF) and the respective response function. We show two climatological reference periods 1990s and 2000s to indicate that the vegetation is subject to ongoing climate change and acclimation may be changing. Resulting response functions for Norway spruce (Picea abies) and downy birch are displayed in Appendix~Figs.~\ref{fig:f_temp_spruce}--\ref{fig:f_temp_birch}. 
+We hypothesize that perennial vegetation will likely prioritize their growth or fast adolescenceand and hence their carbon sequestration, during a short, subarctic growing season. Because the mapping manual version of the $\mathrm{DO_3SE}$ model currently does not simulate $A_\mathrm{n}$, we assume a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011} and effectively tune temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) for higher $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$. We further assume that $f_\mathrm{VPD}$ and $f_\mathrm{SWP}$ suffice our biomes. The procedure is graphically illustrated in Fig.~\ref{fig:f_temp_grassland} for grassland. We aim to increase the enclosed area between probability density function (PDF) and the respective response function. We show two climatological reference periods 1990s and 2000s to indicate that the vegetation is subject to ongoing climate change and hence continuous acclimation. Resulting response functions for Norway spruce (Picea abies) and downy birch are displayed in Appendix~Figs.~\ref{fig:f_temp_spruce}--\ref{fig:f_temp_birch}. 
 
-We define two different hypothetical temperature acclimation: \emph{Boreal} and \emph{cold}. For either, we assume that the hypothetical species are more tolerant to cold conditions and shift $f_\mathrm{T}$ towards colder temperatures accordingly. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to MM. In the same way, \emph{boreal} refers to a hypothetical species which is very tolerant to cold but is sensitive to high temperatures, and most efficient at cool temperatures ($T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000). For perennial grassland the resulting response functions are depicted together with the PDF of temperature in Fig.~\ref{fig:f_temp_grassland}a).
+We define two different hypothetical temperature acclimation: \emph{Boreal} and \emph{cold}. The most extreme of the two acclimations is \emph{boreal}. For either, we assume that the hypothetical species are more tolerant to cold conditions and shift $f_\mathrm{T}$ towards colder temperatures accordingly. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to MM. In the same way, \emph{boreal} refers to a hypothetical species which is very tolerant to cold but is sensitive to high temperatures, and most efficient at cool temperatures ($T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000). For perennial grassland the resulting response functions are depicted together with the PDF of temperature in Fig.~\ref{fig:f_temp_grassland}a).
 
 Norway spruce was experimentally found to be active already at rather low air temperatures and could reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 \citep{TB:Kolari2007, TP:Wallin2013}. Based on the time series of observed \chem{CO_2} uptake and temperature at two observation sites in Southern ($\rightarrow$ \emph{cold}) and Northern ($\rightarrow$ \emph{boreal}) Finland \citep{TB:Kolari2007}, we estimate $10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$. We assume a similar acclimation for downy birch. All bespoke temperature parameters are listed in Table~\ref{tab:sensitivity_tests_temp}.\\
 
@@ -538,13 +536,13 @@ and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}
     \tophline
     Species & type & $T_\mathrm{min}$ & $T_\mathrm{opt}$ & $T_\mathrm{max}$ \\
     \middlehline
-    \multirow{3}{*}{Downy birch} & MM & 5 & 20 & \multirow{3}{*}{100}\\
-    & Boreal & 0 & 10\\
-    & Cold & 5 & 15\\
+    \multirow{3}{*}{Downy birch} & MM & 5 & 20 & 100\\
+    & Boreal & 0 & 10 & 100\\
+    & Cold & 5 & 15 & 100\\
     \middlehline
-    \multirow{3}{*}{Norway spruce} & MM & 0 & 20 & \multirow{3}{*}{100}\\
-    & Boreal & 0 & 10 & \\
-    & Cold & 0 & 15 & \\
+    \multirow{3}{*}{Norway spruce} & MM & 0 & 20 & 100\\
+    & Boreal & 0 & 10 & 100\\
+    & Cold & 0 & 15 & 100\\
     \middlehline
     \multirow{3}{*}{Perennial grassland} & MM & 10 & 24 & 36\\
     & Boreal & 0 & 10 & 24 \\
@@ -580,11 +578,12 @@ As indicated above, a better acclimation will result in a higher average $\left<
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_func_opt_mean}
   \includegraphics[width=8.3cm]{fig10}
-  \caption{Proposed metric to test bespoke response functions. GS (May--August) climatological averages and standard deviation of $g_\mathrm{sto}^k$ (Eq.~(\ref{eq:stomatal})) relative to $g_\mathrm{max}^k$ at noon ($11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning ($5-9\,\unit{am}$ local time) are shown for (a) Downy birch; (b) Norway spruce; (c) perennial grassland. For simplicity, $f_\mathrm{SW}$ is neglected in this calculation. }
+  \caption{Proposed metric to test bespoke response functions. GS (May--August) climatological averages and standard deviation of $g_\mathrm{sto}^k$ (Eq.~(\ref{eq:stomatal})) relative to $g_\mathrm{max}^k$ at noon ($11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning ($5-9\,\unit{am}$ local time) are shown for (a) Downy birch; (b) Norway spruce; (c) perennial grassland. For simplicity, $f_\mathrm{SWP}$ is neglected in this calculation. }
   \label{fig:javis_func_opt_mean}
 \end{figure}
 
-Another important factor for ozone exposure metrics is the timing and length of the GS. Start ($A_\text{start}$) and end ($A_\text{end}$) of GS for each PFT are given in units of \unit{doy} (Tab.~\ref{tab:sensitivity_tests_gs}) and estimated as follows. Evergreen needle leaf trees show photosynthetic activity already at low temperatures \citep{TP:Wallin2013, TB:Kolari2007}. We use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{doy}$ for 2018 and \unit{doy} 106 in 2019. $A_\text{end}$ amounts to \unit{doy} 261 and 274, respectively, and shall be used for all vegetation alike. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of downy birch, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For both years, these dates coincident with the first snow-free day at the meteorological weather station at Øvre Neiden (Sør-Varanger, NOR) which is relatively close-by. From the latitude model typically used for localizing $\mathrm{DO_3SE}$, we get $A_\mathrm{start} = 100\,\unit{doy}$ and $A_\mathrm{end} = 307\,\unit{doy}$ indicating an about $2\,\unit{months}$ longer growing season. Due to a lack of quantitative field observation, we assume a latency period of about $1\,\unit{month}$ after snow-melt for perennial grassland. 
+Another important factor for ozone exposure metrics is the timing and length of the GS. Start ($A_\text{start}$) and end ($A_\text{end}$) of GS for each PFT are given in units of \unit{doy} (Tab.~\ref{tab:sensitivity_tests_gs}) and estimated as follows. Evergreen needle leaf trees show photosynthetic activity already at low temperatures \citep{TP:Wallin2013, TB:Kolari2007}. We use a MODIS (Aqua/Terra) retrieved net photosynthesis product for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. Net photosynthesis data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{doy}$ for 2018 and \unit{doy} 106 in 2019. $A_\text{end}$ amounts to \unit{doy} 261 and 274, respectively, and is the value used for all PFTs. The resulting growing season for Norway spruce in 2019 was one month longer then in 2018. For estimating $A_\text{start}$ of downy birch, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For both years, these dates coincident with the first snow-free day at the meteorological weather station at Øvre Neiden (Sør-Varanger, NOR) which is relatively close-by.
+For comparison, we would get $A_\mathrm{start} = 100\,\unit{doy}$ and $A_\mathrm{end} = 307\,\unit{doy}$ from the latitude model typically used for localizing $\mathrm{DO_3SE}$. By comparison, the latitude model indicates about a $2\,\unit{month}$ longer growing season. Due to a lack of quantitative field observation, we assume a latency period of about $1\,\unit{month}$ after snow-melt for perennial grassland. 
 
 \begin{table}[t]
   \caption{Bespoke start and end of growing season in units of \unit{doy}. MM refers to mapping manual \citep{GCB:Mills2011,ICP:MappingManual2017}.}
@@ -607,7 +606,7 @@ Another important factor for ozone exposure metrics is the timing and length of 
 \end{table}
 
 
-As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth. Further, leaves of downy birch in northern Fennoscandia are smaller than southern specimens'. Here, we have measured their dimension and found $(3.0\pm 0.5)\,\unit{cm}$. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area.
+As pointed out by \citet{ACP:Bueker2012}, a very important factor in deriving a proper $\mathrm{POD_y}$ is the soil texture or how much water the soil can hold. As Svanhovd is located in the bed of the Pasvik river, we assume a sandy loam texture at $60\,\unit{cm}$ depth. The estimate of leaf boundary layer resistence is a function of windspeed which will be influenced by the tree height and leaf dimensions. Leaves of downy birch in northern Fennoscandia are smaller than southern specimens' with leaf dimensions of $(3.0\pm 0.5)\,\unit{cm}$. In addition, \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. Both these factors will affect leaf boundary layer resistance, the smaller leaves would tend to reduce leaf boundary layer resistances whilst the shorter trees would reduce canopy roughness and increase canopy boundary layer resistances.
 
 \subsection{$\mathrm{POD_1}$ results and implications on ozone impact}
 \label{subsec:do3se_results}
