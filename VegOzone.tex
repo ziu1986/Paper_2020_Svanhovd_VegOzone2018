@@ -438,28 +438,12 @@ The following gap filling methodology was devised for the meteorological input d
 \item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
 \end{itemize}
 
-Because the available reanalysis products for ground-level ozone have their limitations, we deem it necessary to reconstruct the missing data in 2018 for the purpose of $\mathrm{DO_3SE}$ modeling by applying a Reynolds's decomposition of the form:
+For the missing ozone data, we applyed a Reynolds's decomposition of the form:
 \begin{equation}
   \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
   \label{eq:reynolds_decomp}
 \end{equation}
-with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}.
-The exact procedure will be described in the following.
-We derive hourly climatologies for individual stations and combine Esrange/Pallas to derive a climatology for northern Fennoscandia for July (Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}a). We compute temporal correlations between Svanvik and the other stations in northern Fennoscandia to estimate a time lag (Supplement Fig.~\ref{fig:time_lag_correlation}). We find $3\,\unit{h}$ for Esrange and Pallas with respect to Svanvik. Due to the high correlation with Svanvik (Appendix~Fig.~\ref{fig:density_distribution}), we decide on Pallas as the reference station for the reconstruction. We correct the Fennoscandia climatology for the found time lag \chem{\left<[O_3]\right>_{hourly,\,t-3}} by shifting the respective time series back in time by $3\,\unit{h}$ and use it to derive a projection for Svanvik:
-\begin{equation}
-  X = \frac{\chem{\left<[O_3]\right>_{hourly}^{Svanvik}}}{\chem{\left<[O_3]\right>_{hourly,\,t-3}}}.
-  \label{eq:mapping}
-\end{equation}
-As an intermediate step, we apply Eq.~(\ref{eq:reynolds_decomp}) to derive hourly anomalies for each station $i$
-\begin{equation}
-  \chem{\Delta[O_3]_{hourly}}^i = \chem{[O_3]_{hourly}}^i-\chem{\left<[O_3]\right>_{hourly}},
-\end{equation}
-with $i \in \{\text{Esrange, Pallas, Svanvik\}}$.
-In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}b), these hourly ozone concentration anomalies are shown. We also correct the ozone anomalies for Pallas for the time lag \chem{\Delta[O_3]_{hourly,\,t-3}^{Pallas}} and use the mapping function in Eq.~(\ref{eq:mapping}) to derive reconstructed anomalies for the missing values at Svanvik:
-\begin{equation}
-    \chem{\Delta [O_3]_{hourly}^{Svanvik,\,reco}} = \chem{\Delta[O_3]_{hourly,\,t-3}^{Pallas}} \cdot X
-\end{equation}
-Finally, we add the bias corrected Svanvik ozone climatology and derive a reconstructed ozone concentration time series \chem{[O_3]_{hourly}^{Svanvik,\,reco}}. In Appendix Fig.~\ref{fig:ozone_reconstruction_2018_07}c), the result is shown together with the observed data and the Copernicus Regional Model Reanalysis at the nearest grid point for comparison.
+with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}. Observed \chem{[O_3]} in 2018 at Pallas served as the reference. The exact procedure will be described in an compagnion paper.
 
 \subsection{Model parameters}
 \label{subsec:do3se_parameters}
