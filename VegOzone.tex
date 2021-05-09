@@ -337,90 +337,8 @@ In accordance to the above findings, we adjust the derived ozone climatology for
 
 \section{DO3SE modeling}
 \label{sec:do3se}
-To investigate which of the environmental factors might be most influential in determining \chem{O_3} damage; such as that observed on clover and tobaccos in 2018, we model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic parameterizations for common plant species. We first give an account of the $\mathrm{DO_3SE}$ model, input data, and the used methodology for deriving the bespoke parameters. Then we will present and discuss the modeling results.
+To investigate the difference between 2018 and 2019 concerning stomatal ozone uptake and to assess which of the environmental factors might be most influential in determining \chem{O_3} damage risk, we model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic parameterizations for common plant species. We the $\mathrm{DO_3SE}$ model and gapp-filling methods are described in Appendix~\ref{sec}. First, we give an account of the methodology for deriving bespoke parameters. Then, we will present and discuss the modeling results.
 
-\subsection{Model description}
-\label{subsec:model_describtion}
-The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
-\begin{equation}
-  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SWP}\right\}}.
-  \label{eq:stomatal}
-\end{equation}
-%
-Where $g_\mathrm{max}$ is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water potential ($f_\text{SWP}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
-
-The temperature adjustment function is defined as
-%
-\begin{equation}
-  f_\mathrm{T} = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
-  \label{eq:f_temp}
-\end{equation}
-with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various species or PFT and $T_\mathrm{air}$ is the near-surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
-
-The water vapor pressure deficit function is
-%
-\begin{equation}
-  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
-  \label{eq:f_vpd}
-\end{equation}
-%
-where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
-
-The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative $g_\mathrm{sto}$ and PPFD is given by
-%
-\begin{equation}
-  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
-  \label{eq:flight}
-\end{equation}
-%
-where $\alpha_\mathrm{light}$ is a slope parameter describing the extent of stomatal opening at low light intensities.
-
-The $\mathrm{DO_3SE}$ model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a species or PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system. \citet{ACP:Bueker2012} discuss several formulations available to parameterize the reduction in stomata conductance due to water content in the soil. Here we use the relationship between relative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
-%
-\begin{equation}
-  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
-    \label{eq:fsw}
-\end{equation}
-%
-where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SWP}$ relationship.
-
-To compute $\mathrm{POD_y}$, we estimate the stomatal \chem{O_3} flux ($\Phi_\mathrm{sto}$) based on the assumption that the concentration of \chem{O_3} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf. The terms $r_c$ (leaf surface resistance) and $r_b$ (quasi-laminar resistance) allow for the deposition of \chem{O_3} to the leaf and the fraction that is taken up via the stomata. 
-%
-\begin{equation}
-  \Phi_\mathrm{sto} = \chem{[O_3]} \cdot \frac{u(z_1) \cdot g_\mathrm{sto} \cdot r_c}{r_b + r_c}.
-  \label{eq:flux_stomata}
-\end{equation}
-%
-The quasi-laminar boundary layer resistance is calculated by
-%
-\begin{equation}
-  r_b = 1.3 \cdot 150 \cdot \sqrt{\frac{L}{u(z_1)}}.
-  \label{eq:quasi_laminar_resist}
-\end{equation}
-%
-Where $L$ is the cross-wind leaf dimension, $u(z_1)$ the wind speed at height $z_1$, and the factor $1.3$ accounts for the diffusivity between heat and \chem{O_3}. 
-
-\subsection{Input data and gap filling methodology}
-\label{subsec:ozone_reco}
-The $\mathrm{DO_3SE}$ model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
-\begin{equation}
-  \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
-\end{equation}
-with saturation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
-  
-The following gap filling methodology was devised for the meteorological input data:
-\begin{itemize}
-\item Single hours of missing data were filled by taking the average of the hourly values coming before, and after, the missing value.
-\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data were unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
-\item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
-\end{itemize}
-
-For the missing ozone data, we applyed a Reynolds's decomposition of the form:
-\begin{equation}
-  \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
-  \label{eq:reynolds_decomp}
-\end{equation}
-with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}. Observed \chem{[O_3]} in 2018 at Pallas served as the reference. The exact procedure will be described in an compagnion paper.
 
 \subsection{Model parameters}
 \label{subsec:do3se_parameters}
@@ -664,18 +582,104 @@ Beyond the risk assessment of ozone-induced damage, our hypothetical bespoke tem
 
 \clearpage
 
-\section{DO3SE parameterization}
+\section{DO3SE model}
+\label{appendix:do3se_model}
 
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{figB1}
+\subsection{Model description}
+\label{subsec:model_describtion}
+The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
+\begin{equation}
+  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SWP}\right\}}.
+  \label{eq:stomatal}
+\end{equation}
+%
+Where $g_\mathrm{max}$ is the specific-specific maximum stomatal conductance value which is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water potential ($f_\text{SWP}$). All factors differ with species or plant functional type (PFT) denoted with $k$.
+
+The temperature adjustment function is defined as
+%
+\begin{equation}
+  f_\mathrm{T} = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
+  \label{eq:f_temp}
+\end{equation}
+with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various species or PFT and $T_\mathrm{air}$ is the near-surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
+
+The water vapor pressure deficit function is
+%
+\begin{equation}
+  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
+  \label{eq:f_vpd}
+\end{equation}
+%
+where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
+
+The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative $g_\mathrm{sto}$ and PPFD is given by
+%
+\begin{equation}
+  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
+  \label{eq:flight}
+\end{equation}
+%
+where $\alpha_\mathrm{light}$ is a slope parameter describing the extent of stomatal opening at low light intensities.
+
+The $\mathrm{DO_3SE}$ model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a species or PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system. \citet{ACP:Bueker2012} discuss several formulations available to parameterize the reduction in stomata conductance due to water content in the soil. Here we use the relationship between relative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
+%
+\begin{equation}
+  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
+    \label{eq:fsw}
+\end{equation}
+%
+where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SWP}$ relationship.
+
+To compute $\mathrm{POD_y}$, we estimate the stomatal \chem{O_3} flux ($\Phi_\mathrm{sto}$) based on the assumption that the concentration of \chem{O_3} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf. The terms $r_c$ (leaf surface resistance) and $r_b$ (quasi-laminar resistance) allow for the deposition of \chem{O_3} to the leaf and the fraction that is taken up via the stomata. 
+%
+\begin{equation}
+  \Phi_\mathrm{sto} = \chem{[O_3]} \cdot \frac{u(z_1) \cdot g_\mathrm{sto} \cdot r_c}{r_b + r_c}.
+  \label{eq:flux_stomata}
+\end{equation}
+%
+The quasi-laminar boundary layer resistance is calculated by
+%
+\begin{equation}
+  r_b = 1.3 \cdot 150 \cdot \sqrt{\frac{L}{u(z_1)}}.
+  \label{eq:quasi_laminar_resist}
+\end{equation}
+%
+Where $L$ is the cross-wind leaf dimension, $u(z_1)$ the wind speed at height $z_1$, and the factor $1.3$ accounts for the diffusivity between heat and \chem{O_3}. 
+
+\subsection{Input data and gap filling methodology}
+\label{subsec:ozone_reco}
+The $\mathrm{DO_3SE}$ model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
+\begin{equation}
+  \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
+\end{equation}
+with saturation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
+  
+The following gap filling methodology was devised for the meteorological input data:
+\begin{itemize}
+\item Single hours of missing data were filled by taking the average of the hourly values coming before, and after, the missing value.
+\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data were unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
+\item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
+\end{itemize}
+
+For the missing ozone data, we applyed a Reynolds's decomposition of the form:
+\begin{equation}
+  \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
+  \label{eq:reynolds_decomp}
+\end{equation}
+with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}. Observed \chem{[O_3]} in 2018 at Pallas served as the reference. The exact procedure will be described in an compagnion paper.
+
+\subsection{Bespoke parameterizations}
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{figB1}
   \caption{Estimated begin (BGS) and end (EGS) of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (\unit{doy}) and EGS 261/274 day of year for 2018/2019, respectively.}
   \label{fig:modis_Psn}
-\end{figure*}
+\end{figure}
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
   %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_evergreen}
-  \includegraphics[width=12cm]{figB2}
+  \includegraphics[width=8.3cm]{figB2}
 \caption{Construction of bespoke response functions for Norway spruce. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_spruce}
 \end{figure}
@@ -683,7 +687,7 @@ Beyond the risk assessment of ozone-induced damage, our hypothetical bespoke tem
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_birch}\\
   %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_birch}
-  \includegraphics[width=12cm]{figB3}
+  \includegraphics[width=8.3cm]{figB3}
 \caption{Construction of bespoke response functions for downy birch. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_birch}
 \end{figure}
