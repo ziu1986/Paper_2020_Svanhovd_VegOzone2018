@@ -683,12 +683,13 @@ with the form parameters $m_i$ through the data. Numerically, we retrieved the r
   \label{fig:modis_Psn}
 \end{figure}
 
+As described in Section~\ref{subsec:do3se_parameters}, we developed bespoke parameterizations for natural and semi-natural vegetation at Svanhovd. Here, we show the temperature response and light response functions for coniferous and deciduous trees (Figs.~\ref{fig:f_temp_spruce}-\ref{fig:f_temp_birch}). 
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
   %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_evergreen}
   \includegraphics[width=8.3cm]{figB2}
-\caption{Construction of bespoke response functions for Norway spruce. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
+\caption{Construction of bespoke response functions for coniferous trees. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_spruce}
 \end{figure}
 
@@ -700,12 +701,16 @@ with the form parameters $m_i$ through the data. Numerically, we retrieved the r
 \label{fig:f_temp_birch}
 \end{figure}
 
+\subsection{Initial $\mathrm{DO_3SE}$ modeling results with mapping manual parameters}
+To demonstrate the necessary acclimation of the mapping manual parameters, we show the initial results of stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) and $\mathrm{POD_y}$ over \unit{doy} for both years and all species or PFTs (Fig.~\ref{fig:pody_mm_composit}). Observed \chem{[O_3]} is also indicated. From Fig.~\ref{fig:pody_mm_composit}f) it is apparent that the mapping manual parameterized grassland would not have been able to grow in 2019.
+
 \begin{figure*}[t]
   \includegraphics[width=12cm]{figB4}
-  \caption{$\mathrm{DO_3SE}$ modeling results for mapping manual default parameterization. $\mathrm{POD_y}$ is shown over day of year (\unit{doy}), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) Downy birch; (c, d) Norway spruce; (e, f) perennial grassland. From left to right: 2018, 2019.}
+  \caption{$\mathrm{DO_3SE}$ modeling results for mapping manual default parameterization. $\mathrm{POD_y}$ is shown over day of year (\unit{doy}), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) deciduous tree; (c, d) coniferous tree; (e, f) perennial grassland. From left to right: 2018, 2019.}
   \label{fig:pody_mm_composit}
 \end{figure*}
 
+\clearpage
 
 \noappendix       %% use this to mark the end of the appendix section. Otherwise the figures might be numbered incorrectly (e.g. 10 instead of 1).
 
