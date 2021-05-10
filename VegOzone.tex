@@ -337,12 +337,12 @@ In accordance to the above findings, we adjust the derived ozone climatology for
 
 \section{DO3SE modeling}
 \label{sec:do3se}
-In the following, we investigate the difference between 2018 and 2019 concerning stomatal ozone uptake and assess which of the environmental factors might be most influential in determining \chem{O_3} damage risk. We model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic parameterizations for common plant species. We the $\mathrm{DO_3SE}$ model and gap-filling methods are described in Appendix~\ref{appendix:do3se_model}. First, we give an account of the methodology for deriving bespoke parameters. Then, we will present and discuss the modeling results.
+In the following, we investigate the difference between 2018 and 2019 concerning stomatal ozone uptake and assess which of the environmental factors might be most influential in determining \chem{O_3} damage risk. We model ozone uptake of different natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model and develop bespoke subarctic parameterizations for common plant species. First, we give an account of the methodology for deriving bespoke parameters, after which we present and discuss the modeling results. The $\mathrm{DO_3SE}$ model and conducted gap-filling methods are described in Appendix~\ref{appendix:do3se_model}.
 
 \subsection{Model parameters}
 \label{subsec:do3se_parameters}
 
-The main species or PFTs, we deduced on-site at the NIBIO Environment Centre Svanhovd and from Fig.~\ref{fig:svanhovd_research_station}, are perennial grassland, birch, and pine. Default parameters for these species or PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as \emph{mapping manual} abbreviated as MM in the following. We base our parameterization of coniferous trees on Boreal Norway spruce from the MM. Birch will be referred to as deciduous tree in the following. A comprehensive list of model parameters can be found in Supplement~Table~S1.
+We deduced the dominant species on-site at the NIBIO Environment Centre Svanhovd and from Fig.~\ref{fig:svanhovd_research_station} and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Default parameters for these species or PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as \emph{mapping manual} abbreviated as MM in the following. We base our parameterization of coniferous trees on the MM's Boreal Norway spruce and deciduous trees are derived from MM's silver birch. A comprehensive list of model parameters can be found in Supplement~Table~S1.
 Initial test simulations with the MM PFTs showed unrealistically low $g_\mathrm{sto}$ in 2019 particularly for perennial grassland (Appendix~Fig.~\ref{fig:pody_mm_composit}). Only during an extended warm period in late July did we find substantial stomatal conductance. In ecological terms this would mean that there was almost no growth of grass in the summer of 2019 -- a prediction which is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low, being the limiting factor of stomatal conductance. Therefore, we propose bespoke parameterizations which may describe an actual acclimation of these species to the climatic conditions in the target region.
 
 Note, however, that these parameterizations represent hypothetical PFTs or species that have yet to be verified by experiments. 
@@ -667,6 +667,15 @@ For the missing ozone data, we applied a Reynolds decomposition of the form:
 \end{equation}
 with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}. Observed \chem{[O_3]} in 2018 at Pallas served as the reference. The exact procedure will be described in an companion paper.
 
+\subsection{Initial $\mathrm{DO_3SE}$ modeling results with mapping manual parameters}
+To demonstrate the necessary acclimation of the mapping manual parameters, we show the initial results of stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) and $\mathrm{POD_y}$ over \unit{doy} for both years and all species or PFTs (Fig.~\ref{fig:pody_mm_composit}). Observed \chem{[O_3]} is also indicated. From Fig.~\ref{fig:pody_mm_composit}f) it is apparent that the mapping manual parameterized grassland would not have been able to grow in 2019.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{figB1}
+  \caption{$\mathrm{DO_3SE}$ modeling results for mapping manual default parameterization. $\mathrm{POD_y}$ is shown over day of year (\unit{doy}), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) deciduous tree; (c, d) coniferous tree; (e, f) perennial grassland. From left to right: 2018, 2019.}
+  \label{fig:pody_mm_composit}
+\end{figure*}
+
 \subsection{Bespoke parameterizations}
 
 To assess the $G_\mathrm{start}$  and $G_\mathrm{end}$ of the growing season for coniferous trees at Svanhovd in 2018/19, we used the net photosynthesis product ($A_\mathrm{net}$) of MODIS AQUA/TERRA over a $1\times 1\,\unit{km}$ area centered at Svanhovd. MODIS data indicate a higher photosynthetic activity in 2018 than in 2019. As shown in Fig.~\ref{fig:modis_Psn} we fitted a second order polynomial function of the general form
@@ -678,7 +687,7 @@ A_\mathrm{net}(t) =  -m_0\cdot(t-m_1)^2+m_2,
 with the form parameters $m_i$ through the data. Numerically, we retrieved the roots as $G_\mathrm{start}$ 122/106 and $G_\mathrm{end}$ 261/274 for 2018 and 2019, respectively. 
 
 \begin{figure}[th]
-  \includegraphics[width=8.3cm]{figB1}
+  \includegraphics[width=8.3cm]{figB2}
   \caption{Estimated $G_\mathrm{start}$ and $G_\mathrm{end}$ of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (\unit{doy}) and EGS 261/274 day of year for 2018/2019, respectively.}
   \label{fig:modis_Psn}
 \end{figure}
@@ -688,7 +697,7 @@ As described in Section~\ref{subsec:do3se_parameters}, we developed bespoke para
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
   %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_evergreen}
-  \includegraphics[width=8.3cm]{figB2}
+  \includegraphics[width=8.3cm]{figB3}
 \caption{Construction of bespoke response functions for coniferous trees. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_spruce}
 \end{figure}
@@ -696,19 +705,10 @@ As described in Section~\ref{subsec:do3se_parameters}, we developed bespoke para
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_birch}\\
   %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_birch}
-  \includegraphics[width=8.3cm]{figB3}
+  \includegraphics[width=8.3cm]{figB4}
 \caption{Construction of bespoke response functions for deciduous trees. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_birch}
 \end{figure}
-
-\subsection{Initial $\mathrm{DO_3SE}$ modeling results with mapping manual parameters}
-To demonstrate the necessary acclimation of the mapping manual parameters, we show the initial results of stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) and $\mathrm{POD_y}$ over \unit{doy} for both years and all species or PFTs (Fig.~\ref{fig:pody_mm_composit}). Observed \chem{[O_3]} is also indicated. From Fig.~\ref{fig:pody_mm_composit}f) it is apparent that the mapping manual parameterized grassland would not have been able to grow in 2019.
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{figB4}
-  \caption{$\mathrm{DO_3SE}$ modeling results for mapping manual default parameterization. $\mathrm{POD_y}$ is shown over day of year (\unit{doy}), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) deciduous tree; (c, d) coniferous tree; (e, f) perennial grassland. From left to right: 2018, 2019.}
-  \label{fig:pody_mm_composit}
-\end{figure*}
 
 \clearpage
 
