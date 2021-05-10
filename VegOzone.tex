@@ -573,11 +573,11 @@ Beyond the risk assessment of ozone-induced damage, our hypothetical bespoke tem
   \label{fig:density_distribution}
 \end{figure*}
 
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{figA3}
-  \caption{Reconstruction of missing \chem{[O_3]} observation data at Svanvik in July 2018 based on derived hourly climatologies of northern Fennoscandia, Svanvik, and data Pallas. (a) Time series; (b) anomalies; (c) reconstruction.}
-  \label{fig:ozone_reconstruction_2018_07}
-\end{figure*}
+%\begin{figure*}[t]
+%  \includegraphics[width=12cm]{figA3}
+%  \caption{Reconstruction of missing \chem{[O_3]} observation data at Svanvik in July 2018 based on derived hourly climatologies of northern Fennoscandia, Svanvik, and data Pallas. (a) Time series; (b) anomalies; (c) reconstruction.}
+%  \label{fig:ozone_reconstruction_2018_07}
+%\end{figure*}
 
 \clearpage
 
@@ -669,11 +669,20 @@ with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}. Obs
 
 \subsection{Bespoke parameterizations}
 
+To assess the $G_\mathrm{start}$  and $G_\mathrm{end}$ of the greening season for coniferous trees at Svanhovd in 2018/19, we used the net photosynthesis product ($A_\mathrm{net}$) of MODIS AQUA/TERRA over a $1\times 1\,\unit{km}$ area centered at Svanhovd. MODIS data indicate a higher photosynthetic activity in 2018 than in 2019. As shown in Fig.~\ref{fig:modis_Psn} we fitted a second order polynomal function of the general form
+%
+\begin{equation}
+A_\mathrm{net}(t) =  -m_0\cdot(t-m_1)^2+m_2,
+\end{equation}
+%
+with the form parameters $m_i$ through the data. Numerically, we retrieved the roots as $G_\mathrm{start}$ 122/106 and $G_\mathrm{end}$ 261/274 for 2018 and 2019, respectively. 
+
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{figB1}
-  \caption{Estimated begin (BGS) and end (EGS) of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (\unit{doy}) and EGS 261/274 day of year for 2018/2019, respectively.}
+  \caption{Estimated $G_\mathrm{start}$ and $G_\mathrm{end}$ of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (\unit{doy}) and EGS 261/274 day of year for 2018/2019, respectively.}
   \label{fig:modis_Psn}
 \end{figure}
+
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
