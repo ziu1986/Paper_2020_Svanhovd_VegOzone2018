@@ -38,17 +38,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1863"
-     inkscape:window-height="1025"
+     inkscape:window-width="1920"
+     inkscape:window-height="1172"
      id="namedview253"
      showgrid="false"
      inkscape:zoom="0.90028971"
-     inkscape:cx="214.28864"
+     inkscape:cx="245.94512"
      inkscape:cy="447.72837"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer4"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -1969,8 +1969,7 @@
      id="layer4"
      inkscape:label="text"
      style="display:inline;stroke-linecap:butt;stroke-linejoin:round"
-     transform="translate(-115.50705,-33.704889)"
-     sodipodi:insensitive="true">
+     transform="translate(-115.50705,-33.704889)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:round"
@@ -2051,6 +2050,17 @@
        height="159.09377"
        width="112.5"
        style="stroke-linecap:butt;stroke-linejoin:round" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:round"
+       x="550.54041"
+       y="623.1192"
+       id="text1181"><tspan
+         sodipodi:role="line"
+         id="tspan1179"
+         style="font-size:16px;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:round"
+         x="550.54041"
+         y="623.1192">map tile sets © Stamen Design</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
