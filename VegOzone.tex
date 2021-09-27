@@ -75,8 +75,8 @@
 %\usepackage{subfig}
 %\usepackage{rotating}
 
-%\graphicspath{{pictures/}}
-\graphicspath{{figures/}}
+\graphicspath{{pictures/}}
+%\graphicspath{{figures/}}
 
 \begin{document}
 
@@ -196,9 +196,12 @@ The long-term data sets of agrometeorological variables including temperature an
 To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, both an ozone bio-monitor (referred to as ozone garden) and a conventional ozone monitor using the existing atmospheric monitoring infrastructure had been installed during the 2018/19 growing season at the NIBIO centre. We will report \chem{[O_3]} as volume mixing ratios (VMR) in \unit{ppb}. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clover, tobacco, and potatoes. As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence.
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{svanhovd_researchstation}\\
-  %\includegraphics[width=8.3cm]{IMG_7739.JPG}
-  \includegraphics[width=8.3cm]{fig01}
+  \centering
+  (a)\\
+  \includegraphics[width=8.3cm]{svanhovd_researchstation}\\
+  (b)\\
+  \includegraphics[width=8.3cm]{IMG_7739.JPG}
+  %\includegraphics[width=8.3cm]{fig01}
   \caption{NIBIO Environment Centre Svanhovd close by the settlement of Svanvik, Norway. (a) Atmospheric monitoring site and ozone garden have been marked. Aerial photography \copyright Norges Kartverk; (b) Clover in the Svanhovd ozone garden. The plants had to be secured against herbivores with a wire-mesh fence. The plants shown are approximately $6-12\,\unit{cm}$ high.}
   \label{fig:svanhovd_research_station}
 \end{figure}
@@ -214,8 +217,8 @@ Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik
 In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar. This indicates that the vegetation was more affected by ozone in 2018 than in 2019.
 
 \begin{figure*}[t]
-  %\includegraphics[width=12cm]{data_svanvik_2018_2019}
-  \includegraphics[width=12cm]{fig02}
+  \includegraphics[width=12cm]{data_svanvik_2018_2019}
+  %\includegraphics[width=12cm]{fig02}
   \caption{Observational data from atmospheric monitoring at Svanhovd in 2018/19. The hatched areas indicate periods without ozone monitoring data. (a) Hourly averaged \chem{[O_3]}; (b) hourly averaged temperature; (c) daily accumulated precipitation; (d) hourly averaged global irradiance.}
   \label{fig:data_svanvik_2018_2019}
 \end{figure*}
@@ -230,8 +233,8 @@ In this section, we assess the climate conditions. To this end, we compute multi
 The location of Svanvik ($69.45\,\unit{^\circ N}$, $30.03\,\unit{^\circ E}$, $30\,\unit{m}$) suggests a subarctic climate. The derived climate diagram based on climatological data (1992--2012) (Fig.~\ref{fig:climatediagram}) supports this very well. Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard error of the mean (SE) as error band. We chose SE in this case due to the large interannual variability in temperature reflected in the standard deviation. Averaged monthly accumulated precipitation (blue bars) is shown with standard deviation as error bars. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. In the period 1992--2012, the coldest measured temperature was $-45.2\,\unit{^\circ C}$ observed January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred July 16 the same year.
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{climatediagram}
-  \includegraphics[width=8.3cm]{fig04}
+  \includegraphics[width=8.3cm]{climatediagram}
+  %\includegraphics[width=8.3cm]{fig04}
   \caption{Climate diagram following Walter and Lieth. The diagram is based on climatological data for Svanvik/Pasvik (1992--2012). Monthly averaged temperatures (red line) are displayed with standard error of the mean as error band. Averaged monthly accumulated precipitation (blue bars) is shown with a standard deviation of mean as error bars. Months with average temperatures below freezing are denoted with a star.}
   \label{fig:climatediagram}
 \end{figure}
@@ -245,8 +248,8 @@ The derived ozone climatology (\chem{\left<[O_3]\right>}) for Svanvik is shown i
 The early decline in \chem{\left<[O_3]\right>} may point to an influence of coniferous vegetation on the removal of ozone. Coniferous trees have been observed \chem{CO_2} uptake as early as \unit{doy} 100 \citep{TB:Kolari2007, TP:Wallin2013}. The estimated average begin of growing season for deciduous trees ($\left<G_\mathrm{start}\right>_\mathrm{decid}$) is $(150\pm 14)\,\unit{doy}$ at Svanvik (see Section~\ref{subsec:do3se_parameters} for details). In July--September, ozone is occasionally almost completely depleted during nighttime. This hints to ozone uptake by vegetation even at low light intensities during midnight sun conditions in combination with stable planetary boundary layer conditions preventing mixing of ozone rich air.
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{ozone_climatology_fenoscandic_obs_spline}
-  \includegraphics[width=8.3cm]{fig05}
+  \includegraphics[width=8.3cm]{ozone_climatology_svanvik_obs_spline}
+  %\includegraphics[width=8.3cm]{fig05}
   \caption{Svanhovd ozone climatology. The density distribution is shown together with a multi-annual mean of daily \chem{[O_3]} (climatology). A spline has been fitted through daily mean \chem{[O_3]}. The climatology of daily mean ozone is shown together with $1\,\sigma$ standard deviation and standard error of the mean.}
   \label{fig:ozone_climatology_fenoscandic_obs_spline}
 \end{figure}
@@ -258,7 +261,14 @@ In the following, we look at the 2018/19 anomalies and discuss the differences b
 In Fig.~\ref{fig:anomalies_svanvik}a, temperature anomalies for Svanvik are shown as a percentage of days warmer or colder than $\pm 1\,\sigma$ from the climatology for each month. Negative deviations from climatology are displayed as a negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The hatched area between the dashed lines indicates the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed ($15.9\,\unit{\%}$). We find, that the summer of 2018 was significantly warmer than average. Especially in May and July more than $40\,\unit{\%}$ of the days were significantly warmer. Significantly more warmer days continued to occur in all months (August--November) except for October. March 2018 had many unusually cold days. The summer of 2019 was fairly average, however, significantly more colder days occurred in July, while August had both significantly colder and warmer days. April 2019 had significantly warmer than average days.
 
 \begin{figure}[t]
-  \includegraphics[width=12cm]{fig06}
+  %\includegraphics[width=12cm]{fig06}
+  \centering
+  (a)\hspace{8.3cm}(b)\\
+  \includegraphics[width=8.3cm]{temperature_signific_1.pdf}
+  \includegraphics[width=8.3cm]{precipitation_signific_1.pdf}\\
+  (c)\hspace{8.3cm}(d)\\
+  \includegraphics[width=8.3cm]{global_rad_signific_1.pdf}
+  \includegraphics[width=8.3cm]{ozone_signific_1.pdf}
   \caption{2018/19 anomalies of key environmental variables at Svanhovd displayed as percentages of days significantly deviating from climatological mean through standard deviation for each month. Negative deviations from the climatology are shown as a negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The hatched area between the dashed lines indicates statistical significance under the assumption of a normal distribution ($15.9\,\unit{\%}$, $30.8\,\unit{\%}$ for Precip.). (a) Temperature; (b) precipitation; (c) global irradiance; (d) ozone.}
   \label{fig:anomalies_svanvik}
 \end{figure}
@@ -302,9 +312,12 @@ First, we solve Eq.~(\ref{eq:inverse_function}) for the MM default value $\alpha
 and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}$. We invert Eq.~(\ref{eq:inverse_function}) for $\alpha$ and find $\alpha'(\gamma')$. The resulting functions for perennial grassland are shown in Fig.~\ref{fig:f_temp_grassland}b) (for deciduous and coniferous trees refer Appendix~Figs.~\ref{fig:f_temp_spruce}b)--\ref{fig:f_temp_birch}b)). All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_grassland}\\
-  %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_grassland}
-  \includegraphics[width=8.3cm]{fig07}
+  \centering
+  (a)\\
+  \includegraphics[width=8.3cm]{javis_funcs_temp_hist_grassland}\\
+  (b)\\
+  \includegraphics[width=8.3cm]{javis_funcs_light_hist_grassland}
+  %\includegraphics[width=8.3cm]{fig07}
 \caption{Construction of bespoke response functions for grassland. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_grassland}
 \end{figure}
@@ -356,14 +369,14 @@ and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}
 As indicated above, a better acclimation to prevailing climate conditions will result in a higher average $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$. To compare the bespoke parameterizations, we propose the following metric. We calculate an average relative stomatal conductance $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ (Eq.~(\ref{eq:stomatal}) with $f_\mathrm{SWP}=1$) at noon ($11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning ($5-9\,\unit{am}$ local time) for the whole record of meteorological data and apply mean and standard deviation. We presume that $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ around noon (highest light intensity) is a good proxy for \chem{CO_2} uptake efficiency (growth) which should be maximized. In additional, a small deviation between noon and morning and a low standard deviation would indicate a higher robustness to variability in growing conditions. From the results shown in Fig.~\ref{fig:javis_func_opt_mean}, we identify \emph{subarctic}, PPFD0.8 as the best acclimation for all PFTs, based on the criteria. As expected due to the small adjustments, coniferous trees display the lowest deviation between the different types of acclimation, while the divergence for perennial grassland is substantial as a response to the stronger proposed temperature acclimation.
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{javis_func_opt_mean}
-  \includegraphics[width=8.3cm]{fig08}
+  \includegraphics[width=8.3cm]{javis_func_opt_mean}
+  %\includegraphics[width=8.3cm]{fig08}
   \caption{Proposed metric to test bespoke response functions. GS (May--August) climatological averages and standard deviation of $g_\mathrm{sto}^k$ (Eq.~(\ref{eq:stomatal})) relative to $g_\mathrm{max}^k$ at noon (averaged over $11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning (averaged over $5-9\,\unit{am}$ local time) are shown for (a) deciduous trees; (b) coniferous trees; (c) perennial grassland. }
   \label{fig:javis_func_opt_mean}
 \end{figure}
 
-Another important factor for ozone exposure metrics is the timing and length of the GS. Start ($A_\text{start}$) and end ($A_\text{end}$) of GS for each PFT are given in units of \unit{doy} (Table~\ref{tab:sensitivity_tests_gs}) and estimated as follows. We use a MODIS (Aqua/Terra) retrieved net photosynthesis product \textbf{TODO: reference} for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. The net photosynthesis vs. time of year data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{doy}$ for 2018 and \unit{doy} 106 in 2019. $A_\text{end}$ amounts to \unit{doy} 261 and 274, respectively. This value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 was one month longer than in 2018. For estimating $A_\text{start}$ of deciduous trees, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Supplement~Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR).
-For comparison, the default values ($A_\mathrm{start} = 100\,\unit{doy}$ and $A_\mathrm{end} = 307\,\unit{doy}$) indicating a substantially longer growing season. Due to a lack of quantitative field observation, we assume a latency period of $1\,\unit{month}$ after snow-melt for perennial grassland \citep[][Supplement Fig.~S1, Rovaniemi]{FCR:Korhonen2018}. 
+Another important factor for ozone exposure metrics is the timing and length of the GS. Start ($A_\text{start}$) and end ($A_\text{end}$) of GS for each PFT are given in units of \unit{doy} (Table~\ref{tab:sensitivity_tests_gs}) and estimated as follows. We use a MODIS (Aqua/Terra) retrieved net photosynthesis product \textbf{TODO: reference} for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. The net photosynthesis vs. time of year data can be approximated by a second order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start} = 122\,\unit{doy}$ for 2018 and \unit{doy} 106 in 2019. $A_\text{end}$ amounts to \unit{doy} 261 and 274, respectively. This value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 was one month longer than in 2018. For estimating $A_\text{start}$ of deciduous trees, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We find 129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR).
+For comparison, the default values ($A_\mathrm{start} = 100\,\unit{doy}$ and $A_\mathrm{end} = 307\,\unit{doy}$) indicating a substantially longer growing season. Due to a lack of quantitative field observation, we assume a latency period of $1\,\unit{month}$ after snow-melt for perennial grassland \citep[][Supplement~Fig.~S1, Rovaniemi]{FCR:Korhonen2018}. 
 
 \begin{table}[t]
   \caption{Start and end of growing season in units of \unit{doy}.}
@@ -407,7 +420,14 @@ For coniferous trees (Fig.~\ref{fig:pody_rel}b), most simulations slightly excee
 For perennial grassland (Fig.~\ref{fig:pody_rel}c), all simulations with bespoke GS stay below the CL. Perennial grassland shows the smallest ozone uptake, but a similarly large response to the temperature parameterizations as deciduous trees. Again, we find a reversal for predicted ozone damage risk in $\mathrm{POD_1}$ between 2018 and 2019 for the subarctic type. Perennial grassland shows the lowest sensitivity to the light threshold and SWP is only relevant without bespoke GS. The overall bias deduced from bespoke GS for subarctic and cold types with respect to MM ranges between $(2.2-3.4)\,\unit{mmol\,\chem{O_3}\,m^{-2}}$ in 2018 and $(4.4-6.4)\,\unit{mmol\,\chem{O_3}\,m^{-2}}$ in 2019. The lower maximum temperature tolerance in the subarctic compared to the cold temperature parameterization probably caused the lower $\mathrm{POD_1}$ values calculated for 2018 in subarctic compared to cold climate, whereas this was not seen for 2019. The maximum systematic deviations deduced from the $-20\,\unit{\%}$ (superscript) and $+20\,\unit{\%}$ (subscript) variation of the extent of stomatal opening at low light intensities amount to $^{+0.3}_{-0.2}\,\unit{mmol\,\chem{O_3}\,m^{-2}}$ and $^{+0.3}_{-0.3}\,\unit{mmol\,\chem{O_3}\,m^{-2}}$, respectively.
 
 \begin{figure}[t]
-  \includegraphics[width=8.3cm]{fig09}
+  \centering
+  (a)\\
+  \includegraphics[width=8.3cm]{do3se_results_pod_v3_Birch.pdf}\\
+  (b)\\
+  \includegraphics[width=8.3cm]{do3se_results_pod_v3_Spruce.pdf}\\
+  (c)\\
+  \includegraphics[width=8.3cm]{do3se_results_pod_v3_Grassland.pdf}
+  %\includegraphics[width=8.3cm]{fig09}
   \caption{$\mathrm{DO_3SE}$ modeling $\mathrm{POD_1}$ results for (a) deciduous trees, (b) coniferous trees, and (c) perennial grasslands at Svanhovd in 2018 (pink) and 2019 (purple). The results varied depending on parameterizations of temperature response functions (MM, Cold, and Subarctic, details in Table~\ref{tab:sensitivity_tests_temp}), growing season (GS MM (squares) or GS bespoke (circles), details in Table~\ref{tab:sensitivity_tests_gs}), light response functions (first, second and third point attached by a line are depicting the MM, PPFD0.8 and PPFD1.2, details in Table~\ref{tab:sensitivity_tests_light}), and the effect of taking SWP into account (filled symbols without and open symbols with effects of drought kept in the model). Critical levels for ozone damage \citep{ICP:MappingManual2017,ESPR:Hayes2021} are given as dashed horizontal lines. Note that the horizontal axis is only categorical.}
   \label{fig:pody_rel}
 \end{figure}
@@ -442,7 +462,7 @@ $\left<\mathrm{MM}\right>$ & $11.2\pm 1.1$ & $2.31\pm 0.04$ & $7.5\pm 0.9$ & $9.
 
 \textbf{TODO: Decide on terms acclimation vs parameterization etc} We have studied the effect of model acclimations of some common vegetation types to a subarctic climate on phytotoxic ozone uptake. The comparison between 2018 and 2019 conditions allowed us to consider these acclimations and their influence on vegetation sensitivity to \chem{O_3} in light of future changes of key environmental variables as may occur under climate change (e.g. increase of frequency and extent of heatwaves). We found that conditions for ozone formation were more favorable in the 2018 growing season than in 2019, with 2018 being significantly warmer and less cloudy in spring and early summer. Accordingly, peak ozone concentrations occurred more frequently and at higher levels in 2018. This was particularly a result of the extended heatwave in spring and early summer and associated, extensive wildfires in Central Sweden (in particular in mid--end July). \textbf{TODO: Check explanation regarding significance.}
 
-We found that the length and timing of the growing season are crucial for risk assessment based on accumulated ozone flux metrics ($\mathrm{POD_y}$). Based on a MODIS photosynthesis product, we estimated the growing season for coniferous trees in 2018 to be at least one month shorter than in 2019. The found start of growing season in 2018 ($122\,\unit{doy}$) and 2019 ($106\,\unit{doy}$) are within given ranges by empirical observations \citep{TB:Kolari2007,IVL:Karlsson2018}. Based on gridded observational temperature and snow depth, we found a half a month shorter growing season for deciduous trees and perennial grassland in 2018 compared to 2019, respectively. With respect to ongoing climate change, a clear positive trend in length ($5.2\,\unit{d\,decade^{-1}}$) almost equally distributed between earlier start ($2.9\,\unit{days\,decade^{-1}}$) and later end ($2.3\,\unit{d\,decade^{-1}}$) could be deducted from the thermal growing season at Svanhovd (Supplement Fig.~\ref{fig:greening_season_change_Svanvik}). \textbf{TODO: Move S6 into appendix.}
+We found that the length and timing of the growing season are crucial for risk assessment based on accumulated ozone flux metrics ($\mathrm{POD_y}$). Based on a MODIS photosynthesis product, we estimated the growing season for coniferous trees in 2018 to be at least one month shorter than in 2019. The found start of growing season in 2018 ($122\,\unit{doy}$) and 2019 ($106\,\unit{doy}$) are within given ranges by empirical observations \citep{TB:Kolari2007,IVL:Karlsson2018}. Based on gridded observational temperature and snow depth, we found a half a month shorter growing season for deciduous trees and perennial grassland in 2018 compared to 2019, respectively. With respect to ongoing climate change, a clear positive trend in length ($5.2\,\unit{d\,decade^{-1}}$) almost equally distributed between earlier start ($2.9\,\unit{days\,decade^{-1}}$) and later end ($2.3\,\unit{d\,decade^{-1}}$) could be deducted from the thermal growing season at Svanhovd (Appendix Fig.~\ref{fig:greening_season_change_Svanvik}). \textbf{TODO: Move S6 into appendix.}
 
 Ozone peak concentrations were observed more frequently in 2018 than in 2019. Nevertheless, \chem{POD_1} values were very similar for both years. This suggests that the overall length of the growing season is more important in risk assessment using flux-based metrics than episodes of peak concentrations. These peak \chem{[O_3]} often coincide with environmental conditions that limit ozone uptake the model. However, acute cellular damage caused by very high episodic ozone fluxes are not accounted for in $\mathrm{POD_y}$. That might explain why ozone damage was observed at Svanhovd to a larger extent in 2018 than in 2019. As pointed out by \citet{AE:Musselman2006}, a susceptibility to ozone depending on leaf age in the associated damage functions might give a different picture. Forbs and perennial grassland have been found to be more susceptible in the reproductive state \citep{EP:Bassin2004}.
 
@@ -487,24 +507,13 @@ Beyond the risk assessment of ozone-induced damage, our hypothetical bespoke tem
 \clearpage
 
 \appendix
-\section{Derived climatologies}    %% Appendix A
-
-%\subsection{Temperature, precipitation, and global irradiance}     %% Appendix A1, A2, etc.
-
-\appendixfigures  %% needs to be added in front of appendix figures
-\begin{figure}[th]
-  \includegraphics[width=8.3cm]{figA1}
-  \caption{Observed global irradiance at Svanvik. (a) Climatology (hourly maxima, mean, and minima); deviation from climatology (b) 2018; (c) 2019. The cyan lines indicate the $1\,\sigma$ level derived from climatology.}
-  \label{fig:global_rad_clim}
-\end{figure}
-
-\begin{figure}[th]
-  \includegraphics[width=8.3cm]{figA2}
-  \caption{Probability densities and correlation coefficient for \chem{[O_3]} between different sites in northern Fennoscandia. Jergul/Karasjok is well correlated with Esrange, and Pallas. Svanvik displays highest correlation with Pallas. Note: The stripe at $26\,\unit{ppb}$ is an artifact from plotting. (a) Jergul/Karasjok--Esrange; (b) Jergul/Karasjok--Pallas; (c) Svanvik--Esrange; (d) Svanvik--Pallas.}
-  \label{fig:density_distribution}
-\end{figure}
-
-\clearpage
+\section{Growing season}
+\label{appendix:growing_season}
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{greening_season_change_Svanvik}
+  \caption{Estimated shift and prolongation of growing season at Svanhovd over the past 6 decades based on data from \citet{SeNorge}.}
+  \label{fig:greening_season_change_Svanvik}
+\end{figure*}
 
 \section{DO3SE model}
 \label{appendix:do3se_model}
@@ -590,13 +599,14 @@ For the missing ozone data, we applied a Reynolds decomposition of the form:
   \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
   \label{eq:reynolds_decomp}
 \end{equation}
-with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]}. Observed \chem{[O_3]} in 2018 at Pallas served as the reference. The exact procedure will be described in an companion paper.
+with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]} as described in \citet{ACPD:Falk2021}.
 
 \subsection{Initial $\mathrm{DO_3SE}$ modeling results with mapping manual parameters}
 To demonstrate the necessary acclimation of the mapping manual parameters, we show the initial results of stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) and $\mathrm{POD_y}$ over \unit{doy} for both years and all species or PFTs (Fig.~\ref{fig:pody_mm_composit}). Observed \chem{[O_3]} is also indicated. From Fig.~\ref{fig:pody_mm_composit}f) it is apparent that the mapping manual parameterized grassland would not have been able to grow in 2019.
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{figB1}
+  %\includegraphics[width=12cm]{figB1}
+  \includegraphics[width=12cm]{DO3SE_results_pody_gsto_o3.png}
   \caption{$\mathrm{DO_3SE}$ modeling results for mapping manual default parameterization. $\mathrm{POD_y}$ is shown over day of year (\unit{doy}), March--October. A flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) has been chosen. \chem{[O_3]} are plotted on the same axis and scales as $G_\text{sto}^\text{leaf}$ but in units of $\unit{ppb}$. (a, b) deciduous tree; (c, d) coniferous tree; (e, f) perennial grassland. From left to right: 2018, 2019.}
   \label{fig:pody_mm_composit}
 \end{figure*}
@@ -612,7 +622,8 @@ A_\mathrm{net}(t) =  -m_0\cdot(t-m_1)^2+m_2,
 with the form parameters $m_i$ through the data. Numerically, we retrieved the roots as $G_\mathrm{start}$ 122/106 and $G_\mathrm{end}$ 261/274 for 2018 and 2019, respectively. 
 
 \begin{figure}[th]
-  \includegraphics[width=8.3cm]{figB2}
+  %\includegraphics[width=8.3cm]{figB2}
+  \includegraphics[width=8.3cm]{modis_Psn.pdf}
   \caption{Estimated $G_\mathrm{start}$ and $G_\mathrm{end}$ of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS 122/106 day of year (\unit{doy}) and EGS 261/274 day of year for 2018/2019, respectively.}
   \label{fig:modis_Psn}
 \end{figure}
@@ -620,17 +631,23 @@ with the form parameters $m_i$ through the data. Numerically, we retrieved the r
 As described in Section~\ref{subsec:do3se_parameters}, we developed bespoke parameterizations for natural and semi-natural vegetation at Svanhovd. Here, we show the temperature response and light response functions for coniferous and deciduous trees (Figs.~\ref{fig:f_temp_spruce}-\ref{fig:f_temp_birch}). 
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_evergreen}\\
-  %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_evergreen}
-  \includegraphics[width=8.3cm]{figB3}
+  \centering
+  (a)\\
+  \includegraphics[width=8.3cm]{javis_funcs_temp_hist_coniferous}\\
+  (b)\\
+  \includegraphics[width=8.3cm]{javis_funcs_light_hist_coniferous.pdf}
+  %\includegraphics[width=8.3cm]{figB3}
 \caption{Construction of bespoke response functions for coniferous trees. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_spruce}
 \end{figure}
 
 \begin{figure}[t]
-  %\includegraphics[width=8.3cm]{javis_funcs_temp_hist_birch}\\
-  %\includegraphics[width=8.3cm]{javis_funcs_rad_hist_birch}
-  \includegraphics[width=8.3cm]{figB4}
+  \centering
+  (a)\\
+  \includegraphics[width=8.3cm]{javis_funcs_temp_hist_deciduous.pdf}\\
+  (b)\\
+  \includegraphics[width=8.3cm]{javis_funcs_light_hist_deciduous.pdf}
+  %\includegraphics[width=8.3cm]{figB4}
 \caption{Construction of bespoke response functions for deciduous trees. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_birch}
 \end{figure}
@@ -873,7 +890,5 @@ As described in Section~\ref{subsec:do3se_parameters}, we developed bespoke para
 %%% PHYSICAL UNITS
 %%%
 %%% Please use \unit{} and apply the exponential notation
-
-\input{supplements/VegOzone_supplement}
 
 \end{document}
