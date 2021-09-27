@@ -190,11 +190,10 @@ In our assessment of primary drivers of ozone damage risk on vegetation in the s
 
 The NIBIO centre Svanhovd focuses on the research of the special environment of the region, but also comprises long-term observations of various agrometeorological variables, i.e. $2\,\unit{m}$ temperature, precipitation, global irradiance, and soil temperature at different depths.
 
-All measured atmospheric variables including ozone for the 2018/19 growing season were obtained through \href{luftkvalitet.no}{luftkvalitet.no} operated by \citet{NILU_AIRQ}. The ozone monitoring data have been also added to the EBAS database operated by \citet{NILU_EBAS} and are thus openly accessible. Long-term ozone observation data (1986--1996) were obtained from EBAS. The long-term data sets of agrometeorological variables including temperature and precipitation are available from September 1992 to the present day \citep[LandbruksMeteorologiske Tjeneste][note the station name here is Pasvik]{LMT_NIBIO}.
+All measured atmospheric variables including ozone for the 2018/19 growing season were obtained through \href{luftkvalitet.no}{luftkvalitet.no} operated by \citet{NILU_AIRQ}. The ozone monitoring data have been also added to the EBAS database operated by \citet{NILU_EBAS} and are thus openly accessible. Long-term ozone observation data (1986--1996) were obtained from EBAS. Note that data from before the 1990s do not follow the high-quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Especially, ozone monitors did not undergo regular re-calibration. This probably lead to drifts in the observed data and may impose a false trend.
+The long-term data sets of agrometeorological variables including temperature and precipitation are available from September 1992 to the present day \citep[LandbruksMeteorologiske Tjeneste][note the station name here is Pasvik]{LMT_NIBIO}.
 
-To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, both an ozone bio-monitor (referred to as ozone garden) and a conventional ozone monitor using the existing atmospheric monitoring infrastructure had been installed during the 2018/19 growing season at the NIBIO centre. We will report \chem{[O_3]} as volume mixing ratios (VMR) in \unit{ppb}. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clover, tobacco, and potatoes. As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence. In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar. This indicates that the vegetation was more affected by ozone in 2018 than in 2019.
-
-
+To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, both an ozone bio-monitor (referred to as ozone garden) and a conventional ozone monitor using the existing atmospheric monitoring infrastructure had been installed during the 2018/19 growing season at the NIBIO centre. We will report \chem{[O_3]} as volume mixing ratios (VMR) in \unit{ppb}. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clover, tobacco, and potatoes. As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence.
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{svanhovd_researchstation}\\
@@ -204,17 +203,18 @@ To relate local ozone concentration \chem{[O_3]} with visible damage on ozone se
   \label{fig:svanhovd_research_station}
 \end{figure}
 
-
 \subsection{2018/19 growing season}
 \label{subsec:growing_season_1819}
 
 All relevant data for the growing season 2018/19 are shown as time series in Fig.~\ref{fig:data_svanvik_2018_2019}. Ozone concentrations measured at $2\,\unit{m}$ height above ground are averaged hourly. The hatched areas mark times when no ozone data were recorded. Note, while the downtime during winter was planned, missing data in two weeks of July 2018 (July 9--23) were due to problems in data acquisition.
 
-As can be seen in Fig.~\ref{fig:data_svanvik_2018_2019}a), \chem{[O_3]} peaks in spring (April/May) and reaches its minimum in late summer (July/August). The spring peak has not been captured completely in 2019, since data acquisition only started in late April. In summer 2018 (June--August), high ozone concentrations ($\chem{[O_3]} > 40\,\unit{ppb}$) were recorded 50 times. The highest summer ozone concentration ($\chem{[O_3]} = 50.2\,\unit{ppb}$) was measured on July 25. This coincides with the period of the most extensive forest fires in central Sweden which occurred from July 12--29 \citep{SOU2019}. However, due to the above-mentioned data acquisition problems, we missed most of the corresponding ozone data for this event and most likely also the peak \chem{[O_3]}. In contrast, \chem{[O_3]} only rose 18 times above the threshold of $40\,\unit{ppb}$ during the summer of 2019. For further analysis (Section~\ref{sec:stats}) and modeling study with the $\mathrm{DO_3SE}$ model (Section~\ref{sec:do3se}), we reconstructed the missing data. The used gap-filling method will be described in detail in a companion paper.
+As can be seen in Fig.~\ref{fig:data_svanvik_2018_2019}a, \chem{[O_3]} peaks in spring (April/May) and reaches its minimum in late summer (July/August). The spring peak has not been captured completely in 2019, since data acquisition only started in late April. In summer 2018 (June--August), high ozone concentrations ($\chem{[O_3]} > 40\,\unit{ppb}$) were recorded 50 times. The highest summer ozone concentration ($\chem{[O_3]} = 50.2\,\unit{ppb}$) was measured on July 25. This coincides with the period of the most extensive forest fires in central Sweden which occurred from July 12--29 \citep{SOU2019}. However, due to the above-mentioned data acquisition problems, we missed most of the corresponding ozone data for this event and most likely also the peak \chem{[O_3]}. In contrast, \chem{[O_3]} only rose 18 times above the threshold of $40\,\unit{ppb}$ during the summer of 2019. A reconstruction method for gap-filling the data has been presented in \citet{ACPD:Falk2021}.
 
 Hourly averaged $2\,\unit{m}$ temperatures above $20\,\unit{^\circ C}$ occurred more regularly in July 2018 than in 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}b). In 2018, spring temperature regularly rose above freezing only in May, while in 2019 this occurred already early in March/April.
-More rain events with accumulated daily precipitation ($\sum_d \mathrm{Precip}$) above $10\,\unit{mm}$ occurred in the summer of 2018 compared to 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}c).
-Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik_2018_2019}d) was higher in May and July 2018 compared to 2019, while June 2019 showed higher irradiance than 2018. A high global irradiance in most cases is the result of a low cloud fraction. In both years, the maximum recorded $Q_0$ was $750\,\unit{W\,m^{-2}}$ and reached in June.
+More rain events with accumulated daily precipitation ($\sum_d \mathrm{Precip}$) above $10\,\unit{mm}$ occurred in the summer of 2018 compared to 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}c.
+Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik_2018_2019}d was higher in May and July 2018 compared to 2019, while June 2019 showed higher irradiance than 2018. A high global irradiance in most cases is the result of a low cloud fraction. In both years, the maximum recorded $Q_0$ was $750\,\unit{W\,m^{-2}}$ and reached in June.
+
+In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar. This indicates that the vegetation was more affected by ozone in 2018 than in 2019.
 
 \begin{figure*}[t]
   %\includegraphics[width=12cm]{data_svanvik_2018_2019}
@@ -222,46 +222,6 @@ Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik
   \caption{Observational data from atmospheric monitoring at Svanhovd in 2018/19. The hatched areas indicate periods without ozone monitoring data. (a) Hourly averaged \chem{[O_3]}; (b) hourly averaged temperature; (c) daily accumulated precipitation; (d) hourly averaged global irradiance.}
   \label{fig:data_svanvik_2018_2019}
 \end{figure*}
-
-\subsection{Ozone data}
-\label{subsec:ozone_data}
-From 1986--1996, ozone monitoring has been operated continuously by NILU at Svanhovd, but no ozone measurements have been conducted before the 2018/19 growing season. To determine the significance of the \chem{[O_3]} in 2018/19 in relation to regional trends, we derive a ground-level \chem{[O_3]} climatology for Svanvik and northern Fennoscandia in general (Section~\ref{sec:stats}). 
-
-%\subsubsection{Ground-level ozone observations}
-%\label{subsubsec:ebas}
-\begin{figure}[t]
-  %\includegraphics[width=8.3cm]{station_map_fennoscandia}
-  \includegraphics[width=8.3cm]{fig03}
-  \caption{Cap of the North. Locations of past and present (end of 2018) ozone observation sites in northern Fennoscandia used in this study. For more details see Table~\ref{tab:ebas_obs}. The same color coding for each station as displayed herein will be used in all the following figures. Figure adapted from \citet{ACP:Falk2021}. \textbf{TODO: Add map copy right}}
-  \label{fig:station_map_fennoscandia}
-\end{figure}
-
-
-A comprehensive overview over all past and present ozone observation sites in northern Fennoscandia is given in Table~\ref{tab:ebas_obs} and Fig.~\ref{fig:station_map_fennoscandia}, respectively. All stations with available long-term observations are located at higher altitude than Svanhovd. In the absence of local precursors, the stratification of the atmosphere usually leads to a higher abundances in ozone at higher altitude \citep[e.g.,][]{AB:Klingberg2009}. The periphery vegetation at all sites is similar and consists mainly of pine forests, birch, perennial grassland, and heath. However, on closer inspection the vegetation differs substantially. Ozone measurements at Pallas are taken on top of mount Sammaltunturi, $100\,\unit{m}$ above treeline (pine forest), and the surrounding vegetation mainly consists of low vascular plants, mosses, and lichen \citep{BER:Hatakka2003}. At Svanhovd, the ozone measurements are taken amidst a meadow surrounded by agriculturally managed herbaceous plants and grass adhering to the \citet{WMOGuide2018} standards (Fig.\ref{fig:svanhovd_research_station}).
-
-Data from before the 1990s are available solely from Svanvik and Jergul. These data do not follow the high-quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Especially, ozone monitors did not undergo regular re-calibration. This probably lead to drifts in the observed data and may impose a false trend. In 1997, the ozone monitoring at Jergul was relocated downstream of the river Karasjohka to a site close by Karasjok. Although the same equipment has been used, this might have introduced a baseline shift in the combined data series, denoted as Jergul/Karasjok, which would be particularly problematic if these were the sole data for comparison. Only a few data have been taken upstream the Pasvik river at Janiskovski, hence these will not be taken into further consideration, but are listed for completeness. There is an overlap of about $4\,\unit{years}$ between data taken at Esrange, Jergul/Karasjok, and Svanvik (Supplement~Fig.~\ref{fig:ozone_timesseries_fenoscandic_obs}).
-
-\begin{table}[t]
-  \caption{Past and present ozone observation sites in northern Fennoscandia. Data available on \href{http://ebas.nilu.no/}{EBAS}. Table adapted from \citet{ACP:Falk2021}}
-  \label{tab:ebas_obs}
-  \begin{tabular}{lllllrl}
-    \tophline
-    Name       & Country & ID      & \multicolumn{3}{c}{Location} & Operational\\
-    &         &         & lat             & lon               & alt            &\\
-    &         &         & (\unit{^\circ N}) & (\unit{^\circ E})  & (\unit{m})     &\\
-    \middlehline
-    Esrange    & SWE     & SE0013R & 67.83           & 21.07             & 475            & 1991 -- 2018$^1$\\
-    Janiskoski & RUS     & RU0001R & 68.93           & 28.85             & 118            & 1995 -- 1997\\
-    Jergul     & NOR     & NO0030R & 69.45           & 24.60             & 255            & 1997 -- 2011\\
-    Karasjok   & NOR     & NO0055R & 69.467          & 25.217            & 333            & 1988 -- 1997\\
-    Pallas     & FIN     & FI0096G & 67.97           & 24.12             & 565            & 1995 -- present$^2$\\
-    Svanvik    & NOR     & NO0047R & 69.45           & 30.03             & 30             & 1986 -- 1996$^3$\\
-    \bottomhline
-  \end{tabular}
-  \belowtable{$^1$ Data available on EBAS until the end of 2018.\\
-    $^2$ Data available on EBAS until the end of 2019.\\
-    $^3$ Exclusive ozone monitoring in growing seasons 2018/19 for the present study operated by NILU.} % Table Footnotes
-\end{table}
 
 \section{Statistical analysis}
 \label{sec:stats}
@@ -272,7 +232,7 @@ In this section, we assess the climate conditions. To this end, we compute multi
 
 \subsubsection{Temperature, precipitation, and global irradiance}
 \label{subsubsec:clim_temp_prec}
-The location of Svanvik at $69.45\,\unit{^\circ N}$ suggests a subarctic climate. The derived climate diagram based on climatological data (1992--2012) (Fig.~\ref{fig:climatediagram}) supports this very well. Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard error of the mean (SE) as error band. We chose SE in this case due to the large interannual variability in temperature reflected in the standard deviation. Averaged monthly accumulated precipitation (blue bars) is shown with standard deviation as error bars. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. In the period 1992--2012, the coldest measured temperature was $-45.2\,\unit{^\circ C}$ observed January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred July 16 the same year.
+The location of Svanvik ($69.45\,\unit{^\circ N}$, $30.03\,\unit{^\circ E}$, $30\,\unit{m}$) suggests a subarctic climate. The derived climate diagram based on climatological data (1992--2012) (Fig.~\ref{fig:climatediagram}) supports this very well. Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard error of the mean (SE) as error band. We chose SE in this case due to the large interannual variability in temperature reflected in the standard deviation. Averaged monthly accumulated precipitation (blue bars) is shown with standard deviation as error bars. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. In the period 1992--2012, the coldest measured temperature was $-45.2\,\unit{^\circ C}$ observed January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred July 16 the same year.
 
 \begin{figure}[t]
   %\includegraphics[width=8.3cm]{climatediagram}
