@@ -12,7 +12,7 @@
 \section*{Authors' response}
 To bg-2021-260-RC1 (05 Nov 2021):
 We thank the anonymous referee \#1 for their comments.
-We will address all \textbf{general comments} raised regarding the structure and readability of the manuscript in our next revision or resubmission. We will refine the language to reduce ambiguity and supplement our statements with appropriate citations where indicated by the referee.\\
+We will address all \textbf{general comments} raised regarding the structure and readability of the manuscript in our next revision or resubmission. We consider to separate the manuscript in Introduction--Methods--Results--Conclusions and will improve on the "methods" Section to make our results more comprehensible. We will refine the language to reduce ambiguity and supplement our statements with appropriate citations where indicated by the referee.\\
 As the manuscript will, hence, undergo major structural changes, we can not address all \textbf{specific / technical comments} in detail at this point. We will take all specific and technical comments which are still relevant into consideration.\\
 In the following, we shall give a brief respond to all relevant issues.
 
@@ -143,68 +143,85 @@ In Appendix~B2, we write that the "$\mathrm{DO_3SE}$ model requires hourly, cont
 
 \item {\color{blue}Line 369. "Due to the shape of flight, a symmetric variation".
 Symmetric variation of what?}
-This refers to the variation of PPFD at a stomatal opening of 50\% by $\pm 20\%$.
+This refers to the variation of PPFD at a stomatal opening of 50\% by $\pm 20\%$ and the resulting response in computed POD1. We will make this clearer in the text.
 
 \item {\color{blue}Line 370. "We find that an opening of stomata at lower light intensities can cause higher sensitivity to drought conditions." Please, explain where we can see this. Graph 8 is not clear at all to me. And then, "sensitivity" of what? Of plants? Of POD1?}
-Figure~8 is indeed very complex and we will elaborate on the explanation and interpretation in the text. Sensitivity of POD1 is indicated. 
+Figure~8 is indeed very complex and we will elaborate on the explanation and interpretation in the text to make it more accessible to the readers. You are right that this sentence is not clear and does not communicate what we intended to say. We refer to the sensitivity of modeled POD1. If we take a look at, e.g. Fig.~8a subarctic parameterazation and 2018 (left hand side of the upper panel). Open symbols represent a model simulation where SWP was taken into account. Closed symbols where this effect was switched off. The '--' symbolizes PPFD0.8 (earlier opening), the '+' PPFD1.2 (later opening). We shall have a look at the circles connected by a solide line representing the simulations with a GS which we have determined from temperatures. If the stomata open earlier / close later more ozone can be taken up (longer opening time), hence POD1 is larger than for the unchanged $f_\mathrm{light}$. Now, if we take SWP into account, we find that only the PPFD0.8 is affected. Therefore, we conclude that conditions that negatively affect SWP (referred to as droughts) reduce the uptake of ozone (POD1) when an earlier opening / later closing of stomata is considered. Hence, POD1 is more sensitive to drought conditions.
 
 \item {\color{blue}Line 373. "The magnitude of these effects varies between PFTs as well as years, but the predicted ozone uptake for the bespoke temperature parameterization is always larger than for the MM parameterizations and of the same order of magnitude as the variability between the years studied here."
 What effects? "Of the same order of magnitude as the interannual variability...": can you conclude it by comparing only two years? The same for line 402}
+In Section~3, we tried to show that 2019 is representative for a normal year while 2018 is more extreme. We should evaluate our data with this question in mind and confirm that the difference between 2018 and 2019 is indeed representative for the interannual variability. Depending on the outcome, we will rephrase the sentences and substitute the term "interannual variability".
 
 \item {\color{blue}Table 4.  Have the percentage of reduction been calculated taking into account pre-industrial concentrations as prescribed by the MM?
 What are meaning of the superscripts? And, above all, why some superscripts indicate a range (e.g. 1.9 ... 2.1)? I did not understand how the stdev of the MM estimation was calculated, sorry.}
+We will make this clearer in the next version of the manuscript. We used the relationship between biomass reduction and POD1 unchanged from the MM. This, however, is to some degree questionable because subarctic vegetation could be affected more or less by the same ozone dose than the central European species. Apparently, the caption of the table is not complete and parts of the explanation missing. We explain how we derive the uncertainty ranges in L405--407 but this may not be clear enough. From Fig.~8, we deduced that SWP is negligible in most cases (solid and open symbols show the same POD1). Hence, we computed the biomass reduction based on simulations with SWP effects on POD1 turned off and MM $f_\mathrm{light}$. The uncertainties reported are actually the differences and not standard deviations. The differences are calculated between the simulation with MM $f_\mathrm{light}$ and "bespoke" GS and the simulations with PPFD0.8 (larger POD1 $\rightarrow$ larger biomass reduction) and PPFD1.2 (smaller POD1 $\rightarrow$ less biomass reduction). The sub- and superscripts show the asymmetry introduced by the different $f_\mathrm{light}$ parameterizations. The range represents the additional uncertainty from the choice in GS.
 
 \item {\color{blue}Line 416. "we have developed bespoke parameterizations"
 it seems a bit strong statement to me, you have not developed any new tailored
 parameterization, you have only hypothesized one. There is no one experiment nor
 comparison with experimental results in your work.}
+We will substitute the term to appropriately reflect our intensions and work.
 
 \item {\color{blue}Line 417. "The comparison between meteorological conditions in 2018 and 2019 and their divergence from climatology allowed us to assess the influence of key environmental variables such as temperature, PPFD, and precipitation on vegetation susceptibility to O3 damage in light of future changes as may occur under climate change" I did not understand where all this "divergence with the climatological average" of these two years alone lies, sorry.}
+We will make this clearer in the revision of the manuscript.
 
 \item {\color{blue}Line 432. "With respect to ongoing climate change, a clear positive trend emerged in length (5.2d decade-1) of the growing season that is almost equally distributed between earlier start (2.9 days decade-1) and later end (2.3d decade-1) (Appendix Fig. A1)." How did you figure it out? Have you been doing retrospective MODIS analysis for 30 years? Or do you have a publication to quote?}
+We have derived the number from an analysis of the thermal start and end of the GS based on the gridded temperature data from SeNorge.no provided by the Norwegian weather service and shown in Appendix Fig.~9. We may remove this part eventually or rephrase the sentence to include this information, support it with citations of relevant works, and include this analysis in a methods section.
 
 \item {\color{blue}Line 435 and following. "visible damage"
 Visible damage and POD can be totally unrelated, as demonstrated by some research
 conducted on agricultural species. I recommend caution in stating that the O3 peaks
 causing the visible symptoms can result in a biomass reduction (damage).}
+You are absolutely right. We intended to state that visible damage and biomass reduction are not necessarily related in this paragraph. We agree that this is not clear and we will improve on this.
 
 \item {\color{blue}Line 441. Does "damage" mean "visible leaf symptoms"? Or does it mean biomass reduction?}
+See above. We will carefully rephrase the text with respect to the term "damage" and clearly distinguish between visible damage and biomass reduction.
 
 \item {\color{blue}Line 456. "We found that soil water potential under 2018/19 meteorological conditions was negligible" What does it mean? That there was no water in the soil (SWP were negligible) or that the effect on the POD of the presence or absence of SWP in the calculation was negligible? Please clarify.}
+The latter is correct. Thank you for pointing out this ambiguity.
 
 \item {\color{blue}Line 461. "better suited" Point 1 is questionable.
 Also point 2 is questionable. How can you say that the MM parameterization does not
 capture the plant physiology of subactic vegetation if no comparisons with physiological measurements taken on subarctic vegetation are presented?}
+We will adresse this point by reframing the storyline of the manuscript towards a proposed  adjustment of existing stomatal conductance parameterizations based on localized climatological data.
 
 \item {\color{blue}Line 469. "However, the decline of this ozone spring peak is partly caused by the uptake of vegetation" Are you sure? Please cite a reference.}
+We will check if there is one citable reference stating exactly this. This statement is based on a simple deduction on how ozone is removed from the atmosphere by dry deposition which is described as a network of resistances. In general, snow and ice surfaces are found to have a low resistance to ozone , hence less ozone can be taken up by the land surface which is a major sink in absence of photochemical reactions (winter). Therefore, existing ozone accumulates in the subarctic winter boundary layer. The same goes for non-biogenic precursors. In spring these are chemically reactivated and increase the ozone production. At the same time coniferous trees might also start to produce BVOCs. At the same time, most of the vegetation is still covered by snow and ice and dry deposition remains low. In addition to the intrusion of stratospheric ozone, this causes the enhancement of ozone at the surface (spring peak). Now, with snowmelt and bud burst in spring, ozone dry deposition increases. Simultaneously, photochemical destruction of ozone also increases. As only part of ozone actually enters the stomata, we stated "\textbf{partly} caused by the uptake of vegetation".
 
 \item {\color{blue}Line 491. "Automation of the here proposed PDF-based acclimation using machine learning techniques could overcome these issues in the future"
 What does it mean? Please explain. Make an example.}
+The proposed method to use climate data for adjusting the parameterization of stomatal conductance can be formulated as optimization problem (maximizing the enclosed temperature PDF area) which would make it possible to derive new parameters in an more automized way. 
+Now, considering enough stomatal conductance data were available from observation in well known climate conditions these data could be used to evaluate our method and train a model to find the optimal stomatal conductance parameterization based on climate data alone. As climate data is more readily available compared to actual measurment of stomatal conductance this could help to improve modeling of stomatal conductance globally.
 
-\item {\color{blue}Figure A1. How was the length of the growing seasons in the various years identified? By satellite? Other method? What does the gray band represent?}
+\item {\color{blue}Figure A1. How was the length of the growing seasons in the various years identified? By satellite? Other method? What does the gray band represent?} See response to "Line~432". The gray band represents the standard deviation. We will either remove or elaborate on this analysis.
 
 \item {\color{blue}Line 511. "with fmin, Dmin, Dmax describing the relative stomatal conductance to changes in vapor pressure deficit." It is not clear. Please, clarify what D and fmin are, and their units.}
 
-\item {\color{blue}Line 517. "The DO3SE model as described in Büker et al. (2012) is used to simulate SWP0 across a PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system" I cannot understand how the P-M energy balance is used in DO3SE to derive the SWP. Please explain in detail.}
+\item {\color{blue}
+\begin{itemize}
+    \item Line 517. "The DO3SE model as described in Büker et al. (2012) is used to simulate SWP0 across a PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system" I cannot understand how the P-M energy balance is used in DO3SE to derive the SWP. Please explain in detail.
 
-\item {\color{blue}Line 525.  "the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf" At what height was the O3 concentration measured? If it was not measured at the top of the canopy (10m for trees or 10 cm for grassland), how was the O3 concentration at the top canopy calculated?
-Please explain in detail.}
+    \item Line 525.  "the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf" At what height was the O3 concentration measured? If it was not measured at the top of the canopy (10m for trees or 10 cm for grassland), how was the O3 concentration at the top canopy calculated? Please explain in detail.
 
-\item {\color{blue}Line 526.  What does rc represent? Is it the cuticular resistance or the bulk canopy resistance? What is its value?}
+    \item Line 526.  What does rc represent? Is it the cuticular resistance or the bulk canopy resistance? What is its value?
 
-\item {\color{blue}Line 528.  Can you explain where that formula for calculating the flux comes from? Why is there u(z1) in? And what is the z1 height?}
+    \item Line 528.  Can you explain where that formula for calculating the flux comes from? Why is there u(z1) in? And what is the z1 height?
 
-\item {\color{blue}Line 531. What is the z1 height? Where is it?}
+    \item Line 531. What is the z1 height? Where is it?
 
-\item {\color{blue}Line 535. Wind speed at 2 m: what is it used for? Please explain}
+    \item Line 535. Wind speed at 2 m: what is it used for? Please explain
+    
+    \item Section B1. The description of fPHEN is missing. Please, provide it. Again, how do you calculate the day-to-day SWP on your site? Please describe it in detail.
+\end{itemize} }
+We will make the description of the $\mathrm{DO_3SE}$ model more comprehensible and comprehensive. However, in the interest of the main focus of this manuscript it may not be possible to give a full recap of all details concerning this well established model.
 
 \item {\color{blue}Line 550. Please explicitly describe the method used to gap-fill O3 concentrations because it could be crucial.}
+See response to "Lines 206--208" above.
 
-\item {\color{blue}Section B1. The description of fPHEN is missing. Please, provide it. Again, how do you calculate the day-to-day SWP on your site? Please describe it in detail.}
 
 \item {\color{blue}Line 554. "From Fig. B1f) it is apparent that the mapping manual parameterized grassland would not have been able to grow in 2019." 
-It does not seem to me that gstom has been reseted at all. If this is the case, the
-premises of the work appear weak.}
+It does not seem to me that gstom has been reseted at all. If this is the case, the premises of the work appear weak.}
+We indeed have no observational data to validate the suggested method at tis point.
 
 \end{itemize}
 
