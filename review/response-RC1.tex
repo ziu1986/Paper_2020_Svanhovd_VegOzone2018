@@ -13,13 +13,13 @@
 To bg-2021-260-RC1 (05 Nov 2021):
 We thank the anonymous referee \#1 for their comments.
 We will address all \textbf{general comments} raised regarding the structure and readability of the manuscript in our next revision or resubmission. We consider to separate the manuscript in Introduction--Methods--Results--Conclusions and will improve on the "methods" Section to make our results more comprehensible. We will refine the language to reduce ambiguity and supplement our statements with appropriate citations where indicated by the referee.\\
-As the manuscript will, hence, undergo major structural changes, we can not address all \textbf{specific / technical comments} in detail at this point. We will take all specific and technical comments which are still relevant into consideration.\\
+As the manuscript will, hence, undergo major structural changes, we will not address all \textbf{specific / technical comments} in detail at this point. We will take all specific and technical comments which are still relevant into consideration.\\
 In the following, we shall give a brief respond to all relevant issues.
 
 \subsection*{General comments} 
 \begin{itemize}
     
-    \item {\color{blue} "the [...] study is highly speculative and not based on any experimental evidence [...]"} We are aware that our work is not complemented by experimental evidence and did not claim otherwise. We welcome relevant observational data to further improve parameterizations of Arctic and subarctic species. We ought to stress that we do not own the "true" parameterization for subarctic vegetation but assess the uncertainty arising from the use of generic parameterizations.
+    \item {\color{blue} "the [...] study is highly speculative and not based on any experimental evidence [...]"} In the revision of our work, we will emphasize that the main objective of our work is to explore the possibilities of readily accessible data (i.e. long-term meteorological temperature observations, $\mathrm{CO_2}$ flux estimations from remote sensing) to provide alternatives to site-specific data that is needed to parameterize plant physiology in models such as the $\mathrm{DO_3SE}$ model used in our study.
     \item {\color{blue} "Many claims sound superficial [...], such as [...] the alleged deviation of the years 2018 and 2019 from the site's climatology [...]"} We strongly disagree with this statement. We assessed the particular years 2018 and 2019 by statistical means with respect to our derived climatologies. We acknowledge that we have not used common tools such as the \emph{p-value} (for a discussion see \href{https://doi.org/10.1080/00031305.2016.1154108}{statement of the American Statistical Association (2016)}).
     \item {\color{blue} "The manuscript is too long and the organization is confused  [...] no clear division between methodological section and results section"} We will address this in the next revision.
 
@@ -29,7 +29,7 @@ In the following, we shall give a brief respond to all relevant issues.
 \begin{itemize}
     
 \item {\color{blue}Lines 51-52. "and leads to a build-up of ozone and its precursors during winter." Are you sure? How can BVOC accumulate in the atmosphere if the vegetation is covered by snow? Please add some citations to support this claim. Much more credible is the following explanation based on stratospheric intrusions.}
-We agree with the referee that a vegetation covered by snow would not release BVOCs to the atmosphere. We implicitly assume this. Therefore, we did not explicitly that BVOCs are not among the ozone precursors that accumulate in the course of winter. We will rephrase the sentence accordingly: "[...] ozone and its non-biogenic precursors [...]"
+We agree with the referee that a vegetation covered by snow would not release BVOCs to the atmosphere. We implicitly assume this. Therefore, we did not explicitly state that BVOCs are not among the ozone precursors that accumulate in the course of winter. We will rephrase the sentence accordingly: "[...] ozone and its non-biogenic precursors [...]"
 
 \item {\color{blue}Line 63. "the time in which vegetation can accumulate ozone." 
 It sounds very bad written this way: vegetation does not accumulate ozone because ozone it is not bioaccumulative. Did you mean the dose?}
@@ -100,7 +100,7 @@ Please see response to "Lines 206-208.". Cross-calibrated means that we used dat
 
 \item {\color{blue}Line 267. "Further, we presume that fVPD and fSWP suit our vegetation types and no acclimation is necessary for these." This statement is questionable, because in cold conditions VPD can be high (you also told
 it in the conclusions) and the water in the soil can be limiting because partially unavailable due to freezing or other.}
-The referee is correct that VPD can be high due to cold conditions and thus become a limiting factor. We did not find any unexpected or abnormal behavior of stomatal conductance with respect to VPD which indicated that the VPD limitation on stomatal conductance might be more general applicable for high VPD caused by either drought or cold. We are not stating that the response to VPD or SWP could differ but in subarctic vegetation we have to assume that they are fair enough. Water availability due to frozen soil is most likely not represented in the $\mathrm{DO_3SE}$ model and would be worthwhile investigating further. (Lisa?)
+The referee is correct that VPD can be high due to cold conditions and thus become a limiting factor. We did not find any unexpected or abnormal behavior of stomatal conductance with respect to VPD. This indicates that the parameterized VPD limitation on stomatal conductance might be applicable for high VPD caused by either drought or cold. The response of subarctic species to high VPD or SWP could, however, differ. We have to assume that these parameterizations are fair enough. Different thresholds for $f_\mathrm{VPD}$ could have been tested in analogon to $f_\mathrm{light}$. Water (un)availability due to frozen soil is currently not represented in the $\mathrm{DO_3SE}$ model and would be worthwhile investigating further.
 
 \item {\color{blue}Line 272. "but a substantially higher number of peak [O3] were observed in 2018 than in 2019." How can you tell it if O3 measurements for all months of March, April and July are missing in 2019? I don't seem to see any differences between 2018 and 2019}
 As we have indicated, the measurement down time in March and April was planned because most vegetation (in particular the one in the ozone garden) was covered by snow and hence not photosynthetically active (as the referee has noted, too in their comment regarding BVOC emission). "but a substantially higher number of peak [O3] were observed in 2018 than in 2019." refers back to Sect.~2 L188-195. Peak concentrations were calculated as exceedence over 40\,ppb in summer, explicitly excluding the spring peak. Even with two weeks of data missing July 2018, we found 50 elevated ozone event in 2018 compared to 18 times in 2019. This should qualify as "substantially higher number".
@@ -115,13 +115,13 @@ Indeed, we will correct the text.
 PPFD0.8 was chosen to maximize the relative stomatal conductance at noon and in the morning. Please refer to L326--334. We will elaborate on the text and make it clearer. 
 
 \item {\color{blue}Line 334. I don't understand how we can say that the differences are "substantial". I don't see much difference between deciduous trees (a) and grassland (c), sorry.}
-There seems to be a misunderstanding? The referee refers to the sentence "As expected due to the small adjustments, coniferous trees display the smallest differences between the different parameterizations, while the differences for perennial grassland are substantial as a response to the proposed temperature acclimation." Figure~7 is meant to be read for each species separately and from right to left. It comprises the mean and standard deviation of relative stomatal conductance computed from hourly meteorological data over 21~years. Panel (c) displays perennial grassland. Furthest to the right, the results using the mapping manual parameterization are shown. The relative stomatal conductance around noon when the highest values are expected is rather low (about 40\%). With our adjusted parameterization the relative stomatal conductance around noon reaches about 70--80\%. The standard deviation reflects the variability of growing conditions and should not be interpreted as statistical measure for to separate one distribution from the other. Even more data would not reduce the standard deviation in this case.
+There seems to be a misunderstanding? The referee refers to the sentence "As expected due to the small adjustments, coniferous trees display the smallest differences between the different parameterizations, while the differences for perennial grassland are substantial as a response to the proposed temperature acclimation." Figure~7 is meant to be read for each species separately and from right to left. It comprises the mean and standard deviation of relative stomatal conductance computed from hourly meteorological data over 21~years. Panel (c) displays perennial grassland. Furthest to the right, the results using the mapping manual parameterization are shown. The relative stomatal conductance around noon when the highest values are expected is rather low (about 40\%). With our adjusted parameterization the relative stomatal conductance around noon reaches about 70--80\%. The standard deviation reflects the variability of growing conditions and should not be interpreted as statistical measure for to separate one distribution from the other. Even more data would perhaps not reduce the standard deviation in this case.
 We will remove the term "substantial" and make our interpretation of the Figure clearer in the text. 
 
 \item {\color{blue}Line 336. Using net photosynthesis to calculate leaf emergence is not completely justified. Leaves are likely to be present and active well before gross photosynthesis equals heterotrophic respiration (eg. soil respiration). Gross photosynthesis should be used to calculate Astart and Aend instead.}
 Thank you for pointing this out. It is correct that net photosynthesis does not capture the real photosynthesis. However, gross photosynthesis is not among the available products from MODIS satellites. Instead, we use gross primary production which is including maintenance respiration. According to the product website (\href{http://www.ntsg.umt.edu/project/modis/mod17.php}{MOD17}, last accessed Dec. 2021) it is computed from observed absorbed photosynthetically active radiation (APAR), a species specific conversion efficiency parameter $\epsilon(\mathrm{temperature, water stress})$, temperature, and water stress. In Fig.~\ref{fig:modis_gpp} the estimated start and end of growing season from MODIS (Aqua/Terra) GPP over a $1\times 1$\,km patch centered at Svanhovd is shown. They differ only slightly from the estimates using net photosynthesis. The start of the growing season is shifted by one day (later) and the end by one/two days (later). Considering the temporal resolution of 8\,days of the satellite product this difference is negligible. 
 
-\begin{figure}
+\begin{figure}[!th]
     \centering
     \includegraphics[width=0.75\textwidth]{./modis_Gpp.png}
     \caption{Estimated start and end of growing season from MODIS (Aqua/Terra) GPP over a $1\times 1$\,km patch centered at Svanhovd. The average start in 2018 amounts to doy 123 and to 107 in 2019. The end of the growing season in 2018 is doy 262 and in 2019 276.}
@@ -183,15 +183,16 @@ The latter is correct. Thank you for pointing out this ambiguity.
 \item {\color{blue}Line 461. "better suited" Point 1 is questionable.
 Also point 2 is questionable. How can you say that the MM parameterization does not
 capture the plant physiology of subactic vegetation if no comparisons with physiological measurements taken on subarctic vegetation are presented?}
-We will adresse this point by reframing the storyline of the manuscript towards a proposed  adjustment of existing stomatal conductance parameterizations based on localized climatological data.
+We will adresse this point by reframing the storyline of the manuscript towards a new method to derive stomatal conductance parameterizations based on climatological and remotely sensed data. 
 
 \item {\color{blue}Line 469. "However, the decline of this ozone spring peak is partly caused by the uptake of vegetation" Are you sure? Please cite a reference.}
-We will check if there is one citable reference stating exactly this. This statement is based on a simple deduction on how ozone is removed from the atmosphere by dry deposition which is described as a network of resistances. In general, snow and ice surfaces are found to have a low resistance to ozone , hence less ozone can be taken up by the land surface which is a major sink in absence of photochemical reactions (winter). Therefore, existing ozone accumulates in the subarctic winter boundary layer. The same goes for non-biogenic precursors. In spring these are chemically reactivated and increase the ozone production. At the same time coniferous trees might also start to produce BVOCs. At the same time, most of the vegetation is still covered by snow and ice and dry deposition remains low. In addition to the intrusion of stratospheric ozone, this causes the enhancement of ozone at the surface (spring peak). Now, with snowmelt and bud burst in spring, ozone dry deposition increases. Simultaneously, photochemical destruction of ozone also increases. As only part of ozone actually enters the stomata, we stated "\textbf{partly} caused by the uptake of vegetation".
+We will rephrase this sentence to "[...] could partly be caused [...]". And may give a recap of ozone removal, as follows:
+\emph{ozone is removed from the atmosphere by dry deposition which is described as a network of resistances. In general, snow and ice surfaces are found to have a low resistance to ozone , hence less ozone can be taken up by the land surface which is a major sink in absence of photochemical reactions (winter). Therefore, existing ozone accumulates in the subarctic winter boundary layer. The same goes for non-biogenic precursors. In spring these are chemically reactivated and increase the ozone production. At the same time coniferous trees might also start to produce BVOCs. At the same time, most of the vegetation is still covered by snow and ice and dry deposition remains low. In addition to the intrusion of stratospheric ozone, this causes the enhancement of ozone at the surface (spring peak). Now, with snowmelt and bud burst in spring, ozone dry deposition increases. Simultaneously, photochemical destruction of ozone also increases. Only part of ozone actually enters the stomata.}
 
 \item {\color{blue}Line 491. "Automation of the here proposed PDF-based acclimation using machine learning techniques could overcome these issues in the future"
 What does it mean? Please explain. Make an example.}
 The proposed method to use climate data for adjusting the parameterization of stomatal conductance can be formulated as optimization problem (maximizing the enclosed temperature PDF area) which would make it possible to derive new parameters in an more automized way. 
-Now, considering enough stomatal conductance data were available from observation in well known climate conditions these data could be used to evaluate our method and train a model to find the optimal stomatal conductance parameterization based on climate data alone. As climate data is more readily available compared to actual measurment of stomatal conductance this could help to improve modeling of stomatal conductance globally.
+Now, considering enough stomatal conductance data were available from observation in well known climate conditions these data could be used to evaluate our method and train a model to find the optimal stomatal conductance parameterization based on climate data alone. As climate data is more readily available compared to actual measurement of stomatal conductance this could help to improve modeling of stomatal conductance globally.
 
 \item {\color{blue}Figure A1. How was the length of the growing seasons in the various years identified? By satellite? Other method? What does the gray band represent?} See response to "Line~432". The gray band represents the standard deviation. We will either remove or elaborate on this analysis.
 
@@ -200,18 +201,26 @@ Now, considering enough stomatal conductance data were available from observatio
 \item {\color{blue}
 \begin{itemize}
     \item Line 517. "The DO3SE model as described in Büker et al. (2012) is used to simulate SWP0 across a PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system" I cannot understand how the P-M energy balance is used in DO3SE to derive the SWP. Please explain in detail.
+    {\color{black} This is described in Bücker et al (2012) in detail. We will include an improved, short description of how the $\mathrm{DO_3SE}$ model incorporates the PM model to estimate evapotranspiration and hence water loss from the soil. However, for full details of this method it is best for readers to refer to Bücker et al. (2012).}
 
     \item Line 525.  "the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf" At what height was the O3 concentration measured? If it was not measured at the top of the canopy (10m for trees or 10 cm for grassland), how was the O3 concentration at the top canopy calculated? Please explain in detail.
+    {\color{black} The $\mathrm{DO_3SE}$ model was used to estimate the difference in $[\mathrm{O_3}]$} between a reference height above the canopy and the canopy height. This employs the deposition component of the $\mathrm{DO_3SE}$ model that estimates the transfer of mass (i.e. ozone) as a function of windspeed, convection, surface roughness, and vegetation $[\mathrm{O_3}]$ sink. We will add additional detail in the paper to make this clear.
 
     \item Line 526.  What does rc represent? Is it the cuticular resistance or the bulk canopy resistance? What is its value?
+    {\color{black}This represents cuticular resistance - we will include its value in the revision of the paper.}
 
     \item Line 528.  Can you explain where that formula for calculating the flux comes from? Why is there u(z1) in? And what is the z1 height?
+    {\color{black}This comes from the $\mathrm{DO_3SE}$ model - we will add a suitable reference.}
 
     \item Line 531. What is the z1 height? Where is it?
+    {\color{black}See above.}
 
     \item Line 535. Wind speed at 2 m: what is it used for? Please explain
-    
+    {\color{black}See above.}
+
     \item Section B1. The description of fPHEN is missing. Please, provide it. Again, how do you calculate the day-to-day SWP on your site? Please describe it in detail.
+    {\color{black}See above.}
+    
 \end{itemize} }
 We will make the description of the $\mathrm{DO_3SE}$ model more comprehensible and comprehensive. However, in the interest of the main focus of this manuscript it may not be possible to give a full recap of all details concerning this well established model.
 
