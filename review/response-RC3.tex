@@ -102,32 +102,47 @@ Thank you for pointing this out. We will change the term accordingly.
 See above.
 
 \item {\color{blue}L281-282. The better ref here for the generic PFTs is the 2017 Mapping Manual. Or what did you use from Simpson et al 2007 or Mills et al. 2011 that isn't in Mills et al 2017?}
+This was probably a copy and past mistake as all values here were taken from the MM except for LAI.
 
 \item {\color{blue}L286. First, what is Gstoleaf compared to gsto? On L553 it is stated that Gsto(leaf) is at leaf-level, which suggests that same as gsto in eqn (B1). Then, you claim that Fig. B1 shows low Gsto(leaf), but it shows enormous values! According to Fig. B1, Gstoleaf is ca. 100 mmole/m2/s, this is 1.0e5 nmole/m2/s! This makes no sense.}
+$g_\mathrm{sto}$ is per leaf area while $G_\mathrm{sto}$ is per $\mathrm{m}^2$. Hence, $G_\mathrm{sto}$ at leaf level is $g_\mathrm{sto}$ multiplied by the leaf area of the whole plant. (Please confirm, Lisa.)
 
 \item {\color{blue}L292. The authors say that their fT system has not been verified, but haven't ecosystem models (e.g. JULES, CLM, LPJ-GUESS) parameterized such vegetation already? I would have thought that there was something to learn from such models.}
+Thanks for pointing this out, we have to double check with the available literature.
 
-\item {\color{blue}L344. As noted above, why compare your Astart (129, 130) with the MM value of 100 which is valid for 50 degrees N? The MM suggests a latitude function, which gives a start date of 129 for your location - i.e. almost perfect, and your comment was misleading. Why would you consider an agricultural criteria for forests anyway? Why not apply the MODIS response for deciduous trees too?}
+\item {\color{blue}L344. As noted above, why compare your Astart (129, 130) with the MM value of 100 which is valid for 50 degrees N? The MM suggests a latitude function, which gives a start date of 129 for your location - i.e. almost perfect, and your comment was misleading. Why would you consider an agricultural criteria for forests anyway? Why not apply the MODIS response for deciduous trees too?} The agricultural rule refers to the bud burst of birch trees. We will make this clearer. You are right about the choice of $A_\mathrm{start}$ for a central European latitude being misleading. We definition, we ran the model with a "default" parameterization for grassland and intended to use the latitude model -- which did not take the latitude dependency into consideration automatically which we only found out later. We consider updating the default configuration accordingly.
 
 \item {\color{blue}Table 3: Again, the "Defaults" given here are incorrect for this latitude. The correct ref should anyway be the MM.}
+See above.
 
-\item {\color{blue}L345. "Due to the lack of quantitative field observation...". I didn't follow the logic here. Table 4. Why average the MM but not the bespoke? Give the MM for both years - this is useful information.}
+\item {\color{blue}L345. "Due to the lack of quantitative field observation...". I didn't follow the logic here.} We qualitatively checked the start of the GS by looking at the live stream from a nearby webcam. This cannot be used for a quantitative analysis. Hence, we take the measurement of snow depth at a meteorological station into consideration instead. From this observation, we inferred a latency period of about one month after snow melt for the gras to sprout. We will rephrase this sentence to make this clearer.
+
+\item {\color{blue}Table 4. Why average the MM but not the bespoke? Give the MM for both years - this is useful information.}
+Thanks for pointing this out. We will change the table accordingly.
 
 \item {\color{blue}L488. Give references for your statements that global land-surface models have problems in the Arctic regions.}
+We will include references in the next revision.
 
 \item {\color{blue}L624-625. Mangled ref. And why source googlebooks, when this report is easily available from www.emep.int?}
+Thanks. We will check our list of references.
 
 \item {\color{blue}References: check upper-lower case, in e.g. AMBIO, grennfelt etc.}
+Thanks. We will check our list of references.
  
 \item {\color{blue}Appendix B: DO3SE model
 The equations used here, and especially around L524-532, have several problems:
 \begin{itemize}
 \item they do not account for differences between canopy and leaf-scale conductances
 \item they make no mention of how the ozone is calculated at the height of the vegetation from the 2m measured values.
+{\color{black}The $\mathrm{DO_3SE}$ model was used to estimate the difference in $[\mathrm{O_3}]$ between a reference height above the canopy and the canopy height. This employs the deposition component of the $\mathrm{DO_3SE}$ model that estimates the transfer of mass (i.e. ozone) as a function of windspeed, convection, surface roughness, and vegetation $[\mathrm{O_3}]$ sink. We will add additional detail in the paper to make this clear.}
 \item Equation B6 looks wrong. What is the u(z1) term doing here?
+{\color{black}We will double check the equations.}
 \item What is "z1" in eqn. B7?
+{\color{black}This comes from the $\mathrm{DO_3SE}$ model - we will add a suitable reference.}
 \item L531 the factor 1.3 accounts for the "difference in" diffusivity.
+{\color{black}We will rephrase this sentence.}
 \item Figure B2 - does MODIS only respond to coniferous trees in this 1x1 km2 grid? No other vegetation?
+\item  {\color{black}Estimated land use (from areal pictures available at kartverket.no): 48\% grassland, 32.5\% deciduous, 12.5\% coniferous, 2\% urban. We will include this information in the figure caption.}
 \end{itemize}}
   
 
