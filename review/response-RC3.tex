@@ -19,11 +19,11 @@ In the following, we shall give a brief respond to all relevant issues.
 \subsection*{Major comments} 
 \begin{itemize}
     
-    \item {\color{blue}Concerning the length of the paper, I really cannot see the benefit of all the work on long-term ozone and meteorology given in Sections 2-3. Isn't the main point of this paper to illustrate differences in vegetation characteristics between plants at nearly 70 degrees N and the Mapping Manual (MM)? That doesn't need a long analysis of climate differences or ozone trends.} A detailed analysis of long-term ozone and meteorological conditions is important for to modeling and understanding of past, present, and future ozone risk in the subarctic. Our sample period only extends over two growing seasons (2018/2019). To assess wether or not the visible damage that we observed in 2018 could correspond to an unusual high ozone dose, we had to to set this particular year into a climatological context. Upon restructuring the manuscript, we may condense this part.
+    \item {\color{blue}Concerning the length of the paper, I really cannot see the benefit of all the work on long-term ozone and meteorology given in Sections 2-3. Isn't the main point of this paper to illustrate differences in vegetation characteristics between plants at nearly 70 degrees N and the Mapping Manual (MM)? That doesn't need a long analysis of climate differences or ozone trends.} You are right and upon restructuring the manuscript, we will address this matter by condensing this part. We deemed a detailed analysis of long-term ozone and meteorological conditions important for modeling and understanding of past, present, and future ozone risk in the subarctic. Our specific sample period extends only over two growing seasons (2018/2019). To assess wether or not any of the observed visible damage in 2018 could correspond to an unusual high ozone dose, we had to set this particular year into a climatological context. 
     
-    \item {\color{blue}Concerning the "default" growing seasons (from DOY 100 to 307) from the MM against which the "bespoke" are compared, these are just wrong for this latitude. The MM suggests a latitude function that gives DOY 129 to 268.} The referee is right regarding the latitude model at $70\,^\circ$N and we could have used these instead from the start. However, as we state in L344, these start and end DOYs for grassland refer to central Europe.
+    \item {\color{blue}Concerning the "default" growing seasons (from DOY 100 to 307) from the MM against which the "bespoke" are compared, these are just wrong for this latitude. The MM suggests a latitude function that gives DOY 129 to 268.} In retrospective, this was a fault in the model set up and will be corrected. However, we clearly state in L344, that these start and end DOYs for grassland are valid only to central Europe.
     
-    \item {\color{blue}Some of the basic equations look wrong to me, see my comments on Appendix B below.} We will double check the equations make the description of the $\mathrm{DO_3SE}$ model more comprehensible and comprehensive. However, in the interest of the main focus of this manuscript it may not be possible to give a full recap of all details concerning this well established model.
+    \item {\color{blue}Some of the basic equations look wrong to me, see my comments on Appendix B below.} We will double check the equations (see comments below) and make the description of the $\mathrm{DO_3SE}$ model more comprehensible and comprehensive. However, in the interest of the main focus of this manuscript it may not be possible to give a full recap of all details concerning this well established model.
     
     \item {\color{blue}On p21 the author's first "key findings" state that their "bespoke parameterizations for subarctic species are better suited..." than the MM ones. This is a strong statement given that the authors admit on L293 that their bespoke suggestions are "hypothetical and have yet to be verified by observations".} Thank you for pointing this out. We will rephrase our key findings accordingly.
 
@@ -32,12 +32,12 @@ In the following, we shall give a brief respond to all relevant issues.
 \subsection*{Other comments} 
 \begin{itemize}
 
-\item {\color{blue}L14. one can ask if an underestimate of 6\% is a significant problem. I would guess that the overall uncertainty of POD calculations is far greater than this!} To assess the underlying uncertainty caused by choice of the parameterizations that are used to compute POD, we have varied the temperature and light response paramterizations and looked at the influence of SWP in our target region. Within this parameter space the uncertainty due to temperature and light response is $\approx3\,\%$ for deciduous trees. (For which we found the $6\,\%$ underestimate.) Hence, we conclude that the estimated underestimate is significant (albeit not in a strict statistical sense).
+\item {\color{blue}L14. one can ask if an underestimate of 6\% is a significant problem. I would guess that the overall uncertainty of POD calculations is far greater than this!} To address the underlying uncertainty caused by the choice of parameterizations that are used to compute POD, we varied the temperature and light response paramterizations (accounting for the right start and end of the growing season) and looked at the influence of SWP on POD in our target region. Within this parameter space the uncertainty due to temperature and light response is, e.g., $\sim3\,\%$ for deciduous trees. (For which we found the $6\,\%$ underestimate.) Hence, we conclude that the estimated underestimate is significant (albeit not in a strict statistical sense). We will add a discussion about the methodological uncertainty of POD in the next revision.
 
 \item {\color{blue}L22. Better to say "estimated" rather than reported. These numbers do not represent actual measured yield losses. Also, as this paper is mainly discussing DO3SE-type approaches to POD, it would have been relevant to cite the DO3SE-based estimates of the Mills et al 2018 paper (below) which also made yield estimates for four crops.} Thank you for pointing this out. We will rephrase and include the relevant citations.
 
 \item {\color{blue}L29. A more recent citation would be Tarasick et al 2019.}
-Tanks you. We will include the citation.
+Thank you. We will include the citation.
 
 \item {\color{blue}L36. Are these numbers for tropospheric ozone relevant to this paper? Vegetation is affected by near-surface ozone, and levels of this are much lower than 50-65 ppb over the Nordic countries.}
 These numbers are indeed not relevant for the monitoring station at Svanhovd which is situated at low altitude. We will remove the reference.
@@ -51,7 +51,7 @@ Thank you for pointing this out. We will rephrase the sentence accordingly.
 We will carefully check the cited works and rephrase the paragraph accordingly. 
 
 \item {\color{blue}L89. Continuing the above, the studies from Karlsson et al have had a strong focus on Scandinavian vegetation.}
-See above.
+Our focus lies in particular on vegetation in the subarctic. Whereas works by Karlsson et al. focused mainly on vegetation further south in the boreal zone. 
 
 \item {\color{blue}L96. Define PLA}
 We will include the definition "per leave area" in the revision.
@@ -105,12 +105,12 @@ See above.
 This was probably a copy and past mistake as all values here were taken from the MM except for LAI.
 
 \item {\color{blue}L286. First, what is Gstoleaf compared to gsto? On L553 it is stated that Gsto(leaf) is at leaf-level, which suggests that same as gsto in eqn (B1). Then, you claim that Fig. B1 shows low Gsto(leaf), but it shows enormous values! According to Fig. B1, Gstoleaf is ca. 100 mmole/m2/s, this is 1.0e5 nmole/m2/s! This makes no sense.}
-$g_\mathrm{sto}$ is per leaf area while $G_\mathrm{sto}$ is per $\mathrm{m}^2$. Hence, $G_\mathrm{sto}$ at leaf level is $g_\mathrm{sto}$ multiplied by the leaf area of the whole plant. (Please confirm, Lisa.)
+$g_\mathrm{sto}$ is per leaf area while $G_\mathrm{sto}$ is per $\mathrm{m}^2$. Hence, $G_\mathrm{sto}$ at leaf level is $g_\mathrm{sto}$ multiplied by the leaf area of the whole plant. (Please confirm, Lisa. - I don't think that there was much of a difference, but is the referee trying to say that something is wrong with the order of magnitude? That's the number and units given by the model.)
 
 \item {\color{blue}L292. The authors say that their fT system has not been verified, but haven't ecosystem models (e.g. JULES, CLM, LPJ-GUESS) parameterized such vegetation already? I would have thought that there was something to learn from such models.}
-Thanks for pointing this out, we have to double check with the available literature.
+Thanks for pointing this out. It depends on what type of $g_\mathrm{sto}$ module ecosystems models use. Generally, these will use coupled photosynthesis-stomatal conductance models which do not require the definition of an $f_\mathrm{T}$ function.
 
-\item {\color{blue}L344. As noted above, why compare your Astart (129, 130) with the MM value of 100 which is valid for 50 degrees N? The MM suggests a latitude function, which gives a start date of 129 for your location - i.e. almost perfect, and your comment was misleading. Why would you consider an agricultural criteria for forests anyway? Why not apply the MODIS response for deciduous trees too?} The agricultural rule refers to the bud burst of birch trees. We will make this clearer. You are right about the choice of $A_\mathrm{start}$ for a central European latitude being misleading. We definition, we ran the model with a "default" parameterization for grassland and intended to use the latitude model -- which did not take the latitude dependency into consideration automatically which we only found out later. We consider updating the default configuration accordingly.
+\item {\color{blue}L344. As noted above, why compare your Astart (129, 130) with the MM value of 100 which is valid for 50 degrees N? The MM suggests a latitude function, which gives a start date of 129 for your location - i.e. almost perfect, and your comment was misleading. Why would you consider an agricultural criteria for forests anyway? Why not apply the MODIS response for deciduous trees too?} The agricultural rule refers to the bud burst of birch trees. We will make this clearer. You are right about the choice of $A_\mathrm{start}$ for a central European latitude being misleading. This was a fault in the model set up and will be corrected.
 
 \item {\color{blue}Table 3: Again, the "Defaults" given here are incorrect for this latitude. The correct ref should anyway be the MM.}
 See above.
