@@ -130,7 +130,7 @@
 
 
 \begin{abstract}
-  The unique vegetation of the subarctic region acclimatized to extremes of cold and midnight sun are likely to be at threat from the combined impacts of climate change and increasing ozone concentrations \chem{[O_3]}. The atmospheric and climatic characteristics of the subarctic are known to lead to pronounced peak \chem{[O_3]} in spring. To date, only a few studies assessed the response of subarctic vegetation to variations in climate and air pollution. This study looks to fill this knowledge gap by examining the uncertainty in risk assessments which are usinge more general boreal paramterizations. With no bespoke parameterization for stomatal response to essential climate variables available, we propose an adjustment of existing, Javis type boreal parameterizations, based on local climate condition. To this end, we vary the temperature response function according to the climatological temperature distribution during the subarctic growing season. We evaluate the extent to which two recent years (2018 and 2019) deviate from climatic and \chem{[O_3]} norms and how these potentially more frequent future deviations may influence the projected ozone damage to subarctic vegetation. We find that 2018 was an anomalously warm and bright year, particularly in spring and early summer. Higher than average \chem{[O_3]} was observed in April/May while frequent episodes of ozone volume mixing ratios (VMRs) above $40\,\unit{ppb}$ occurred in June--August. These episodes are in part attributable to forest fires in the Northern Hemisphere and warmer and sunnier conditions. We apply the integrated flux-metric Phytotoxic Ozone Dose (POD) to determine ozone risk and damage to vegetation as a function of \chem{[O_3]}, environmental factors, and species-specific physiology. Our study suggests that using standard boreal parameterizations in assessments likely leads to underestimating the risk of ozone damage in this region. We find that local climate adjusted parameterizations of plant functional types (PFTs) for subarctic vegetation result in an ozone-induced biomass loss of $2.5$ to $17.4\,\unit{\%}$. For some species, this loss is up to $xx\,\unit{\%}$ larger than projected from standard boreal parameterizations used in general assessments. Efforts should be targeted towards accurately defining subarctic vegetations' physiological response to essential climate variables.
+  The unique vegetation of the subarctic region acclimatized to extremes of cold and midnight sun are likely to be at threat from the combined impacts of climate change and increasing ozone concentrations \chem{[O_3]}. The atmospheric and climatic characteristics of the subarctic are known to lead to pronounced peak \chem{[O_3]} in spring. To date, only a few studies assessed the response of subarctic vegetation to variations in climate and air pollution. This study looks to fill this knowledge gap by examining the uncertainty in risk assessments which are usinge more general boreal paramterizations. With no bespoke parameterization for stomatal response to essential climate variables available, we propose an adjustment of existing, Boreal parameterizations, based on local climate condition. To this end, we vary the temperature response function according to the climatological temperature distribution during the subarctic growing season. We evaluate the extent to which two recent years (2018 and 2019) deviate from climatic and \chem{[O_3]} norms and how these potentially more frequent future deviations may influence the projected ozone damage to subarctic vegetation. We find that 2018 was an anomalously warm and bright year, particularly in spring and early summer. Higher than average \chem{[O_3]} was observed in April/May while frequent episodes of ozone volume mixing ratios (VMRs) above $40\,\unit{ppb}$ occurred in June--August. These episodes are in part attributable to forest fires in the Northern Hemisphere and warmer and sunnier conditions. We apply the integrated flux-metric Phytotoxic Ozone Dose (POD) to determine ozone risk and damage to vegetation as a function of \chem{[O_3]}, environmental factors, and species-specific physiology. Our study suggests that using standard boreal parameterizations in assessments likely leads to underestimating the risk of ozone damage in this region. We find that local climate adjusted parameterizations of plant functional types (PFTs) for subarctic vegetation result in an ozone-induced biomass loss of $2.5$ to $17.4\,\unit{\%}$. For some species, this loss is up to $xx\,\unit{\%}$ larger than projected from standard boreal parameterizations used in general assessments. Efforts should be targeted towards accurately defining subarctic vegetations' physiological response to essential climate variables.
 \end{abstract}
 
 \newpage
@@ -170,20 +170,87 @@ The $\mathrm{POD_y}$ metric is currently used in risk assessments under the Unit
 
 An application of the Mapping Manual method was made by \citet{GCB:Mills2011} where exceedance of the CL was related to observations of ozone damage to a clover bio-monitor. This study demonstrated the improved ability of flux-based metrics (in comparison to exposure-based metrics) to identify the geographical distribution of the risk of ozone damage and also showed that the ozone damage could extend into more northerly regions of Europe.
 
-The described methods for risk assessment rely on accurate representation of plant physiological responses to key environmental variables and are most often parameterized using data for less extreme climates, i.e., temperate or continental climates; and to a lesser extent, Boreal and Mediterranean climates. Parameterization of these models for more extreme bio-geographical regions such as subarctic climates has not been performed and relies on assuming that less extreme Boreal parameterization will be applicable. It is important to understand the implications of using these more generic parameterizations for more extreme climate regions. In our study, we explore how risk might be over- or underestimated using Boreal parameterization and explore an adjustment of Javis type temperature response functions based on climate data. This allows an understanding of how the threat from ozone may change in the future and which are the key aspects of plant physiology that might determine the potential risk. Our results may hint a solution to solve long-standing issues of earth system models (ESM) which often lack PFTs specifically representing subarctic conditions in their land surface models and display over- or underproductivity in the Arctic \citep{GMD:Poulter2015,JAMES:Lawrence2019}. 
+The described methods for risk assessment rely on accurate representation of plant physiological responses to key environmental variables and are most often parameterized using data for less extreme climates, i.e., temperate, continental, or Boreal climates. Parameterization of these models for more extreme bio-geographical regions such as subarctic climates has not been performed and relies on assuming that less extreme Boreal parameterization will be applicable. It is important to understand the implications of using these in the subarctic. In our study, we explore how risk might be over- or underestimated using Boreal parameterization and explore an adjustment of temperature and light response functions based on climate data. This allows an understanding of which are the key aspects of plant physiology that might determine the potential risk and also how the threat from ozone may change in the future. Our results may hint a solution to solve long-standing issues of earth system models (ESM) which often lack PFTs specifically representing subarctic conditions in their land surface models and display over- or underproductivity in the Arctic \citep{GMD:Poulter2015,JAMES:Lawrence2019}.\\ 
 
-Data and methods including the DO3SE model are described in Section 2. The model experiments and derived parameterizations are summarized in Section 3. In Section 4, we present our modelling results. We discuss our results and give an outlook on how these could improve future assessments of pollution risk.
+Data and methods including the DO3SE model and the localization of response function are described in Section~\ref{sec:dam}. The model experiments and derived parameterizations are summarized in Section 3. In Section 4, we present our modelling results. We discuss our results and give an outlook on how these could improve future assessments of pollution risk.
 
 %%
-\section{Data acquisition}
-\label{sec:data}
+\section{Data \& methods}
+\label{sec:dam}
 
-We performed ozone concentration measurements in the subarctic, during the growing seasons of 2018 and 2019. Our chosen location was Svanhovd ($69.45\,\unit{^\circ N}$, $30.03\,\unit{^\circ E}$, $30\,\unit{m\,a.s.l.}$) for several reasons: (1) Ozone had been monitored there in the past, (2) an agrometeorological station is measuring, e.g. $2\,\unit{m}$ temperature, precipitation, global irradiance, and soil temperature at different depths, and (3) a national surveillance of air pollution (\chem{NO_x}, \chem{SO_x}, PM, radiological species) is ongoing. Most of these measurements are performed by the Norwegian Institute for Air Research (NILU), who also conducted ozone measurements on our behalf. In addition, we collected atmospheric monitoring and ozone monitoring data taken at Svanhovd over the past $35\,\unit{years}$.\\
+\subsection{DO3SE model}
+\label{sec:do3se}
+To investigate the \chem{O_3} damage risk in the subarctic, we model the ozone dose of natural (coniferous and deciduous trees) and semi-natural (grassland) vegetation using the Deposition of Ozone for Stomatal Exchange ($\mathrm{DO_3SE}$) model \citep{ACP:Bueker2012} which computes estimates of the total and stomatal deposition of \chem{O_3} to selected land-cover types and plant species according to UNECE LRTAP (Long-Range Transboundary Air Pollution) methodologies for effects-based risk assessment.
 
-All measured essential climate variables for the 2018/19 growing season were obtained through \href{luftkvalitet.no}{luftkvalitet.no} operated by \citet{NILU_AIRQ} (last accessed May 2020). Our ozone monitoring data have been added to luftkvalitet.no and the EBAS database operated by \citet{NILU_EBAS} and are thus openly accessible. Long-term ozone observation data (1986--1996) were obtained from EBAS. Note that data from before the 1990s do not follow the high-quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Especially, ozone monitors did not undergo regular re-calibration. That probably led to drifts in the observed data and may impose a false trend which shall not be of concern for us as we are interested in the seasonality.
+\subsubsection{Model description}
+\label{subsec:model_describtion}
+The opening of stomata is governed by different species-specific and environmental factors. In $\mathrm{DO_3SE}$ it is described by a multiplicative empirical model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
+\begin{equation}
+  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SWP}\right\}}.
+  \label{eq:stomatal}
+\end{equation}
+%
+Where $g_\mathrm{max}$ is a species-specific maximum stomatal conductance value that is then modified by seasonal and environmental factors that vary within a range $0-1$. These factors are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water potential ($f_\text{SWP}$). All factors differ with plant functional type (PFT) denoted with $k$.
+
+The phenology ($f_\mathrm{phen}$) is described by a stepwise defined linear function that allows for a increase of stomatal conductance in spring (start of growing season) and a decrease in fall (end of growing season). Furthermore, mid-season dips can also be accounted for. 
+
+The temperature adjustment function is defined as
+%
+\begin{equation}
+  f_\mathrm{T} = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
+  \label{eq:f_temp}
+\end{equation}
+with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various PFT and $T_\mathrm{air}$ is the near-surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
+
+The water vapor pressure deficit function is
+%
+\begin{equation}
+  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
+  \label{eq:f_vpd}
+\end{equation}
+%
+where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
+
+The wavelength band ($400-700\,\unit{nm}$) plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative $g_\mathrm{sto}$ and PPFD is given by
+%
+\begin{equation}
+  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
+  \label{eq:flight}
+\end{equation}
+%
+where $\alpha_\mathrm{light}$ is a slope parameter describing the extent of stomatal opening at low light intensities.
+
+The $\mathrm{DO_3SE}$ model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system. The stomatal response to changes in SWP ($f_\mathrm{SWP}$) are, thus, given by:
+%
+\begin{equation}
+  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
+    \label{eq:fsw}
+\end{equation}
+%
+where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SWP}$ relationship.
+
+$\Phi_\mathrm{sto}$ in Eq.~(\ref{eq:pod}) as computed by the $\mathrm{DO_3SE}$ model is a fraction of the total \chem{O_3} deposition flux. A standard resistance analogous approach \citep{AE:Wesely1989} is used to transport \chem{O_3} from the atmospheric reference height to the vegetated surface. The calculation of aerodynamic $R_a$ and quasi-laminar boundary layer resistance $R_b$ follow \citet{WASP:Simpson2003,ACP:Simpson2012}. The surface resistance $R_\mathrm{surf}$ consists of stomatal $r_\mathrm{sto}$ and non-stomatal canopy resistances that includes external plant surfaces $r_\mathrm{ext}$, aerodynamic within-canopy $R_\mathrm{inc}$ and ground surfaces or soil resistances $R_\mathrm{gs}$ \citep{WASP:Simpson2003,ACP:Simpson2012}. Under the assumption that \chem{[O_3]} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf, $r_\mathrm{sto}$ and $r_\mathrm{ext}$ are calculated per leaf/needle area (note lower case $r$).
+%
+\begin{equation}
+  R_\mathrm{sur} = \frac{1}{\frac{\mathrm{LAI}}{r_\mathrm{sto}}+\frac{\mathrm{SAI}}{r_\mathrm{ext}}+\frac{1}{R_\mathrm{inc}+R_\mathrm{gs}}}
+\end{equation}
+%
+Stomatal resistance is the inverse of stomatal conductance $g_\mathrm{sto}$ in Eq.~(\ref{eq:stomatal}).
+
+\subsubsection{Input data and gap filling methodology}
+\label{subsec:ozone_reco}
+The $\mathrm{DO_3SE}$ model requires hourly, continuous ozone and meteorological observations of $2\,\unit{m}$ temperature $T_\mathrm{2m}$, global irradiation $Q_0$, precipitation, $2\,\unit{m}$ wind $u_\text{2m}$, and vapor pressure deficit VPD. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
+\begin{equation}
+  \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
+\end{equation}
+with saturation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
+ 
+For our study, we chose Svanhovd ($69.45\,\unit{^\circ N}$, $30.03\,\unit{^\circ E}$, $30\,\unit{m\,a.s.l.}$). Reasons for our choice: (1) Ozone had been monitored there in the past, (2) an agrometeorological station is measuring, e.g. $2\,\unit{m}$ temperature, precipitation, global irradiance, and soil temperature at different depths, and (3) a national surveillance of air pollution (\chem{NO_x}, \chem{SO_x}, PM, radiological species) is ongoing. Most of these measurements are performed by the Norwegian Institute for Air Research (NILU), who also conducted ozone measurements on our behalf during the 2018/19 growing season. In addition, we collected atmospheric monitoring and ozone monitoring data taken at Svanhovd over the past $35\,\unit{years}$.
+
+All measured essential climate variables for the 2018/19 growing season were provided by NILU through the web portal \href{luftkvalitet.no}{luftkvalitet.no} (last accessed May 2020). The ozone monitoring data have been added to a database for air-quality monitoring called EBAS as well operated by NILU and are thus openly accessible. Long-term ozone observation data (1986--1996) were obtained from EBAS. Note that data from before the 1990s do not follow the high-quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Because ozone monitors did not undergo regular re-calibration drifts in the observed data occurred imposing false trends. This does not concern the general ozone seasonality which we are particularly interested in.
 The long-term data sets of agrometeorological variables including temperature and precipitation are available from September 1992 to the present day \citep[LandbruksMeteorologiske Tjeneste][note the station name here is Pasvik]{LMT_NIBIO}.
 
-To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, both an ozone bio-monitor (referred to as ozone garden) and a conventional ozone monitor using the existing atmospheric monitoring infrastructure had been installed during the 2018/19 growing season at Svanhovd. We report \chem{[O_3]} as volume mixing ratios (VMR) in \unit{ppb} for easier comparison with exposure-based risk assessment. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clovers (\emph{Trifolium repens}, \emph{Trifolium pratense}), tobacco (\emph{Nicotiana tabacum}, cultivars Bel-W3, Bel-B and Bel-C), and potato (\emph{Solanum tuberosum}). As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence. In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar (Bel-W3). This indicates that the vegetation was more affected by ozone in 2018 than in 2019.
+To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, both an ozone bio-monitor (referred to as ozone garden) and a conventional ozone monitor using the existing atmospheric monitoring infrastructure had been installed during the 2018/19 growing season at Svanhovd. We report \chem{[O_3]} as volume mixing ratios (VMR) in \unit{ppb} for easier comparison with exposure-based risk assessment. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clovers (\emph{Trifolium repens}, \emph{Trifolium pratense}), tobacco (\emph{Nicotiana tabacum}, cultivars Bel-W3, Bel-B and Bel-C), and potato (\emph{Solanum tuberosum}). As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence. In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar (Bel-W3).
 
 \begin{figure}[t]
   \centering
@@ -210,6 +277,21 @@ Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik
   \caption{Observational data from atmospheric monitoring at Svanhovd in 2018/19. The hatched areas indicate periods without ozone monitoring data. (a) Hourly averaged \chem{[O_3]}; (b) hourly averaged temperature; (c) daily accumulated precipitation; (d) hourly averaged global irradiance.}
   \label{fig:data_svanvik_2018_2019}
 \end{figure*}
+
+The following gap filling methodology was devised for the meteorological input data:
+\begin{itemize}
+\item Single hours of missing data were filled by taking the average of the hourly values before, and after, the missing value.
+\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data were unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
+\item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
+\end{itemize}
+
+For the missing ozone data, we applied a Reynolds decomposition of the form:
+\begin{equation}
+  \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
+  \label{eq:reynolds_decomp}
+\end{equation}
+with derived ozone climatology \chem{\left<[O_3]\right>} and anomalies (deviation from the norm) \chem{\Delta[O_3]}. We derived a generalized climatology for northern Fennoscandia from several multi-year records and for our site and determined the station with the highest correlation coefficient to our site. For this site, we computed the anomalies compared to the climatology for the dates of missing ozone data at our site. These anomalies were than added to the climatology at out site and corrected for an increase in tropospheric background ozone since the early 1990s. For more details refer to as \citet{ACPD:Falk2021}.
+%%%
 
 \section{Statistical analysis}
 \label{sec:stats}
@@ -269,12 +351,10 @@ We use the bias-corrected and cross-calibrated ozone climatology \citep{ACPD:Fal
 
 In summary, 2018 had a significant number of days that were warmer, drier, and brighter than the climatology, while 2019 was a rather average year. Ozone was not significantly enhanced during the GS 2018/19, but a substantially higher number of peak \chem{[O_3]} were observed in 2018 than in 2019.
 
-\section{DO3SE modeling}
-\label{sec:do3se}
-We investigate the difference between 2018 and 2019 concerning stomatal ozone uptake and assess which of the environmental factors might be most influential in determining \chem{O_3} damage risk. We model ozone uptake of natural and semi-natural vegetation using the $\mathrm{DO_3SE}$ model \citep{ACP:Bueker2012} and develop bespoke parameterizations for common plant species in our focus area. First, we give an account of the methodology for deriving bespoke parameters, after which we present and discuss the modeling results. The relevant components of the $\mathrm{DO_3SE}$ model are summarized in Appendix~\ref{appendix:do3se_model}.
 
-\subsection{Model parameters}
-\label{subsec:do3se_parameters}
+
+\section{Model parameter localization}
+\label{sec:do3se_parameters}
 
 We deduced the dominant species on-site at Svanhovd and from Fig.~\ref{fig:svanhovd_research_station} and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Generic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations in the following. Our parameterization of coniferous trees is based on the MM's Boreal Norway spruce, deciduous trees on the MM's silver birch, and perennial grassland on MM's perennial grassland for central Europe. For a comprehensive list of generic MM model parameters, consult Supplement~Table~S1.
 
@@ -282,8 +362,8 @@ Initial test simulations with the MM PFTs revealed an unrealistically low stomat
 
 We presume that perennial vegetation will likely maximize carbon acquisition during the short subarctic growing season. Because the MM version of the $\mathrm{DO_3SE}$ model currently does not simulate net photosynthesis ($A_\mathrm{n}$), we assume a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011} and effectively tune the temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) for higher $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ to acclimate the growth potential to the local climate. For details regarding these functions see Appendix~\ref{appendix:do3se_model}. Further, we presume that $f_\mathrm{VPD}$ and $f_\mathrm{SWP}$ suit our vegetation types and no acclimation is necessary for these. 
 
-We define two different hypothetical temperature acclimations: subarctic and cold. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to MM. This is accomplished by moving $T_\mathrm{opt}$ towards cooler temperatures while keeping the other parameters fixed to MM values. In the same way, \emph{subarctic} is constructed to represent a species that is very tolerant to cold but sensitive to high temperatures, and most efficient at cool temperatures. Therefore, we shift $T\mathrm{min}$ and $T\mathrm{max}$ to colder temperatures and choose $T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000. In other words, we aim to increase the overlapping area between $f_\mathrm{temp}$ and the temperature probability density function (PDF) during the GS. The most extreme of the two acclimation types is \emph{subarctic}.
-In Fig.~\ref{fig:f_temp_grassland}a, we show the resulting $f_\mathrm{temp}$ for perennial grassland together with temperature PDFs deduced from the five months GS in two climatological periods. The periods 1990s and 2000s have been chosen to indicate that the vegetation has been subject to climate change. Thus, the predominant acclimation at present is not known.
+We define two different hypothetical temperature acclimations: subarctic and cold. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to MM. This is accomplished by moving $T_\mathrm{opt}$ towards cooler temperatures while keeping the other parameters fixed to MM values. In the same way, \emph{subarctic} is constructed to represent a species that is very tolerant to cold but sensitive to high temperatures, and most efficient at cool temperatures. Therefore, we shift $T\mathrm{min}$ and $T\mathrm{max}$ to colder temperatures and choose $T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000. In other words, we aim to increase the overlapping area between $f_\mathrm{T}$ and the temperature probability density function (PDF) during the GS. The most extreme of the two acclimation types is \emph{subarctic}.
+In Fig.~\ref{fig:f_temp_grassland}a, we show the resulting $f_\mathrm{T}$ for perennial grassland together with temperature PDFs deduced from the five months GS in two climatological periods. The periods 1990s and 2000s have been chosen to indicate that the vegetation has been subject to climate change. Thus, the predominant acclimation at present is not known.
 
 The resulting response functions for coniferous and deciduous trees are displayed in Appendix~Figs.~\ref{fig:f_temp_spruce}a and \ref{fig:f_temp_birch}a, respectively. We base our temperature acclimation of coniferous trees on experimental results on Norway spruce which were found to be active already at rather low air temperatures and can reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 \citep{TB:Kolari2007, TP:Wallin2013}. In particular, we use the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007} to estimate the optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). We presume a similar temperature acclimation for deciduous trees. All bespoke temperature parameters are listed in Table~\ref{tab:sensitivity_tests_temp}.\\
 
@@ -510,88 +590,6 @@ Beyond the risk assessment of ozone-induced damage, our bespoke temperature resp
 \section{DO3SE model}
 \label{appendix:do3se_model}
 
-\subsection{Model description}
-\label{subsec:model_describtion}
-The opening of stomata is governed by different species-specific and environmental factors and can be described by a multiplicative model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
-\begin{equation}
-  g^k_\text{sto} = g^k_\text{max} \cdot f^k_\text{phen} \cdot f^k_\text{light} \cdot \max{\left\{f^k_\text{min}, f^k_\mathrm{T} \cdot f^k_\mathrm{VPD} \cdot f^k_\text{SWP}\right\}}.
-  \label{eq:stomatal}
-\end{equation}
-%
-Where $g_\mathrm{max}$ is the specific-specific maximum stomatal conductance value that is then modified by seasonal and environmental factors that vary within a range $0-1$. They are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water potential ($f_\text{SWP}$). All factors differ with plant functional type (PFT) denoted with $k$.
-
-The temperature adjustment function is defined as
-%
-\begin{equation}
-  f_\mathrm{T} = \frac{T_\text{air}-T_\text{min}}{T_\text{opt}-T_\text{min}} \cdot \left(\frac{T_{\text{max}}-T_\text{air}}{T_{\text{max}}-T_\text{opt}}\right)^\beta,
-  \label{eq:f_temp}
-\end{equation}
-with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mixed reciprocal polynomial function of temperature. The shape parameters $T_\text{min}$, $T_\text{max}$ and $T_\text{opt}$ are tabulated for various PFT and $T_\mathrm{air}$ is the near-surface air temperature. All temperatures are defined in units of \unit{^\circ C}.
-
-The water vapor pressure deficit function is
-%
-\begin{equation}
-  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
-  \label{eq:f_vpd}
-\end{equation}
-%
-where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with $f_\text{min}$, $D_\text{min}$, $D_\text{max}$ describing the relative stomatal conductance to changes in vapor pressure deficit.
-
-The wavelength band $400-700\,\unit{nm}$ plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD). The relationship between relative $g_\mathrm{sto}$ and PPFD is given by
-%
-\begin{equation}
-  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
-  \label{eq:flight}
-\end{equation}
-%
-where $\alpha_\mathrm{light}$ is a slope parameter describing the extent of stomatal opening at low light intensities.
-
-The $\mathrm{DO_3SE}$ model as described in \citet{ACP:Bueker2012} is used to simulate SWP across a PFT specific root depth according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system. \citet{ACP:Bueker2012} discuss several formulations available to parameterize the reduction in stomata conductance due to water content in the soil. Here we use the relationship between relative $g_\mathrm{sto}$ and soil water potential (SWP) given by:
-%
-\begin{equation}
-  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
-    \label{eq:fsw}
-\end{equation}
-%
-where SWP is the soil water potential across the root zone and $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SWP}$ relationship.
-
-To compute $\mathrm{POD_y}$, we estimate the stomatal \chem{O_3} flux ($\Phi_\mathrm{sto}$) based on the assumption that the concentration of \chem{O_3} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf. The terms $r_c$ (leaf surface resistance) and $r_b$ (quasi-laminar resistance) allow for the deposition of \chem{O_3} to the leaf and the fraction that is taken up via the stomata. 
-%
-\begin{equation}
-  \Phi_\mathrm{sto} = \chem{[O_3]} \cdot \frac{u(z_1) \cdot g_\mathrm{sto} \cdot r_c}{r_b + r_c}.
-  \label{eq:flux_stomata}
-\end{equation}
-%
-The quasi-laminar boundary layer resistance is calculated by
-%
-\begin{equation}
-  r_b = 1.3 \cdot 150 \cdot \sqrt{\frac{L}{u(z_1)}}.
-  \label{eq:quasi_laminar_resist}
-\end{equation}
-%
-Where $L$ is the cross-wind leaf dimension, $u(z_1)$ the wind speed at height $z_1$, and the factor $1.3$ accounts for the diffusivity between heat and \chem{O_3}. 
-
-\subsection{Input data and gap filling methodology}
-\label{subsec:ozone_reco}
-The $\mathrm{DO_3SE}$ model requires hourly, continuous meteorological observations. In addition to variables covered in Section~\ref{sec:data}, $2\,\unit{m}$ wind $u_\text{2m}$ and vapor pressure deficit VPD are needed. VPD has been calculated from observed $T_\text{2m}$ and relative humidity
-\begin{equation}
-  \text{VPD} = P_s(T) \cdot \left(1-\frac{\text{relHum}}{100}\right),
-\end{equation}
-with saturation vapor pressure $P_s(T)$ in \unit{hPa} derived from Arden Buck equation~\citep{JAP:Buck1981, Buck2012}.
-  
-The following gap filling methodology was devised for the meteorological input data:
-\begin{itemize}
-\item Single hours of missing data were filled by taking the average of the hourly values coming before, and after, the missing value.
-\item Several consecutive hours of missing data (23 or less) were filled by taking the average of the corresponding hour the day before, and the day after; and repeating this for each missing hour of data. If data were unavailable from that hour of the previous day, then only the value from the day after was used and vice versa. Interpolated values were not used in calculating averages.
-\item Data gaps longer than $24\,\unit{h}$ were filled using weekly diurnal averages. i.e. an average was calculated using the corresponding hour throughout the week before and after. Interpolated values were not used in calculating averages.
-\end{itemize}
-
-For the missing ozone data, we applied a Reynolds decomposition of the form:
-\begin{equation}
-  \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
-  \label{eq:reynolds_decomp}
-\end{equation}
-with climatology \chem{\left<[O_3]\right>} and anomalies \chem{\Delta[O_3]} as described in \citet{ACPD:Falk2021}.
 
 \subsection{Initial $\mathrm{DO_3SE}$ modeling results with mapping manual parameters}
 To demonstrate the necessary acclimation of the mapping manual parameters, we show the initial results of stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) and $\mathrm{POD_y}$ over \unit{doy} for both years and all PFTs (Fig.~\ref{fig:pody_mm_composit}). Observed \chem{[O_3]} is also indicated. From Fig.~\ref{fig:pody_mm_composit}f) it is apparent that the mapping manual parameterized grassland would not have been able to grow in 2019.
