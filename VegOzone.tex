@@ -22,7 +22,6 @@
 % Advances in Statistical Climatology, Meteorology and Oceanography (ascmo)
 % Annales Geophysicae (angeo)
 % Archives Animal Breeding (aab)
-% ASTRA Proceedings (ap)
 % Atmospheric Chemistry and Physics (acp)
 % Atmospheric Measurement Techniques (amt)
 % Biogeosciences (bg)
@@ -33,6 +32,7 @@
 % Earth System Dynamics (esd)
 % Earth System Science Data (essd)
 % E&G Quaternary Science Journal (egqsj)
+% EGUsphere (egusphere) | This is only for EGUsphere preprints submitted without relation to an EGU journal.
 % European Journal of Mineralogy (ejm)
 % Fossil Record (fr)
 % Geochronology (gchron)
@@ -53,6 +53,7 @@
 % Polarforschung - Journal of the German Society for Polar Research (polf)
 % Primate Biology (pb)
 % Proceedings of the International Association of Hydrological Sciences (piahs)
+% Safety of Nuclear Waste Disposal (sand)
 % Scientific Drilling (sd)
 % SOIL (soil)
 % Solid Earth (se)
@@ -74,7 +75,9 @@
 %\usepackage{float}
 %\usepackage{subfig}
 %\usepackage{rotating}
-\usepackage[nomarkers,figuresonly]{endfloat}
+
+
+%\usepackage[nomarkers,figuresonly]{endfloat}
 \graphicspath{{pictures/}}
 %\graphicspath{{figures/}}
 
@@ -291,7 +294,7 @@ To relate local ozone concentration \chem{[O_3]} with visible damage on ozone se
 \subsection{Model parameter localization}
 \label{sec:localization}
 
-We deduced the dominant species on-site at Svanhovd from Fig.~\ref{fig:svanhovd_research_station} and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Generic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations in the following. Our parameterization of coniferous trees is based on the MM's Boreal Norway spruce, deciduous trees on the MM's silver birch, and perennial grassland on MM's perennial grassland for central Europe. For a comprehensive list of generic MM model parameters, consult Supplement~Table~S1.
+We deduced the dominant species on-site at Svanhovd from Fig.~\ref{fig:svanhovd_research_station}a and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Generic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations in the following. Our parameterization of coniferous trees is based on the MM's Boreal Norway spruce, deciduous trees on the MM's silver birch, and perennial grassland on MM's perennial grassland for central Europe. For a comprehensive list of generic MM model parameters, consult Supplement~Table~S1.
 
 Initial test simulations with the MM PFTs revealed an unrealistically low stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) in 2019 particularly for perennial grassland (Appendix~Fig.~\ref{fig:pody_mm_composit}). Substantial stomatal conductance in this species occurred only during an extended warm period in late July. In ecological terms, this means that there was almost no growth of grass in the summer of 2019 -- a prediction that is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low, being the limiting factor of stomatal conductance in perennial grassland. Therefore, we saw the necessity to propose bespoke parameterizations describing an acclimation of the generic PFTs to the climatic conditions in the focus area. Note, however, that these parameterizations are hypothetical and have yet to be verified by experiments. 
 
@@ -432,12 +435,12 @@ Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik
 \subsection{Climate (1990-present)}
 \label{subsec:climatologies}
 
-Svanhovd is located within the subarctic climate zone. Climatologies of temperature and precipitation derived for 1992--2012 are shown in a combined climate diagram (Fig.~\ref{fig:climatediagram}). Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard error of the mean (SE) as error band. We chose SE in this case due to the large interannual variability in temperature reflected in the standard deviation. Averaged monthly accumulated precipitation (blue bars) is shown with standard deviation as error bars. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. The coldest measured temperature was $-45.2\,\unit{^\circ C}$ in January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred on July 16 the same year.
+Climatologies of temperature and precipitation for Svanhovd were derived for the period 1992--2012 and are shown in a combined climate diagram (Fig.~\ref{fig:climatediagram}). Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard deviation as error band. Averaged monthly accumulated precipitation (blue bars) is shown without standard deviation. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. The coldest measured temperature was $-45.2\,\unit{^\circ C}$ in January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred on July 16 the same year.
 
 \begin{figure}[t]
-  \includegraphics[width=8.3cm]{climatediagram}
+  \includegraphics[width=12cm, clip, trim=1cm 0 1cm 1cm]{climatediagram_box}
   %\includegraphics[width=8.3cm]{fig04}
-  \caption{Climate diagram following Walter and Lieth. The diagram is based on climatological data for Svanvik/Pasvik (1992--2012). Monthly averaged temperatures (red line) are displayed with standard error of the mean as error band. Averaged monthly accumulated precipitation (blue bars) is shown with a standard deviation of mean as error bars. Months with average temperatures below freezing are denoted with a star.}
+  \caption{Climate diagram. The diagram is based on climatological data for Svanvik/Pasvik (1992--2012). (a) Monthly temperatures. (b) Monthly accumulated precipitation.}
   \label{fig:climatediagram}
 \end{figure}
 
