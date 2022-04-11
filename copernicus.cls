@@ -12,11 +12,11 @@
 %% This file is part of the copernicus package for papers
 %% published by Copernicus Publications (Copernicus GmbH).
 %% 
-%%       Copyright (C) 2020 by Copernicus Publications
+%%       Copyright (C) 2022 by Copernicus Publications
 %% -----------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{copernicus}
-    [2021/01/12 9.25 Copernicus papers]
+    [2022/03/25 9.46 Copernicus papers]
 \frenchspacing
 \clubpenalty10000
 \widowpenalty10000
@@ -70,12 +70,14 @@
 \newif\if@noauthor       \DeclareOption{noauthor}{\@noauthortrue}
 \newif\if@nolastpage     \DeclareOption{nolastpage}{\@nolastpagetrue}
 \newif\if@noref          \DeclareOption{noref}{\@noreftrue}
+\newif\if@copDebug       \DeclareOption{debug}{\@copDebugtrue}
 \newif\if@nohyperref     \DeclareOption{nohyperref}{\@nohyperreftrue}
 \newif\if@cop@home       \IfFileExists{copernicuslogo.pdf}{\@cop@hometrue}{\@cop@homefalse}
 \newif\ifonline          \DeclareOption{online}{\onlinetrue}
 \newif\if@twostagejnl
 \newif\if@forHTML
 \newif\if@manuscript     \DeclareOption{manuscript}{\@manuscripttrue}
+\newif\if@proof          \DeclareOption{proof}{\@prooftrue}
 \newif\if@noline         \DeclareOption{noline}{\@nolinetrue}%classical
 \DeclareOption{corrigendum}  {\def\specialp@perstring{Corrigendum}}
 \DeclareOption{editorialnote}{\def\specialp@perstring{Editorial note}}
@@ -96,6 +98,7 @@
 \newif\if@secline% Underlined Sections, lup 2017-11-06
 \newif\if@dolinesec\@dolinesecfalse
 \newif\if@bar            %only used under \if@stage@final and \@cop@hometrue; for modern layout as well as for the classically layouted sub-journal "angeocom"
+\newif\if@firstbar       %only used under \if@stage@final and \@cop@hometrue; for modern layout as well as for the classically layouted sub-journal "angeocom"
 \newif\if@hvmath         \DeclareOption{hvmath}{\@hvmathtrue}%only used for discussions and only under \@cop@hometrue
 \InputIfFileExists{copernicus.cfg}%
   {\typeout{Additional configuration file copernicus.cfg used}}%
@@ -346,13 +349,14 @@
 \if@stage@final
   \def\ps@plain{%only used for manuscript
      \let\@mkboth\@gobbletwo
-     \let\@oddhead\@empty
-     \let\@evenhead\@empty
+     \def\@oddhead{\if@proof\watermark\fi}
+     \let\@evenhead\@oddhead
      \def\@oddfoot{\reset@font\bfseries\hfil\thepage\hfil}%
      \let\@evenfoot\@oddfoot}
   \def\ps@headings{%
     \def\@oddhead{%
       \runningheaderfont
+      \if@proof\watermark\fi
       \@runhd\hfil\llap{\thepage}%
       \if@cop@home\if@bar
           \textcolor{barcol}{\@ddsidemarginbar}%
@@ -360,24 +364,27 @@
           \textcolor{rulecol}{\@ddsidemarginrule}%
       \fi\fi}
     \def\@evenhead{%
+      \if@firstbar\global\@barfalse\fi
+      \if@proof\watermark\fi
       \if@cop@home\if@bar
           \textcolor{barcol}{\@vensidemarginbar}%
           %\textcolor{textcol}{\@vensidemarginrule}%
           \textcolor{rulecol}{\@vensidemarginrule}%
       \fi\fi
       \runningheaderfont
-      \rlap{\thepage}\hfil\@runhd}
-    \if@cop@home
+      \rlap{\thepage}\hfil\@runhd}%
+    \let\@oddfoot\@empty
+    \let\@evenfoot\@empty
+    \if@cop@home\if@proof\else
       \def\@oddfoot{\edit@rnotereminder\runningheaderfont\if@preface \@journalurlInfo\hfil Preface\else\@journalurlInfo\hfil\ifx\specialp@perstring\@undefined\@journalInfo\else\specialp@perstring\fi\fi}
       \def\@evenfoot{\edit@rnotereminder\runningheaderfont\if@preface Preface\hfil\@journalurlInfo\else\ifx\specialp@perstring\@undefined\@journalInfo\else\specialp@perstring\fi\hfil\@journalurlInfo\fi}
-    \else
-      \let\@oddfoot\@empty
-      \let\@evenfoot\@empty
-    \fi
+    \fi\fi
     \let\@mkboth\@gobbletwo}
 \else%discussions
   \def\ps@headings{%
     \def\@oddhead{%
+      \if@firstbar\global\@barfalse\fi
+      \if@proof\watermark\fi
       \hfil
       \rlap{%
         \kern5mm
@@ -397,6 +404,7 @@
     \let\@evenfoot\@oddfoot}
 \fi
 \if@stage@final
+  \if@firstbar\@bartrue\fi
   \if@bar
     \def\@titlebar{%
       \textcolor{barcol}{\@ddsidemarginbar}%
@@ -437,8 +445,9 @@
              \fi
              \ifx\specialp@perstring\@undefined\else-\def\1{Corrigendum}\ifx\specialp@perstring\1corrigendum\else editorial-note\fi\fi
              \\
-             \@journalcopyright\\[1mm]
-             \includegraphics[width=1.5cm]{CreativeCommons_Attribution_License.png}}%
+             \@journalcopyright
+             %\includegraphics[width=1.5cm]{CreativeCommons_Attribution_License.png}%
+           }%
           \hfill
           \setbox\z@\hbox{\@journallogo}%
           \@tempdima\ht\z@\advance\@tempdima-8\p@\lower\@tempdima\box\z@\\
@@ -458,7 +467,8 @@
       \def\@oddhead{\parbox[t]{0.6\textwidth}{\@manuscriptInfo}}
       \let\@oddfoot\@empty
     \fi
-    \let\@mkboth\@gobbletwo}
+    \let\@mkboth\@gobbletwo
+  }
 \fi
 \AtEndDocument{%
   \clearpage
@@ -495,7 +505,7 @@
     \fi
   \fi
   \setcounter{footnote}{0}%
-  \if@stage@final\if@manuscript\else\thispagestyle{titlepage}\fi\fi
+  \if@stage@final\if@manuscript\else\if@proof\thispagestyle{plain}\else\thispagestyle{titlepage}\fi\fi\fi
   \begingroup
     \parindent=\z@
     \@maketitle
@@ -998,7 +1008,7 @@
 \def\labelitemii{\bfseries\textendash}
 \def\labelitemiii{$\m@th\bullet$}
 \def\labelitemiv{$\m@th\cdot$}
-\def\itemize{%
+\def\copstartlist{%
   \if@secline
     \ifx\@secline@omitted\relax
       \leavevmode
@@ -1007,6 +1017,10 @@
       \global\let\@secline@omitted\@undefined
     \fi
   \fi
+}
+
+\def\itemize{%
+  \copstartlist
   \ifnum \@itemdepth >\thr@@\@toodeep\else
     \advance\@itemdepth\@ne
     \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
@@ -1015,6 +1029,46 @@
       \csname\@itemitem\endcsname
       {\def\makelabel##1{\hss\llap{##1}}}%
   \fi}
+
+\newenvironment{itemizewithoutindent}{%
+  \copstartlist
+  \ifnum \@itemdepth >\thr@@\@toodeep\else
+    \advance\@itemdepth\@ne
+    \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+    \expandafter
+    \list
+      \csname\@itemitem\endcsname
+      {\leftmargin\z@
+       \itemindent\z@
+       \labelwidth\z@
+       \labelsep\z@
+       \def\makelabel##1{\if!##1!\else##1\enskip\fi}}%
+  \fi
+}{\endlist}
+
+\newenvironment{plainlistindent}{%
+  \copstartlist
+  \ifnum \@itemdepth >\thr@@\@toodeep\else
+    \advance\@itemdepth\@ne
+    \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+    \expandafter
+    \list
+      \csname\@itemitem\endcsname
+      {\itemsep\z@
+       \topsep\z@
+       \parsep\z@
+       \itemindent=\dimexpr-\labelwidth-\itemsep\relax
+       \def\makelabel##1{%##1%
+         \edef\@tempa{##1}%
+         \ifx\@tempa\@empty
+           \hspace*{\labelwidth}%
+         \else
+           \hspace*{\dimexpr\labelwidth+\labelsep\relax}##1
+         \fi\ignorespaces
+       }}%
+  \fi
+}{\endlist}
+
 \let\@abslang\relax
 \long\def\secondabstract#1{%
   \subpdfbookmark{\secabstractname.}{\secabstractname.}%
@@ -1032,7 +1086,6 @@
     \fi
   \fi
 }
-
 \if@stage@final
   \ifnum\if@abstractcentered1\else\if@abstractindented1\else0\fi\fi=1\relax%modern oder indented
     \long\def\abstract{%
@@ -1184,6 +1237,32 @@
   \RequirePackage{fontawesome5}
   \RequirePackage{fontawesome}
 \fi
+\usepackage{upquote}%% #7510
+\usepackage{regexpatch}
+\def\active@text@prime{\ifin@texttt\textquotesingle\else'\fi}
+\def\active@math@prime{^\bgroup\prim@s}
+\newif\ifin@texttt
+\regexpatchcmd{\pr@m@s}{\'}{\cA\'}{}{}
+\xapptocmd{\ttfamily}{\in@texttttrue}{}{}
+\begingroup\lccode`\~=`\'
+\lowercase{\endgroup\protected\def~}{%
+  \ifmmode
+    \expandafter\active@math@prime
+  \else
+    \expandafter\active@text@prime
+  \fi}
+\AtBeginDocument{% 0821: \AtBeginDocument is applied AFTER the .aux is read… If '' is in aux, it will throw an error.
+  \immediate\write\@auxout{\string\catcode\string`\string\'\string=\string\active}%
+  \catcode`\'=\active}
+\ifx\xmltexversion\@undefined
+\begingroup
+\obeylines\obeyspaces%
+\gdef\@resetactivechars{%
+\def^^M{\@activechar@info{EOL}\space}%
+\def {\@activechar@info{space}\space}%
+}%
+\endgroup
+\fi
 \ifx\xmltexversion\@undefined
   \RequirePackage[utf8]{inputenc}
   \def\strip@x#1x#2\@nil{#1}%
@@ -1201,6 +1280,7 @@
 \def\@tempa{french}\ifx\bbl@main@language\@tempa
   \StandardLayout
   %% Switch to quotation marks with additional horizontal spacing
+  \let\update@frenchlists\relax
   \bbl@frenchguillemets
   \global\let\flqq\og \global\let\frqq\fg
   \ifx\xmltexversion\@undefined\else
@@ -1296,7 +1376,7 @@
   \def\dosupplementname{Supplement}%
   \def\teamlistname{Liste d'auteurs}%
   \def\disclaimername{Clause de non-responsabilité}%
-  \def\sistatementname{Déclaration de la numéro special}%
+  \def\sistatementname{Déclaration du numéro spécial}%
   %% TBD
   \def\financialsupportname{Financement}%
   \def\reviewstatementname{Contr\^{o}le par les pairs}%
@@ -1523,6 +1603,7 @@
   \def\theequation{\thesection\@arabic\c@equation}%
   \def\thereaction{\thesection R\@arabic\c@reaction}%
   \let\c@org@lst\c@listings%
+  \let\c@org@alg\c@algorithms%
   \let\c@org@eq\c@equation%
   \let\org@theeq\theequation%
   \if@stage@final
@@ -1535,6 +1616,9 @@
     \@addtoreset{listings}{section}%
     \setcounter{listings}{0}%
     \def\thelistings{\thesection\@arabic\c@listings}%
+    \@addtoreset{algorithm}{section}%
+    \setcounter{algorithm}{0}%
+    \def\thealgorithm{\thesection\@arabic\c@algorithm}
   \fi
   \global\let\old@sect\@sect
   \def\@sect##1##2##3##4##5##6[##7]##8{%
@@ -1599,6 +1683,7 @@
   \ifx\old@ssect\@undefined\else\global\let\@ssect\old@ssect\fi
   \def\thefigure{\@arabic\c@figure}%
   \def\thelistings{\@arabic\c@listings}%
+  \def\thealgorithms{\@arabic\c@algorithms}%
   \def\thetable{\@arabic\c@table}}
 \IfFileExists{url.sty}
   {\RequirePackage{url}\urlstyle{same}}%
@@ -1708,7 +1793,8 @@
        \let\@endfloatbox\relax\orig@end@float}
    \fi
    \RequirePackage{algorithm}
-   \def\theHalgorithm{\@arabic\c@algorithm}}
+   \def\theHalgorithm{\@arabic\c@algorithm}
+ }
   {\CopernicusWarningNoLine{Cannot find algorithm.sty; proceeding without it}}
 \let\cop@makecaption\@makecaption
 \let\c@org@fig\c@figure
@@ -1737,6 +1823,27 @@
     {\CopernicusWarningNoLine{Cannot find subfig.sty; proceeding without it}}
 \fi
 \let\@makecaption\cop@makecaption
+\RequirePackage{listings}
+\newdimen\listingnumwidth \listingnumwidth=1.25em\relax
+\renewcommand*\thelstnumber{\hb@xt@\listingnumwidth{\hss\the\c@lstnumber:}}
+\lstset{%
+  basicstyle=\small,%
+  numbers=left,%
+  numbersep=0.5em,%
+  numberstyle=\footnotesize,%
+  frame=lines,%
+  xleftmargin=\dimexpr\listingnumwidth+0.5em\relax,%
+  framexleftmargin=\dimexpr\listingnumwidth+0.5em\relax,
+}
+\newenvironment{listing}[1][]
+ {\edef\@argi{#1}%
+  \ifx\@argi\@empty\def\@argi{htbp}\fi
+  \setlistings
+  \lstset{aboveskip=0pt,belowskip=0pt}%
+  \def\@tempa{\begin{figure}}%
+    \expandafter\@tempa\expandafter[\@argi]}
+ {\end{figure}%
+  \setfigures}
 \IfFileExists{subfloat.sty}
   {\RequirePackage{subfloat}%
    \protected@xdef\themainfigure{\thefigure}%
@@ -1962,7 +2069,23 @@
     \DeclareMathAlphabet{\mathbf}{OT1}{cmss}{bx}{n}
   \fi
 \fi
+\DeclareMathAlphabet{\mathbbs}{U}{BOONDOX-ds}{m}{n}
 \DeclareMathAlphabet{\mathblackbold}{U}{dsrom}{m}{n}
+\let\ltx@mathbb\mathbb
+
+\def\mathbb#1{%
+  \sbox\z@{\@tempcnta 0#1}%
+  \ifdim\wd\z@>\z@\relax
+    \edef\@tempb{#1}\@tempcnta=\expandafter`\@tempb\relax%
+    \ifnum\@tempcnta>96\relax
+      \mathbbs{#1}%% Kleinbuchstabe
+    \else
+      \ltx@mathbb{#1}%% Großbuchstabe
+    \fi
+  \else
+    \mathblackbold{#1}%% Zahl
+  \fi}
+
 \RequirePackage{pifont}
 \if@cop@home
   \if@nohyperref
@@ -2200,7 +2323,7 @@
   \fi
 \fi
 %% some of the following commands are only active if \@cop@hometrue
-\def\texlicencestatement#1{\gdef\@texlicencestatement{#1}}%
+\def\texlicencestatement#1#2{\gdef\@texlicencestatement{#1}\gdef\@texlicencelogo{#2}}%
   \def\@texlicencestatement{\CopernicusError{Please add \string\texlicencestatement}{You must provide the licence statement before \string\maketitle"}}
 \def\received#1{\if@cop@home\def\@recvd{#1}\fi}        \def\@recvd{}%+1,+2,+d
 \def\pubdiscuss#1{\if@cop@home\def\@pubdiscuss{#1}\fi} \def\@pubdiscuss{}%+1,+2,-d -- twostagejnltrue
@@ -2554,7 +2677,8 @@
     \else
       \clearpage
     \fi
-    \thispagestyle{empty}%
+    \if@proof\@prooffalse\fi
+    \thispagestyle{plain}%
     \parindent\z@
     \begin{nolinenumbers}%
     \expandafter\def\expandafter\@tempa\expandafter{\the\CEnotes}%
@@ -2584,6 +2708,7 @@
 \fi
 \def\iftwocol#1#2{\if@twocolumn#1\else #2\fi}
 \let\hack\@firstofone
+\let\notforhtml\@firstofone
 \newcommand\@journalname{Journalname}
 \newcommand\@journalnameabbreviation{J. Name}
 \newcommand\@journalnameshort{JN}
@@ -2591,17 +2716,29 @@
 \newcommand\@journalurl{www.jn.net}
 \newcommand\@journalpublisher{Copernicus Publications}
 \newcommand\@journalcopyright{%
-  \copyright\ Author(s)\ \@cyear. %
+  %\copyright\ Author(s)\ \@cyear. %
   \if!\@texlicencestatement!%
     \CopernicusError{\string\texlicencestatement{} must have content}{Say, e.g., "\string\texlicencestatement{CC Attribution 4.0 License.}"}%
   \else
     \@texlicencestatement
+    \if!\@texlicencelogo!\else
+      \def\@optarg{width=1.5cm}%
+      \\[1mm]
+      \expandafter\expandafter\expandafter\includegraphics\expandafter\expandafter\expandafter[\expandafter\@optarg\expandafter]\expandafter{\@texlicencelogo}
+    \fi
   \fi}
 \newcommand\@journalstartyear{2013}
 \newcommand\@journallogo{Journallogo}
 \newcommand\@sentence{Sentence.}
 \newcommand\@sentenceDisc{Sentence.}
+\def\watermark{%
+  \smash{\rlap{%
+      \fontsize{120}{120}\selectfont
+      \lower.75\textheight\hbox{\hskip10mm\rotatebox{36}{\rmfamily\textcolor{watermark}{Proof only}}}%
+    }}
+}
 \if@stage@final
+  \definecolor{watermark}{gray}{.85}
   \definecolor{textcol}{rgb}{0,0,0}
   \definecolor{bgcol}{rgb}{1,1,1}
   \definecolor{barcol}{rgb}{1,1,1}
@@ -2625,27 +2762,66 @@
   \edef\@journalnameshort{\@journalnameshort D}
   \edef\@journalnameshortlower{\@journalnameshortlower d}
 \fi
-\def\Etal#1{#1}
-\def\Issue#1{#1}
-\def\Particle#1{#1}
-\def\Link#1{#1}
-\def\Year#1{#1}
-\def\Lpage#1{#1}
-\def\Fpage#1{#1}
-\def\Volume#1{#1}
-\def\Source#1{#1}
-\def\Articletitle#1{#1}
-\def\Givennames#1{#1}
-\def\Surname#1{#1}
-\def\FirstName#1{#1}
-\def\Stringname#1{#1}
-\def\Persongroup#1{#1}
-\def\Journal#1{#1}
-\def\Uri#1{#1}
-\def\Content#1{#1}
-\def\Book#1{#1}
-\def\PublisherName#1{#1}
-\def\PublisherLoc#1{#1}
+\def\bDate#1{#1}
+\def\bYear#1{#1}
+\def\bMonth#1{#1}
+\def\bDay#1{#1}
+\def\bPubId#1{#1}
+\def\bLpage#1{#1}
+\def\bFpage#1{#1}
+\def\bPersonGroup#1{#1}
+\def\bName#1{#1}
+\def\bCollab#1{#1}
+\def\bSurname#1{#1}
+\def\bParticle#1{#1}
+\def\bSuffix#1{#1}
+\def\bELocationID#1{#1}
+\def\bGivenNames#1{#1}
+\def\bVolume#1{#1}
+\def\bIssue#1{#1}
+\def\bSource#1{#1}
+\let\bUri\url
+\def\bArticleTitle#1{#1}
+\def\bChapterTitle#1{#1}
+\def\bEtal#1{#1}
+\def\bElementCitation#1{#1}
+\def\bPublisherName#1{#1}
+\def\bPublisherLoc#1{#1}
+\def\bIsbn#1{#1}
+\def\bDateInCitation#1{#1}
+\def\bEdition#1{#1}
+\def\bConfName#1{#1}
+\def\bConfLoc#1{#1}
+\def\bConfDate#1{#1}
+\def\bComment#1{#1}
+\def\bPatent{\@ifnextchar [\@bPatent{\@bPatent[]}}%]
+\def\@bPatent[#1]#2{#2}
+\def\bSeries#1{#1}
+\def\bStd#1{#1}
+\def\bAttribute#1#2{}
+ %% LEGACY
+ \def\Etal#1{#1}
+ \def\Issue#1{#1}
+ \def\Particle#1{#1}
+ \def\Link#1{#1}
+ \def\Year#1{#1}
+ \def\Lpage#1{#1}
+ \def\Fpage#1{#1}
+ \def\Volume#1{#1}
+ \def\Source#1{#1}
+ \def\Articletitle#1{#1}
+ \def\Givennames#1{#1}
+ \def\Surname#1{#1}
+ \def\FirstName#1{#1}
+ \def\Stringname#1{#1}
+ \def\Persongroup#1{#1}
+ \def\Journal#1{#1}
+ \def\Uri#1{#1}
+ \def\Content#1{#1}
+ \def\Book#1{#1}
+ \def\PublisherName#1{#1}
+ \def\PublisherLoc#1{#1}
+ %% /LEGACY
 \def\mathring{\mathaccent6}
 
 \newenvironment{plainlist}
@@ -2662,6 +2838,11 @@
 }
 {\endlist}
 
+\if@copDebug
+  \ifx\xmltexversion\@undefined
+    \DeclareUnicodeCharacter{200B}{{\unskip\;\color{red}\vrule \@width1ex \@height1ex}}
+  \fi
+\fi
 \endinput
 %%
 %% End of file `copernicus.cls'.
