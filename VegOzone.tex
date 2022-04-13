@@ -175,12 +175,12 @@ An application of the Mapping Manual method was made by \citet{GCB:Mills2011} wh
 
 The described methods for risk assessment rely on accurate representation of plant physiological responses to key environmental variables and are most often parameterized using data for less extreme climates, i.e., temperate, continental, or Boreal climates. Parameterization for more extreme bio-geographical regions such as subarctic climates has not been performed and relies on assuming that less extreme Boreal parameterization will be applicable. It is important to understand the implications of using these in the subarctic. In our study, we explore how risk might be over- or underestimated using Boreal parameterization and explore an adjustment of temperature and light response functions based on climate data. This allows an understanding of which are the key aspects of modelled plant physiology that might determine the potential risk and also how the threat from ozone may change in the future. In addition, our results may hint a solution to solve long-standing issues of earth system models (ESM) which often lack PFTs specifically representing subarctic conditions in their land surface models and display over- or underproductivity in the Arctic \citep{GMD:Poulter2015,JAMES:Lawrence2019}.\\ 
 
-Section~\ref{sec:dam}, data and methods, includes a brief summary of the major components of the used model and its key drivers. Further more we propose a method of localization of response functions based on climate data and start and end of the growing season from satellite observed gross primary productivity (GPP). In Section~\ref{sec:do3se_results}, we present our modelling results. We discuss our results and give an outlook on how these could improve future assessments of pollution risk in Section~\ref{sec:discussion}.
+In Section~\ref{sec:dam}, we give a brief summary of the key components and  drivers of the $\mathrm{DO_3SE}$ model that is used to assess the ozone risk. To study the influence of selected parameters on ozone risk in the subarctic, we propose a method to localize temperature response functions based on climate data and start and end of the growing season from satellite observed gross primary productivity (GPP). For the later discussion of results, we summarize climate and weather conditions of the 2018/19 growing season at our research site in Section~\ref{sec:stats}. Results of the localization and ozone risk modelling are presented in Section~\ref{sec:results}. In Section~\ref{sec:conc}, we discuss these results concerning prevailing conditions and give an outlook on how future assessments of pollution risk in the subarctic could be improved.
 
 %%
-\section{Methods and data}
+\section{Methods}
 \label{sec:dam}
-In this section, we first describe the used model and its key components and input data and gap filling procedure (Section~\ref{sec:do3se}). After which, we put the conditions during the growing season 2018/19 into a climatological context (Section~\ref{sec:stats}). Finally, we describe our proposed method for localization of existing Boreal parameterizations to a subarctic climate (Section~\ref{sec:localization}).
+In the following, we briefly describe the model used for assessing the ozone risk, its key components, input data, and gap filling procedure (Section~\ref{sec:do3se}). To study the impact of model parameters, we propose a method for parameter localization to a subarctic climate based on existing Boreal parameterizations and estimate the start and end of the growing season from satellite derived GPP (Section~\ref{sec:localization}).
 
 \subsection{DO3SE model}
 \label{sec:do3se}
@@ -412,6 +412,7 @@ The estimate of leaf boundary layer resistance is a function of wind speed which
 
 \section{Climate and weather conditions}
 \label{sec:stats}
+Here, we put the conditions during the growing season 2018/19 into a climatological context.
 
 \subsection{Weather conditions in the growing season 2018/19}
 \label{subsec:weather}
@@ -440,7 +441,7 @@ Climatologies of temperature and precipitation for Svanhovd were derived for the
 \begin{figure*}[t]
   \includegraphics[width=12cm]{climatediagram_box}
   %\includegraphics[width=8.3cm]{fig04}
-  \caption{Climate diagram based on meteorological data for Svanvik/Pasvik (1992--2012). Ozone climatology based on ozone monitoring data at NIBIO Environment Centre Svanhovd(1986--2003). A box indicates the upper/lower quartile, whiskers the $1.5\times$ Interquartile Range (IQR), and circles outliers. The median is marked by a colored horizontal line and the mean by a triangle. Notches indicate the confidence interval around the median. (a) Monthly temperatures; (b) Monthly accumulated precipitation; (c) Monthly global radiation; (d) Monthly ozone VMR}
+  \caption{Climate diagram based on meteorological data for Svanvik/Pasvik (1992--2012). Ozone climatology based on ozone monitoring data at NIBIO Environment Centre Svanhovd(1986--2003). A box indicates the upper/lower quartile, whiskers the $1.5\times$ Interquartile Range (IQR), and circles outliers. The median is marked by a colored horizontal line and the mean by a triangle. Notches indicate the confidence interval around the median. (a) Temperature; (b) accumulated precipitation; (c) radiant energy; (d) ozone VMR}
   \label{fig:climatediagram}
 \end{figure*}
 
@@ -458,15 +459,10 @@ In the following, we look at the 2018/19 anomalies and discuss the differences b
 In Fig.~\ref{fig:anomalies_svanvik}a, temperature anomalies for Svanvik are shown as a percentage of days warmer or colder than $\pm 1\,\sigma$ from the climatology for each month. Negative deviations from climatology are displayed as a negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The hatched area between the dashed lines indicates the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed ($15.9\,\unit{\%}$). We find, that the summer of 2018 was significantly warmer than average. Especially in May and July more than $40\,\unit{\%}$ of the days were significantly warmer. A significant number of warmer days continued to occur in all months (August--November) except for October. March 2018 had many unusually cold days. The summer of 2019 was fairly average, however, more significantly colder days occurred in July, while August had both significantly colder and warmer days. April 2019 had significantly warmer than average days.
 
 \begin{figure*}[t]
-  %\includegraphics[width=12cm]{fig06}
+  
   \centering
-  (a)\hspace{6cm}(b)\\
-  \includegraphics[width=6cm]{temperature_signific_1.pdf}
-  \includegraphics[width=6cm]{precipitation_signific_1.pdf}\\
-  (c)\hspace{6cm}(d)\\
-  \includegraphics[width=6cm]{global_rad_signific_1.pdf}
-  \includegraphics[width=6cm]{ozone_signific_1.pdf}
-  \caption{2018/19 anomalies of key environmental variables at Svanhovd displayed as percentages of days significantly deviating from climatological mean through standard deviation for each month. Negative deviations from the climatology are shown as a negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The hatched area between the dashed lines indicates statistical significance under the assumption of a normal distribution ($15.9\,\unit{\%}$, $30.8\,\unit{\%}$ for Precip.). (a) Temperature; (b) precipitation; (c) global irradiance; (d) ozone.}
+  \includegraphics[width=12cm]{anomalies}
+  \caption{2018/19 anomalies of key environmental variables at Svanhovd displayed as difference from median for each month. The hatched area between indicates the IQR. (a) Temperature; (b) precipitation; (c) radiant energy; (d) ozone VMR.}
   \label{fig:anomalies_svanvik}
 \end{figure*}
 
@@ -485,8 +481,8 @@ In summary, 2018 had a significant number of days that were warmer, drier, and b
 \subsection{Parameter localization}
 \label{subsec:res_local}
 
-\section{Implications on ozone risk assessments}
-\label{sec:do3se_results}
+\subsection{Implications on ozone risk assessments}
+\label{subsec:do3se_results}
 
 We have modeled $\mathrm{POD_y}$ with a flux threshold $y=1\,\unit{nmol\,m^{-2}\,s^{-1}}$ per projected leaf area (PLA) for the three natural/semi-natural vegetation types, deciduous trees, coniferous trees, and perennial grassland using the generic MM parameterization and our bespoke temperature (\emph{cold}, \emph{subarctic}) and light (PPFD0.8, PPFD1.2) parameterizations. Canopy height and leaf size are adjusted to local values in the model simulations with the bespoke growing season (GS besp.). The results displayed in Fig.~\ref{fig:pody_rel} allow for an assessment of over- or underestimation of ozone risk arising from the use of generic parameterizations established from less climatically extreme conditions.
 Critical levels for reduction in biomass \citep[deciduous forest $4\,\unit{\%}$, coniferous forest $2\,\unit{\%}$, and grasslands $10\,\unit{\%}$ biomass reduction,][]{ICP:MappingManual2017,ESPR:Hayes2021} are shown as horizontal dashed lines. We identify that an increase in cold tolerance (MM $\rightarrow$ cold $\rightarrow$ subarctic) leads to higher ozone uptake in both probed years, while the usage of locally adapted GS causes a reduction. The earlier and longer GS in 2019 leads to increased ozone uptake compared to 2018 despite more episodes of elevated \chem{[O_3]} in 2018. Due to the shape of $f_\mathrm{light}$, a symmetric variation leads to an asymmetric response in $\mathrm{POD_1}$. We find that an opening of stomata at lower light intensities can cause higher sensitivity to drought conditions. Similarly, a temperature acclimation to cold or subarctic conditions can lead to an amplification of effects by droughts. 
