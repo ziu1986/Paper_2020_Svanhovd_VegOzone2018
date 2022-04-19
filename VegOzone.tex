@@ -175,7 +175,7 @@ An application of the Mapping Manual method was made by \citet{GCB:Mills2011} wh
 
 The described methods for risk assessment rely on accurate representation of plant physiological responses to key environmental variables and are most often parameterized using data for less extreme climates, i.e., temperate, continental, or Boreal climates. Parameterization for more extreme bio-geographical regions such as subarctic climates has not been performed and relies on assuming that less extreme Boreal parameterization will be applicable. It is important to understand the implications of using these in the subarctic. In our study, we explore how risk might be over- or underestimated using Boreal parameterization and explore an adjustment of temperature and light response functions based on climate data. This allows an understanding of which are the key aspects of modelled plant physiology that might determine the potential risk and also how the threat from ozone may change in the future. In addition, our results may hint a solution to solve long-standing issues of earth system models (ESM) which often lack PFTs specifically representing subarctic conditions in their land surface models and display over- or underproductivity in the Arctic \citep{GMD:Poulter2015,JAMES:Lawrence2019}.\\ 
 
-In Section~\ref{sec:dam}, we give a brief summary of the key components and  drivers of the $\mathrm{DO_3SE}$ model that is used to assess the ozone risk. To study the influence of selected parameters on ozone risk in the subarctic, we propose a method to localize temperature response functions based on climate data and start and end of the growing season from satellite observed gross primary productivity (GPP). For the later discussion of results, we summarize climate and weather conditions of the 2018/19 growing season at our research site in Section~\ref{sec:stats}. Results of the localization and ozone risk modelling are presented in Section~\ref{sec:results}. In Section~\ref{sec:conc}, we discuss these results concerning prevailing conditions and give an outlook on how future assessments of pollution risk in the subarctic could be improved.
+In Section~\ref{sec:dam}, we give a brief summary of the key components and  drivers of the $\mathrm{DO_3SE}$ model that is used to assess the ozone risk. To study the influence of selected parameters on ozone risk in the subarctic, we propose a method to localize temperature response functions based on climate data and start and end of the growing season from satellite observed gross primary productivity (GPP). For the later discussion of results, we summarize climate and weather conditions of the 2018/19 growing season at our research site in Section~\ref{sec:stats}. Results of the localization, the ozone risk modelling, and the climate perspective are presented in Section~\ref{sec:results}. In Section~\ref{sec:conc}, we discuss these results concerning prevailing conditions and give an outlook on how future assessments of pollution risk in the subarctic could be improved.
 
 %%
 \section{Methods}
@@ -277,7 +277,7 @@ As site for our study, we chose Svanhovd in northern Norway ($69.45\,\unit{^\cir
 All essential climate variables for the 2018/19 growing season were provided by NILU through the web portal \href{luftkvalitet.no}{luftkvalitet.no} (last accessed May 2020). The ozone monitoring data have been added to a database for air-quality monitoring called EBAS as well operated by NILU and are thus openly accessible. Long-term ozone observation data (1986--1996) were obtained from EBAS. Note that data from before the 1990s do not follow the high-quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Because ozone monitors did not undergo regular re-calibration drifts in the observed data occurred imposing false trends which are small but in the same order of magnitude as the expected trends in tropospheric background ozone. This does not concern the ozone seasonality which we are particularly interested in.
 The long-term data sets of agrometeorological variables including temperature and precipitation are available from September 1992 to the present day \citep[LandbruksMeteorologiske Tjeneste][note the station name here is Pasvik]{LMT_NIBIO}.
 
-To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, an ozone bio-monitor (referred to as ozone garden) has been installed at Svanhovd in the 2018/19 GS. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clovers (\emph{Trifolium repens}, \emph{Trifolium pratense}), tobacco (\emph{Nicotiana tabacum}, cultivars Bel-W3, Bel-B and Bel-C), and potato (\emph{Solanum tuberosum}). As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence. In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar (Bel-W3).
+To relate local ozone concentration \chem{[O_3]} with visible damage on ozone sensitive plants, an ozone bio-monitor (referred to as ozone garden) has been installed at Svanhovd in the 2018/19 GS. The locations of the atmospheric monitoring site and the ozone garden are marked in the aerial photography shown in Fig.~\ref{fig:svanhovd_research_station}a. An ozone garden consists of selected plant species that are sensitive to ozone and are likely to display visible injuries. Cultivated species were, e.g. clovers (\emph{Trifolium repens}, \emph{Trifolium pratense}), tobacco (\emph{Nicotiana tabacum}, cultivars Bel-W3, Bel-B and Bel-C), and potato (\emph{Solanum tuberosum}). As shown in Fig.~\ref{fig:svanhovd_research_station}b, the plants had to be protected from herbivores with a wire-mesh fence. In 2018, we qualitatively observed visible ozone damage on semi-natural vegetation (clover) and crops (tobacco). In contrast, no such visible damage was found on the clovers in 2019, although it was observed on the sensitive tobacco cultivar (Bel-W3). Note that the extent of visible damage is not equivalent to a quantitative reduction of above/below ground biomass of a species.
 
 \begin{figure}[t]
   \centering
@@ -294,32 +294,31 @@ To relate local ozone concentration \chem{[O_3]} with visible damage on ozone se
 \subsection{Model parameter localization}
 \label{sec:localization}
 
-We deduced the dominant species on-site at Svanhovd from Fig.~\ref{fig:svanhovd_research_station}a and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Basic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations in the following. For coniferous trees, we base our localization of parameters on MM's Boreal Norway spruce. Our deciduous tree paramterization is based on MM's silver birch and perennial grassland on MM's perennial grassland for Central Europe. For a comprehensive list of generic MM model parameters, consult Supplement~Table~S1.
+We deduced the dominant species on-site at Svanhovd and from Fig.~\ref{fig:svanhovd_research_station}a and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Basic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations. The localization of parameters for coniferous trees is based on MM's Boreal Norway spruce, deciduous trees on MM's silver birch, and perennial grassland on MM's perennial grassland for Central Europe. For a comprehensive list of MM parameters, consult Supplement~Table~S1. In the following, we suggest localizations of key environmental parameters to a subarctic climate based on meteorological data to assess over-/underestimation of ozone damage by using MM Boreal parameterizations.
 
-\subsubsection{Temperature acclimation}
+\subsubsection{Temperature and light response}
 
-Initial test simulations with the MM PFTs revealed an unrealistically low stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) in 2019 for perennial grassland (Appendix~Fig.~\ref{fig:pody_mm_composit}). Substantial stomatal conductance in this species occurred only during an extended warm period in late July. In ecological terms, this means that there was almost no growth of grass in the summer of 2019 -- a prediction that is easily falsified by reality. We identified $f_\mathrm{T}$ as abnormally low throughout the season, being the limiting factor of stomatal conductance in perennial grassland. Note, these parameterizations are hypothetical and have yet to be verified by experiments. 
+Initial simulations with the MM parameterizations for perennial grassland revealed an unexpected low stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) in 2019 (Appendix~Fig.~\ref{fig:pody_mm_composit}). Substantial stomatal conductance occurred only during an extended warm period in late July. In ecological terms, this means that there would have been almost no growth of grass in the summer of 2019 -- a model prediction that is falsified by reality. We identified $f_\mathrm{T}$ as abnormally low throughout the season, being the limiting factor of stomatal conductance in perennial grassland.
 
-We presume that perennial vegetation will likely maximize carbon acquisition during the short subarctic growing season. Because the MM version of the $\mathrm{DO_3SE}$ model currently does not simulate net photosynthesis ($A_\mathrm{n}$), we assume a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011} and effectively tune the temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) for higher $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ to acclimate the growth potential to the local climate. For details regarding these functions see Section~\ref{subsec:model_describtion}. Further, we presume that $f_\mathrm{VPD}$ and $f_\mathrm{SWP}$ suit our vegetation types and no acclimation is necessary for these. But acknowledge that these are very important factors as shown by~\citet{ACP:Bueker2012}.
+To localize the temperature response function $f_\mathrm{T}$, we divide the temperature dataset into two subsets: 1992--2000 (near past) and 2011--2019 (present). From these two subsets, we select dates within the GS (May--September) only and plot the probability density function (PDF) as histogram with $1\,\unit{^\circ C}$ binning. We overlay the histograms with $f_\mathrm{T}$ to graphically determine the goodness of fit of the MM parameterization from the overlapping area. In Fig.~\ref{fig:f_temp_grassland}a, we show the $f_\mathrm{T}$ for perennial grassland together with the temperature PDFs for near past and present climate conditions. The MM parameterization is displayed as a solid line. A comparison between the two PDFs indicates that the temperature distribution has been shifted towards higher temperatures reducing the number of days below $5\,\unit{^\circ C}$. It is unclear how fast the species composition of perennial grassland responds to these changes. Thus, the predominant acclimation at present is not known.
 
-We define two different hypothetical temperature acclimations: subarctic and cold. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures, but slightly less efficient at warm temperatures compared to MM. This is accomplished by moving $f_\mathrm{T}$ towards cooler temperatures but keep $T_\mathrm{max}$ at its MM value. In the same way, \emph{subarctic} is constructed to represent a species that is very tolerant to cold but sensitive to high temperatures, and most efficient at cool temperatures. Therefore, we shift $f\mathrm{T}$ to even colder temperatures and choose $T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000. In other words, we aim to increase the overlapping area between $f_\mathrm{T}$ and the temperature probability density function (PDF) during the GS. The most extreme of the two acclimation types is \emph{subarctic}.
-In Fig.~\ref{fig:f_temp_grassland}a, we show the resulting $f_\mathrm{T}$ for perennial grassland together with temperature PDFs deduced from the five months GS in two climatological periods. The periods 1990s and 2000s have been chosen to indicate that the vegetation has been subject to climate change already. Thus, the predominant acclimation at present is not known.
+The idea is to define a localized temperature response function by increasing the overlapping area between $f_\mathrm{T}$ and the temperature PDF during the GS. To this end, we define two different hypothetical target species: subarctic and cold. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures than MM, but slightly less efficient at warm temperatures than MM. This is accomplished by moving $T_\mathrm{min}$ and $T_\mathrm{opt}$ towards cooler temperatures but keep $T_\mathrm{max}$ at its MM value. In the same way, \emph{subarctic} is constructed to represent a species that is very tolerant to cold but sensitive to high temperatures, and most efficient at cool temperatures. Therefore, we shift both $T\mathrm{min}$ and $T_\mathrm{max}$ to colder temperatures and choose $T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000. The most extreme of the two localizations compared to MM is \emph{subarctic}.
 
-The resulting response functions for coniferous and deciduous trees are displayed in Appendix~Figs.~\ref{fig:f_temp_spruce}a and \ref{fig:f_temp_birch}a, respectively. We base our temperature acclimation of coniferous trees on experimental results on Norway spruce which were found to be active already at rather low air temperatures and can reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 \citep{TB:Kolari2007, TP:Wallin2013}. In particular, we use the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007} to estimate the optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). We presume a similar temperature acclimation for deciduous trees. All bespoke temperature parameters are listed in Table~\ref{tab:sensitivity_tests_temp}.
-
-\subsubsection{Light acclimation}
-TODO:
-Regarding the acclimation of $f_\mathrm{light}$, we presume that the opening extent of stomata at low light conditions differs in subarctic species compared to species in less extreme climates. We, therefore, adjust the light sensitivity of stomata such that the PPFD value needed to reach $50\,\unit{\%}$ opening is varied $\pm 20\,\unit{\%}$. For this we derive the inverse function $f_{\mathrm{light},k}^{-1}$ of Eq.~(\ref{eq:flight}) analytically for each PFT or species $k$
+For localizing $f_\mathrm{light}$, we presume that the opening extent of stomata at low light conditions differs in subarctic species compared to species in less extreme climates. We, therefore, adjust the modelled light sensitivity of stomata such that the PPFD value needed to reach $50\,\unit{\%}$ opening is varied by $\pm 20\,\unit{\%}$. For this, we derive the inverse function $f_{\mathrm{light},k}^{-1}$ of Eq.~(\ref{eq:flight}) for each PFT $k$ analytically
+%
 \begin{equation}
   \gamma_k(f_\mathrm{light}) := f_{\mathrm{light}, k}^{-1} = -\frac{\ln(1-f_\mathrm{light})}{\alpha_k}.
   \label{eq:inverse_function}
 \end{equation}
-First, we solve Eq.~(\ref{eq:inverse_function}) for the MM default value $\alpha_\mathrm{MM}^k$ at $0.5$ 
+%
+First, we solve Eq.~(\ref{eq:inverse_function}) for the MM default value of $\alpha_\mathrm{MM}^k$ at $0.5$ ($50\,\%$ opening)
 \begin{equation}
   \gamma^k(0.5) = -\frac{\ln(0.5)}{\alpha_\mathrm{MM}^k},
   \label{eq:inverse_function_halfway}
 \end{equation}
-and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}$. By inverting Eq.~(\ref{eq:inverse_function}) for $\alpha$, we find $\alpha'(\gamma')$. The resulting functions for perennial grassland (PPFD0.8, PPFD1.2) are shown in Fig.~\ref{fig:f_temp_grassland}b) (for deciduous and coniferous trees refer Appendix~Figs.~\ref{fig:f_temp_spruce}b and \ref{fig:f_temp_birch}b. All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
+and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}$. By solving Eq.~(\ref{eq:inverse_function}) for $\alpha$, we find $\alpha'(\gamma')$. 
+
+In Fig.~\ref{fig:f_temp_grassland}b, we show the PPFD PDF for near past and present together with the $f_\mathrm{light}$ for perennial grassland. The MM parameterization is displayed as solid line.
 
 \begin{figure}[t]
   \centering
@@ -331,6 +330,41 @@ and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}
 \caption{Construction of bespoke response functions for grassland. (a) $f_\mathrm{T}$ and (b) $f_\mathrm{flight}$ are shown together with underlying $T_\mathrm{air}$ and $Q_0$ climatologies (probability density function - PDF), respectively. Original mapping manual parameterization is shown in comparison as solid line. Note that $Q_0$ has been truncated to $0.006$. PPFD0.8 and PPFD1.2 refer to $\alpha$ values increasing/decreasing PPFD at $f_\mathrm{light}=0.5$ by $\pm 20\,\%$, respectively.}
 \label{fig:f_temp_grassland}
 \end{figure}
+
+Similarly, we defined localized $f_\mathrm{T}$ and $f_\mathrm{light}$ for coniferous and deciduous trees. The resulting response functions are shown in Appendix~Figs.~\ref{fig:f_temp_spruce} and \ref{fig:f_temp_birch}, respectively.
+
+Coniferous trees are able to start photosynthesis as soon as the leaf temperature reaches a certain threshold \citep{TB:Kolari2007} and are, hence, found to be active already at rather low air temperatures and can reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 but cease activity in less favorable conditions \citep{TB:Kolari2007, TP:Wallin2013}. 
+
+To determine the temperature localization for coniferous trees, we use the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007}. We estimate an optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). For simplicity, we assume the same interval for deciduous trees. 
+
+The resulting parameterizations are presented in detail in Section~\ref{subsec:res_local}.
+
+\subsubsection{Growing season estimate}
+\label{subsec:gs_est}
+
+Another important factor for the accumulation of ozone dose is the timing and length of the GS. 
+
+TODO: estimated as follows. For coniferous trees, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product \citep{MODIS_PSN} for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. The net photosynthesis vs. time of year data can be approximated by a second-order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start}$ as \unit{doy}~122 for 2018 and \unit{doy}~106 in 2019. $A_\text{end}$ amounts to \unit{doy}~261 and 274, respectively. This value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 is, hence, one month longer than in 2018. For estimating $A_\text{start}$ of deciduous trees, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We find \unit{doy}~129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR). For comparison, the generic dates for central Europe ($A_\mathrm{start} = 100$ and $A_\mathrm{end} = 307$) indicating a substantially longer growing season. Due to a lack of quantitative field observation at Svanhovd, we assume a latency period of $1\,\unit{month}$ after snow-melt for perennial grassland. This assumption is supported by observations in Rovaniemi, Finland \citep[][Supplement~Fig.~S1]{FCR:Korhonen2018}.
+
+\subsubsection{Soil conditions}
+\label{subsec:soil}
+
+Soil texture influences water availability and thus $\mathrm{POD_y}$ calculations in $\mathrm{DO_3SE}$ \citep{ACP:Bueker2012}. The soil at Svanhovd is characterized in an ICP~Forest plot survey as gleyic cambisols according to the Food and Agriculture Organization of the United Nations (FAO) soil classification system and as eluviated dystric brunisol in the ICP~Forest soil classification system (V. Timmerman, personal communication, June 2020). The clay:sand:silt content is estimated to range from 12\,\%:61\,\%:27\,\% at the top layer to 16\,\%:59\,\%:25\,\% in about $1\,\unit{m}$ depth (\href{https://soilgrids.org/}{soilgrids.org}, last accessed April 2022 for location $30.0334\,\unit{^\circ E}$, $69.4549\,\unit{^\circ N}$) Within the $\mathrm{DO_3SE}$ soil parameterization, the sandy loam texture describes the upper $60\,\unit{cm}$, where the plant roots are found, of this soil type best. 
+
+The estimate of leaf boundary layer resistance is a function of wind speed which will be influenced by the tree height and leaf dimensions. A sample of downy birch leaves collected at Svanhovd had an average length of $(3.0\pm 0.5)\,\unit{cm}$ that is smaller than in the MM parameterization. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. One Scots pine forest at Svanhovd has been studied as a part of the ICP Forest mapping. Heights were measured in 2004 when the stand was 90 years old. Mean tree height was $10.1\,\unit{m}$ and maximum height was $16.2\,\unit{m}$ (V. Timmerman, personal communication, June 2020). We used $13.5\,\unit{m}$ height for both deciduous and coniferous trees.
+
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Parameter localization}
+\label{subsec:res_local}
+
+All bespoke temperature parameters are listed in Table~\ref{tab:sensitivity_tests_temp}.
+
+(for deciduous and coniferous trees refer Appendix~Figs.~\ref{fig:f_temp_spruce}b and \ref{fig:f_temp_birch}b)
+
+All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
 
 \begin{table}[t]
   \caption{Bespoke temperature parameterizations. MM refers to mapping manual \citep{GCB:Mills2011,ICP:MappingManual2017}.}
@@ -376,18 +410,18 @@ and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}
     \end{tabular}
 \end{table}
 
+We presume that perennial vegetation will likely maximize carbon acquisition during the short subarctic growing season. Because the MM version of the $\mathrm{DO_3SE}$ model currently does not simulate net photosynthesis ($A_\mathrm{n}$), we assume a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011} and effectively tune the temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) for higher $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ to acclimate the growth potential to the local climate. For details regarding these functions see Section~\ref{subsec:model_describtion}. Further, we presume that $f_\mathrm{VPD}$ and $f_\mathrm{SWP}$ suit our vegetation types and no acclimation is necessary for these. But acknowledge that these are very important factors as shown by~\citet{ACP:Bueker2012}.
+
 As indicated above, a better acclimation to prevailing climate conditions is characterized by a higher average $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$. To compare our bespoke parameterizations, we propose the following metric. We calculate an average relative stomatal conductance $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ (Eq.~(\ref{eq:stomatal}) with $f_\mathrm{SWP}=1$) at noon ($11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning ($5-9\,\unit{am}$ local time) for the whole record of key environmental variables' data and apply mean and standard deviation. We presume that $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ around noon (highest light intensity) is a good proxy for \chem{CO_2} uptake efficiency (growth). In addition, a small deviation between noon and morning and a low standard deviation would indicate higher robustness to variability in growing conditions. Based on these criteria, we identify \emph{subarctic}--PPFD0.8 as the best parameterization for all PFTs (Fig.~\ref{fig:javis_func_opt_mean}). As expected due to the small adjustments, coniferous trees display the smallest differences between the different parameterizations, while the differences for perennial grassland are substantial as a response to the proposed temperature acclimation.
 
 \begin{figure}[t]
   \includegraphics[width=8.3cm]{javis_func_opt_mean}
   %\includegraphics[width=8.3cm]{fig08}
-  \caption{Proposed metric to test bespoke response functions. GS (May--August) climatological averages and standard deviation of $g_\mathrm{sto}^k$ (Eq.~(\ref{eq:stomatal})) relative to $g_\mathrm{max}^k$ at noon (averaged over $11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning (averaged over $5-9\,\unit{am}$ local time) are shown for (a) deciduous trees; (b) coniferous trees; (c) perennial grassland. }
+  \caption{Proposed metric to test bespoke response functions. GS (May--August) climatological averages and standard deviation of $g_\mathrm{sto}^k$ (Eq.~(\ref{eq:stomatal})) relative to $g_\mathrm{max}^k$ at noon (averaged over $11\,\unit{am}-1\,\unit{pm}$ local time) and in the morning (averaged over $5-9\,\unit{am}$ local time) are shown for (a) deciduous trees; (b) coniferous trees; (c) perennial grassland.}
   \label{fig:javis_func_opt_mean}
 \end{figure}
 
-\subsubsection{Growing season estimate}
-
-Another important factor is the timing and length of the GS. Start ($A_\text{start}$) and end ($A_\text{end}$) of GS for each PFT are given in \unit{doy} (Table~\ref{tab:sensitivity_tests_gs}) and estimated as follows. For coniferous trees, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product \citep{MODIS_PSN} for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. The net photosynthesis vs. time of year data can be approximated by a second-order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start}$ as \unit{doy}~122 for 2018 and \unit{doy}~106 in 2019. $A_\text{end}$ amounts to \unit{doy}~261 and 274, respectively. This value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 is, hence, one month longer than in 2018. For estimating $A_\text{start}$ of deciduous trees, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We find \unit{doy}~129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR). For comparison, the generic dates for central Europe ($A_\mathrm{start} = 100$ and $A_\mathrm{end} = 307$) indicating a substantially longer growing season. Due to a lack of quantitative field observation at Svanhovd, we assume a latency period of $1\,\unit{month}$ after snow-melt for perennial grassland. This assumption is supported by observations in Rovaniemi, Finland \citep[][Supplement~Fig.~S1]{FCR:Korhonen2018}.
+Start ($A_\text{start}$) and end ($A_\text{end}$) of the GS for each PFT are usually given in \unit{doy} (Table~\ref{tab:sensitivity_tests_gs})
 
 \begin{table}[t]
   \caption{Start and end of growing season in \unit{doy}.}
@@ -411,81 +445,6 @@ Another important factor is the timing and length of the GS. Start ($A_\text{sta
     $^d$ One month after snowmelt; reference station Øvre Neiden (Sør-Varanger, NOR)} % Table Footnotes
 \end{table}
 
-Soil texture influences water availability and thus $\mathrm{POD_y}$ calculations in $\mathrm{DO_3SE}$ \citep{ACP:Bueker2012}. The soil at Svanhovd is characterized in an ICP~Forest plot survey as gleyic cambisols according to the Food and Agriculture Organization of the United Nations (FAO) soil classification system and as eluviated dystric brunisol in the ICP~Forest soil classification system (V. Timmerman, personal communication, June 2020). The clay:sand:silt content is estimated to range from 12\,\%:61\,\%:27\,\% at the top layer to 16\,\%:59\,\%:25\,\% in about $1\,\unit{m}$ depth (\href{https://soilgrids.org/}{soilgrids.org}, last accessed April 2022 for location $30.0334\,\unit{^\circ E}$, $69.4549\,\unit{^\circ N}$) Within the $\mathrm{DO_3SE}$ soil parameterization, the sandy loam texture describes the upper $60\,\unit{cm}$, where the plant roots are found, of this soil type best. 
-
-The estimate of leaf boundary layer resistance is a function of wind speed which will be influenced by the tree height and leaf dimensions. A sample of downy birch leaves collected at Svanhovd had an average length of $(3.0\pm 0.5)\,\unit{cm}$ that is smaller than in the MM parameterization. \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the area. One Scots pine forest at Svanhovd has been studied as a part of the ICP Forest mapping. Heights were measured in 2004 when the stand was 90 years old. Mean tree height was $10.1\,\unit{m}$ and maximum height was $16.2\,\unit{m}$ (V. Timmerman, personal communication, June 2020). We used $13.5\,\unit{m}$ height for both deciduous and coniferous trees.
-
-
-\section{Climate and weather conditions}
-\label{sec:stats}
-Here, we put the conditions during the growing season 2018/19 into a climatological context.
-
-\subsection{Weather conditions in the growing season 2018/19}
-\label{subsec:weather}
-
-All relevant data for the growing season 2018/19 are shown as time series in Fig.~\ref{fig:data_svanvik_2018_2019}. Ozone concentrations measured at $2\,\unit{m}$ height above ground are averaged hourly. The hatched areas mark times when no ozone data were recorded. Note, while the downtime during winter was planned, missing data in two weeks of July 2018 (July 9--23) were due to problems in data acquisition.
-
-As can be seen in Fig.~\ref{fig:data_svanvik_2018_2019}a, \chem{[O_3]} peaks in spring (April/May) and reaches its minimum in late summer (July/August). The spring peak has not been captured completely in 2019, since data acquisition only started in late April. In summer 2018 (June--August), high ozone concentrations ($\chem{[O_3]} > 40\,\unit{ppb}$) were recorded 50 times. The highest summer ozone concentration ($\chem{[O_3]} = 50.2\,\unit{ppb}$) was measured on July 25. This coincides with the period of the most extensive forest fires in central Sweden which occurred from July 12--29 \citep{SOU2019}. However, due to the above-mentioned data acquisition problems, we missed most of the corresponding ozone data for this event and most likely also the peak \chem{[O_3]}. A method for gap-filling these data has been presented in \citet{ACP:Falk2021}. In contrast, \chem{[O_3]} only rose 18 times above the threshold of $40\,\unit{ppb}$ during the summer of 2019. 
-
-Hourly averaged $2\,\unit{m}$ temperatures above $20\,\unit{^\circ C}$ occurred more regularly in July 2018 than in 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}b). In 2018, spring temperature regularly rose above freezing only in May, while in 2019 this occurred already early in March/April.
-More rain events with accumulated daily precipitation ($\sum_d \mathrm{Precip}$) above $10\,\unit{mm}$ occurred in the summer of 2018 compared to 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}c).
-Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik_2018_2019}d was higher in May and July 2018 compared to 2019, while June 2019 showed higher irradiance than in 2018. A high global irradiance, in most cases, is the result of a low cloud fraction. In both years, the maximum recorded $Q_0$ was $750\,\unit{W\,m^{-2}}$ and reached in June.
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{data_svanvik_2018_2019}
-  %\includegraphics[width=12cm]{fig02}.
-  \caption{Observational data from atmospheric monitoring at Svanhovd in 2018/19. The hatched areas indicate periods without ozone monitoring data. (a) Hourly averaged ozone VMR; (b) hourly averaged temperature; (c) daily accumulated precipitation; (d) hourly averaged global irradiance.}
-  \label{fig:data_svanvik_2018_2019}
-\end{figure*}
-
-
-\subsection{Climate (1990-present)}
-\label{subsec:climatologies}
-
-Climatologies of temperature and precipitation for Svanhovd were derived for the period 1992--2012 and are shown in a combined climate diagram (Fig.~\ref{fig:climatediagram}). Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard deviation as error band. Averaged monthly accumulated precipitation (blue bars) is shown without standard deviation. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. The coldest measured temperature was $-45.2\,\unit{^\circ C}$ in January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred on July 16 the same year.
-
-\begin{figure*}[t]
-  \includegraphics[width=12cm]{climatediagram_box}
-  %\includegraphics[width=8.3cm]{fig04}
-  \caption{Climate diagram based on meteorological data for Svanvik/Pasvik (1992--2012). Ozone climatology based on ozone monitoring data at NIBIO Environment Centre Svanhovd(1986--2003). A box indicates the upper/lower quartile, whiskers the $1.5\times$ Interquartile Range (IQR), and circles outliers. The median is marked by a colored horizontal line and the mean by a triangle. Notches indicate the confidence interval around the median. (a) Temperature; (b) accumulated precipitation; (c) radiant energy; (d) ozone VMR}
-  \label{fig:climatediagram}
-\end{figure*}
-
-The average accumulated monthly precipitation ($\sum_d\mathrm{Precip}$) indicates that winter and spring (November--April, except for March) are relatively dry ($\sum_d\mathrm{Precip} < 20\,\unit{mm}$). March precipitation is primarily snow and will influence the start of the growing season. The driest month is January with $\sum_d\mathrm{Precip} = (16.7\pm 3.0)\,\unit{mm}$. The most precipitation occurs in the summer months, with a $\sum_d\mathrm{Precip} = (58.5\pm 9.2)\,\unit{mm}$ in August. The average annual accumulated precipitation ($\sum_m\mathrm{Precip}$) given with standard error of mean is $(383\pm 86)\,\unit{mm}$. Precipitation shows a considerable interannual variability.
-
-The climatology for global irradiance ($Q_0$, not shown) approaches zero in December/January (polar night) and reaches its maximum in June/July (midnight sun conditions). We deduce the corresponding highest $Q_0$ to $800\,\unit{W\,m^{-2}}$. The maximum of the lowest $Q_0$ (including night) amounts to $200\,\unit{W\,m^{-2}}$ indicating that a considerable amount of light is available under midnight sun conditions.
-
-%Ozone
-The daily mean ozone climatology (\chem{\left<[O_3]\right>}) (1986--1996) is shown in Figure~\ref{fig:climatediagram}d. Darker colors indicate higher probability to observe these values. On top of the density distributions, a $10\,\unit{days}$ average of daily mean (\chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}}}) is displayed together with $1 \sigma$ uncertainties and SE, respectively. A spline was fitted through the data to guide the eye. The \chem{[O_3]} density distribution and the \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}}} display the expected, pronounced seasonal cycle. The spring peak occurs on average on day of the year (\unit{doy}) $100$ and amounts to $40\,\unit{ppb}$ while the annual average \chem{\left<[O_3]\right>} is $28\,\unit{ppb}$. The decline in \chem{\left<[O_3]\right>} coincides with the average beginning of \chem{CO_2} uptake by coniferous trees \citep{TB:Kolari2007, TP:Wallin2013}. In July--September (\unit{doy}~182--273), ozone is occasionally almost completely depleted. This hints to ozone uptake by vegetation even at low light intensities during midnight sun conditions in combination with stable planetary boundary layer conditions preventing mixing of ozone rich air.
-
-\subsection{2018/19 growing season anomalies}
-\label{subsec:anomalies}
-In the following, we look at the 2018/19 anomalies and discuss the differences between the two years. As weather extremes like in 2018 are likely to become more frequent with climate change, this will help to assess possible future changes in the vulnerability of subarctic vegetation to ozone.\\ 
-
-In Fig.~\ref{fig:anomalies_svanvik}a, temperature anomalies for Svanvik are shown as a percentage of days warmer or colder than $\pm 1\,\sigma$ from the climatology for each month. Negative deviations from climatology are displayed as a negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The hatched area between the dashed lines indicates the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed ($15.9\,\unit{\%}$). We find, that the summer of 2018 was significantly warmer than average. Especially in May and July more than $40\,\unit{\%}$ of the days were significantly warmer. A significant number of warmer days continued to occur in all months (August--November) except for October. March 2018 had many unusually cold days. The summer of 2019 was fairly average, however, more significantly colder days occurred in July, while August had both significantly colder and warmer days. April 2019 had significantly warmer than average days.
-
-\begin{figure*}[t]
-  
-  \centering
-  \includegraphics[width=12cm]{anomalies}
-  \caption{2018/19 anomalies of key environmental variables at Svanhovd displayed as difference from median for each month. The hatched area between indicates the IQR. (a) Temperature; (b) precipitation; (c) radiant energy; (d) ozone VMR.}
-  \label{fig:anomalies_svanvik}
-\end{figure*}
-
-Similarly, the precipitation anomalies for Svanvik are displayed in Fig.~\ref{fig:anomalies_svanvik}b. Due to the large interannual variability in observed precipitation, only a few days deviated significantly from the climatology on the $1 \sigma$ level. Therefore, we lowered the $\sigma$ level constraint to $\pm \frac{1}{2}\,\sigma$. The percentage of days wetter/drier than $\pm \frac{1}{2}\,\sigma$ are shown for each month. Positive deviation refers to days wetter than average and negative deviation to drier than average. The hatched area between the dashed lines indicates the expected percentage of values falling above/below $\pm\frac{1}{2}\,\sigma$ if a normal distribution is assumed ($30.8\,\unit{\%}$). Unlike the temperature anomalies, the picture is not as clear. While March 2018 had a significant number of days wetter than usual, summer and fall (May/July, September/October) had a significant number of days drier than average. 2019 was rather average throughout the year, but with a significant number of days drier than normal in September/October and wetter in December.
-
-The global irradiance anomalies for Svanvik are presented in Fig.~\ref{fig:anomalies_svanvik}c. The percentage of days above or below $\pm 1\,\sigma$ from the climatological mean is displayed for each month. In summer 2018 (May/July), global irradiance showed a significant number of days with higher than average irradiance, while 2019 was generally an average year with a significant number of days darker in spring (April/May).
-
-%Ozone
-We use the bias-corrected and cross-calibrated ozone climatology \citep{ACP:Falk2021} and assess the monthly significance of the ozone concentration anomalies in 2018/19. The resulting percentage of days above/below $\pm 1\,\sigma$ is displayed for each month in Fig.~\ref{fig:anomalies_svanvik}d. Note that missing bars for months in winter and spring are both due to the temporal extent of our data and anomalies not meeting the $1\sigma$ criteria. The star indicates the reconstructed data in July. In April/May 2018, ozone was significantly elevated, while no significant enhancement is found in 2019. In both years, ozone concentrations were significantly lower than average in November. These results suggest that stagnant meteorological conditions in April/May in combination with a late start of the growing season contributed more to elevated ozone than the extensive forest fires in Sweden that did not significantly enhance \chem{[O_3]} in 2018.
-
-In summary, 2018 had a significant number of days that were warmer, drier, and brighter than the climatology, while 2019 was a rather average year. Ozone was not significantly enhanced during the GS 2018/19, but a substantially higher number of peak \chem{[O_3]} were observed in 2018 than in 2019.
-
-\section{Results}
-\label{sec:results}
-
-\subsection{Parameter localization}
-\label{subsec:res_local}
 
 \subsection{Implications on ozone risk assessments}
 \label{subsec:do3se_results}
@@ -537,6 +496,71 @@ $\left<\mathrm{MM}\right>$ & $11.2\pm 1.1$ & $2.31\pm 0.04$ & $7.5\pm 0.9$ & $9.
 \end{tabular}
 %\belowtable{$^*$ above ground biomass} % Table Footnotes
 \end{table}
+
+\subsection{Climate and weather conditions}
+\label{sec:stats}
+Here, we put the conditions during the growing season 2018/19 into a climatological context.
+
+\subsubsection{Weather conditions in the growing season 2018/19}
+\label{subsec:weather}
+
+All relevant data for the growing season 2018/19 are shown as time series in Fig.~\ref{fig:data_svanvik_2018_2019}. Ozone concentrations measured at $2\,\unit{m}$ height above ground are averaged hourly. The hatched areas mark times when no ozone data were recorded. Note, while the downtime during winter was planned, missing data in two weeks of July 2018 (July 9--23) were due to problems in data acquisition.
+
+As can be seen in Fig.~\ref{fig:data_svanvik_2018_2019}a, \chem{[O_3]} peaks in spring (April/May) and reaches its minimum in late summer (July/August). The spring peak has not been captured completely in 2019, since data acquisition only started in late April. In summer 2018 (June--August), high ozone concentrations ($\chem{[O_3]} > 40\,\unit{ppb}$) were recorded 50 times. The highest summer ozone concentration ($\chem{[O_3]} = 50.2\,\unit{ppb}$) was measured on July 25. This coincides with the period of the most extensive forest fires in central Sweden which occurred from July 12--29 \citep{SOU2019}. However, due to the above-mentioned data acquisition problems, we missed most of the corresponding ozone data for this event and most likely also the peak \chem{[O_3]}. A method for gap-filling these data has been presented in \citet{ACP:Falk2021}. In contrast, \chem{[O_3]} only rose 18 times above the threshold of $40\,\unit{ppb}$ during the summer of 2019. 
+
+Hourly averaged $2\,\unit{m}$ temperatures above $20\,\unit{^\circ C}$ occurred more regularly in July 2018 than in 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}b). In 2018, spring temperature regularly rose above freezing only in May, while in 2019 this occurred already early in March/April.
+More rain events with accumulated daily precipitation ($\sum_d \mathrm{Precip}$) above $10\,\unit{mm}$ occurred in the summer of 2018 compared to 2019 (Fig.~\ref{fig:data_svanvik_2018_2019}c).
+Qualitatively, global irradiance ($Q_0$) displayed in Fig.~\ref{fig:data_svanvik_2018_2019}d was higher in May and July 2018 compared to 2019, while June 2019 showed higher irradiance than in 2018. A high global irradiance, in most cases, is the result of a low cloud fraction. In both years, the maximum recorded $Q_0$ was $750\,\unit{W\,m^{-2}}$ and reached in June.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{data_svanvik_2018_2019}
+  %\includegraphics[width=12cm]{fig02}.
+  \caption{Observational data from atmospheric monitoring at Svanhovd in 2018/19. The hatched areas indicate periods without ozone monitoring data. (a) Hourly averaged ozone VMR; (b) hourly averaged temperature; (c) daily accumulated precipitation; (d) hourly averaged global irradiance.}
+  \label{fig:data_svanvik_2018_2019}
+\end{figure*}
+
+
+\subsubsection{Climate (1990-present)}
+\label{subsec:climatologies}
+
+Climatologies of temperature and precipitation for Svanhovd were derived for the period 1992--2012 and are shown in a combined climate diagram (Fig.~\ref{fig:climatediagram}). Monthly averaged $2\,\unit{m}$ temperatures (red line) are displayed with a standard deviation as error band. Averaged monthly accumulated precipitation (blue bars) is shown without standard deviation. Months with average temperatures below freezing are denoted with a star. As can be seen, temperatures stay below freezing for 5 consecutive months, while only 2 months breach $10\,\unit{^\circ C}$ regularly (July, August), satisfying the conditions for K\"{o}ppen's climate classification of a regular subarctic climate (Dfc) \citep[e.g.][]{SD:Beck2018}. The highest monthly average temperature is $(13.1\pm 1.1)\,\unit{^\circ C}$ in July and the lowest $(-12.8\pm 2.0)\,\unit{^\circ C}$ in February. The coldest measured temperature was $-45.2\,\unit{^\circ C}$ in January 27, 1999, while the highest temperature ($29.4\,\unit{^\circ C}$) occurred on July 16 the same year.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{climatediagram_box}
+  %\includegraphics[width=8.3cm]{fig04}
+  \caption{Climate diagram based on meteorological data for Svanvik/Pasvik (1992--2012). Ozone climatology based on ozone monitoring data at NIBIO Environment Centre Svanhovd(1986--2003). A box indicates the upper/lower quartile, whiskers the $1.5\times$ Interquartile Range (IQR), and circles outliers. The median is marked by a colored horizontal line and the mean by a triangle. Notches indicate the confidence interval around the median. (a) Temperature; (b) accumulated precipitation; (c) radiant energy; (d) ozone VMR}
+  \label{fig:climatediagram}
+\end{figure*}
+
+The average accumulated monthly precipitation ($\sum_d\mathrm{Precip}$) indicates that winter and spring (November--April, except for March) are relatively dry ($\sum_d\mathrm{Precip} < 20\,\unit{mm}$). March precipitation is primarily snow and will influence the start of the growing season. The driest month is January with $\sum_d\mathrm{Precip} = (16.7\pm 3.0)\,\unit{mm}$. The most precipitation occurs in the summer months, with a $\sum_d\mathrm{Precip} = (58.5\pm 9.2)\,\unit{mm}$ in August. The average annual accumulated precipitation ($\sum_m\mathrm{Precip}$) given with standard error of mean is $(383\pm 86)\,\unit{mm}$. Precipitation shows a considerable interannual variability.
+
+The climatology for global irradiance ($Q_0$, not shown) approaches zero in December/January (polar night) and reaches its maximum in June/July (midnight sun conditions). We deduce the corresponding highest $Q_0$ to $800\,\unit{W\,m^{-2}}$. The maximum of the lowest $Q_0$ (including night) amounts to $200\,\unit{W\,m^{-2}}$ indicating that a considerable amount of light is available under midnight sun conditions.
+
+%Ozone
+The daily mean ozone climatology (\chem{\left<[O_3]\right>}) (1986--1996) is shown in Figure~\ref{fig:climatediagram}d. Darker colors indicate higher probability to observe these values. On top of the density distributions, a $10\,\unit{days}$ average of daily mean (\chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}}}) is displayed together with $1 \sigma$ uncertainties and SE, respectively. A spline was fitted through the data to guide the eye. The \chem{[O_3]} density distribution and the \chem{\left<[O_3]\right>_\mathrm{10\,\unit{d}}} display the expected, pronounced seasonal cycle. The spring peak occurs on average on day of the year (\unit{doy}) $100$ and amounts to $40\,\unit{ppb}$ while the annual average \chem{\left<[O_3]\right>} is $28\,\unit{ppb}$. The decline in \chem{\left<[O_3]\right>} coincides with the average beginning of \chem{CO_2} uptake by coniferous trees \citep{TB:Kolari2007, TP:Wallin2013}. In July--September (\unit{doy}~182--273), ozone is occasionally almost completely depleted. This hints to ozone uptake by vegetation even at low light intensities during midnight sun conditions in combination with stable planetary boundary layer conditions preventing mixing of ozone rich air.
+
+\subsection{2018/19 growing season anomalies}
+\label{subsec:anomalies}
+In the following, we look at the 2018/19 anomalies and discuss the differences between the two years. As weather extremes like in 2018 are likely to become more frequent with climate change, this will help to assess possible future changes in the vulnerability of subarctic vegetation to ozone.\\ 
+
+In Fig.~\ref{fig:anomalies_svanvik}a, temperature anomalies for Svanvik are shown as a percentage of days warmer or colder than $\pm 1\,\sigma$ from the climatology for each month. Negative deviations from climatology are displayed as a negative percentage. The annual positive/negative deviations are indicated in the respective corners (right upper/right lower). The hatched area between the dashed lines indicates the expected percentage of values falling above/below $\pm 1\,\sigma$ if a normal distribution is assumed ($15.9\,\unit{\%}$). We find, that the summer of 2018 was significantly warmer than average. Especially in May and July more than $40\,\unit{\%}$ of the days were significantly warmer. A significant number of warmer days continued to occur in all months (August--November) except for October. March 2018 had many unusually cold days. The summer of 2019 was fairly average, however, more significantly colder days occurred in July, while August had both significantly colder and warmer days. April 2019 had significantly warmer than average days.
+
+\begin{figure*}[t]
+  
+  \centering
+  \includegraphics[width=12cm]{anomalies}
+  \caption{2018/19 anomalies of key environmental variables at Svanhovd displayed as difference from median for each month. The hatched area between indicates the IQR. (a) Temperature; (b) precipitation; (c) radiant energy; (d) ozone VMR.}
+  \label{fig:anomalies_svanvik}
+\end{figure*}
+
+Similarly, the precipitation anomalies for Svanvik are displayed in Fig.~\ref{fig:anomalies_svanvik}b. Due to the large interannual variability in observed precipitation, only a few days deviated significantly from the climatology on the $1 \sigma$ level. Therefore, we lowered the $\sigma$ level constraint to $\pm \frac{1}{2}\,\sigma$. The percentage of days wetter/drier than $\pm \frac{1}{2}\,\sigma$ are shown for each month. Positive deviation refers to days wetter than average and negative deviation to drier than average. The hatched area between the dashed lines indicates the expected percentage of values falling above/below $\pm\frac{1}{2}\,\sigma$ if a normal distribution is assumed ($30.8\,\unit{\%}$). Unlike the temperature anomalies, the picture is not as clear. While March 2018 had a significant number of days wetter than usual, summer and fall (May/July, September/October) had a significant number of days drier than average. 2019 was rather average throughout the year, but with a significant number of days drier than normal in September/October and wetter in December.
+
+The global irradiance anomalies for Svanvik are presented in Fig.~\ref{fig:anomalies_svanvik}c. The percentage of days above or below $\pm 1\,\sigma$ from the climatological mean is displayed for each month. In summer 2018 (May/July), global irradiance showed a significant number of days with higher than average irradiance, while 2019 was generally an average year with a significant number of days darker in spring (April/May).
+
+%Ozone
+We use the bias-corrected and cross-calibrated ozone climatology \citep{ACP:Falk2021} and assess the monthly significance of the ozone concentration anomalies in 2018/19. The resulting percentage of days above/below $\pm 1\,\sigma$ is displayed for each month in Fig.~\ref{fig:anomalies_svanvik}d. Note that missing bars for months in winter and spring are both due to the temporal extent of our data and anomalies not meeting the $1\sigma$ criteria. The star indicates the reconstructed data in July. In April/May 2018, ozone was significantly elevated, while no significant enhancement is found in 2019. In both years, ozone concentrations were significantly lower than average in November. These results suggest that stagnant meteorological conditions in April/May in combination with a late start of the growing season contributed more to elevated ozone than the extensive forest fires in Sweden that did not significantly enhance \chem{[O_3]} in 2018.
+
+In summary, 2018 had a significant number of days that were warmer, drier, and brighter than the climatology, while 2019 was a rather average year. Ozone was not significantly enhanced during the GS 2018/19, but a substantially higher number of peak \chem{[O_3]} were observed in 2018 than in 2019.
 
 
 \conclusions[Discussion and conclusions]
