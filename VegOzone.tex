@@ -294,17 +294,17 @@ To relate local ozone concentration \chem{[O_3]} with visible damage on ozone se
 \subsection{Model parameter localization}
 \label{sec:localization}
 
-We determined the dominant species on-site at Svanhovd and from Fig.~\ref{fig:svanhovd_research_station}a and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Basic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations. The localization of parameters for coniferous trees is based on MM's Boreal Norway spruce, deciduous trees on MM's silver birch, and perennial grassland on MM's perennial grassland for Central Europe. For a comprehensive list of MM parameters, consult Supplement~Table~S1. In the following, we suggest localizations of key environmental parameters to a subarctic climate based on meteorological data to assess over-/underestimation of ozone damage by using MM Boreal parameterizations.
+We determined the dominant species on-site at Svanhovd from Fig.~\ref{fig:svanhovd_research_station}a and found perennial grassland, birch (generalized as deciduous trees), and Scots pine (generalized as coniferous trees). Basic parameters for these PFTs are derived from \citet{EP:Simpson2007,GCB:Mills2011,ICP:MappingManual2017} and will be referred to as mapping manual (MM) parameterizations. The localization of parameters for coniferous trees is based on MM's Boreal Norway spruce, deciduous trees on MM's silver birch, and perennial grassland on MM's perennial grassland for Central Europe. For a comprehensive list of MM parameters, consult Supplement~Table~S1. In the following, we suggest localizations of key environmental parameters to a subarctic climate based on meteorological data to assess over-/underestimation of ozone damage when using MM Boreal parameterizations in ozone risk assessments.
 
 \subsubsection{Temperature and light response}
 
-Initial simulations with the MM parameterizations for perennial grassland revealed an unexpected low stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) in 2019 (Appendix~Fig.~\ref{fig:pody_mm_composit}). Substantial stomatal conductance occurred only during an extended warm period in late July. In ecological terms, this means that there would have been almost no growth of grass in the summer of 2019 -- a model prediction that is falsified by reality. We identified $f_\mathrm{T}$ as abnormally low throughout the season, being the limiting factor of stomatal conductance in perennial grassland.
+Initial simulations with the MM parameterizations for perennial grassland revealed an unexpected low stomatal conductance at leaf-level ($G_\mathrm{sto}^\mathrm{leaf}$) in 2019 (Appendix~Fig.~\ref{fig:pody_mm_composit}). Substantial stomatal conductance occurred only during an extended warm period in late July. In ecological terms, this means that there would have been almost no growth of grass in the summer of 2019 -- a model prediction that is falsified by reality. We identified $f_\mathrm{T}$ as abnormally low throughout the season, being the limiting factor of stomatal conductance in perennial grassland. This suggested that a localization of the parameterization to a subarctic climate was necessary.
 
-To localize the temperature response function $f_\mathrm{T}$, we divide the temperature dataset into two subsets: 1992--2000 (near past) and 2011--2019 (present). From these two subsets, we select dates within the GS (May--September) only and plot the probability density function (PDF) as histogram with $1\,\unit{^\circ C}$ binning. We overlay the histograms with $f_\mathrm{T}$ to graphically determine the goodness of fit of the MM parameterization from the overlapping area. In Fig.~\ref{fig:f_temp_grassland}a, we show the $f_\mathrm{T}$ for perennial grassland together with the temperature PDFs for near past and present climate conditions. The MM parameterization is displayed as a solid line. A comparison between the two PDFs indicates that the temperature distribution has been shifted towards higher temperatures reducing the number of days below $5\,\unit{^\circ C}$. It is unclear how fast the species composition of perennial grassland responds to these changes. Thus, the predominant acclimation at present is not known.
+To localize the temperature response function $f_\mathrm{T}$, we divided the temperature dataset into two subsets: 1992--2000 (near past) and 2011--2019 (present). From these two subsets, we selected only dates within the GS (May--September) and plotted the probability density functions (PDFs) as histograms with $1\,\unit{^\circ C}$ binning (Fig.~\ref{fig:f_temp_grassland}a). A comparison between the two PDFs indicates that the temperature distribution has shifted towards higher temperatures reducing the number of days below $5\,\unit{^\circ C}$. It is unclear how fast the species composition of perennial grassland responds to these changes. Thus, the predominant acclimation at present is not known. Further, we overlaid these histograms with the MM $f_\mathrm{T}$. A low overlapping area suggests a low agreement with local climate conditions. 
 
-The idea is to define a localized temperature response function by increasing the overlapping area between $f_\mathrm{T}$ and the temperature PDF during the GS. To this end, we define two different hypothetical target species: subarctic and cold. We construct \emph{cold} as representative for a species that is more tolerant to cold temperatures than MM, but slightly less efficient at warm temperatures than MM. This is accomplished by moving $T_\mathrm{min}$ and $T_\mathrm{opt}$ towards cooler temperatures but keep $T_\mathrm{max}$ at its MM value. In the same way, \emph{subarctic} is constructed to represent a species that is very tolerant to cold but sensitive to high temperatures, and most efficient at cool temperatures. Therefore, we shift both $T\mathrm{min}$ and $T_\mathrm{max}$ to colder temperatures and choose $T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000. The most extreme of the two localizations compared to MM is \emph{subarctic}.
+Hence, the idea was to define localized temperature response functions by increasing the overlapping area between $f_\mathrm{T}$ and the temperature PDF during the GS. To this end, we defined two different hypothetical target species: subarctic and cold. We constructed \emph{cold} as representative for a species that is more tolerant to cold temperatures than MM, but slightly less efficient at warm temperatures than MM. This was accomplished by moving $T_\mathrm{min}$ and $T_\mathrm{opt}$ towards cooler temperatures but $T_\mathrm{max}$ was kept at its MM value. In the same way, \emph{subarctic} was constructed to represent a species that is very tolerant to cold but sensitive to high temperatures, and most efficient at cool temperatures. Therefore, we shifted both $T\mathrm{min}$ and $T_\mathrm{max}$ to colder temperatures and chose $T_\mathrm{opt}$ close to the climatological mean temperature of 1992--2000. The most extreme of the two localizations compared to MM is \emph{subarctic}.
 
-For localizing $f_\mathrm{light}$, we presume that the opening extent of stomata at low light conditions differs in subarctic species compared to species in less extreme climates. We, therefore, adjust the modelled light sensitivity of stomata such that the PPFD value needed to reach $50\,\unit{\%}$ opening is varied by $\pm 20\,\unit{\%}$. For this, we derive the inverse function $f_{\mathrm{light},k}^{-1}$ of Eq.~(\ref{eq:flight}) for each PFT $k$ analytically
+For localizing $f_\mathrm{light}$, we presumed that the opening extent of stomata at low light conditions differs in subarctic species compared to species in less extreme climates. We, therefore, adjusted the modelled light sensitivity of stomata such that the PPFD value needed to reach $50\,\unit{\%}$ opening is varied by $\pm 20\,\unit{\%}$. For this, we derive the inverse function $f_{\mathrm{light},k}^{-1}$ of Eq.~(\ref{eq:flight}) for each PFT $k$ analytically
 %
 \begin{equation}
   \gamma_k(f_\mathrm{light}) := f_{\mathrm{light}, k}^{-1} = -\frac{\ln(1-f_\mathrm{light})}{\alpha_k}.
@@ -318,7 +318,7 @@ First, we solve Eq.~(\ref{eq:inverse_function}) for the MM default value of $\al
 \end{equation}
 and define a variation $\gamma' = \gamma \cdot \eta$ with $\eta \in \{0.8, 1.2\}$. By solving Eq.~(\ref{eq:inverse_function}) for $\alpha$, we find $\alpha'(\gamma')$. 
 
-In Fig.~\ref{fig:f_temp_grassland}b, we show the PPFD PDF for near past and present together with the $f_\mathrm{light}$ for perennial grassland. The MM parameterization is displayed as solid line.
+In Fig.~\ref{fig:f_temp_grassland}b, we show the PPFD PDF for near past and present together with the $f_\mathrm{light}$ for perennial grassland. The MM parameterization is displayed as solid line. 
 
 \begin{figure}[t]
   \centering
@@ -333,18 +333,47 @@ In Fig.~\ref{fig:f_temp_grassland}b, we show the PPFD PDF for near past and pres
 
 Similarly, we defined localized $f_\mathrm{T}$ and $f_\mathrm{light}$ for coniferous and deciduous trees. The resulting response functions are shown in Appendix~Figs.~\ref{fig:f_temp_spruce} and \ref{fig:f_temp_birch}, respectively.
 
-Coniferous trees are able to start photosynthesis as soon as the leaf temperature reaches a certain threshold \citep{TB:Kolari2007} and are, hence, found to be active already at rather low air temperatures and can reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 but cease activity in less favorable conditions \citep{TB:Kolari2007, TP:Wallin2013}. 
+Coniferous trees are known to start photosynthesis as soon as the leaf temperature reaches a certain threshold \citep{TB:Kolari2007} and are, thus, already active at low air temperatures and can reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 but cease activity in less favorable conditions \citep{TB:Kolari2007, TP:Wallin2013}. 
 
-To determine the temperature localization for coniferous trees, we use the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007}. We estimate an optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). For simplicity, we assume the same interval for deciduous trees. 
+To determine the temperature localization for coniferous trees, we used the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007}. From these, we estimated an optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). The same interval was assumed for deciduous trees. 
 
 The resulting parameterizations are presented in detail in Section~\ref{subsec:res_local}.
 
 \subsubsection{Growing season estimate}
 \label{subsec:gs_est}
 
-Another important factor for the accumulation of ozone dose is the timing and length of the GS. 
+The accumulation of ozone dose is strongly depended on the timing and length of the GS. \citet{ICP:MappingManual2017} suggest a simple latitude model for beech, birch, and Norway spruce for the localization of GS:
+%
+\begin{align}
+  A_\mathrm{start} &= 105 + (LAT-50\,\unit{^\circ N})\cdot 1.5\\
+  A_\mathrm{end} &= 297 - (LAT-50\,\unit{^\circ N})\cdot 2
+\end{align}
+%
+At Svanhovd, this yields $A_\mathrm{start}=135\,\unit{doy}$ and $A_\mathrm{end}=257\,\unit{doy}$. We verified these as follows.
 
-TODO: estimated as follows. For coniferous trees, we use a MODIS (Aqua/Terra) retrieved net photosynthesis product \citep{MODIS_PSN} for a $1\times 1\,\unit{km}$ patch centered at Svanhovd to determine $A_\text{start}$ and $A_\text{end}$. The net photosynthesis vs. time of year data can be approximated by a second-order polynomial function (Fig.~\ref{fig:modis_Psn}). By calculating the roots of the fitted polynomial, we derive $A_\text{start}$ as \unit{doy}~122 for 2018 and \unit{doy}~106 in 2019. $A_\text{end}$ amounts to \unit{doy}~261 and 274, respectively. This value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 is, hence, one month longer than in 2018. For estimating $A_\text{start}$ of deciduous trees, we use the $5$ consecutive days above $5\,\unit{^\circ C}$ agricultural rule of thumb on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We find \unit{doy}~129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR). For comparison, the generic dates for central Europe ($A_\mathrm{start} = 100$ and $A_\mathrm{end} = 307$) indicating a substantially longer growing season. Due to a lack of quantitative field observation at Svanhovd, we assume a latency period of $1\,\unit{month}$ after snow-melt for perennial grassland. This assumption is supported by observations in Rovaniemi, Finland \citep[][Supplement~Fig.~S1]{FCR:Korhonen2018}.
+To determine $A_\text{start}$ and $A_\text{end}$ for coniferous trees, we used a MODIS (Aqua/Terra) retrieved GPP product \citep{MODIS_PSN} on a $1\times 1\,\unit{km}$ patch centered at Svanhovd. GPP over time follows approximately a second-order polynomial function (Fig.~\ref{fig:modis_gpp}). By calculating the roots of the fitted polynomial, we found $A_\text{start}$ as \unit{doy}~122 for 2018 and \unit{doy}~106 in 2019. $A_\text{end}$ amounts to \unit{doy}~261 and 274, respectively. These $A_\mathrm{end}$ value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 was one month longer than in 2018. For $A_\text{start}$ of deciduous trees, we use temperature-degree-days (above $5\,\unit{^\circ C}$) on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We found \unit{doy}~129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR). These dates are very similar to the latitude model results. For perennial grassland, we assume a latency period of $1\,\unit{month}$ after snow-melt. This assumption is supported by observations in Rovaniemi, Finland \citep[][Supplement~Fig.~S1]{FCR:Korhonen2018}. All results are tabulated in Table~\ref{tab:sensitivity_tests_gs}.
+
+\begin{table}[t]
+  \caption{Start and end of growing season in \unit{doy}.}
+  \label{tab:sensitivity_tests_gs}
+  \begin{tabular}{lcll}
+    \tophline
+    Species & Year & $A_\mathrm{start}$ & $A_\mathrm{end}$\\
+    \middlehline
+    Default$^b$ & -- & 135 & 257\\
+    \multirow{2}{*}{Deciduous tree} & 2018 & 129$^*$ & 261$^a$ \\
+    & 2019 & 130$^c$ & 274$^a$ \\
+    \multirow{2}{*}{Coniferous tree} & 2018 & 122$^a$ & 261$^a$ \\
+    & 2019 & 106$^a$ & 274$^a$ \\
+    \multirow{2}{*}{Perennial grassland} & 2018 & 159$^d$ & 261$^a$\\
+    & 2019 & 161$^d$ & 274$^a$ \\
+    \bottomhline
+  \end{tabular}
+  \belowtable{$^a$ MODIS (Aqua/Terra) GPP product;\\
+    $^b$ \citet{ICP:MappingManual2017},\\
+    $^c$ $5\,\unit{days}-5\,\unit{^\circ C}$-rule, $T_\mathrm{air}$ from \href{seNorge.no}{seNorge.no};\\
+    $^d$ One month after snowmelt; reference station Øvre Neiden (Sør-Varanger, NOR)} % Table Footnotes
+\end{table}
 
 \subsubsection{Soil conditions}
 \label{subsec:soil}
@@ -423,27 +452,7 @@ As indicated above, a better acclimation to prevailing climate conditions is cha
 
 Start ($A_\text{start}$) and end ($A_\text{end}$) of the GS for each PFT are usually given in \unit{doy} (Table~\ref{tab:sensitivity_tests_gs})
 
-\begin{table}[t]
-  \caption{Start and end of growing season in \unit{doy}.}
-  \label{tab:sensitivity_tests_gs}
-  \begin{tabular}{lcll}
-    \tophline
-    Species & Year & $A_\mathrm{start}$ & $A_\mathrm{end}$\\
-    \middlehline
-    Default$^b$ & -- & 100 & 307\\
-    \multirow{2}{*}{Deciduous tree} & 2018 & 129$^*$ & 261$^a$ \\
-    & 2019 & 130$^c$ & 274$^a$ \\
-    \multirow{2}{*}{Coniferous tree} & 2018 & 122$^a$ & 261$^a$ \\
-    & 2019 & 106$^a$ & 274$^a$ \\
-    \multirow{2}{*}{Perennial grassland} & 2018 & 159$^d$ & 261$^a$\\
-    & 2019 & 161$^d$ & 274$^a$ \\
-    \bottomhline
-  \end{tabular}
-  \belowtable{$^a$ MODIS (Aqua/Terra) net photosynthesis product;\\
-    $^b$ \citet{ACP:Simpson2012},\\
-    $^c$ $5\,\unit{days}-5\,\unit{^\circ C}$-rule, $T_\mathrm{air}$ from \href{seNorge.no}{seNorge.no};\\
-    $^d$ One month after snowmelt; reference station Øvre Neiden (Sør-Varanger, NOR)} % Table Footnotes
-\end{table}
+
 
 
 \subsection{Implications on ozone risk assessments}
@@ -643,7 +652,7 @@ To demonstrate the necessary acclimation of the mapping manual parameters, we sh
 
 \subsection{Bespoke parameterizations}
 
-To assess the $G_\mathrm{start}$  and $G_\mathrm{end}$ of the growing season for coniferous trees at Svanhovd in 2018/19, we used the net photosynthesis product ($A_\mathrm{net}$) of MODIS AQUA/TERRA over a $1\times 1\,\unit{km}$ area centered at Svanhovd. MODIS data indicate a higher photosynthetic activity in 2018 than in 2019. As shown in Fig.~\ref{fig:modis_Psn} we fitted a second order polynomial function of the general form
+To assess the $G_\mathrm{start}$  and $G_\mathrm{end}$ of the growing season for coniferous trees at Svanhovd in 2018/19, we used the net photosynthesis product ($A_\mathrm{net}$) of MODIS AQUA/TERRA over a $1\times 1\,\unit{km}$ area centered at Svanhovd. MODIS data indicate a higher photosynthetic activity in 2018 than in 2019. As shown in Fig.~\ref{fig:modis_gpp} we fitted a second order polynomial function of the general form
 %
 \begin{equation}
 A_\mathrm{net}(t) =  -m_0\cdot(t-m_1)^2+m_2,
@@ -653,9 +662,9 @@ with the form parameters $m_i$ through the data. Numerically, we retrieved the r
 
 \begin{figure}[th]
   %\includegraphics[width=8.3cm]{figB2}
-  \includegraphics[width=8.3cm]{modis_Psn.pdf}
-  \caption{Estimated $G_\mathrm{start}$ and $G_\mathrm{end}$ of growing season for coniferous trees from MODIS Aqua/Terra net photosynthesis (PSN) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS \unit{doy}~122/106 and EGS \unit{doy}~261/274 for 2018/19, respectively.}
-  \label{fig:modis_Psn}
+  \includegraphics[width=8.3cm]{modis_gpp}
+  \caption{Estimated $G_\mathrm{start}$ and $G_\mathrm{end}$ of growing season for coniferous trees from MODIS Aqua/Terra gross primary productivity (GPP) product. A $1\times 1\,\unit{km}$ area around Svanhovd was selected. Daily averaged data for both 2018 and 2019 has been fitted with a quadratic polynomial function. The numerically computed root yields: BGS \unit{doy}~122/106 and EGS \unit{doy}~261/274 for 2018/19, respectively.}
+  \label{fig:modis_gpp}
 \end{figure}
 
 As described in Section~\ref{subsec:do3se_parameters}, we developed bespoke parameterizations for natural and semi-natural vegetation at Svanhovd. Here, we show the temperature response and light response functions for coniferous and deciduous trees (Figs.~\ref{fig:f_temp_spruce}-\ref{fig:f_temp_birch}). 
