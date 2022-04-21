@@ -335,67 +335,9 @@ Similarly, we defined localized $f_\mathrm{T}$ and $f_\mathrm{light}$ for conife
 
 Coniferous trees are known to start photosynthesis as soon as the leaf temperature reaches a certain threshold \citep{TB:Kolari2007} and are, thus, already active at low air temperatures and can reach $60\,\unit{\%}$ photosynthetic activity as early as \unit{doy}~100 but cease activity in less favorable conditions \citep{TB:Kolari2007, TP:Wallin2013}. 
 
-To determine the temperature localization for coniferous trees, we used the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007}. From these, we estimated an optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). The same interval was assumed for deciduous trees. 
+To determine the temperature localization for coniferous trees, we used the time series of \chem{CO_2} uptake and temperature at observation sites in southern ($\rightarrow$ \emph{cold}) and northern ($\rightarrow$ \emph{subarctic}) Finland by \citet{TB:Kolari2007}. From these, we estimated an optimal temperature interval ($10\,\unit{^\circ C}\le T_\mathrm{opt} \le 15\,\unit{^\circ C}$). The same interval was assumed for deciduous trees.
 
-The resulting parameterizations are presented in detail in Section~\ref{subsec:res_local}.
-
-\subsubsection{Growing season estimate}
-\label{subsec:gs_est}
-
-The accumulation of ozone dose is strongly depended on the timing and length of the GS. \citet{ICP:MappingManual2017} suggest a simple latitude model for beech, birch, and Norway spruce for the localization of GS:
-%
-\begin{align}
-  A_\mathrm{start} &= 105 + (LAT-50\,\unit{^\circ N})\cdot 1.5\\
-  A_\mathrm{end} &= 297 - (LAT-50\,\unit{^\circ N})\cdot 2
-\end{align}
-%
-At Svanhovd, this yields $A_\mathrm{start}=135\,\unit{doy}$ and $A_\mathrm{end}=257\,\unit{doy}$. We verified these as follows.
-
-To determine $A_\text{start}$ and $A_\text{end}$ for coniferous trees, we used a MODIS (Aqua/Terra) retrieved GPP product \citep{MODIS_PSN} on a $1\times 1\,\unit{km}$ patch centered at Svanhovd. GPP over time follows approximately a second-order polynomial function (Fig.~\ref{fig:modis_gpp}). By calculating the roots of the fitted polynomial, we found $A_\text{start}$ as \unit{doy}~122 for 2018 and \unit{doy}~106 in 2019. $A_\text{end}$ amounts to \unit{doy}~261 and 274, respectively. These $A_\mathrm{end}$ value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 was one month longer than in 2018. For $A_\text{start}$ of deciduous trees, we use temperature-degree-days (above $5\,\unit{^\circ C}$) on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We found \unit{doy}~129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR). These dates are very similar to the latitude model results. For perennial grassland, we assume a latency period of $1\,\unit{month}$ after snow-melt. This assumption is supported by observations in Rovaniemi, Finland \citep[][Supplement~Fig.~S1]{FCR:Korhonen2018}. All results are tabulated in Table~\ref{tab:sensitivity_tests_gs}.
-
-\begin{table}[t]
-  \caption{Start and end of growing season in \unit{doy}.}
-  \label{tab:sensitivity_tests_gs}
-  \begin{tabular}{lcll}
-    \tophline
-    Species & Year & $A_\mathrm{start}$ & $A_\mathrm{end}$\\
-    \middlehline
-    Default$^b$ & -- & 135 & 257\\
-    \multirow{2}{*}{Deciduous tree} & 2018 & 129$^*$ & 261$^a$ \\
-    & 2019 & 130$^c$ & 274$^a$ \\
-    \multirow{2}{*}{Coniferous tree} & 2018 & 122$^a$ & 261$^a$ \\
-    & 2019 & 106$^a$ & 274$^a$ \\
-    \multirow{2}{*}{Perennial grassland} & 2018 & 159$^d$ & 261$^a$\\
-    & 2019 & 161$^d$ & 274$^a$ \\
-    \bottomhline
-  \end{tabular}
-  \belowtable{$^a$ MODIS (Aqua/Terra) GPP product;\\
-    $^b$ \citet{ICP:MappingManual2017},\\
-    $^c$ $5\,\unit{days}-5\,\unit{^\circ C}$-rule, $T_\mathrm{air}$ from \href{seNorge.no}{seNorge.no};\\
-    $^d$ One month after snowmelt; reference station Øvre Neiden (Sør-Varanger, NOR)} % Table Footnotes
-\end{table}
-
-\subsubsection{Other properties}
-\label{subsec:soil}
-
-Soil texture influences water availability and thus $\mathrm{POD_y}$ calculations in $\mathrm{DO_3SE}$ \citep{ACP:Bueker2012}. The soil at Svanhovd is characterized in an ICP~Forest plot survey as gleyic cambisols according to the Food and Agriculture Organization of the United Nations (FAO) soil classification system and as eluviated dystric brunisol in the ICP~Forest soil classification system (V. Timmerman, personal communication, June 2020). The clay:sand:silt content is estimated to range from 12\,\%:61\,\%:27\,\% at the top layer to 16\,\%:59\,\%:25\,\% in about $1\,\unit{m}$ depth (\href{https://soilgrids.org/}{soilgrids.org}, last accessed April 2022 for location $30.0334\,\unit{^\circ E}$, $69.4549\,\unit{^\circ N}$) Within the $\mathrm{DO_3SE}$ soil parameterization, the sandy loam texture describes the upper $60\,\unit{cm}$, where the plant roots are found, of this soil type best. 
-
-The quasi-laminar boundary layer resistance $R_b$ is a function of wind speed $u$ which is influenced by the tree height and leaf dimensions. For comparison with MM dimensions, we collected a sample of birch leaves. The birch (B. pubescence) leaves were collected from the outer canopy (good light exposure) of tall trees at two sites in Finnmark. The leaves were collected late in July so they were fully expanded. They were collected by hand, so at about $2\,\mathrm{m}$ height. As the sun is at a low elevation angle for most of the time in the growing season in this area, light exposure at the top of the tree is not expected to be different from lower leaves as long as they grow in a part of the tree that is not shadowed by other trees. At the first site (Karasjok), three leaves were collected from each of five adult trees. At the second site (Svanvik), five leaves were collected from one tree. The leaves were pressed and dried before scanning for the area and shape determination through image analysis. ImageJ was used for thresholding the images to give silhouettes of the leaves. After scaling the images, the program was used for finding the minimum Feret diameter. This measure finds the largest width of a leaf at a $90^\circ$ angle to the length of the leaf (the Feret diameter). With this method we found that the 20 leaves had a mean width of $(3.0\pm 0.5)\,\unit{cm}$ that is smaller than in the MM parameterization. 
-
-A report by \citet[][p.~52]{NINA2004} indicate an average tree height of $13.5\,\unit{m}$ in the Svanhovd area. One Scots pine forest at Svanhovd has been studied as a part of the ICP Forest mapping. Heights were measured in 2004 when the stand was 90 years old. Mean tree height was $10.1\,\unit{m}$ and maximum height was $16.2\,\unit{m}$ (V. Timmerman, personal communication, June 2020). We used $13.5\,\unit{m}$ height for both deciduous and coniferous trees as this number better represents a larger region and diversity of species.
-
-
-\section{Results}
-\label{sec:results}
-
-\subsection{Parameter localization}
-\label{subsec:res_local}
-
-All bespoke temperature parameters are listed in Table~\ref{tab:sensitivity_tests_temp}.
-
-(for deciduous and coniferous trees refer Appendix~Figs.~\ref{fig:f_temp_spruce}b and \ref{fig:f_temp_birch}b)
-
-All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
+All resulting temperature response function localizations are tabulated in Table~\ref{tab:sensitivity_tests_temp} and light response function in Table~\ref{tab:sensitivity_tests_light}. In Section~\ref{subsec:res_local}, we compare relative $g_\mathrm{sto}$ for the different localizations based on the long term meteorological data.
 
 \begin{table}[t]
   \caption{Bespoke temperature parameterizations. MM refers to mapping manual \citep{GCB:Mills2011,ICP:MappingManual2017}.}
@@ -440,6 +382,66 @@ All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
     \bottomhline
     \end{tabular}
 \end{table}
+
+\subsubsection{Growing season estimate}
+\label{subsec:gs_est}
+
+The accumulation of ozone dose is strongly depended on the timing and length of the GS. \citet{ICP:MappingManual2017} suggest a simple latitude model for beech, birch, and Norway spruce for the localization of GS:
+%
+\begin{align}
+  A_\mathrm{start} &= 105 + (LAT-50\,\unit{^\circ N})\cdot 1.5\\
+  A_\mathrm{end} &= 297 - (LAT-50\,\unit{^\circ N})\cdot 2
+\end{align}
+%
+At Svanhovd, this yields $A_\mathrm{start}=135\,\unit{doy}$ and $A_\mathrm{end}=257\,\unit{doy}$. We verified these as follows.
+
+To determine $A_\text{start}$ and $A_\text{end}$ for coniferous trees, we used a MODIS (Aqua/Terra) retrieved GPP product \citep{MODIS_PSN} on a $1\times 1\,\unit{km}$ patch centered at Svanhovd. GPP over time follows approximately a second-order polynomial function (Fig.~\ref{fig:modis_gpp}). By calculating the roots of the fitted polynomial, we found $A_\text{start}$ as \unit{doy}~122 for 2018 and \unit{doy}~106 in 2019. $A_\text{end}$ amounts to \unit{doy}~261 and 274, respectively. These $A_\mathrm{end}$ value will be used for all PFTs alike. The resulting growing season for coniferous trees in 2019 was one month longer than in 2018. For $A_\text{start}$ of deciduous trees, we use temperature-degree-days (above $5\,\unit{^\circ C}$) on gridded temperature data from SeNorge.no (Appendix~Fig.~\ref{fig:greening_season_change_Svanvik}). We found \unit{doy}~129 and 130, respectively. For both years, these dates coincide with the first snow-free day at the closest inland meteorological weather station at Øvre~Neiden (Sør-Varanger, NOR). These dates are very similar to the latitude model results. For perennial grassland, we assume a latency period of $1\,\unit{month}$ after snow-melt. This assumption is supported by observations in Rovaniemi, Finland \citep[][Supplement~Fig.~S1]{FCR:Korhonen2018}. All results are tabulated in Table~\ref{tab:sensitivity_tests_gs}.
+
+\begin{table}[t]
+  \caption{Start and end of growing season in \unit{doy}.}
+  \label{tab:sensitivity_tests_gs}
+  \begin{tabular}{lcll}
+    \tophline
+    Species & Year & $A_\mathrm{start}$ & $A_\mathrm{end}$\\
+    \middlehline
+    Default$^b$ & -- & 135 & 257\\
+    \multirow{2}{*}{Deciduous tree} & 2018 & 129$^*$ & 261$^a$ \\
+    & 2019 & 130$^c$ & 274$^a$ \\
+    \multirow{2}{*}{Coniferous tree} & 2018 & 122$^a$ & 261$^a$ \\
+    & 2019 & 106$^a$ & 274$^a$ \\
+    \multirow{2}{*}{Perennial grassland} & 2018 & 159$^d$ & 261$^a$\\
+    & 2019 & 161$^d$ & 274$^a$ \\
+    \bottomhline
+  \end{tabular}
+  \belowtable{$^a$ MODIS (Aqua/Terra) GPP product;\\
+    $^b$ \citet{ICP:MappingManual2017},\\
+    $^c$ $5\,\unit{days}-5\,\unit{^\circ C}$-rule, $T_\mathrm{air}$ from \href{seNorge.no}{seNorge.no};\\
+    $^d$ One month after snowmelt; reference station Øvre Neiden (Sør-Varanger, NOR)} % Table Footnotes
+\end{table}
+
+\subsubsection{Other properties}
+\label{subsec:soil}
+
+Soil texture influences water availability and thus $\mathrm{POD_y}$ calculations in $\mathrm{DO_3SE}$ \citep{ACP:Bueker2012}. The soil at Svanhovd is characterized in an ICP~Forest plot survey as gleyic cambisols according to the Food and Agriculture Organization of the United Nations (FAO) soil classification system and as eluviated dystric brunisol in the ICP~Forest soil classification system (V. Timmerman, personal communication, June 2020). The clay:sand:silt content is estimated to range from 12\,\%:61\,\%:27\,\% at the top layer to 16\,\%:59\,\%:25\,\% in about $1\,\unit{m}$ depth (\href{https://soilgrids.org/}{soilgrids.org}, last accessed April 2022 for location $30.0334\,\unit{^\circ E}$, $69.4549\,\unit{^\circ N}$) Within the $\mathrm{DO_3SE}$ soil parameterization, the sandy loam texture describes the upper $60\,\unit{cm}$, where the plant roots are found, of this soil type best. 
+
+The quasi-laminar boundary layer resistance $R_b$ is a function of wind speed $u$ and influenced by the tree height and leaf dimensions. For comparison with MM, we collected a sample of birch (B. pubescence) leaves from the outer canopy (good light exposure) of tall trees at two sites in Finnmark. The leaves were collected late in July, thus, they were fully expanded. They were collected by hand at about $2\,\mathrm{m}$ height. As the sun is at a low elevation angle for most of the time in the growing season in this area, light exposure at the top of the tree is not expected to be different from lower leaves as long as they grow in a part of the tree that is not shadowed by other trees. At the first site (Karasjok), three leaves were collected from five adult trees each. At the second site (Svanvik), five leaves were collected from one tree. The leaves were pressed and dried before scanning for the area and shape determination through image analysis. ImageJ (\href{https://imagej.nih.gov/ij/}{see webpage}) was used for thresholding the images to give silhouettes of the leaves. After scaling the images, the program was used for finding the minimum Feret diameter. This measure finds the largest width of a leaf at a $90^\circ$ angle to the length of the leaf (the Feret diameter). With this method we found that the 20 leaves had a mean width of $(3.0\pm 0.5)\,\unit{cm}$ that is smaller than in the MM parameterization ($5\,\unit{cm}$, Supplement~Table~S1). 
+
+A report by \citet[][p.~52]{NINA2004} indicates an average tree height of $13.5\,\unit{m}$ in the Svanhovd area. One Scots pine forest at Svanhovd has been studied as a part of the ICP Forest mapping. Heights were measured in 2004 when the stand was 90~years old. The mean tree height was $10.1\,\unit{m}$ and maximum height was $16.2\,\unit{m}$ (V. Timmerman, personal communication, June 2020). We used $13.5\,\unit{m}$ height for both deciduous and coniferous trees as this height is sampled from a larger and more diverse population of species.
+
+\section{Results}
+\label{sec:results}
+In this section, we first compute the average stomatal conductance $\left<g_\mathrm{sto}\right>$ relative to $g_\mathrm{max}$ for each PFT from the long term meteorological data and compare the different localizations with MM (Section~\ref{subsec:res_local}). We use the $\mathrm{DO_3SE}$ model to compute the ozone dose and projected biomass loss due to ozone for the two recent GS 2018/19 for each species and localization (Section~\ref{subsec:do3se_results}). Finally, we put the results into a climatological perspective (Section~\ref{subsec:climatologies}).  
+
+\subsection{Parameter localization}
+\label{subsec:res_local}
+
+All bespoke temperature parameters are listed in Table~\ref{tab:sensitivity_tests_temp}.
+
+(for deciduous and coniferous trees refer Appendix~Figs.~\ref{fig:f_temp_spruce}b and \ref{fig:f_temp_birch}b)
+
+All derived parameters are tabulated in Table~\ref{tab:sensitivity_tests_light}.
+
+
 
 We presume that perennial vegetation will likely maximize carbon acquisition during the short subarctic growing season. Because the MM version of the $\mathrm{DO_3SE}$ model currently does not simulate net photosynthesis ($A_\mathrm{n}$), we assume a first order proportionality between $A_\mathrm{n}$ and $g_\mathrm{sto}$ \citep{GCB:Medlyn2011} and effectively tune the temperature and light response functions ($f_\mathrm{T}$ and $f_\mathrm{light}$) for higher $\left<g_\mathrm{sto}\right>/g_\mathrm{max}$ to acclimate the growth potential to the local climate. For details regarding these functions see Section~\ref{subsec:model_describtion}. Further, we presume that $f_\mathrm{VPD}$ and $f_\mathrm{SWP}$ suit our vegetation types and no acclimation is necessary for these. But acknowledge that these are very important factors as shown by~\citet{ACP:Bueker2012}.
 
