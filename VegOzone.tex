@@ -172,11 +172,11 @@ In Section~\ref{sec:dam}, we give a brief summary of the key components and  dri
 %%
 \section{Methods}
 \label{sec:dam}
-In the following, we briefly describe the model used for assessing the ozone risk, its key components, input data, and gap filling procedure (Section~\ref{sec:do3se}). To study the impact of model parameters, we propose a method for parameter localization to a subarctic climate based on existing Boreal parameterizations and local climate conditions and estimate the start and end of the growing season from satellite derived GPP (Section~\ref{sec:localization}).
+In the following, we briefly describe the model used for assessing the ozone risk, its key components, input data, and gap filling procedure (Section~\ref{sec:do3se}). To study the impact of model parameters, we propose a method for parameter localization to a subarctic climate based on existing Boreal parameterizations and local climate conditions. We estimate the start and end of the growing season from satellite derived GPP (Section~\ref{sec:localization}).
 
 \subsection{DO3SE model}
 \label{sec:do3se}
-In our investigation of the ozone risk in the subarctic, we use the well established Deposition of Ozone for Stomatal Exchange ($\mathrm{DO_3SE}$) model \citep{ACP:Bueker2012} which computes estimates of the total and stomatal deposition of \chem{O_3} to selected land-cover types and plant species according to UNECE Long-Range Transboundary Air Pollution (LRTAP) methodologies for effects-based risk assessment.
+We use the well established Deposition of Ozone for Stomatal Exchange ($\mathrm{DO_3SE}$) model \citep{ACP:Bueker2012} which computes estimates of the total and stomatal deposition of \chem{O_3} to selected land-cover types and plant species according to UNECE Long-Range Transboundary Air Pollution (LRTAP) methodologies for effects-based risk assessment.
 
 \subsubsection{Model description}
 \label{subsec:model_describtion}
@@ -204,7 +204,7 @@ Stomatal resistance $r_\mathrm{sto}$ is the inverse of stomatal conductance $g_\
 \end{equation}
 A linear gradient reducing \chem{[O_3]} from $h_0$ to $h$ was adopted in the $\mathrm{DO_3SE}$ model based on detailed transport studies using the chemical transport model EMEP \citep{ACP:Simpson2012,ICP:MappingManual2017}.
 
-The opening of stomata or stomatal conductance $g_\mathrm{sto}$ is governed by different species-specific factors and response to key environmental variables. In the $\mathrm{DO_3SE}$ model, it is described by a multiplicative empirical model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
+The opening of stomata referred to as stomatal conductance $g_\mathrm{sto}$ is governed by different species-specific factors and responds to key environmental variables. In the $\mathrm{DO_3SE}$ model, $g_\mathrm{sto}$ is described by a multiplicative empirical model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
 \begin{equation}
   g_\text{sto} = g_\text{max} \cdot f_\text{phen} \cdot f_\text{light} \cdot \max{\left\{f_\text{min}, f_\mathrm{T} \cdot f_\mathrm{VPD} \cdot f_\text{SWP}\right\}}.
   \label{eq:stomatal}
@@ -212,7 +212,7 @@ The opening of stomata or stomatal conductance $g_\mathrm{sto}$ is governed by d
 %
 Where $g_\mathrm{max}$ is a species-specific maximum stomatal conductance value that is modified by factors that vary within a range of $0-1$. These factors are empirically determined and account for leaf phenology ($f_\text{phen}$), light ($f_\text{light}$), temperature ($f_\mathrm{T}$), water vapor pressure deficit ($f_\mathrm{VPD}$), and soil water potential ($f_\text{SWP}$). All factors differ with plant functional type (PFT).
 
-The leaf phenology factor ($f_\mathrm{phen}$) is a stepwise defined linear function that allows for an increase of stomatal conductance in spring (start of growing season) and a decrease in fall (end of growing season). Mid anthesis and mid season dips in stomata conductance can also be accounted for but are not relevant in the subarctic. 
+The leaf phenology factor ($f_\mathrm{phen}$) is a stepwise defined linear function that allows for an increase of stomatal conductance in spring (start of growing season) and a decrease in fall (end of growing season). Mid anthesis and mid season dips in stomata conductance can also be accounted for but are not relevant in this study. 
 
 The temperature response function is defined as
 %
@@ -263,7 +263,7 @@ To fill gaps in the ozone data, we applied the methodology described in \citet{A
   \chem{[O_3]} = \chem{\left<[O_3]\right>} + \chem{\Delta[O_3]},
   \label{eq:reynolds_decomp}
 \end{equation}
-with an ozone climatology (multiannual norm) \chem{\left<[O_3]\right>} and ozone anomalies (deviation from the norm) \chem{\Delta[O_3]}. We computed a generalized climatology for northern Fennoscandia from long-term records of different close by sites and for our site. We determined the station with the highest correlation coefficient compared to our site. For this site, we calculated the anomalies with respect to the generalized climatology for the gap period. These anomalies were than added to the climatology of our site and corrected for an increase in present-day tropospheric background ozone compared to the early 1990s. For more details refer to \citet{ACP:Falk2021}.
+with an ozone climatology (multiannual norm) \chem{\left<[O_3]\right>} and ozone anomalies (deviation from the norm) \chem{\Delta[O_3]}. \citet{ACP:Falk2021} computed a generalized climatology for northern Fennoscandia from long-term records of different close by sites and determined the station with the highest correlation coefficient compared to the site with the gap. For this site, the anomalies with respect to the generalized climatology were calculated for the gap period. These anomalies were than added to the climatology of the site with the gap and corrected for an increase in present-day tropospheric background ozone compared to the early 1990s. For more details and a comparison with regional air quality models refer to \citet{ACP:Falk2021}.
 
 \subsubsection{Input data and observation site}
 \label{subsec:data}
@@ -271,9 +271,9 @@ The required input data consists of ozone concentration $\chem{[O_3]}$, $2\,\uni
 \begin{equation}
   \mathrm{VPD} = P_s(T) \cdot \left(1-\frac{\mathrm{relHum}}{100}\right),
 \end{equation}
-with saturation vapor pressure $P_s(T)$ in \unit{hPa} from Arden~Buck~equation~\citep{JAP:Buck1981, Buck2012}.
+with saturation vapor pressure $P_s(T)$ in \unit{hPa} from the Arden~Buck~equation~\citep{JAP:Buck1981, Buck2012}.
  
-As site for our study, we chose Svanhovd in northern Norway ($69.45\,\unit{^\circ N}$, $30.03\,\unit{^\circ E}$, $30\,\unit{m\,a.s.l.}$). Reasons for our choice: (1) Ambient ozone concentration had been monitored there in the past, (2) an agrometeorological station is measuring, e.g. $2\,\unit{m}$ temperature, precipitation, global irradiance, and soil temperature at different depths, and (3) a national surveillance of air pollution (\chem{NO_x}, \chem{SO_x}, particular matter (PM), radiological species) is ongoing. Most of these measurements are performed by the Norwegian Institute for Air Research (NILU), who also conducted ozone measurements on our behalf during the 2018/19 growing season. 
+For our study, we chose Svanhovd in northern Norway ($69.45\,\unit{^\circ N}$, $30.03\,\unit{^\circ E}$, $30\,\unit{m\,a.s.l.}$). Reasons for our choice were: (1) Ambient ozone concentration had been monitored there in the past, (2) an agrometeorological station is measuring, e.g. $2\,\unit{m}$ temperature, precipitation, global irradiance, and soil temperature at different depths, and (3) a national surveillance of air pollution (\chem{NO_x}, \chem{SO_x}, particular matter (PM), radiological species) is ongoing. Most of these measurements are performed by the Norwegian Institute for Air Research (NILU), who also conducted ozone measurements on our behalf during the 2018/19 growing season. 
 
 All essential climate variables for the 2018/19 growing season were provided by NILU through the web portal \href{luftkvalitet.no}{luftkvalitet.no} (last accessed May 2020). The ozone monitoring data have been added to a database for air-quality monitoring called EBAS as well operated by NILU and are thus openly accessible. Long-term ozone observation data (1986--1996) were obtained from EBAS. Note that data from before the 1990s do not follow the high-quality standard procedures implemented nowadays and have to be treated with care \citep{NILU2003}. Because ozone monitors did not undergo regular re-calibration drifts in the observed data occurred imposing false trends which are small but in the same order of magnitude as the expected trends in tropospheric background ozone. This does not concern the ozone seasonality which we are particularly interested in.
 The long-term data sets of agrometeorological variables including temperature and precipitation are available from September 1992 to the present day \citep[LandbruksMeteorologiske Tjeneste][note the station name here is Pasvik]{LMT_NIBIO}.
