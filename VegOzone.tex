@@ -199,10 +199,10 @@ In the $\mathrm{DO_3SE}$ model, the stomatal flux $\Phi_\mathrm{sto}$ in Eq.~(\r
 Stomatal resistance $r_\mathrm{sto}$ is the inverse of stomatal conductance $g_\mathrm{sto}$ in Eq.~(\ref{eq:stomatal}). Accounting for these the effective stomatal flux $\Phi_\mathrm{sto}$ at the vegetation height $h$ is defined as
 %
 \begin{equation}
-  \Phi_\mathrm{sto} = \chem{[O_3]}(h) \cdot g_\mathrm{sto}(h).
+  \Phi_\mathrm{sto} = \chem{[O_3]}(h) \cdot \frac{g_\mathrm{sto}}{g_\mathrm{sto}+g_\mathrm{ext}} \cdot \frac{1}{r_b+r_c}.
   \label{eq:flux_stomata}
 \end{equation}
-A linear gradient reducing \chem{[O_3]} from $h_0$ to $h$ was adopted in the $\mathrm{DO_3SE}$ model based on detailed transport studies using the chemical transport model EMEP \citep{ACP:Simpson2012,ICP:MappingManual2017}.
+A linear gradient adjusting \chem{[O_3]} from $h_0$ to $h$ was adopted in the $\mathrm{DO_3SE}$ model based on detailed transport studies using the chemical transport model EMEP \citep{ACP:Simpson2012,ICP:MappingManual2017}.
 
 The opening of stomata referred to as stomatal conductance $g_\mathrm{sto}$ is governed by different species-specific factors and responds to key environmental variables. In the $\mathrm{DO_3SE}$ model, $g_\mathrm{sto}$ is described by a multiplicative empirical model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
 \begin{equation}
