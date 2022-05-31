@@ -167,7 +167,7 @@ In Section~\ref{sec:dam}, we give a brief summary of the key components and driv
 %%
 \section{Methods}
 \label{sec:dam}
-In the following, we briefly describe the $\mathrm{DO_3SE}$ model used for assessing the ozone risk, its key components, input data, and gap filling procedure (Section~\ref{sec:do3se}). To study the impact of model parameters, we propose a method to define a parameterization for a subarctic climate based on existing Boreal parameterizations and local climate conditions and vary the stomata aperture at low light intensities. We estimate the start and end of the growing season from satellite derived GPP (Section~\ref{sec:localization}).
+In the following, we briefly describe the $\mathrm{DO_3SE}$ model used for assessing the ozone risk, its key components, input data, and gap filling procedure (Section~\ref{sec:do3se}). To study the impact of model parameters, we propose a method to define a parameterization for a subarctic climate based on existing Boreal parameterizations and local climate conditions, study the impact of stomata aperture at low light intensities, and estimate the start and end of the growing season from satellite derived GPP (Section~\ref{sec:localization}).
 
 \subsection{DO3SE model}
 \label{sec:do3se}
@@ -176,15 +176,15 @@ We use the well established Deposition of Ozone for Stomatal Exchange ($\mathrm{
 \subsubsection{Model description}
 \label{subsec:model_describtion}
 
-In the $\mathrm{DO_3SE}$ model, the stomatal \chem{O_3} flux $\Phi_\mathrm{sto}$ in Eq.~(\ref{eq:pod}) is a fraction of the total \chem{O_3} deposition flux. A standard resistance analogous approach \citep{AE:Wesely1989} is used to transport \chem{O_3} from the atmospheric reference height $h_0$ to the vegetated surface. The calculation of aerodynamic $R_a$ and quasi-laminar boundary layer resistance $R_b$ follow \citet{WASP:Simpson2003,ACP:Simpson2012}. The surface resistance $R_\mathrm{surf}$ consists of stomatal $r_\mathrm{sto}$ and non-stomatal canopy resistances that include external plant surfaces $r_\mathrm{ext}$, aerodynamic within-canopy $R_\mathrm{inc}$ and ground surfaces or soil resistances $R_\mathrm{gs}$ \citep{WASP:Simpson2003,ACP:Simpson2012}. Under the assumption that the ozone concentration \chem{[O_3]} at the top of the canopy represents a reasonable estimate of the concentration at the upper surface of the laminar layer for a sunlit upper canopy leaf, $r_\mathrm{sto}$ and $r_\mathrm{ext}$ are calculated per leaf/needle area (note lower case $r$).
+In the $\mathrm{DO_3SE}$ model, the stomatal \chem{O_3} flux $\Phi_\mathrm{sto}$ is a fraction of the total \chem{O_3} deposition flux $\Phi_\chem{O_3}$. A standard resistance analogous approach \citep{AE:Wesely1989} is used to transport \chem{O_3} from the atmospheric reference height $h_0$ to the vegetated surface. The calculation of aerodynamic $R_a$ and quasi-laminar boundary layer resistance $R_b$ follow \citet{WASP:Simpson2003,ACP:Simpson2012}. The surface resistance $R_\mathrm{surf}$ consists of stomatal $r_\mathrm{sto}$ and non-stomatal canopy resistances that include external plant surfaces $r_\mathrm{ext}$, aerodynamic within-canopy $R_\mathrm{inc}$, and ground surfaces or soil resistances $R_\mathrm{gs}$ \citep{WASP:Simpson2003,ACP:Simpson2012}. The lower case indicates that $r_\mathrm{sto}$ and $r_\mathrm{ext}$ are calculated per leaf/needle area.
 %
 \begin{equation}
-  R_\mathrm{sur} = \frac{1}{\frac{\mathrm{LAI}}{r_\mathrm{sto}}+\frac{\mathrm{SAI}}{r_\mathrm{ext}}+\frac{1}{R_\mathrm{inc}+R_\mathrm{gs}}}
+  R_\mathrm{sur} = \frac{1}{\frac{\mathrm{LAI}}{r_\mathrm{sto}}+\frac{\mathrm{SAI}}{r_\mathrm{ext}}+\frac{1}{R_\mathrm{inc}+R_\mathrm{gs}}},
 \end{equation}
 %
-Stomatal resistance $r_\mathrm{sto}$ is the inverse of stomatal conductance $g_\mathrm{sto}$ in Eq.~(\ref{eq:stomatal}).
+with stomatal resistance $r_\mathrm{sto}$ as the inverse of the stomatal conductance $g_\mathrm{sto}$.
 
-The aperture of stomata referred to as stomatal conductance $g_\mathrm{sto}$ is governed by different species-specific factors and responds to key environmental variables. In the $\mathrm{DO_3SE}$ model, $g_\mathrm{sto}$ is described by a multiplicative empirical model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
+The aperture of stomata referred to as $g_\mathrm{sto}$ is governed by different species-specific factors and responds to key environmental variables. In the $\mathrm{DO_3SE}$ model, $g_\mathrm{sto}$ is described by a multiplicative empirical model \citep{PTRS:Jarvis1976,Emberson2000,ICP:MappingManual2017}:
 \begin{equation}
   g_\text{sto} = g_\text{max} \cdot f_\text{phen} \cdot f_\text{light} \cdot \max{\left\{f_\text{min}, f_\mathrm{T} \cdot f_\mathrm{VPD} \cdot f_\text{SWP}\right\}}.
   \label{eq:stomatal}
@@ -205,7 +205,7 @@ with $\beta = \frac{T_\text{max}-T_\text{opt}}{T_\text{opt}-T_\text{min}}$ a mix
 The water vapor pressure deficit function is
 %
 \begin{equation}
-  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}}
+  f_\mathrm{VPD} = f_\text{min}+(1-f_\text{min}) \cdot \frac{D_\text{min} - \text{VPD}}{D_\text{min}-D_\text{max}},
   \label{eq:f_vpd}
 \end{equation}
 %
@@ -214,36 +214,36 @@ where VPD is the leaf to air vapor pressure deficit in \unit{kPa} with a minimum
 The light response function $f_\mathrm{light}$ is given by
 %
 \begin{equation}
-  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD})
+  f_\text{light} = 1-\text{exp}(-\alpha_\text{light}\cdot \text{PPFD}),
   \label{eq:flight}
 \end{equation}
 %
 where $\alpha_\mathrm{light}$ is a slope parameter describing the aperture of stomata at low light intensities. The wavelength band $400-700\,\unit{nm}$ to which plant chlorophyll responds to is called photosynthetic active radiation (PAR). Its integral is the photosynthetic photon flux density (PPFD).
 
-In the $\mathrm{DO_3SE}$ model, Soil Water Potential (SWP) across a PFT specific root depth is simulated according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system \citep{ACP:Bueker2012}. The stomatal response to changes in SWP ($f_\mathrm{SWP}$) are, thus, given by:
+In the $\mathrm{DO_3SE}$ model, soil water potential (SWP) across a PFT specific root depth is simulated according to the Penman--Monteith energy balance method that drives water cycling through the soil--plant--atmosphere system \citep{ACP:Bueker2012}. The stomatal response to changes in SWP $f_\mathrm{SWP}$ are given by:
 %
 \begin{equation}
-  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\}
+  f_\mathrm{SWP} = \text{min}\left\{1, \text{max}\left\{f_\mathrm{min}, \frac{(1 - f_\mathrm{min})\cdot(\mathrm{SWP_{min}} - \mathrm{SWP})}{\mathrm{SWP_{min}} - \mathrm{SWP_{max}}} + f_\mathrm{min} \right\} \right\},
     \label{eq:fsw}
 \end{equation}
 %
 where $\mathrm{SWP_{min}}$ and $\mathrm{SWP_{max}}$ are the parameters describing the $f_\mathrm{SWP}$ relationship.
 
-Stomatal \chem{O_3} flux $\Phi_\mathrm{sto}$ for a sunlit upper canopy leaf (vegetation height $h$) is calculated based on the assumption that the concentration of \chem{O_3} at the top of the canopy $h$ represents a reasonable estimate of the \chem{O_3} concentration at the upper surface of the laminar layer:
+$\Phi_\mathrm{sto}$ for a sunlit upper canopy leaf (vegetation height $h$) is then calculated under the assumption that the concentration of \chem{O_3} at the top of the canopy $h$ represents a reasonable estimate of the \chem{O_3} concentration at the upper surface of the laminar layer:
 %
 \begin{equation}
-  \Phi_\mathrm{sto} = \chem{[O_3]}(h) \cdot \frac{g_\mathrm{sto}}{g_\mathrm{sto}+g_\mathrm{ext}} \cdot \frac{1}{r_b+r_c}.
+  \Phi_\mathrm{sto}(t) = \chem{[O_3]}_h(t) \cdot \frac{g_\mathrm{sto}}{g_\mathrm{sto}+g_\mathrm{ext}} \cdot \frac{1}{r_b+r_c}.
   \label{eq:flux_stomata}
 \end{equation}
 
-$\mathrm{POD_y}$ is then calculated according to:
+$\mathrm{POD_y}$ is then computed according to:
 %
 \begin{equation}
-  \mathrm{POD_y} = \int{(\Phi_\mathrm{sto}-y)\cdot \mathrm{d}t},
+  \mathrm{POD_y} = \int{(\Phi_\mathrm{sto}(t)-y)\cdot \mathrm{d}t},
   \label{eq:pod}
 \end{equation}
 %
-with the hourly averaged stomatal ozone flux $\Phi_\mathrm{sto}$ (see Eq.~(\ref{eq:flux_stomata})) and a stomatal ozone flux threshold $\mathrm{y}$ both given in units of \unit{nmol\,\chem{O_3}\,m^{-2}\,\mathrm{PLA}^{-1}\,s^{-1}}. Herein PLA stands for Projected~Leaf~Area. The timestep $\mathrm{d}t$ is usually 1~hour. The flux threshold~$\mathrm{y}$ represents the detoxification potential of the plant and is typically only exceeded during daylight hours (i.e. when global radiation is above $50\,\unit{W\,m^{-2}}$). $\mathrm{POD_y}$ is given in \unit{mmol\,m^{-2}} integrated over the growing season.
+with an hourly averaged stomatal ozone flux $\Phi_\mathrm{sto}(t)$ (Eq.~(\ref{eq:flux_stomata})) and a stomatal ozone flux threshold $\mathrm{y}$ both given in units of \unit{nmol\,\chem{O_3}\,m^{-2}\,\mathrm{PLA}^{-1}\,s^{-1}}. Herein PLA stands for Projected~Leaf~Area. The timestep $\mathrm{d}t$ is usually 1~hour. The flux threshold~$\mathrm{y}$ represents the detoxification potential of the plant and is typically only exceeded during daylight hours (i.e. when global radiation is above $50\,\unit{W\,m^{-2}}$). Finally, $\mathrm{POD_y}$ is given in \unit{mmol\,m^{-2}} integrated over the growing season.
 
 \subsubsection{Gap filling methodology}
 \label{subsec:gap_filling}
